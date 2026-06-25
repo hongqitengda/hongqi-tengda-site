@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="查询上海红祺腾达的科研计算、材料表征、实验耗材、生物环境检测及数据分析服务项目与参考报价。">
+  <meta name="theme-color" content="#0756a3">
+  <title>项目查询｜上海红祺腾达信息技术有限公司</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon-32.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="catalog-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="utility-bar">
+    <div class="container utility-inner"><span>上海红祺腾达科研技术服务平台</span><div><a href="mailto:hongqi@tengda54.freeqiye.com">hongqi@tengda54.freeqiye.com</a><i></i><span>企业微信在线咨询</span></div></div>
+  </div>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand brand-wide" href="index.html" aria-label="返回公司首页"><img src="assets/images/logo-wordmark.png" alt="上海红祺腾达信息技术有限公司" width="350" height="88"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航菜单"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="主导航"><a href="index.html">首页</a><a href="index.html#services">服务分类</a><a href="index.html#about">平台介绍</a><a class="active" href="catalog.html">项目查询</a><a href="index.html#contact">联系我们</a></nav>
+      <a class="nav-consult" href="mailto:hongqi@tengda54.freeqiye.com?subject=项目咨询"><span>✉</span> 邮件咨询</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="catalog-hero-new">
+      <div class="catalog-hero-grid" aria-hidden="true"></div>
+      <div class="container catalog-hero-content">
+        <span class="hero-kicker">SERVICE CATALOG</span>
+        <h1>科研服务与产品查询</h1>
+        <p>搜索计算模拟、材料表征、实验耗材、高端检测、数据分析与科研绘图项目。</p>
+        <div class="catalog-big-search">
+          <span class="search-icon" aria-hidden="true"></span>
+          <label class="sr-only" for="search-input">搜索关键词</label>
+          <input id="search-input" type="search" placeholder="输入项目、方法、仪器或产品，例如：DFT、XPS、SEM、锌箔、机器学习" autocomplete="off">
+          <button type="button" id="search-submit">搜索</button>
+          <button id="clear-search" class="clear-search-new" type="button" aria-label="清空关键词" hidden>×</button>
+        </div>
+        <div class="quick-keywords" aria-label="热门关键词">
+          <span>热门搜索</span><button type="button" data-keyword="DFT">DFT</button><button type="button" data-keyword="分子动力学">分子动力学</button><button type="button" data-keyword="XPS">XPS</button><button type="button" data-keyword="SEM">SEM</button><button type="button" data-keyword="锌">锌电耗材</button><button type="button" data-keyword="机器学习">机器学习</button>
+        </div>
+        <div class="catalog-stat-row">
+          <div><strong id="stat-total">—</strong><span>项目总数</span></div><div><strong id="stat-categories">—</strong><span>专业分类</span></div><div><strong>5</strong><span>业务板块</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-main catalog-main-new">
+      <div class="container catalog-layout-new">
+        <aside class="filter-sidebar">
+          <div class="filter-sidebar-title"><span>⌘</span><div><strong>筛选条件</strong><small>FILTERS</small></div></div>
+          <label>业务板块<select id="board-filter"><option value="">全部板块</option></select></label>
+          <label>专业分类<select id="category-filter"><option value="">全部分类</option></select></label>
+          <label>价格范围<select id="price-filter"><option value="">不限价格</option><option value="0-199">¥200 以下</option><option value="200-999">¥200–999</option><option value="1000-4999">¥1,000–4,999</option><option value="5000-">¥5,000 以上</option></select></label>
+          <label>排序方式<select id="sort-filter"><option value="relevance">综合排序</option><option value="price-asc">价格从低到高</option><option value="price-desc">价格从高到低</option><option value="name">名称排序</option></select></label>
+          <button class="reset-filter-button" id="reset-filters" type="button">重置全部筛选</button>
+          <div class="sidebar-help"><strong>没有找到合适项目？</strong><p>可直接向技术顾问说明需求，我们将协助确认。</p><a href="mailto:hongqi@tengda54.freeqiye.com?subject=定制科研项目咨询">提交定制需求 →</a></div>
+        </aside>
+
+        <div class="catalog-results-area">
+          <div class="results-toolbar results-toolbar-new">
+            <p id="result-summary" aria-live="polite">正在载入项目数据…</p>
+            <div class="view-actions"><button id="grid-view" class="active" type="button" aria-label="卡片视图" title="卡片视图">▦</button><button id="list-view" type="button" aria-label="列表视图" title="列表视图">☷</button></div>
+          </div>
+          <div id="active-filters" class="active-filters" aria-label="当前筛选条件"></div>
+          <section id="results-grid" class="results-grid results-grid-new" aria-label="查询结果"></section>
+          <div id="empty-state" class="empty-state" hidden><div>⌕</div><h2>没有找到匹配项目</h2><p>尝试缩短关键词、切换业务板块，或直接向技术顾问说明需求。</p><a class="button" href="mailto:hongqi@tengda54.freeqiye.com?subject=未检索到项目的技术咨询">提交定制需求</a></div>
+          <nav id="pagination" class="pagination" aria-label="查询结果分页"></nav>
+          <p class="catalog-disclaimer">说明：页面所列价格、规格和周期为参考信息，具体方案、样品要求、税费、运输费及交付周期以双方最终确认内容为准。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer new-footer compact-footer">
+    <div class="container footer-grid">
+      <div class="footer-company"><div class="footer-logo-row"><img src="assets/images/logo-mark.png" alt="上海红祺腾达标志" width="62" height="62"><div><strong>上海红祺腾达信息技术有限公司</strong><small>Shanghai Hongqi Tengda Information Technology Co., Ltd.</small></div></div><p>科研技术服务与数字化解决方案平台</p></div>
+      <div><strong>服务导航</strong><a href="index.html#services">服务分类</a><a href="catalog.html">项目查询</a><a href="index.html#workflow">合作流程</a></div>
+      <div><strong>联系我们</strong><a href="mailto:hongqi@tengda54.freeqiye.com">官网邮箱</a><a href="index.html#contact">企业微信</a><a href="index.html#contact">公司地址</a></div>
+      <div class="footer-qr"><strong>企业微信咨询</strong><img src="assets/images/wecom-qr.jpg" alt="企业微信二维码" loading="lazy"><small>扫码添加技术顾问</small></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year></span> 上海红祺腾达信息技术有限公司</span><span>统一社会信用代码：91310113MADWJ85Y5P</span></div>
+  </footer>
+
+  <aside class="floating-service" aria-label="快捷联系"><a href="index.html" title="返回首页"><span>⌂</span><small>首页</small></a><a href="mailto:hongqi@tengda54.freeqiye.com" title="发送邮件"><span>✉</span><small>邮箱</small></a><a href="#top" title="返回顶部"><span>↑</span><small>顶部</small></a></aside>
+
+  <div class="modal" id="item-modal" role="dialog" aria-modal="true" aria-labelledby="modal-item-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-panel item-modal-panel"><button class="modal-close" type="button" data-close-modal aria-label="关闭">×</button><div id="modal-content"></div></div></div>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/catalog.js" defer></script>
+</body>
+</html>
