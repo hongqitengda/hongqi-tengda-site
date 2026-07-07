@@ -474,3 +474,73 @@ html{scroll-padding-top:82px}
   .footer-service-account-qr img{width:126px;height:126px}
   .footer-service-account-qr small{max-width:132px;font-size:10px}
 }
+
+/* V20.2: unified WeChat service-account and mini-program cards */
+.footer-service-account-row{
+  justify-content:space-between;
+  border-radius:10px;
+}
+.footer-service-account-qrs{
+  align-items:stretch;
+  gap:14px;
+}
+.footer-service-account-qr{
+  width:176px;
+  min-width:176px;
+  padding:12px 12px 11px;
+  gap:0;
+  align-content:start;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:8px;
+  background:rgba(255,255,255,.055);
+}
+.footer-service-account-qr .footer-qr-link{
+  width:150px;
+  height:150px;
+  overflow:hidden;
+  border:6px solid #fff;
+  border-radius:7px;
+  background:#fff;
+  box-sizing:border-box;
+}
+.footer-service-account-qr img{
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  border-radius:0;
+  object-fit:contain;
+}
+.footer-service-account-name{
+  display:block;
+  min-height:22px;
+  margin-top:10px;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.45;
+  text-align:center;
+}
+.footer-service-account-use{
+  display:block;
+  min-height:18px;
+  margin-top:2px;
+  color:#9eb8d0;
+  font-size:10px;
+  line-height:1.45;
+  text-align:center;
+}
+@media(max-width:680px){
+  .footer-service-account-row{justify-content:center}
+  .footer-service-account-qrs{width:100%;max-width:370px}
+  .footer-service-account-qr{width:auto;min-width:0;padding:10px 8px}
+  .footer-service-account-qr .footer-qr-link{width:142px;height:142px;max-width:100%}
+}
+@media(max-width:390px){
+  .footer-service-account-qrs{gap:8px}
+  .footer-service-account-qr{padding:8px 5px}
+  .footer-service-account-qr .footer-qr-link{width:126px;height:126px}
+  .footer-service-account-name{font-size:12px}
+  .footer-service-account-use{font-size:9px}
+}
