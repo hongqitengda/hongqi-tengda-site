@@ -1,0 +1,135 @@
+红祺腾达网站 1,612 项逐项AI示意图交叉检查报告
+================================================================
+项目总数：1612
+图片总数：1612
+图片映射总数：1612
+独立图片路径数：1612
+同名同规格不同价格、已增加品牌系列区分：84 项
+错误数：0
+
+按业务板块：
+- 实验耗材与仪器: 1284
+- 计算模拟分析: 92
+- 材料表征与检测: 149
+- 高端测试·生物·环境: 53
+- 数据分析与科研绘图: 34
+
+视觉类型统计：
+- supply_generic: 110
+- filter_membrane: 93
+- reagent_powder: 84
+- reagent_liquid: 77
+- vial: 71
+- electrode: 53
+- pipette_tip: 50
+- culture: 49
+- dft: 42
+- liquid_tool: 37
+- bio: 37
+- instrument_generic: 36
+- filter_device: 33
+- pipette: 32
+- bio_kit: 32
+- ph_meter: 30
+- md: 29
+- centrifuge_tube: 26
+- filter_paper: 23
+- electro_material: 23
+- machining: 23
+- pump: 22
+- plate: 21
+- chemical_test: 21
+- spectrum: 20
+- sem: 19
+- beaker: 17
+- glass_misc: 16
+- hotplate: 16
+- battery_parts: 16
+- mass_chrom: 16
+- volumetric: 15
+- crucible: 15
+- characterization: 15
+- gloves: 14
+- sample_bag: 14
+- pcr_tube: 14
+- syringe: 14
+- centrifuge: 14
+- 3d_printer: 13
+- scientific_drawing: 13
+- fire_safety: 12
+- xrd: 12
+- particle: 12
+- oven: 11
+- mask: 10
+- balance: 10
+- ultrasonic: 10
+- ml: 10
+- ppe_misc: 9
+- test_tube: 9
+- flask: 9
+- office: 9
+- chromatograph: 9
+- thermal: 9
+- cylinder: 8
+- water_bath: 8
+- furnace: 8
+- cfd: 8
+- chart_analysis: 8
+- funnel: 7
+- xps: 7
+- goggles: 6
+- burette: 6
+- nmr: 6
+- mechanical: 6
+- insitu: 6
+- shaker: 5
+- cold_storage: 5
+- spectrometer: 5
+- reactor: 5
+- electro_test: 5
+- synchrotron: 5
+- cryoem: 5
+- ml_data: 5
+- lab_coat: 4
+- weigh_boat: 4
+- crystal_drawing: 4
+- image_analysis: 4
+- rotavap: 3
+- field_sampling: 3
+- compute: 3
+- incubator: 2
+- microscope: 2
+- autoclave: 1
+- water_purifier: 1
+- tem: 1
+
+重点错配回归检查：
+- SUP-0635: 匹配1项，期望=bio_kit，实际=['bio_kit']，结果=通过
+- SUP-0546: 匹配1项，期望=chromatograph，实际=['chromatograph']，结果=通过
+- SUP-0547: 匹配1项，期望=chromatograph，实际=['chromatograph']，结果=通过
+- SUP-0922: 匹配1项，期望=chromatograph，实际=['chromatograph']，结果=通过
+- SUP-0558: 匹配1项，期望=glass_misc，实际=['glass_misc']，结果=通过
+- SUP-0559: 匹配1项，期望=glass_misc，实际=['glass_misc']，结果=通过
+- SUP-1031: 匹配1项，期望=reagent_powder，实际=['reagent_powder']，结果=通过
+- SUP-0150: 匹配1项，期望=pump，实际=['pump']，结果=通过
+- SUP-0291: 匹配1项，期望=pump，实际=['pump']，结果=通过
+- SUP-0292: 匹配1项，期望=pump，实际=['pump']，结果=通过
+- SUP-0787: 匹配1项，期望=pump，实际=['pump']，结果=通过
+- SUP-0788: 匹配1项，期望=pump，实际=['pump']，结果=通过
+- SUP-0975: 匹配1项，期望=filter_device，实际=['filter_device']，结果=通过
+- SUP-0189: 匹配1项，期望=ppe_misc，实际=['ppe_misc']，结果=通过
+- SUP-0309: 匹配1项，期望=instrument_generic，实际=['instrument_generic']，结果=通过
+- SUP-0016: 匹配1项，期望=vial，实际=['vial']，结果=通过
+- SUP-0103: 匹配1项，期望=filter_device，实际=['filter_device']，结果=通过
+- SUP-0114: 匹配1项，期望=electrode，实际=['electrode']，结果=通过
+- SUP-0125: 匹配1项，期望=reagent_powder，实际=['reagent_powder']，结果=通过
+- SUP-0129: 匹配1项，期望=machining，实际=['machining']，结果=通过
+- SUP-0130: 匹配1项，期望=machining，实际=['machining']，结果=通过
+- SUP-0171: 匹配1项，期望=3d_printer，实际=['3d_printer']，结果=通过
+- SUP-0172: 匹配1项，期望=3d_printer，实际=['3d_printer']，结果=通过
+- SUP-0393: 匹配1项，期望=vial，实际=['vial']，结果=通过
+- SUP-0394: 匹配1项，期望=vial，实际=['vial']，结果=通过
+- SUP-0395: 匹配1项，期望=vial，实际=['vial']，结果=通过
+- SUP-0396: 匹配1项，期望=vial，实际=['vial']，结果=通过
+
+结论：项目—图片—网页映射一一对应，图片文件可读取，重点错配检查通过。

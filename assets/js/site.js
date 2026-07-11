@@ -332,4 +332,59 @@
     document.body.appendChild(bar);
   }
 
+  // project-visuals:v1 - enrich existing static category/project pages in place.
+  const projectVisualEscape = value => String(value ?? "").replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+  const normalizeProjectVisuals = data => {
+    if (!data || typeof data !== "object") return {};
+    if (Array.isArray(data)) return data.reduce((acc, entry) => { if (entry?.id) acc[entry.id] = entry; return acc; }, {});
+    return data;
+  };
+  const visualImageUrl = (visual, base) => `${base}${visual.image || "assets/images/og-cover.png"}`;
+  const isEquipmentVisual = visual => String(visual.platformKind || visual.imageSourceType || "").includes("仪器");
+  const projectFigureHtml = (visual, base) => `<figure class="project-visual-panel"><img src="${projectVisualEscape(visualImageUrl(visual, base))}" alt="${projectVisualEscape(visual.imageAlt || `${visual.title || "项目"} 参考图`)}" loading="lazy"><figcaption><strong>项目参考图</strong><span>${projectVisualEscape(visual.imageSourceNote || "红祺腾达原创项目示意图")}</span></figcaption></figure>`;
+  const instrumentPanelHtml = visual => {
+    if (!isEquipmentVisual(visual) || !visual.instrumentModel) return "";
+    const rows = [["建议仪器型号/常用平台", visual.instrumentModel], ["关键配置", visual.instrumentConfig], ["适用范围", visual.instrumentScope], ["图片来源说明", visual.instrumentSourceNote || visual.imageSourceNote]].filter(([, value]) => value);
+    return `<section class="project-instrument-panel"><h3>仪器平台参考</h3><div class="instrument-detail-grid">${rows.map(([label, value]) => `<div><span>${projectVisualEscape(label)}</span><strong>${projectVisualEscape(value)}</strong></div>`).join("")}</div></section>`;
+  };
+  const enhanceProjectPage = (visualMap, base) => {
+    if (!document.body.classList.contains("project-detail-page")) return;
+    const id = (location.pathname.match(/\/project\/([^/]+)\.html$/i)?.[1] || document.querySelector(".project-board-label")?.textContent.match(/[A-Z]{3}-\d{4}/)?.[0] || "").toUpperCase();
+    const visual = visualMap[id];
+    const main = document.querySelector(".project-main-card");
+    if (!visual || !main || main.querySelector(".project-visual-panel")) return;
+    const title = main.querySelector(".project-section-title");
+    const table = main.querySelector(".project-info-table");
+    title?.insertAdjacentHTML("afterend", projectFigureHtml(visual, base));
+    if (isEquipmentVisual(visual) && visual.instrumentModel) table?.insertAdjacentHTML("afterend", instrumentPanelHtml(visual));
+  };
+  const enhanceStaticCards = (visualMap, base) => {
+    document.querySelectorAll(".static-item-card").forEach(card => {
+      if (card.querySelector(".static-item-media")) return;
+      const id = card.querySelector(".static-item-top span")?.textContent.trim().toUpperCase();
+      const visual = visualMap[id];
+      const link = card.querySelector("h2 a[href]")?.getAttribute("href") || "#";
+      const top = card.querySelector(".static-item-top");
+      if (!visual || !top) return;
+      top.insertAdjacentHTML("afterend", `<a class="static-item-media" href="${projectVisualEscape(link)}"><img src="${projectVisualEscape(visualImageUrl(visual, base))}" alt="${projectVisualEscape(visual.imageAlt || `${visual.title || "项目"} 参考图`)}" loading="lazy"></a>`);
+      if (isEquipmentVisual(visual) && visual.instrumentModel) {
+        const detail = card.querySelector(".static-item-meta");
+        detail?.insertAdjacentHTML("beforebegin", `<p class="static-item-instrument"><span>参考仪器</span><strong>${projectVisualEscape(visual.instrumentShort || visual.instrumentModel)}</strong></p>`);
+      }
+    });
+  };
+  const enhanceProjectVisuals = () => {
+    if (!document.body.classList.contains("project-detail-page") && !document.querySelector(".static-item-card")) return;
+    const base = document.body?.dataset.base || "";
+    fetch(`${base}assets/data/project-visuals.json?v=20260711`)
+      .then(response => response.ok ? response.json() : {})
+      .then(data => {
+        const visualMap = normalizeProjectVisuals(data);
+        enhanceProjectPage(visualMap, base);
+        enhanceStaticCards(visualMap, base);
+      })
+      .catch(() => {});
+  };
+  enhanceProjectVisuals();
+
 })();
