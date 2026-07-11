@@ -322,6 +322,35 @@
     }
   });
 
+
+  // V21.1: add one common reference photo inside each existing static item card; outer layout remains unchanged.
+  const addStaticProjectPhotos = () => {
+    const cards = document.querySelectorAll(".static-item-card");
+    if (!cards.length) return;
+    const base = document.body?.dataset.base || "";
+    fetch(`${base}assets/data/project-visuals.json?v=20260711-original-layout`)
+      .then(response => response.ok ? response.json() : {})
+      .then(visuals => {
+        cards.forEach(card => {
+          const id = card.querySelector(".static-item-top span")?.textContent.trim().toUpperCase();
+          const visual = visuals?.[id];
+          const description = [...card.querySelectorAll(":scope > p")].find(el => !el.classList.contains("static-item-category"));
+          if (!visual?.image || !description || description.querySelector(".static-inline-thumb")) return;
+          description.classList.add("has-project-photo");
+          const image = document.createElement("img");
+          image.className = "static-inline-thumb";
+          image.src = `${base}${visual.image}`;
+          image.alt = visual.imageAlt || `${card.querySelector("h2")?.textContent.trim() || id} 通用实物参考图`;
+          image.loading = "lazy";
+          image.decoding = "async";
+          image.title = visual.instrumentShort || visual.photoThemeLabel || "通用实物参考";
+          description.prepend(image);
+        });
+      })
+      .catch(() => {});
+  };
+  addStaticProjectPhotos();
+
   // V19.2: mobile conversion bar; still fully static and uses existing modals.
   if (!document.querySelector(".mobile-contact-bar")) {
     const base = document.body?.dataset.base || "";

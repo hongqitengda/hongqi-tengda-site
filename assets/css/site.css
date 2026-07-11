@@ -544,3 +544,16 @@ html{scroll-padding-top:82px}
   .footer-service-account-name{font-size:12px}
   .footer-service-account-use{font-size:9px}
 }
+
+
+/* V21.1：在原有布局内加入项目通用实物缩略图，不改变栏目、卡片网格和页面结构 */
+.result-detail.has-project-photo{display:block;min-height:65px;overflow:hidden}
+.project-inline-thumb{float:right;width:64px;height:58px;margin:0 0 4px 10px;border:1px solid #e1e8ef;border-radius:3px;background:#f3f6f8;object-fit:cover}
+.item-modal-thumb{float:right;width:132px;height:96px;margin:0 0 10px 16px;border:1px solid #dce6ed;border-radius:3px;background:#f3f6f8;object-fit:cover}
+.item-model-ref{display:block;margin-top:8px;color:#718596;font-size:10px;line-height:1.6}
+.static-item-card>p.has-project-photo{display:block;overflow:hidden}
+.static-inline-thumb{float:right;width:76px;height:58px;margin:0 0 5px 11px;border:1px solid #e1e8ef;border-radius:3px;background:#f3f6f8;object-fit:cover}
+.project-info-inline-thumb{float:right;width:150px;height:105px;margin:0 0 10px 18px;border:1px solid #dce6ed;border-radius:3px;background:#f3f6f8;object-fit:cover}
+.project-model-ref{display:block;margin-top:8px;color:#718596;font-size:11px;line-height:1.65}
+.project-photo-note{display:block;margin-top:6px;color:#8b98a6;font-size:10px;line-height:1.55}
+@media(max-width:600px){.project-inline-thumb{width:72px;height:58px}.item-modal-thumb{width:112px;height:84px}.project-info-inline-thumb{width:120px;height:88px}}

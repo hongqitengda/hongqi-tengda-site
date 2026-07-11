@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   const state = {
-    items: [], filtered: [], page: 1, perPage: 24,
+    items: [], visuals: {}, filtered: [], page: 1, perPage: 24,
     query: "", board: "", category: "", price: "", sort: "relevance", view: "grid"
   };
   const els = {
@@ -21,6 +21,10 @@
   const formatPrice = price => Number(price).toLocaleString("zh-CN", { maximumFractionDigits: 2 });
   const genericServices = new Set(["计算模拟分析服务","材料表征服务","分析检测服务","高端表征服务","生物实验服务","环境检测服务","数据分析服务","科研绘图服务"]);
   const displayName = item => genericServices.has(String(item.service || "")) ? (item.name || item.service) : (item.service || item.name);
+  const visualFor = item => state.visuals[String(item.id || "").toUpperCase()] || {};
+  const projectPhoto = item => visualFor(item).image || "assets/images/og-cover.png";
+  const projectPhotoAlt = item => visualFor(item).imageAlt || `${displayName(item)} 通用实物参考图`;
+  const projectModel = item => visualFor(item).instrumentShort || visualFor(item).instrumentModel || "";
   const debounce = (fn, delay = 180) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); }; };
 
   function searchScore(item, terms) {
@@ -104,7 +108,7 @@
     return `<article class="result-card">
       <div class="result-top"><span class="board-tag">${escapeHtml(item.board)}</span><span class="item-id">${escapeHtml(item.id)}</span></div>
       <div><h2><a class="result-title-link" href="${escapeHtml(item.detailUrl || `project/${String(item.id).toLowerCase()}.html`)}">${escapeHtml(displayName(item))}</a></h2><p class="result-category"><a href="${escapeHtml(item.categoryUrl || `catalog.html?category=${encodeURIComponent(item.category)}`)}">${escapeHtml(item.category)}</a></p></div>
-      <p class="result-detail">${escapeHtml(item.details || "请联系技术顾问确认具体规格与服务内容。")}</p>
+      <div class="result-detail has-project-photo"><img class="project-inline-thumb" src="${escapeHtml(projectPhoto(item))}" alt="${escapeHtml(projectPhotoAlt(item))}" loading="lazy" decoding="async"><span>${escapeHtml(item.details || "请联系技术顾问确认具体规格与服务内容。")}</span></div>
       <div class="result-meta"><div><span>单位</span><strong>${escapeHtml(item.unit || "项")}</strong></div><div><span>预计周期</span><strong>${escapeHtml(item.cycle || "沟通确认")}</strong></div></div>
       <div class="result-bottom"><span class="price">¥${formatPrice(item.price)} <small>/ ${escapeHtml(item.unit || "项")}</small></span><div class="result-card-actions"><a class="detail-page-button" href="${escapeHtml(item.detailUrl || `project/${String(item.id).toLowerCase()}.html`)}">详情页</a><button class="detail-button" type="button" data-item-id="${escapeHtml(item.id)}">快速查看</button></div></div>
     </article>`;
@@ -153,7 +157,7 @@
     const consultLabel = useTechContact ? "联系计算模拟工程师" : "联系行政专员";
     els.modalContent.innerHTML = `<span class="modal-board">${escapeHtml(item.board)} · ${escapeHtml(item.id)}</span>
       <h2 id="modal-item-title">${escapeHtml(title)}</h2><p class="modal-category">${escapeHtml(item.category)}</p>
-      <div class="modal-details">${escapeHtml(item.details || "请联系技术顾问确认具体规格与服务内容。")}</div>
+      <div class="modal-details"><img class="item-modal-thumb" src="${escapeHtml(projectPhoto(item))}" alt="${escapeHtml(projectPhotoAlt(item))}" loading="eager" decoding="async">${escapeHtml(item.details || "请联系技术顾问确认具体规格与服务内容。")}${projectModel(item) ? `<small class="item-model-ref">参考品牌/型号：${escapeHtml(projectModel(item))}</small>` : `<small class="item-model-ref">图片为同类产品或常规设备实物参考，最终外观与包装以采购确认为准。</small>`}</div>
       <div class="modal-info-grid"><div><span>参考报价</span><strong class="modal-price">¥${formatPrice(item.price)} / ${escapeHtml(item.unit || "项")}</strong></div><div><span>预计周期</span><strong>${escapeHtml(item.cycle || "沟通确认")}</strong></div><div><span>服务优先级</span><strong>${escapeHtml(item.priority || "常规")}</strong></div><div><span>项目编号</span><strong>${escapeHtml(item.id)}</strong></div></div>
       <div class="modal-actions"><a class="button" href="${escapeHtml(item.detailUrl || `project/${String(item.id).toLowerCase()}.html`)}">打开独立详情页</a><button class="button button-ghost" type="button" id="wechat-item">${consultLabel}</button><button class="button button-ghost" type="button" id="copy-item">复制项目信息</button></div><p class="copy-status" id="copy-status"></p>`;
     els.modal.hidden = false; document.body.classList.add("modal-open"); els.modal.querySelector(".modal-close")?.focus();
@@ -206,9 +210,11 @@
 
   Promise.all([
     fetch("assets/data/catalog.json?v=1612").then(response => { if (!response.ok) throw new Error("项目数据加载失败"); return response.json(); }),
-    fetch("assets/data/summary.json?v=1612").then(response => response.json())
-  ]).then(([items, summary]) => {
+    fetch("assets/data/summary.json?v=1612").then(response => response.json()),
+    fetch("assets/data/project-visuals.json?v=20260711-original-layout").then(response => response.ok ? response.json() : {})
+  ]).then(([items, summary, visuals]) => {
     state.items = items;
+    state.visuals = visuals && typeof visuals === "object" ? visuals : {};
     els.total.textContent = Number(summary.total).toLocaleString("zh-CN");
     els.categories.textContent = summary.categories;
     const boards = [...new Set(items.map(item => item.board))];
