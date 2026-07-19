@@ -142,7 +142,7 @@
       ]);
       const useAdmin = adminCategories.has(value("category"));
       const targetModal = useAdmin ? adminQrModal : techQrModal;
-      const targetName = useAdmin ? "行政专员" : "计算模拟工程师";
+      const targetName = useAdmin ? "表征/耗材顾问" : "AI/模拟工程师";
 
       try {
         await copyText(content);
@@ -161,7 +161,7 @@
   const metricTotal = document.getElementById("metric-total");
   const metricCategories = document.getElementById("metric-categories");
   if (metricTotal || metricCategories) {
-    fetch("assets/data/summary.json?v=1612")
+    fetch("assets/data/summary.json?v=20260715-v57")
       .then(response => response.ok ? response.json() : Promise.reject(new Error("load failed")))
       .then(data => {
         if (metricTotal) metricTotal.textContent = `${data.total}+`;
@@ -191,15 +191,15 @@
 5. 科研软件、Web平台及AI工具开发；
 6. 生物、环境及高端测试服务。`,
     price: `官网项目页面展示的是参考价格。最终费用需根据样品数量、模型规模、技术要求、计算量、交付内容和完成周期综合确认。`,
-    simulation: `计算模拟项目请联系计算模拟工程师。建议准备研究体系、结构文件、计算指标、模型或路径数量、参考文献、期望完成时间和交付要求。`,
-    testing: `材料表征与分析测试请联系行政专员。请先说明测试项目、样品类型、样品数量、尺寸或质量及特殊测试条件。`,
+    simulation: `AI与计算模拟项目请联系对应工程师。建议准备研究体系、结构文件、计算指标、模型或路径数量、参考文献、期望完成时间和交付要求。`,
+    testing: `分析表征与耗材仪器请联系表征/耗材顾问。请先说明测试项目、样品类型、样品数量、尺寸或质量及特殊测试条件。`,
     cycle: `项目周期取决于服务类型、样品数量、模型规模和仪器排期。确认需求后会提供预计完成时间。`,
-    invoice: `采购询价、合同资料、付款信息、发票申请、物流及售后协调等事务，请联系企业微信行政专员。`,
-    progress: `计算模拟项目请联系计算模拟工程师；采购和分析测试项目请联系行政专员。请同时提供项目编号、项目名称、联系人及联系方式。`,
+    invoice: `采购询价、合同资料、付款信息、发票申请、物流及售后协调等事务，请联系企业微信表征/耗材顾问。`,
+    progress: `AI与计算模拟项目请联系对应工程师；分析表征和耗材仪器项目请联系表征/耗材顾问。请同时提供项目编号、项目名称、联系人及联系方式。`,
     careers: `我们长期关注计算模拟、材料表征、数据分析、软件与AI开发、市场商务及行政运营方向人才。简历及合作介绍可发送至官方邮箱：drwang@hongqitengda.cn。`,
-    techwechat: `请扫描下方二维码添加计算模拟工程师企业微信，适用于 DFT、MD、AIMD、数据分析、科研绘图及软件技术需求。`,
-    adminwechat: `请扫描下方二维码添加行政专员企业微信，适用于采购、材料表征、分析测试、合同、付款、发票及物流事务。`,
-    fallback: `请根据业务类型选择对应企业微信：计算模拟、数据与软件联系计算模拟工程师；采购、表征测试及合同发票联系行政专员。`
+    techwechat: `请扫描下方二维码添加AI/模拟工程师企业微信，适用于 DFT、MD、AIMD、数据分析、科研绘图及软件技术需求。`,
+    adminwechat: `请扫描下方二维码添加表征/耗材企业微信，适用于分析表征、耗材仪器、合同、付款、发票及物流事务。`,
+    fallback: `请根据业务类型选择对应企业微信：计算模拟、数据与软件联系AI/模拟工程师；分析表征、耗材仪器及合同发票联系表征/耗材顾问。`
   };
 
   const hqFaqLabels = {
@@ -211,8 +211,8 @@
     invoice: "采购、合同与发票",
     progress: "如何咨询项目进度？",
     careers: "加入我们 / 招聘",
-    techwechat: "添加计算模拟企业微信",
-    adminwechat: "添加行政专员企业微信"
+    techwechat: "添加AI/模拟企业微信",
+    adminwechat: "添加表征/耗材企业微信"
   };
 
   const setChatContacts = mode => {
@@ -246,7 +246,7 @@
     if (type === "bot") {
       const avatar = document.createElement("div");
       avatar.className = "hq-chat-avatar";
-      avatar.textContent = "红";
+      avatar.setAttribute("aria-hidden", "true");
       wrapper.appendChild(avatar);
     }
 
@@ -328,19 +328,25 @@
     const bar = document.createElement("nav");
     bar.className = "mobile-contact-bar";
     bar.setAttribute("aria-label", "移动端快捷咨询");
-    bar.innerHTML = `<a href="${base}catalog.html"><span>⌕</span><strong>项目查询</strong></a><button type="button" data-open-tech><span>Σ</span><strong>计算模拟</strong></button><button type="button" data-open-admin><span>▣</span><strong>采购·测试</strong></button>`;
+    bar.innerHTML = `<a href="${base}catalog.html"><span>⌕</span><strong>项目查询</strong></a><button type="button" data-open-tech><span>Σ</span><strong>AI/模拟</strong></button><button type="button" data-open-admin><span>▣</span><strong>表征/耗材</strong></button>`;
     document.body.appendChild(bar);
   }
 
   // project-visuals:v1 - enrich existing static category/project pages in place.
   const projectVisualEscape = value => String(value ?? "").replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+  const PROJECT_ASSET_VERSION = "20260715-v57";
+  const withProjectAssetVersion = src => {
+    const value = String(src || "");
+    if (!value || value.includes("?") || !value.includes("project-gallery-v4/")) return value;
+    return `${value}?v=${PROJECT_ASSET_VERSION}`;
+  };
   const normalizeProjectVisuals = data => {
     if (!data || typeof data !== "object") return {};
     if (Array.isArray(data)) return data.reduce((acc, entry) => { if (entry?.id) acc[entry.id] = entry; return acc; }, {});
     return data;
   };
-  const visualImageUrl = (visual, base) => `${base}${visual.image || "assets/images/og-cover.png"}`;
-  const isEquipmentVisual = visual => String(visual.platformKind || visual.imageSourceType || "").includes("仪器");
+  const visualImageUrl = (visual, base) => withProjectAssetVersion(`${base}${visual.image || "assets/images/og-cover.png"}`);
+  const isEquipmentVisual = visual => Boolean(visual.instrumentModel) || String(visual.platformKind || visual.imageSourceType || "").includes("仪器");
   const projectFigureHtml = (visual, base) => `<figure class="project-visual-panel"><img src="${projectVisualEscape(visualImageUrl(visual, base))}" alt="${projectVisualEscape(visual.imageAlt || `${visual.title || "项目"} 参考图`)}" loading="lazy"><figcaption><strong>项目参考图</strong><span>${projectVisualEscape(visual.imageSourceNote || "红祺腾达原创项目示意图")}</span></figcaption></figure>`;
   const instrumentPanelHtml = visual => {
     if (!isEquipmentVisual(visual) || !visual.instrumentModel) return "";
@@ -376,7 +382,7 @@
   const enhanceProjectVisuals = () => {
     if (!document.body.classList.contains("project-detail-page") && !document.querySelector(".static-item-card")) return;
     const base = document.body?.dataset.base || "";
-    fetch(`${base}assets/data/project-visuals.json?v=20260711`)
+    fetch(`${base}assets/data/project-visuals.json?v=20260715-v57`)
       .then(response => response.ok ? response.json() : {})
       .then(data => {
         const visualMap = normalizeProjectVisuals(data);

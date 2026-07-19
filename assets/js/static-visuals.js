@@ -1,8 +1,14 @@
-(() => {
+﻿(() => {
   "use strict";
 
   const base = document.body?.dataset?.base || "";
   const escapeHtml = value => String(value ?? "").replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+  const ASSET_VERSION = "20260715-v57";
+  const withAssetVersion = src => {
+    const value = String(src || "");
+    if (!value || value.includes("?") || !value.includes("project-gallery-v4/")) return value;
+    return `${value}?v=${ASSET_VERSION}`;
+  };
   const normalizeVisuals = data => {
     if (!data || typeof data !== "object") return {};
     if (Array.isArray(data)) return data.reduce((acc, item) => { if (item?.id) acc[item.id] = item; return acc; }, {});
@@ -11,8 +17,8 @@
   const imageUrl = visual => {
     const src = String(visual?.image || "");
     if (!src) return "";
-    if (/^(https?:)?\/\//i.test(src) || src.startsWith("/")) return src;
-    return `${base}${src}`;
+    if (/^(https?:)?\/\//i.test(src) || src.startsWith("/")) return withAssetVersion(src);
+    return withAssetVersion(`${base}${src}`);
   };
   const isEquipment = visual => String(visual?.platformKind || visual?.imageSourceType || "").includes("仪器");
   const projectHref = id => `${base}project/${String(id).toLowerCase()}.html`;
@@ -110,8 +116,8 @@
   }
 
   Promise.all([
-    fetch(`${base}assets/data/project-visuals.json?v=20260711-real`).then(response => response.ok ? response.json() : {}),
-    fetch(`${base}assets/data/catalog.json?v=20260711-real`).then(response => response.ok ? response.json() : []).catch(() => [])
+    fetch(`${base}assets/data/project-visuals.json?v=20260715-v57`).then(response => response.ok ? response.json() : {}),
+    fetch(`${base}assets/data/catalog.json?v=20260715-v57`).then(response => response.ok ? response.json() : []).catch(() => [])
   ]).then(([visuals, items]) => {
     const visualMap = normalizeVisuals(visuals);
     hydrateStaticCards(visualMap);

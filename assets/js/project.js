@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   "use strict";
 
   const copyFallback = text => {
@@ -25,6 +25,12 @@
 
   const base = document.body?.dataset?.base || "";
   const escapeHtml = value => String(value ?? "").replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+  const ASSET_VERSION = "20260715-v57";
+  const withAssetVersion = src => {
+    const value = String(src || "");
+    if (!value || value.includes("?") || !value.includes("project-gallery-v4/")) return value;
+    return `${value}?v=${ASSET_VERSION}`;
+  };
   const normalizeVisuals = data => {
     if (!data || typeof data !== "object") return {};
     if (Array.isArray(data)) return data.reduce((acc, entry) => { if (entry?.id) acc[entry.id] = entry; return acc; }, {});
@@ -40,8 +46,8 @@
   const imageUrl = visual => {
     const src = String(visual?.image || "");
     if (!src) return "";
-    if (/^(https?:)?\/\//i.test(src) || src.startsWith("/")) return src;
-    return `${base}${src}`;
+    if (/^(https?:)?\/\//i.test(src) || src.startsWith("/")) return withAssetVersion(src);
+    return withAssetVersion(`${base}${src}`);
   };
   const isEquipment = visual => String(visual?.platformKind || visual?.imageSourceType || "").includes("仪器");
 
@@ -74,6 +80,12 @@
   }
 
   if (projectId) {
-    fetch(`${base}assets/data/project-visuals.json?v=20260711-ai1612"实物图片加载失败", error));
+    fetch(`${base}assets/data/project-visuals.json?v=20260715-v57`)
+      .then(response => {
+        if (!response.ok) throw new Error("实物图片加载失败");
+        return response.json();
+      })
+      .then(data => renderVisual(normalizeVisuals(data)[projectId]))
+      .catch(error => console.warn("实物图片加载失败", error));
   }
 })();

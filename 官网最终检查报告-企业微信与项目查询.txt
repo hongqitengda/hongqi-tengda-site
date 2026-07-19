@@ -1,0 +1,22 @@
+红祺腾达官网最终检查报告
+
+html_pages: 2287
+catalog_items: 2231
+board_counts: {'AI项目': 9, '计算模拟': 99, '分析表征': 124, '耗材仪器': 1999}
+ai_pages: 9
+simulation_pages: 99
+analysis_pages: 124
+supply_pages: 1999
+supply_categories: 43
+poster_ai_size: (509, 621)
+poster_admin_size: (509, 621)
+catalog_static_stats: [9, 99, 124, 1999]
+missing_detail_pages: 0
+missing_assets: 0
+missing_html_links: 0
+square_contact_overrides: 0
+old_popup_contact_refs: 0
+CNAME: www.hongqitengda.com
+nojekyll: True
+sitemap_exists: True
+robots_exists: True
