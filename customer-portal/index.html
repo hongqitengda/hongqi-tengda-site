@@ -1,311 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="红祺腾达 HQTD 客户服务中心：提交需求、确认报价、查看进度、下载交付文件、申请售后。">
-  <title>HQTD 客户服务中心｜红祺腾达科研服务</title>
-  <link rel="stylesheet" href="assets/css/portal.css?v=20260722-v921">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="红祺腾达 HQTD 客户中心：查看已提交订单、报价、项目进度、交付文件、余额、发票与售后。" name="description"/>
+<title>HQTD 客户中心｜订单、报价、进度与文件</title>
+<link href="assets/css/portal.css?v=20260722-v930" rel="stylesheet"/>
 </head>
 <body>
 <header class="header">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="返回红祺腾达官网">
-      <img src="assets/images/hqtd-logo.png" alt="红祺腾达">
-      <span><strong>HQTD 客户服务中心</strong><small>官网与小程序共用客户账户</small></span>
-    </a>
-    <div class="nav-actions">
-      <a class="btn btn-ghost" href="../catalog.html">查找项目</a>
-      <a class="btn btn-ghost header-cart" href="#cart">需求清单 <b data-global-cart-count>0</b></a>
-      <button class="btn btn-ghost hidden" id="accountSwitchBtn" type="button">切换账户</button>
-      <button class="btn btn-outline hidden" id="logoutBtn" type="button">退出</button>
-    </div>
-  </div>
+<div class="container nav">
+<a aria-label="返回红祺腾达官网" class="brand" href="../index.html">
+<img alt="红祺腾达" src="assets/images/hqtd-logo.png"/>
+<span><strong>HQTD 客户服务中心</strong><small>官网与小程序共用客户账户</small></span>
+</a>
+<div class="nav-actions">
+<a class="btn btn-ghost" href="../catalog.html">查找项目</a>
+
+<button class="btn btn-ghost hidden" id="accountSwitchBtn" type="button">切换账户</button>
+<button class="btn btn-outline hidden" id="logoutBtn" type="button">退出</button>
+</div>
+</div>
 </header>
-
-<main id="authView" class="auth-shell">
-  <section class="auth-card">
-    <div class="auth-copy">
-      <span class="eyebrow">HQTD SCIENTIFIC</span>
-      <h1>登录后即可提交需求</h1>
-      <p>官网与“红祺科研助手”小程序共用同一个客户账户、订单、报价、余额和交付记录。</p>
-      <div class="auth-benefits">
-        <span>项目直接下单</span><span>进度实时同步</span><span>需求单自动导出</span>
-      </div>
-    </div>
-    <div class="auth-form-card">
-      <div class="tabs" role="tablist" aria-label="登录方式">
-        <button class="tab active" data-auth="login" type="button">登录</button>
-        <button class="tab" data-auth="register" type="button">注册</button>
-        <button class="tab" data-auth="wechat" type="button">微信扫码</button>
-      </div>
-      <div id="loginPanel">
-        <h2>客户登录</h2>
-        <label class="field"><span>手机号或邮箱</span><input id="loginIdentity" autocomplete="username" placeholder="请输入手机号或邮箱"></label>
-        <label class="field"><span>密码</span><input id="loginPassword" type="password" autocomplete="current-password" placeholder="请输入密码"></label>
-        <button class="btn btn-primary btn-block" id="loginSubmit" type="button">登录客户中心</button>
-      </div>
-      <div id="registerPanel" class="hidden">
-        <h2>创建客户账户</h2>
-        <div class="form-grid compact-grid">
-          <label class="field"><span>姓名 *</span><input id="regName"></label>
-          <label class="field"><span>单位/学校</span><input id="regOrganization"></label>
-          <label class="field"><span>手机号</span><input id="regPhone" inputmode="tel"></label>
-          <label class="field"><span>邮箱</span><input id="regEmail" inputmode="email"></label>
-          <label class="field full"><span>登录密码 *</span><input id="regPassword" type="password"></label>
-        </div>
-        <button class="btn btn-primary btn-block" id="registerSubmit" type="button">注册并进入</button>
-      </div>
-      <div id="wechatPanel" class="hidden">
-        <h2>微信扫码登录</h2>
-        <p class="muted">微信开放平台网站应用审核并配置 AppID 后，此入口即可与小程序账户自动关联。</p>
-        <button class="btn btn-primary btn-block" id="wechatLoginBtn" type="button">发起微信扫码登录</button>
-      </div>
-      <div id="authMessage" aria-live="polite"></div>
-    </div>
-  </section>
+<main class="auth-shell" id="authView">
+<section class="auth-card">
+<div class="auth-copy">
+<span class="eyebrow">HQTD SCIENTIFIC</span>
+<h1>登录查看订单与项目进度</h1>
+<p>客户中心仅用于查看已提交订单、报价、进度、交付文件和账户信息。下单请在官网具体项目页面完成。</p>
+<div class="auth-benefits"><span>订单与报价</span><span>项目进度</span><span>文件与售后</span></div>
+</div>
+<div class="auth-form-card">
+<div aria-label="登录方式" class="tabs" role="tablist">
+<button class="tab active" data-auth="login" type="button">登录</button>
+<button class="tab" data-auth="register" type="button">注册</button>
+<button class="tab" data-auth="wechat" type="button">微信扫码</button>
+</div>
+<div id="loginPanel">
+<h2>客户登录</h2>
+<label class="field"><span>手机号或邮箱</span><input autocomplete="username" id="loginIdentity" placeholder="请输入手机号或邮箱"/></label>
+<label class="field"><span>密码</span><input autocomplete="current-password" id="loginPassword" placeholder="请输入密码" type="password"/></label>
+<button class="btn btn-primary btn-block" id="loginSubmit" type="button">登录客户中心</button>
+</div>
+<div class="hidden" id="registerPanel">
+<h2>创建客户账户</h2>
+<div class="form-grid compact-grid">
+<label class="field"><span>姓名 *</span><input id="regName"/></label>
+<label class="field"><span>单位/学校</span><input id="regOrganization"/></label>
+<label class="field"><span>手机号</span><input id="regPhone" inputmode="tel"/></label>
+<label class="field"><span>邮箱</span><input id="regEmail" inputmode="email"/></label>
+<label class="field full"><span>登录密码 *</span><input id="regPassword" type="password"/></label>
+</div>
+<button class="btn btn-primary btn-block" id="registerSubmit" type="button">注册并进入</button>
+</div>
+<div class="hidden" id="wechatPanel">
+<h2>微信扫码登录</h2>
+<p class="muted">微信开放平台网站应用审核并配置 AppID 后，此入口即可与小程序账户自动关联。</p>
+<button class="btn btn-primary btn-block" id="wechatLoginBtn" type="button">发起微信扫码登录</button>
+</div>
+<div aria-live="polite" id="authMessage"></div>
+</div>
+</section>
 </main>
-
-<div id="portalContent" class="hidden">
-  <nav class="app-tabs" aria-label="客户中心主导航">
-    <button class="app-tab active" data-view="home" type="button"><b>首页</b><small>客户中心</small></button>
-    <button class="app-tab" data-view="submit" type="button"><b>提交需求</b><small>单项下单</small></button>
-    <button class="app-tab" data-view="cart" type="button"><b>需求清单</b><small><span data-global-cart-count>0</span> 个项目</small></button>
-    <button class="app-tab" data-view="business" type="button"><b>业务进度</b><small>报价与项目</small></button>
-    <button class="app-tab" data-view="account" type="button"><b>我的</b><small>资料与账户</small></button>
-  </nav>
-
-  <main class="portal-main container">
-    <section data-section="home">
-      <article class="account-hero">
-        <div>
-          <span class="eyebrow">CURRENT ACCOUNT</span>
-          <h1 id="homeAccountName">当前客户账户</h1>
-          <p id="homeAccountMeta">正在加载账户信息……</p>
-        </div>
-        <button class="btn btn-light" data-view-target="submit" type="button">提交新需求</button>
-      </article>
-
-      <div class="metric-grid" aria-label="当前业务状态">
-        <button class="metric-card" data-business-filter="quotes" type="button"><span>待确认报价</span><strong id="metricQuotes">0</strong><small>查看并确认报价</small></button>
-        <button class="metric-card" data-business-filter="projects" type="button"><span>进行中项目</span><strong id="metricProjects">0</strong><small>查看当前进度</small></button>
-        <button class="metric-card" data-business-filter="deliveries" type="button"><span>待确认交付</span><strong id="metricDeliveries">0</strong><small>下载与确认文件</small></button>
-        <button class="metric-card" data-business-filter="afterSales" type="button"><span>售后处理中</span><strong id="metricAfterSales">0</strong><small>查看处理记录</small></button>
-      </div>
-
-      <section class="home-section">
-        <div class="section-title"><div><h2>常用服务</h2><p>和小程序客户中心保持相同入口。</p></div></div>
-        <div class="primary-actions">
-          <button class="service-action" data-view-target="submit" type="button"><i>＋</i><span><strong>提交需求</strong><small>单个项目快速下单</small></span></button>
-          <button class="service-action" data-view-target="cart" type="button"><i>🛒</i><span><strong>需求清单</strong><small>多个项目一次提交</small></span></button>
-          <button class="service-action" data-view-target="business" type="button"><i>↗</i><span><strong>业务进度</strong><small>报价、项目与订单</small></span></button>
-          <button class="service-action" data-view-target="files" type="button"><i>↓</i><span><strong>交付文件</strong><small>下载报告与成果</small></span></button>
-          <button class="service-action" data-view-target="afterSales" type="button"><i>?</i><span><strong>售后服务</strong><small>提交问题和补充说明</small></span></button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <div class="section-title"><h2>账户与服务</h2></div>
-        <div class="secondary-actions">
-          <button data-view-target="business" data-open-filter="quotes" type="button"><b>报价确认</b><small>确认或申请改价</small></button>
-          <button data-view-target="wallet" type="button"><b>资金账户</b><small>余额与消费流水</small></button>
-          <button data-view-target="contracts" type="button"><b>合同管理</b><small>查看合同与状态</small></button>
-          <button data-view-target="invoices" type="button"><b>发票管理</b><small>抬头与发票申请</small></button>
-          <button data-view-target="messages" type="button"><b>消息中心</b><small>订单与项目通知</small></button>
-          <button data-view-target="messages" data-message-mode="project" type="button"><b>项目留言</b><small>补充资料与沟通</small></button>
-          <button data-view-target="members" type="button"><b>账户成员</b><small>查看单位成员</small></button>
-          <button data-view-target="account" type="button"><b>客户资料</b><small>联系方式与设置</small></button>
-        </div>
-      </section>
-
-      <section class="home-section">
-        <div class="section-title"><div><h2>最近业务</h2><p>官网与小程序数据同步显示。</p></div><button class="text-button" data-view-target="business" type="button">查看全部</button></div>
-        <div id="recentBusiness" class="record-list"><div class="empty-state">暂无业务记录</div></div>
-      </section>
-    </section>
-
-    <section data-section="submit" class="hidden">
-      <div class="page-head">
-        <div><span class="eyebrow">QUICK ORDER</span><h1>填写项目需求</h1><p>项目已自动带入。选择常用选项，再用一句话说明需求即可。</p></div>
-        <button class="btn btn-ghost" data-view-target="home" type="button">返回客户中心</button>
-      </div>
-
-      <article class="order-card">
-        <div class="order-step"><span>1</span><div><h2>确认项目</h2><p>从项目详情进入时会自动选中，无需再次选择。</p></div></div>
-        <div id="selectedProjectCard" class="selected-project empty">
-          <div><small>尚未选择</small><strong>请选择服务类型和具体项目</strong><span>一个需求单对应一个具体项目，后续更容易报价和跟进。</span></div>
-          <button class="btn btn-outline" id="changeProjectBtn" type="button">选择项目</button>
-        </div>
-
-        <div id="projectChooser" class="project-chooser">
-          <div class="service-type-row" id="serviceTypeCards">
-            <button data-service-type="AI项目" type="button">AI项目</button>
-            <button data-service-type="计算模拟" type="button">计算模拟</button>
-            <button data-service-type="分析表征" type="button">分析表征</button>
-            <button data-service-type="耗材仪器" type="button">耗材仪器</button>
-          </div>
-          <label class="search-field"><span>搜索项目</span><input id="projectSearch" type="search" placeholder="输入项目名称、编号或分类"></label>
-          <div id="projectList" class="project-list"></div>
-        </div>
-
-        <div id="orderFormArea" class="hidden">
-          <div class="order-step"><span>2</span><div><h2>选择常用选项</h2><p>只保留影响评估和报价的必要信息；不确定的选项可以不填。</p></div></div>
-          <div id="quickFields" class="quick-fields"></div>
-
-          <label class="field full description-field">
-            <span>一句话说明需求 *</span>
-            <textarea id="requestDescription" placeholder="例如：希望比较不同材料的吸附性能，并输出能量、电子结构和高分辨率图片；已有 CIF 结构文件。"></textarea>
-          </label>
-
-          <div class="form-grid contact-grid">
-            <label class="field"><span>联系人 *</span><input id="orderContactName"></label>
-            <label class="field"><span>单位/学校</span><input id="orderOrganization"></label>
-            <label class="field"><span>手机号</span><input id="orderPhone" inputmode="tel"></label>
-            <label class="field"><span>邮箱</span><input id="orderEmail" inputmode="email"></label>
-            <label class="field"><span>期望完成日期</span><span class="date-wrap"><input id="orderExpectedDate" type="date"></span></label>
-            <label class="field"><span>预算范围（选填）</span><input id="orderBudget" placeholder="如 ¥3,000–5,000 / 待评估"></label>
-          </div>
-
-          <label class="field full attachment-field"><span>上传资料（选填）</span><input id="attachments" type="file" multiple accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz"><small>支持 Word、PDF、Excel、图片、压缩包及常用结构文件；单文件不超过 5 MB。</small></label>
-
-          <details class="backup-template" id="advancedDetails">
-            <summary><span><strong>专业模板（备选）</strong><small>只有需要补充专业参数时再展开；默认不用填。</small></span><b>展开</b></summary>
-            <div class="backup-actions">
-              <button class="btn btn-outline" id="downloadTemplateBtn" type="button">下载对应 Word 模板</button>
-              <label class="form-switch"><input id="advancedMode" type="checkbox"><span>在线填写详细模板</span></label>
-            </div>
-            <div id="advancedFields" class="form-grid hidden"></div>
-          </details>
-
-          <div id="submitMessage" aria-live="polite"></div>
-        </div>
-      </article>
-
-      <div id="orderBar" class="order-bar hidden">
-        <div><small>当前项目</small><strong id="orderBarProject">未选择</strong><span id="orderBarPrice">价格由技术人员评估</span></div>
-        <div class="order-bar-actions">
-          <button class="btn btn-outline" id="submitRequirementBtn" type="button">提交需求</button>
-          <button class="btn btn-primary" id="submitAndWordBtn" type="button">提交并生成 Word</button>
-        </div>
-      </div>
-    </section>
+<div class="hidden" id="portalContent">
+<nav aria-label="客户中心主导航" class="app-tabs">
+<button class="app-tab active" data-view="home" type="button"><b>首页</b><small>客户中心</small></button>
 
 
-    <section data-section="cart" class="hidden">
-      <div class="page-head cart-page-head">
-        <div><span class="eyebrow">DIRECT ORDER</span><h1>确认需求清单</h1><p>像购物车一样选择多个项目，联系人只填写一次。科研服务由技术人员评估后确认正式报价。</p></div>
-        <a class="btn btn-ghost" href="../catalog.html">继续选择项目</a>
-      </div>
-
-      <div class="cart-layout">
-        <article class="panel cart-panel">
-          <div class="cart-title"><div><h2>已选项目</h2><p>可修改数量和补充每个项目的具体要求。</p></div><button class="text-button" id="clearCartBtn" type="button">清空清单</button></div>
-          <div id="cartItems" class="cart-items"><div class="empty-state">需求清单为空</div></div>
-        </article>
-
-        <aside class="panel checkout-panel">
-          <div class="checkout-title"><span>提交订单</span><strong id="cartSummary">共 0 个项目</strong><small>已定价项目显示小计，其余项目提交后评估。</small></div>
-          <div class="form-grid cart-contact-grid">
-            <label class="field"><span>联系人 *</span><input id="cartContactName"></label>
-            <label class="field"><span>单位/学校</span><input id="cartOrganization"></label>
-            <label class="field"><span>手机号</span><input id="cartPhone" inputmode="tel"></label>
-            <label class="field"><span>邮箱</span><input id="cartEmail" inputmode="email"></label>
-            <label class="field"><span>期望完成日期</span><input id="cartExpectedDate" type="date"></label>
-            <label class="field"><span>预算范围</span><input id="cartBudget" placeholder="选填，如 ¥5,000–10,000"></label>
-            <label class="field full"><span>总体研究目标/补充说明 *</span><textarea id="cartDescription" placeholder="例如：希望将三个计算项目用于同一篇论文，结构文件已整理；具体参数请技术人员评估。"></textarea></label>
-            <label class="field full attachment-field"><span>统一上传资料（选填）</span><input id="cartAttachments" type="file" multiple accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz"><small>文件逐个上传至云存储；单文件不超过 5 MB，最多 10 个。</small></label>
-          </div>
-          <label class="checkout-consent"><input id="cartConsent" type="checkbox" checked><span>我确认联系方式与需求内容准确，同意由技术人员评估并联系确认报价。</span></label>
-          <div class="checkout-actions">
-            <button class="btn btn-outline" id="cartSubmitBtn" type="button">直接下单</button>
-            <button class="btn btn-primary" id="cartSubmitWordBtn" type="button">下单并生成 Word</button>
-          </div>
-          <div id="cartMessage" aria-live="polite"></div>
-        </aside>
-      </div>
-    </section>
-
-    <section data-section="business" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">BUSINESS</span><h1>业务进度</h1><p>查看待确认报价、进行中项目、交付与售后。</p></div><button class="btn btn-primary" data-view-target="submit" type="button">提交新需求</button></div>
-      <div class="filter-tabs" id="businessTabs">
-        <button class="active" data-filter="all" type="button">全部</button>
-        <button data-filter="quotes" type="button">待确认报价</button>
-        <button data-filter="projects" type="button">进行中项目</button>
-        <button data-filter="deliveries" type="button">待确认交付</button>
-        <button data-filter="afterSales" type="button">售后处理中</button>
-      </div>
-      <div id="businessList" class="record-list"><div class="empty-state">正在加载……</div></div>
-    </section>
-
-    <section data-section="files" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">DELIVERIES</span><h1>交付文件</h1><p>下载项目报告、原始数据和其他交付成果。</p></div></div>
-      <div id="filesList" class="record-list"><div class="empty-state">暂无交付文件</div></div>
-    </section>
-
-    <section data-section="afterSales" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">AFTER SALES</span><h1>售后服务</h1><p>选择关联业务并说明问题，我们会同步到小程序与管理端。</p></div></div>
-      <article class="panel simple-form">
-        <div class="form-grid">
-          <label class="field"><span>关联业务编号</span><input id="afterSaleBusinessNo" placeholder="订单号/项目号/需求号"></label>
-          <label class="field"><span>问题类型</span><select id="afterSaleType"><option>结果咨询</option><option>文件补充</option><option>数据问题</option><option>进度问题</option><option>发票合同</option><option>其他</option></select></label>
-          <label class="field full"><span>问题说明 *</span><textarea id="afterSaleDescription" placeholder="请说明需要协助处理的内容"></textarea></label>
-        </div>
-        <button class="btn btn-primary" id="createAfterSaleBtn" type="button">提交售后申请</button>
-        <div id="afterSaleMessage" aria-live="polite"></div>
-      </article>
-      <div id="afterSalesList" class="record-list"><div class="empty-state">暂无售后记录</div></div>
-    </section>
-
-    <section data-section="wallet" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">WALLET</span><h1>资金账户</h1><p>余额由充值、消费、退款和调整流水自动计算。</p></div></div>
-      <article class="balance-card"><small>可用余额</small><strong id="walletBalance">¥0.00</strong><p id="walletTotals">累计充值 ¥0.00｜累计消费 ¥0.00｜累计退款 ¥0.00</p></article>
-      <div id="walletTransactions" class="record-list"><div class="empty-state">暂无资金流水</div></div>
-    </section>
-
-    <section data-section="contracts" class="hidden"><div class="page-head"><div><span class="eyebrow">CONTRACTS</span><h1>合同管理</h1><p>查看合同编号、签署状态和文件。</p></div></div><div id="contractsList" class="record-list"><div class="empty-state">暂无合同</div></div></section>
-
-    <section data-section="invoices" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">INVOICES</span><h1>发票管理</h1><p>管理发票抬头并提交开票申请。</p></div></div>
-      <article class="panel simple-form">
-        <div class="form-grid">
-          <label class="field"><span>发票抬头</span><input id="invoiceTitle"></label>
-          <label class="field"><span>统一社会信用代码</span><input id="invoiceTaxNo"></label>
-          <label class="field"><span>关联业务编号</span><input id="invoiceBusinessNo"></label>
-          <label class="field"><span>开票金额</span><input id="invoiceAmount" inputmode="decimal" placeholder="元"></label>
-        </div>
-        <button class="btn btn-primary" id="createInvoiceBtn" type="button">提交发票申请</button>
-        <div id="invoiceMessage" aria-live="polite"></div>
-      </article>
-      <div id="invoicesList" class="record-list"><div class="empty-state">暂无发票记录</div></div>
-    </section>
-
-    <section data-section="messages" class="hidden"><div class="page-head"><div><span class="eyebrow">MESSAGES</span><h1>消息中心</h1><p>订单通知、项目更新与留言统一显示。</p></div></div><div id="messagesList" class="record-list"><div class="empty-state">暂无消息</div></div></section>
-
-    <section data-section="members" class="hidden"><div class="page-head"><div><span class="eyebrow">MEMBERS</span><h1>账户成员</h1><p>查看当前单位账户下的成员和角色。</p></div></div><div id="membersList" class="record-list"><div class="empty-state">暂无成员信息</div></div></section>
-
-    <section data-section="account" class="hidden">
-      <div class="page-head"><div><span class="eyebrow">ACCOUNT</span><h1>客户资料与账户设置</h1><p>修改后的联系方式将在官网与小程序同步。</p></div></div>
-      <article class="panel simple-form">
-        <div class="form-grid">
-          <label class="field"><span>姓名</span><input id="profileName"></label>
-          <label class="field"><span>单位/学校</span><input id="profileOrganization"></label>
-          <label class="field"><span>手机号</span><input id="profilePhone"></label>
-          <label class="field"><span>邮箱</span><input id="profileEmail"></label>
-        </div>
-        <button class="btn btn-primary" id="saveProfileBtn" type="button">保存资料</button>
-        <div id="profileMessage" aria-live="polite"></div>
-      </article>
-    </section>
-  </main>
+<button class="app-tab" data-view="business" type="button"><b>业务进度</b><small>报价与项目</small></button>
+<button class="app-tab" data-view="files" type="button"><b>交付文件</b><small>报告与成果</small></button><button class="app-tab" data-view="messages" type="button"><b>消息中心</b><small>状态通知</small></button><button class="app-tab" data-view="account" type="button"><b>我的</b><small>资料与账户</small></button>
+</nav>
+<main class="portal-main container">
+<section data-section="home">
+<article class="account-hero">
+<div>
+<span class="eyebrow">CURRENT ACCOUNT</span>
+<h1 id="homeAccountName">当前客户账户</h1>
+<p id="homeAccountMeta">正在加载账户信息……</p>
 </div>
-
-<div id="accountModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle">
-  <div class="modal-backdrop" data-close-account-modal></div>
-  <div class="modal-panel"><button class="modal-close" data-close-account-modal type="button">×</button><h2 id="accountModalTitle">切换客户账户</h2><div id="accountList" class="account-list"><div class="empty-state">正在加载……</div></div></div>
+<a class="btn btn-light" href="../catalog.html">选择新项目</a>
+</article>
+<div aria-label="当前业务状态" class="metric-grid">
+<button class="metric-card" data-business-filter="quotes" type="button"><span>待确认报价</span><strong id="metricQuotes">0</strong><small>查看并确认报价</small></button>
+<button class="metric-card" data-business-filter="projects" type="button"><span>进行中项目</span><strong id="metricProjects">0</strong><small>查看当前进度</small></button>
+<button class="metric-card" data-business-filter="deliveries" type="button"><span>待确认交付</span><strong id="metricDeliveries">0</strong><small>下载与确认文件</small></button>
+<button class="metric-card" data-business-filter="afterSales" type="button"><span>售后处理中</span><strong id="metricAfterSales">0</strong><small>查看处理记录</small></button>
 </div>
+<section class="home-section">
+<div class="section-title"><div><h2>订单与客户服务</h2><p>下单在项目页面完成；这里查看下单后的信息。</p></div></div>
+<div class="primary-actions"><a class="service-action" href="../catalog.html"><i>⌕</i><span><strong>选择新项目</strong><small>前往官网项目页下单</small></span></a>
 
+
+<button class="service-action" data-view-target="business" type="button"><i>↗</i><span><strong>业务进度</strong><small>报价、项目与订单</small></span></button>
+<button class="service-action" data-view-target="files" type="button"><i>↓</i><span><strong>交付文件</strong><small>下载报告与成果</small></span></button>
+<button class="service-action" data-view-target="afterSales" type="button"><i>?</i><span><strong>售后服务</strong><small>提交问题和补充说明</small></span></button>
+</div>
+</section>
+<section class="home-section">
+<div class="section-title"><h2>账户与服务</h2></div>
+<div class="secondary-actions">
+<button data-open-filter="quotes" data-view-target="business" type="button"><b>报价确认</b><small>确认或申请改价</small></button>
+<button data-view-target="wallet" type="button"><b>资金账户</b><small>余额与消费流水</small></button>
+<button data-view-target="contracts" type="button"><b>合同管理</b><small>查看合同与状态</small></button>
+<button data-view-target="invoices" type="button"><b>发票管理</b><small>抬头与发票申请</small></button>
+<button data-view-target="messages" type="button"><b>消息中心</b><small>订单与项目通知</small></button>
+<button data-message-mode="project" data-view-target="messages" type="button"><b>项目留言</b><small>补充资料与沟通</small></button>
+<button data-view-target="members" type="button"><b>账户成员</b><small>查看单位成员</small></button>
+<button data-view-target="account" type="button"><b>客户资料</b><small>联系方式与设置</small></button>
+</div>
+</section>
+<section class="home-section">
+<div class="section-title"><div><h2>最近业务</h2><p>官网与小程序数据同步显示。</p></div><button class="text-button" data-view-target="business" type="button">查看全部</button></div>
+<div class="record-list" id="recentBusiness"><div class="empty-state">暂无业务记录</div></div>
+</section>
+</section>
+<section aria-hidden="true" class="hidden legacy-order-section" data-section="submit">
+<div class="page-head">
+<div><span class="eyebrow">QUICK ORDER</span><h1>填写项目需求</h1><p>项目已自动带入。选择常用选项，再用一句话说明需求即可。</p></div>
+<button class="btn btn-ghost" data-view-target="home" type="button">返回客户中心</button>
+</div>
+<article class="order-card">
+<div class="order-step"><span>1</span><div><h2>确认项目</h2><p>从项目详情进入时会自动选中，无需再次选择。</p></div></div>
+<div class="selected-project empty" id="selectedProjectCard">
+<div><small>尚未选择</small><strong>请选择服务类型和具体项目</strong><span>一个需求单对应一个具体项目，后续更容易报价和跟进。</span></div>
+<button class="btn btn-outline" id="changeProjectBtn" type="button">选择项目</button>
+</div>
+<div class="project-chooser" id="projectChooser">
+<div class="service-type-row" id="serviceTypeCards">
+<button data-service-type="AI项目" type="button">AI项目</button>
+<button data-service-type="计算模拟" type="button">计算模拟</button>
+<button data-service-type="分析表征" type="button">分析表征</button>
+<button data-service-type="耗材仪器" type="button">耗材仪器</button>
+</div>
+<label class="search-field"><span>搜索项目</span><input id="projectSearch" placeholder="输入项目名称、编号或分类" type="search"/></label>
+<div class="project-list" id="projectList"></div>
+</div>
+<div class="hidden" id="orderFormArea">
+<div class="order-step"><span>2</span><div><h2>选择常用选项</h2><p>只保留影响评估和报价的必要信息；不确定的选项可以不填。</p></div></div>
+<div class="quick-fields" id="quickFields"></div>
+<label class="field full description-field">
+<span>一句话说明需求 *</span>
+<textarea id="requestDescription" placeholder="例如：希望比较不同材料的吸附性能，并输出能量、电子结构和高分辨率图片；已有 CIF 结构文件。"></textarea>
+</label>
+<div class="form-grid contact-grid">
+<label class="field"><span>联系人 *</span><input id="orderContactName"/></label>
+<label class="field"><span>单位/学校</span><input id="orderOrganization"/></label>
+<label class="field"><span>手机号</span><input id="orderPhone" inputmode="tel"/></label>
+<label class="field"><span>邮箱</span><input id="orderEmail" inputmode="email"/></label>
+<label class="field"><span>期望完成日期</span><span class="date-wrap"><input id="orderExpectedDate" type="date"/></span></label>
+<label class="field"><span>预算范围（选填）</span><input id="orderBudget" placeholder="如 ¥3,000–5,000 / 待评估"/></label>
+</div>
+<label class="field full attachment-field"><span>上传资料（选填）</span><input accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz" id="attachments" multiple="" type="file"/><small>支持 Word、PDF、Excel、图片、压缩包及常用结构文件；单文件不超过 5 MB。</small></label>
+<details class="backup-template" id="advancedDetails">
+<summary><span><strong>专业模板（备选）</strong><small>只有需要补充专业参数时再展开；默认不用填。</small></span><b>展开</b></summary>
+<div class="backup-actions">
+<button class="btn btn-outline" id="downloadTemplateBtn" type="button">下载对应 Word 模板</button>
+<label class="form-switch"><input id="advancedMode" type="checkbox"/><span>在线填写详细模板</span></label>
+</div>
+<div class="form-grid hidden" id="advancedFields"></div>
+</details>
+<div aria-live="polite" id="submitMessage"></div>
+</div>
+</article>
+<div class="order-bar hidden" id="orderBar">
+<div><small>当前项目</small><strong id="orderBarProject">未选择</strong><span id="orderBarPrice">价格由技术人员评估</span></div>
+<div class="order-bar-actions">
+<button class="btn btn-outline" id="submitRequirementBtn" type="button">提交需求</button>
+<button class="btn btn-primary" id="submitAndWordBtn" type="button">提交并生成 Word</button>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="hidden legacy-order-section" data-section="cart">
+<div class="page-head cart-page-head">
+<div><span class="eyebrow">DIRECT ORDER</span><h1>确认需求清单</h1><p>像购物车一样选择多个项目，联系人只填写一次。科研服务由技术人员评估后确认正式报价。</p></div>
+<a class="btn btn-ghost" href="../catalog.html">继续选择项目</a>
+</div>
+<div class="cart-layout">
+<article class="panel cart-panel">
+<div class="cart-title"><div><h2>已选项目</h2><p>可修改数量和补充每个项目的具体要求。</p></div><button class="text-button" id="clearCartBtn" type="button">清空清单</button></div>
+<div class="cart-items" id="cartItems"><div class="empty-state">需求清单为空</div></div>
+</article>
+<aside class="panel checkout-panel">
+<div class="checkout-title"><span>提交订单</span><strong id="cartSummary">共 0 个项目</strong><small>已定价项目显示小计，其余项目提交后评估。</small></div>
+<div class="form-grid cart-contact-grid">
+<label class="field"><span>联系人 *</span><input id="cartContactName"/></label>
+<label class="field"><span>单位/学校</span><input id="cartOrganization"/></label>
+<label class="field"><span>手机号</span><input id="cartPhone" inputmode="tel"/></label>
+<label class="field"><span>邮箱</span><input id="cartEmail" inputmode="email"/></label>
+<label class="field"><span>期望完成日期</span><input id="cartExpectedDate" type="date"/></label>
+<label class="field"><span>预算范围</span><input id="cartBudget" placeholder="选填，如 ¥5,000–10,000"/></label>
+<label class="field full"><span>总体研究目标/补充说明 *</span><textarea id="cartDescription" placeholder="例如：希望将三个计算项目用于同一篇论文，结构文件已整理；具体参数请技术人员评估。"></textarea></label>
+<label class="field full attachment-field"><span>统一上传资料（选填）</span><input accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz" id="cartAttachments" multiple="" type="file"/><small>文件逐个上传至云存储；单文件不超过 5 MB，最多 10 个。</small></label>
+</div>
+<label class="checkout-consent"><input checked="" id="cartConsent" type="checkbox"/><span>我确认联系方式与需求内容准确，同意由技术人员评估并联系确认报价。</span></label>
+<div class="checkout-actions">
+<button class="btn btn-outline" id="cartSubmitBtn" type="button">直接下单</button>
+<button class="btn btn-primary" id="cartSubmitWordBtn" type="button">下单并生成 Word</button>
+</div>
+<div aria-live="polite" id="cartMessage"></div>
+</aside>
+</div>
+</section>
+<section class="hidden" data-section="business">
+<div class="page-head"><div><span class="eyebrow">BUSINESS</span><h1>业务进度</h1><p>查看待确认报价、进行中项目、交付与售后。</p></div><a class="btn btn-primary" href="../catalog.html">选择新项目</a></div>
+<div class="filter-tabs" id="businessTabs">
+<button class="active" data-filter="all" type="button">全部</button>
+<button data-filter="quotes" type="button">待确认报价</button>
+<button data-filter="projects" type="button">进行中项目</button>
+<button data-filter="deliveries" type="button">待确认交付</button>
+<button data-filter="afterSales" type="button">售后处理中</button>
+</div>
+<div class="record-list" id="businessList"><div class="empty-state">正在加载……</div></div>
+</section>
+<section class="hidden" data-section="files">
+<div class="page-head"><div><span class="eyebrow">DELIVERIES</span><h1>交付文件</h1><p>下载项目报告、原始数据和其他交付成果。</p></div></div>
+<div class="record-list" id="filesList"><div class="empty-state">暂无交付文件</div></div>
+</section>
+<section class="hidden" data-section="afterSales">
+<div class="page-head"><div><span class="eyebrow">AFTER SALES</span><h1>售后服务</h1><p>选择关联业务并说明问题，我们会同步到小程序与管理端。</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>关联业务编号</span><input id="afterSaleBusinessNo" placeholder="订单号/项目号/需求号"/></label>
+<label class="field"><span>问题类型</span><select id="afterSaleType"><option>结果咨询</option><option>文件补充</option><option>数据问题</option><option>进度问题</option><option>发票合同</option><option>其他</option></select></label>
+<label class="field full"><span>问题说明 *</span><textarea id="afterSaleDescription" placeholder="请说明需要协助处理的内容"></textarea></label>
+</div>
+<button class="btn btn-primary" id="createAfterSaleBtn" type="button">提交售后申请</button>
+<div aria-live="polite" id="afterSaleMessage"></div>
+</article>
+<div class="record-list" id="afterSalesList"><div class="empty-state">暂无售后记录</div></div>
+</section>
+<section class="hidden" data-section="wallet">
+<div class="page-head"><div><span class="eyebrow">WALLET</span><h1>资金账户</h1><p>余额由充值、消费、退款和调整流水自动计算。</p></div></div>
+<article class="balance-card"><small>可用余额</small><strong id="walletBalance">¥0.00</strong><p id="walletTotals">累计充值 ¥0.00｜累计消费 ¥0.00｜累计退款 ¥0.00</p></article>
+<div class="record-list" id="walletTransactions"><div class="empty-state">暂无资金流水</div></div>
+</section>
+<section class="hidden" data-section="contracts"><div class="page-head"><div><span class="eyebrow">CONTRACTS</span><h1>合同管理</h1><p>查看合同编号、签署状态和文件。</p></div></div><div class="record-list" id="contractsList"><div class="empty-state">暂无合同</div></div></section>
+<section class="hidden" data-section="invoices">
+<div class="page-head"><div><span class="eyebrow">INVOICES</span><h1>发票管理</h1><p>管理发票抬头并提交开票申请。</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>发票抬头</span><input id="invoiceTitle"/></label>
+<label class="field"><span>统一社会信用代码</span><input id="invoiceTaxNo"/></label>
+<label class="field"><span>关联业务编号</span><input id="invoiceBusinessNo"/></label>
+<label class="field"><span>开票金额</span><input id="invoiceAmount" inputmode="decimal" placeholder="元"/></label>
+</div>
+<button class="btn btn-primary" id="createInvoiceBtn" type="button">提交发票申请</button>
+<div aria-live="polite" id="invoiceMessage"></div>
+</article>
+<div class="record-list" id="invoicesList"><div class="empty-state">暂无发票记录</div></div>
+</section>
+<section class="hidden" data-section="messages"><div class="page-head"><div><span class="eyebrow">MESSAGES</span><h1>消息中心</h1><p>订单通知、项目更新与留言统一显示。</p></div></div><div class="record-list" id="messagesList"><div class="empty-state">暂无消息</div></div></section>
+<section class="hidden" data-section="members"><div class="page-head"><div><span class="eyebrow">MEMBERS</span><h1>账户成员</h1><p>查看当前单位账户下的成员和角色。</p></div></div><div class="record-list" id="membersList"><div class="empty-state">暂无成员信息</div></div></section>
+<section class="hidden" data-section="account">
+<div class="page-head"><div><span class="eyebrow">ACCOUNT</span><h1>客户资料与账户设置</h1><p>修改后的联系方式将在官网与小程序同步。</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>姓名</span><input id="profileName"/></label>
+<label class="field"><span>单位/学校</span><input id="profileOrganization"/></label>
+<label class="field"><span>手机号</span><input id="profilePhone"/></label>
+<label class="field"><span>邮箱</span><input id="profileEmail"/></label>
+</div>
+<button class="btn btn-primary" id="saveProfileBtn" type="button">保存资料</button>
+<div aria-live="polite" id="profileMessage"></div>
+</article>
+</section>
+</main>
+</div>
+<div aria-labelledby="accountModalTitle" aria-modal="true" class="modal hidden" id="accountModal" role="dialog">
+<div class="modal-backdrop" data-close-account-modal=""></div>
+<div class="modal-panel"><button class="modal-close" data-close-account-modal="" type="button">×</button><h2 id="accountModalTitle">切换客户账户</h2><div class="account-list" id="accountList"><div class="empty-state">正在加载……</div></div></div>
+</div>
 <script src="assets/js/config.js"></script>
-<script src="assets/js/portal.js?v=20260722-v921"></script>
-<script src="assets/js/cart.js?v=20260722-v921"></script>
+<script src="assets/js/portal.js?v=20260722-v930"></script>
+
 </body>
 </html>

@@ -94,7 +94,7 @@
     $('#portalContent')?.classList.remove('hidden');
     $('#logoutBtn')?.classList.remove('hidden');
     await loadInitialData();
-    setView(state.initialView || (state.selectedProject ? 'submit' : 'home'));
+    setView('home');
   }
 
   function viewGroup(view) {
@@ -104,6 +104,7 @@
   }
 
   function setView(view) {
+    if (view === 'submit' || view === 'cart') view = 'home';
     const section = $(`[data-section="${view}"]`);
     if (!section) view = 'home';
     $$('[data-section]').forEach(item => item.classList.toggle('hidden', item.dataset.section !== view));
@@ -223,7 +224,7 @@
     if (!state.selectedProject) return;
     const title = $('.auth-copy h1');
     const paragraph = $('.auth-copy p');
-    if (title) title.textContent = '登录后直接填写需求';
+    if (title) title.textContent = '登录查看订单与项目进度';
     if (paragraph) paragraph.innerHTML = `已选择：<strong>${escapeHtml(state.selectedProject.service)}</strong>。登录或注册后，项目会自动带入，无需重新查找。`;
   }
 
@@ -609,7 +610,8 @@
   }
 
   async function loadInitialData() {
-    await Promise.all([loadDashboard(), loadBusinessData(), loadProfile()]);
+    await loadDashboard();
+    loadBusinessData();
   }
 
   async function loadDashboard() {
