@@ -138,7 +138,7 @@
 
   function fixTemplatePaths() {
     const map = {
-      'ai-general': 'templates/AI项目需求表.docx',
+      'ai-general': 'templates/HQTD-AI-Project-Requirement-Form.docx',
       'calc-general': 'templates/模拟计算需求单-动态参考模板.docx',
       'supplies-general': 'templates/耗材仪器采购需求表.docx'
     };

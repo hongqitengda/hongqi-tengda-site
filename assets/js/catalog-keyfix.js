@@ -2,6 +2,8 @@
 'use strict';
 const data=Array.isArray(window.HQTD_CATALOG_DATA)?window.HQTD_CATALOG_DATA:[];
 const $=id=>document.getElementById(id);
+const boardCounts=data.reduce((map,item)=>{const key=String(item.board||'').trim();if(key)map[key]=(map[key]||0)+1;return map;},{});
+document.querySelectorAll('[data-board-count]').forEach(node=>{node.textContent=Number(boardCounts[node.dataset.boardCount]||0).toLocaleString('zh-CN');});
 const el={search:$('search-input'),submit:$('search-submit'),clear:$('clear-search'),board:$('board-filter'),category:$('category-filter'),price:$('price-filter'),sort:$('sort-filter'),reset:$('reset-filters'),grid:$('results-grid'),summary:$('result-summary'),active:$('active-filters'),pagination:$('pagination'),empty:$('empty-state'),gridView:$('grid-view'),listView:$('list-view'),custom:$('custom-project-modal'),keyword:$('custom-project-keyword')};
 if(!data.length||!el.search||!el.grid){if(el.summary)el.summary.textContent='项目数据加载失败，请刷新页面。';return;}
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

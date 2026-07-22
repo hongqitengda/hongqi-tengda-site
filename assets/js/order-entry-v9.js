@@ -8,7 +8,7 @@
   const isProjectPage = /\/project\/[a-z]+-\d+\.html$/i.test(location.pathname);
   const isHomePage = /\/(?:index\.html)?$/i.test(location.pathname) && !/\/project\//i.test(location.pathname);
 
-  if (isHomePage) enhanceHomeCustomerCenter();
+  enhanceGlobalCustomerCenter();
   if (!isProjectPage || document.querySelector('.hqtd-order-shell')) return;
 
   const project = readProject();
@@ -55,15 +55,15 @@
     return data;
   }
 
-  function enhanceHomeCustomerCenter() {
-    const old = [...document.querySelectorAll('a[href^="customer-portal"]')].find(a => /客户注册|在线下单|客户中心/.test(a.textContent));
-    if (!old) return;
-    old.className = 'hqtd-home-customer-center';
+  function enhanceGlobalCustomerCenter() {
+    let old = [...document.querySelectorAll('a[href*="customer-portal"]')].find(a => /客户注册|在线下单|客户中心/.test(a.textContent));
+    if (!old) { old = document.createElement('a'); old.href = new URL('customer-portal/', document.baseURI).href; document.body.appendChild(old); }
+    old.className = 'hqtd-global-customer-center';
     old.removeAttribute('style');
     old.setAttribute('aria-label', '进入客户中心查看订单、报价、进度和文件');
     old.innerHTML = '<span>客户中心</span><small>订单 · 报价 · 进度 · 文件</small>';
     const nav = document.querySelector('.unified-site-nav');
-    if (nav) nav.insertBefore(old, nav.firstChild);
+    if (nav && old.parentElement !== nav) nav.insertBefore(old, nav.firstChild);
   }
 
   function injectShell() {
@@ -152,6 +152,14 @@
       link.textContent = '下载 Word 表格（备选）';
       location.href = link.href;
     });
+    body.querySelectorAll('[data-fill-mode]').forEach(button => button.addEventListener('click', () => {
+      body.querySelectorAll('[data-fill-mode]').forEach(x => x.classList.toggle('active', x === button));
+      body.dataset.fillMode = button.dataset.fillMode;
+      const online = button.dataset.fillMode === 'online';
+      body.querySelector('.hqtd-form-grid')?.toggleAttribute('hidden', !online);
+      body.querySelector('.hqtd-word-mode')?.toggleAttribute('hidden', online);
+    }));
+    body.dataset.fillMode = 'online';
     body.querySelector('[data-form-cart]')?.addEventListener('click', () => saveProjectForm(false));
     body.querySelector('[data-form-submit]')?.addEventListener('click', () => saveProjectForm(true));
   }
@@ -159,7 +167,7 @@
   function buildProjectForm(item) {
     const template = templateUrl(item);
     const templateBlock = item.serviceType === '耗材仪器' ? '' : `
-      <div class="hqtd-fill-mode"><div class="active"><b>在线填写</b><span>推荐 · 约 1 分钟</span></div><a href="${escapeHtml(template)}" data-template-link download><b>Word 填写</b><span>下载填写后上传</span></a></div>`;
+      <div class="hqtd-fill-mode"><button type="button" class="active" data-fill-mode="online"><b>在线填写</b><span>填写后自动生成 Word/PDF</span></button><button type="button" data-fill-mode="word"><b>Word 填写</b><span>下载模板后直接上传</span></button></div><div class="hqtd-word-mode" hidden><a href="${escapeHtml(template)}" data-template-link download>下载当前 Word 模板</a><label class="hqtd-upload"><span>上传填写后的 Word <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx"></label></div>`;
     let fields = '';
     if (item.serviceType === 'AI项目') {
       fields = `
@@ -189,6 +197,9 @@
 
   function collectProjectForm() {
     const files = [...(document.getElementById('hqtdFiles')?.files || [])];
+    const fillMethod = document.getElementById('hqtdPanelBody')?.dataset.fillMode || 'online';
+    const wordFile = document.getElementById('hqtdWordFile')?.files?.[0];
+    if (fillMethod === 'word') { if (!wordFile) throw new Error('请下载并填写 Word 模板后上传'); files.push(wordFile); return { ...project, qty: 1, note: '客户使用填写后的Word模板提交', details: { fillMethod: 'word' }, files, fillMethod, cartKey: `${project.id}-${Date.now()}` }; }
     let note = '';
     const details = {};
     if (project.serviceType === 'AI项目') {
@@ -212,7 +223,7 @@
       details.testNeed = value('hqtdNeed') || '常规测试，请技术人员评估参数';
       note = `样品数量：${count}\n样品状态：${details.sampleState}\n测试要求：${details.testNeed}`;
     }
-    return { ...project, qty: project.serviceType === '分析表征' ? Number(details.sampleCount || 1) : 1, note, details, files, cartKey: `${project.id}-${Date.now()}` };
+    return { ...project, fillMethod, qty: project.serviceType === '分析表征' ? Number(details.sampleCount || 1) : 1, note, details, files, cartKey: `${project.id}-${Date.now()}` };
   }
 
   function saveProjectForm(submitNow) {
@@ -303,7 +314,7 @@
       const payloadItems = items.map(item => ({
         id: item.id, title: item.title, name: item.title, board: item.serviceType, serviceType: item.serviceType,
         category: item.category || '', qty: Math.max(1, Number(item.qty || 1)), price: Math.max(0, Number(item.price || 0)), unit: item.unit || '项',
-        note: [item.note || '', overallNote || ''].filter(Boolean).join('\n')
+        note: [item.note || '', overallNote || ''].filter(Boolean).join('\n'), details: item.details || {}, fillMethod: item.fillMethod || 'online'
       }));
       const description = items.map((item, i) => `${i + 1}. ${item.title} × ${Math.max(1, Number(item.qty || 1))}${item.note ? `\n${item.note}` : ''}`).join('\n\n');
       const result = await api('createOrder', {
@@ -311,10 +322,15 @@
         serviceType: items.length === 1 ? items[0].serviceType : '官网综合订单',
         projectName: items.length === 1 ? items[0].title : `综合订单（${items.length}种）`,
         description, details: description, items: payloadItems, cartItems: payloadItems,
-        sourcePage: location.href, clientVersion: 'web-10.0.0-simple'
+        sourcePage: location.href, clientVersion: 'web-10.2.0-dynamic-docs'
       });
       const recordId = result.order?.id || result.requirementId || result.id || '';
       const demandNo = result.businessNo || result.demandNo || result.order?.demandNo || '已提交';
+      const onlineItem = items.length === 1 && (items[0].fillMethod || 'online') === 'online' ? items[0] : null;
+      if (onlineItem && ['AI项目','计算模拟','分析表征'].includes(onlineItem.serviceType)) {
+        const type = onlineItem.serviceType === 'AI项目' ? 'ai' : onlineItem.serviceType === '计算模拟' ? 'calculation' : 'analysis';
+        api('generateRequirementDocuments', { type, demandNo: demandNo, form: { demandNo, projectName: onlineItem.title, name, phone, organization, description: onlineItem.note, ...(onlineItem.details || {}) } }).catch(() => {});
+      }
       const files = state.checkoutFiles || [];
       setMessage(successHtml(demandNo, files.length ? `订单已创建，${files.length} 个附件正在后台上传` : '技术人员将尽快评估'), 'success', true);
       if (button) { button.disabled = false; button.textContent = '提交成功'; }
@@ -387,9 +403,9 @@
   }
 
   function templateUrl(item) {
-    if (item.serviceType === 'AI项目') return new URL('customer-portal/templates/AI项目需求表.docx', document.baseURI).href;
-    if (item.serviceType === '计算模拟') return new URL('customer-portal/templates/模拟计算需求单-动态参考模板.docx', document.baseURI).href;
-    if (item.serviceType === '分析表征') return new URL('customer-portal/templates/analysis/A01.docx', document.baseURI).href;
+    if (item.serviceType === 'AI项目') return new URL('customer-portal/templates/HQTD-AI-Project-Requirement-Form.docx', document.baseURI).href;
+    if (item.serviceType === '计算模拟') return new URL('customer-portal/templates/HQTD-Simulation-Requirement-Form.docx', document.baseURI).href;
+    if (item.serviceType === '分析表征') return new URL('customer-portal/templates/HQTD-Analysis-Sample-Form.docx', document.baseURI).href;
     return new URL('customer-portal/templates/耗材仪器采购需求表.docx', document.baseURI).href;
   }
 
