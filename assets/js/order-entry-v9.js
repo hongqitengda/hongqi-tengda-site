@@ -62,6 +62,8 @@
     old.removeAttribute('style');
     old.setAttribute('aria-label', '进入客户中心查看订单、报价、进度和文件');
     old.innerHTML = '<span>客户中心</span><small>订单 · 报价 · 进度 · 文件</small>';
+    const nav = document.querySelector('.unified-site-nav');
+    if (nav) nav.insertBefore(old, nav.firstChild);
   }
 
   function injectShell() {
@@ -157,7 +159,7 @@
   function buildProjectForm(item) {
     const template = templateUrl(item);
     const templateBlock = item.serviceType === '耗材仪器' ? '' : `
-      <div class="hqtd-template-backup"><div><strong>也可以下载 Word 填写</strong><span>在线填写更快；Word 填好后在附件处上传即可。</span></div><a href="${escapeHtml(template)}" data-template-link download>下载 Word 表格（备选）</a></div>`;
+      <div class="hqtd-fill-mode"><div class="active"><b>在线填写</b><span>推荐 · 约 1 分钟</span></div><a href="${escapeHtml(template)}" data-template-link download><b>Word 填写</b><span>下载填写后上传</span></a></div>`;
     let fields = '';
     if (item.serviceType === 'AI项目') {
       fields = `
@@ -171,7 +173,9 @@
       fields = `
         <label class="hqtd-field"><span>样品数量 <em>*</em></span><input id="hqtdSampleCount" type="number" min="1" max="999" value="1"></label>
         <label class="hqtd-field"><span>样品状态</span><select id="hqtdSampleState"><option>粉末</option><option>块体</option><option>薄膜/涂层</option><option>液体/分散液</option><option>其他</option></select></label>
-        <label class="hqtd-field full"><span>测试要求</span><textarea id="hqtdNeed" maxlength="1500" placeholder="可直接写“常规测试，请技术人员评估参数”。"></textarea></label>`;
+        <label class="hqtd-field full"><span>主要成分/化学式</span><input id="hqtdComposition" maxlength="300" placeholder="例如：TiO₂；不清楚可写未知"></label>
+        <fieldset class="hqtd-choice-group full"><legend>样品危险性</legend><label><input type="radio" name="hqtdHazard" value="无毒、无危险性" checked> 无毒、无危险性</label><label><input type="radio" name="hqtdHazard" value="有毒/易燃易爆/腐蚀性"> 有毒、易燃易爆或腐蚀性</label><label><input type="radio" name="hqtdHazard" value="不确定，请评估"> 不确定，请评估</label></fieldset>
+        <label class="hqtd-field full"><span>测试参数/分析要求</span><textarea id="hqtdNeed" maxlength="1500" placeholder="可直接写“常规测试，请技术人员评估参数”。"></textarea></label>`;
     }
     return `
       <div class="hqtd-selected-project"><b>${escapeHtml(item.id)}</b><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || item.serviceType)}${item.priceText ? ` · ${escapeHtml(item.priceText)}` : ''}</span></div></div>
@@ -307,19 +311,22 @@
         serviceType: items.length === 1 ? items[0].serviceType : '官网综合订单',
         projectName: items.length === 1 ? items[0].title : `综合订单（${items.length}种）`,
         description, details: description, items: payloadItems, cartItems: payloadItems,
-        sourcePage: location.href, clientVersion: 'web-9.3.0-simple'
+        sourcePage: location.href, clientVersion: 'web-10.0.0-simple'
       });
       const recordId = result.order?.id || result.requirementId || result.id || '';
       const demandNo = result.businessNo || result.demandNo || result.order?.demandNo || '已提交';
       const files = state.checkoutFiles || [];
+      setMessage(successHtml(demandNo, files.length ? `订单已创建，${files.length} 个附件正在后台上传` : '技术人员将尽快评估'), 'success', true);
+      if (button) { button.disabled = false; button.textContent = '提交成功'; }
+      state.submitting = false;
+      showToast(`提交成功：${demandNo}`);
       if (files.length) {
-        setMessage(`订单已创建：${escapeHtml(demandNo)}。正在上传 ${files.length} 个附件…`, 'success');
-        const failures = await uploadFiles(files, recordId, phone);
-        if (failures.length) setMessage(`订单已提交：${escapeHtml(demandNo)}。${failures.length} 个附件上传失败，可进入客户中心补充。`, 'warning');
-        else setMessage(successHtml(demandNo, '附件已上传完成'), 'success', true);
-      } else {
-        setMessage(successHtml(demandNo, '技术人员将尽快评估'), 'success', true);
+        Promise.resolve().then(() => uploadFiles(files, recordId, phone)).then(failures => {
+          if (failures.length) showToast(`${failures.length} 个附件未上传，可在客户中心补充`);
+          else showToast('附件上传完成');
+        }).catch(() => showToast('附件上传未完成，可在客户中心补充'));
       }
+      setTimeout(closePanel, 900);
       if ((state.checkoutItems || []).length > 1 || readCart().length) writeCart([]);
     } catch (error) {
       setMessage(error.message || '提交失败，请稍后重试', 'error');
@@ -336,10 +343,8 @@
 
   async function uploadFiles(files, requirementId, phone) {
     const list = files.slice(0, 5);
-    const failures = [];
-    for (let i = 0; i < list.length; i += 1) {
-      const file = list[i];
-      if (file.size > 5 * 1024 * 1024) { failures.push(file.name); continue; }
+    const tasks = list.map(async file => {
+      if (file.size > 5 * 1024 * 1024) return file.name;
       try {
         const url = new URL(API_URL);
         url.searchParams.set('action', 'uploadAttachment');
@@ -355,10 +360,11 @@
           body: file
         });
         const result = await response.json().catch(() => ({ ok: false, message: '附件上传失败' }));
-        if (!response.ok || result.ok === false) throw new Error(result.message || '附件上传失败');
-      } catch (_) { failures.push(file.name); }
-    }
-    return failures;
+        if (!response.ok || result.ok === false) return file.name;
+        return '';
+      } catch (_) { return file.name; }
+    });
+    return (await Promise.all(tasks)).filter(Boolean);
   }
 
   async function api(action, data = {}) {
