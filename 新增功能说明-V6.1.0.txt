@@ -1,0 +1,10 @@
+本包以 hongqi-tengda-site(5).zip 为唯一官网基础。
+原官网页面、文字、图片、项目、目录和样式均保留；未使用新页面替换原 index.html。
+仅新增：
+1. customer-portal/ 客户注册、登录、动态下单与文件上传模块；
+2. 分析表征、模拟计算、AI项目、耗材采购 Word 模板；
+3. _backend-deploy/ webPortal 后端部署文件；
+4. 首页右下角“客户注册 / 在线下单”入口。
+
+上传 GitHub：将本目录中的全部内容复制到现有仓库根目录。不要上传外层文件夹。
+注意：_backend-deploy 不属于 GitHub Pages 前端运行文件，建议部署完成后从公开仓库移除，或放入私有仓库。

@@ -1,0 +1,19 @@
+红祺腾达分析表征送样单合集（无价格信息）
+
+编制原则：
+1. 依据红祺腾达官网“分析表征”项目及其分类进行测试方法归并。
+2. 同一仪器/方法的不同规格合并为一张表，例如XRD、XPS、热分析、电化学等。
+3. 所有价格、报价、收费、金额和税费信息均已删除。
+4. 注意事项参考公开的大学公共仪器平台、仪器厂商基础指南和通用实验室安全要求；实际样品要求以最终承检实验室和具体仪器型号为准。
+
+部分公开参考来源：
+- Yale West Campus Materials Characterization Core: XRD Sample Preparation
+- Yale Materials Characterization Core: XPS SOP / powder mounting and vacuum requirements
+- Iowa State University Chemical Instrumentation Facility: NMR sample preparation
+- MIT DMSE Breakerspace: FTIR ATR sample preparation
+- North Carolina State University Analytical Services Lab: TGA sample requirements
+- Arizona State University Core Facilities: BET surface area and porosity analysis
+- University of Minnesota / Cornell University NMR facilities: NMR sample preparation
+- Thermo Fisher / Shimadzu chromatography learning resources: HPLC basics and sample compatibility
+
+重要：本合集为送样信息收集模板，不替代实验室安全审核、方法确认和正式委托协议。

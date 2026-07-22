@@ -1,0 +1,7111 @@
+{
+  "version": "2026.07.22-V5.0.0",
+  "numbering": {
+    "format": "HQTD-{PROJECT}-{YYYYMMDDHHmmss}-{SEQ}",
+    "sequenceStart": 1,
+    "sequenceWidth": 3,
+    "projectCodes": {
+      "AI项目": "AI",
+      "计算模拟": "JS",
+      "分析表征": "FX",
+      "耗材仪器": "HC"
+    },
+    "examples": [
+      "HQTD-JS-20260721213045-001",
+      "HQTD-FX-20260721213045-001"
+    ]
+  },
+  "documentPolicy": {
+    "preserveOriginalWordFormat": true,
+    "dateFormat": "YYYY年MM月DD日",
+    "watermarkText": "上海红祺腾达信息技术有限公司",
+    "sealMode": "seal_over_company_date",
+    "sealPosition": "bottom_right",
+    "sealSizeMm": 42,
+    "logoAsset": "assets/images/hqtd-logo.png",
+    "sealAsset": "assets/images/company-seal.png"
+  },
+  "databaseMapping": {
+    "collection": "requirements",
+    "common": {
+      "businessNo": "demandNo",
+      "serviceType": "serviceType",
+      "projectCode": "projectCode",
+      "templateKey": "documentProfile.templateKey",
+      "templateName": "documentProfile.templateName",
+      "source": "source",
+      "accountId": "accountId",
+      "openid": "openid",
+      "formData": "formData",
+      "attachments": "attachments",
+      "exportStatus": "documentProfile.exportStatus",
+      "createdAt": "createdAt",
+      "updatedAt": "updatedAt"
+    },
+    "orderCollection": "orders",
+    "quoteCollection": "quotes",
+    "accountCollection": "customer_accounts",
+    "customerCollection": "customers"
+  },
+  "templates": [
+    {
+      "key": "ai-general",
+      "serviceType": "AI项目",
+      "projectCode": "AI",
+      "title": "AI科研项目需求表",
+      "category": "AI项目",
+      "originalPath": "templates/original/AI项目需求表.docx",
+      "interfaceOnly": false,
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "projectName",
+          "label": "项目名称",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "aiDirection",
+          "label": "AI项目方向",
+          "type": "select",
+          "required": true,
+          "options": [
+            "机器学习预测",
+            "科研数据分析",
+            "图像识别与分割",
+            "大语言模型与智能体",
+            "科研数据库",
+            "科研软件/小程序",
+            "自动化数据处理",
+            "其他定制项目"
+          ]
+        },
+        {
+          "key": "projectBackground",
+          "label": "项目背景与研究目标",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "dataStatus",
+          "label": "现有数据情况",
+          "type": "select",
+          "required": true,
+          "options": [
+            "已有完整数据",
+            "已有部分数据",
+            "暂无数据，需要先评估",
+            "数据涉及保密"
+          ]
+        },
+        {
+          "key": "datasets",
+          "label": "数据集或功能模块明细",
+          "type": "table",
+          "required": false,
+          "columns": [
+            {
+              "key": "name",
+              "label": "数据集/模块"
+            },
+            {
+              "key": "format",
+              "label": "数据格式"
+            },
+            {
+              "key": "volume",
+              "label": "数据量"
+            },
+            {
+              "key": "target",
+              "label": "目标变量/功能"
+            },
+            {
+              "key": "remark",
+              "label": "备注"
+            }
+          ]
+        },
+        {
+          "key": "expectedDeliverables",
+          "label": "预期成果",
+          "type": "multiselect",
+          "required": true,
+          "options": [
+            "预测模型",
+            "分析报告",
+            "可视化图表",
+            "源代码",
+            "网页演示",
+            "小程序",
+            "软件工具",
+            "方法验证"
+          ]
+        },
+        {
+          "key": "targetMetrics",
+          "label": "目标指标或验收要求",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "deploymentRequirements",
+          "label": "部署环境与交付要求",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "sourceCodeRequired",
+          "label": "是否需要源代码",
+          "type": "select",
+          "required": false,
+          "options": [
+            "需要",
+            "不需要",
+            "待沟通"
+          ]
+        },
+        {
+          "key": "confidentialityRequirements",
+          "label": "保密要求",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "otherRequirements",
+          "label": "其他要求",
+          "type": "textarea",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "calc-general",
+      "serviceType": "计算模拟",
+      "projectCode": "JS",
+      "title": "模拟计算要求",
+      "category": "计算模拟",
+      "originalPath": "templates/original/模拟计算要求-模板.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "calculationPurpose",
+          "label": "一、计算主要目的",
+          "type": "textarea",
+          "required": true,
+          "dbPath": "formData.calculationPurpose",
+          "placeholder": "说明希望通过模拟计算解决的科学问题和预期结论。"
+        },
+        {
+          "key": "basicInformation",
+          "label": "二、计算基本信息",
+          "type": "textarea",
+          "required": true,
+          "dbPath": "formData.basicInformation",
+          "placeholder": "材料、晶面、结构文件、取代方式、官能团、实验数据等。"
+        },
+        {
+          "key": "calculationRequirements",
+          "label": "三、明确计算需求",
+          "type": "textarea",
+          "required": true,
+          "dbPath": "formData.calculationRequirements",
+          "placeholder": "吸附构型、结合能、DOS/PDOS、电荷、ELF、反应路径等。"
+        },
+        {
+          "key": "referencesAndFigures",
+          "label": "四、参考文献及参考出图样式",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.referencesAndFigures"
+        },
+        {
+          "key": "otherRequirements",
+          "label": "五、其他要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.otherRequirements"
+        }
+      ]
+    },
+    {
+      "key": "analysis-01",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "SEM扫描电镜与EDS能谱",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □薄膜/涂层   □纤维   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "观察部位",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□表面   □截面   □断面   □颗粒   □指定区域：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□SEM形貌   □EDS点扫   □EDS线扫   □EDS Mapping"
+        },
+        {
+          "key": "field_06",
+          "label": "倍率/尺度需求",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "最低倍率：________   最高倍率：________   □由实验室选择"
+        },
+        {
+          "key": "field_07",
+          "label": "导电处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□可喷金/铂   □可喷碳   □不可喷镀   □低真空模式"
+        },
+        {
+          "key": "field_08",
+          "label": "样品磁性/易变质",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无磁   □有磁/不确定   □易变质（条件）：________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 已测试、前处理或消耗部分通常无法完整回收"
+        }
+      ]
+    },
+    {
+      "key": "analysis-02",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "TEM透射电镜与电子衍射",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □液体分散液   □块体   □薄膜   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "样品磁性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□无磁   □弱磁   □强磁   □不确定"
+        },
+        {
+          "key": "field_05",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□TEM形貌   □HRTEM晶格   □SAED   □STEM   □EDS Mapping"
+        },
+        {
+          "key": "field_06",
+          "label": "制样方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□滴网   □FIB   □离子减薄   □电解双喷   □包埋切片"
+        },
+        {
+          "key": "field_07",
+          "label": "分散/稀释要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "分散介质：________   稀释倍数：________   □由实验室确定"
+        },
+        {
+          "key": "field_08",
+          "label": "云现场沟通",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□需要云现场   联系人：________   电话/微信：________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 已测试、前处理或消耗部分通常无法完整回收"
+        }
+      ]
+    },
+    {
+      "key": "analysis-03",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "AFM与扫描探针显微镜",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□薄膜   □块体   □晶片   □纤维   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□形貌/粗糙度   □台阶高度/膜厚   □KPFM   □PFM   □MFM   □EFM"
+        },
+        {
+          "key": "field_05",
+          "label": "扫描区域",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□1×1 μm   □5×5 μm   □10×10 μm   □指定：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "关注参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□Ra/Rq   □高度分布   □相位   □电势   □磁畴   □其他：________"
+        },
+        {
+          "key": "field_07",
+          "label": "表面与基底",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "表面处理：________________   基底：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "导电/磁性信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□绝缘   □导电   □半导体   □有磁   □不确定"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 测试一般为微损或无损；污染、探针接触可能改变软质表面"
+        }
+      ]
+    },
+    {
+      "key": "analysis-04",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "光学显微与激光共聚焦",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□块体   □薄膜   □粉末固定样   □纤维   □生物样   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□体视显微   □明场   □暗场   □偏光   □激光共聚焦   □超景深"
+        },
+        {
+          "key": "field_05",
+          "label": "观察需求",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□表面缺陷   □颗粒/纤维尺寸   □三维形貌   □轮廓/粗糙度"
+        },
+        {
+          "key": "field_06",
+          "label": "倍率/视场",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "倍率：________   视场数量：________   □由实验室选择"
+        },
+        {
+          "key": "field_07",
+          "label": "荧光/颜色信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "激发/发射：________________   □无荧光要求"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 通常可回收；染色、固定或切片后的部分可能无法恢复"
+        }
+      ]
+    },
+    {
+      "key": "analysis-05",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "FIB截面制样与EBSD",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□金属   □陶瓷   □半导体   □电池材料   □复合材料   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□FIB截面   □TEM薄片   □三维切片   □EBSD取向/晶粒   □EDS联用"
+        },
+        {
+          "key": "field_05",
+          "label": "目标区域",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□已标记   □需定位   区域描述：________________________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸/方向",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "尺寸：________________   观察方向/晶向：________________"
+        },
+        {
+          "key": "field_07",
+          "label": "表面处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□已抛光   □需机械抛光   □需离子抛光   □不可镀膜"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ FIB切割、抛光与镀层属于有损处理"
+        }
+      ]
+    },
+    {
+      "key": "analysis-06",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "X射线CT三维成像",
+      "category": "形貌与结构",
+      "originalPath": "templates/analysis/A01.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□块体   □颗粒集合   □器件   □生物/复合样   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□微米CT   □高分辨CT   □原位加载/加热   □三维重构/定量分析"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "直径/宽度：________   高度：________   最大关注结构：________"
+        },
+        {
+          "key": "field_06",
+          "label": "关注内容",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□孔隙   □裂纹   □夹杂   □内部结构   □体积分数   □其他：________"
+        },
+        {
+          "key": "field_07",
+          "label": "固定方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□可胶粘固定   □不可胶粘   □需密封   □由实验室确定"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 常规CT通常无损；原位、切割或固定处理可能改变样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-07",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "XRD综合物相与薄膜结构",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □薄膜/涂层   □单晶   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□常规XRD   □慢扫   □小角/SAXRD   □GIXRD   □微区XRD\n□XRR   □单晶XRD   □原位加热/冷却   □Rietveld精修"
+        },
+        {
+          "key": "field_05",
+          "label": "扫描范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "2θ：________～________°   步长：________   扫描速率：________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸/基底",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "尺寸：________________   基底：________________   膜厚：________"
+        },
+        {
+          "key": "field_07",
+          "label": "目标物相/晶面",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "已知或疑似物相：________________   关注峰/晶面：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "环境要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□常温空气   □惰性/密封   □变温   □其他：________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 常规测试一般可回收；研磨、压样或原位处理后的状态可能变化"
+        }
+      ]
+    },
+    {
+      "key": "analysis-08",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "FTIR傅里叶红外光谱",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □薄膜   □液体   □膏体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□ATR   □KBr压片   □液体池   □显微红外   □透射/反射"
+        },
+        {
+          "key": "field_05",
+          "label": "波数范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□常规范围   □指定：________～________ cm⁻¹"
+        },
+        {
+          "key": "field_06",
+          "label": "背景/空白",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□空气背景   □基底背景   □溶剂空白   □其他：________"
+        },
+        {
+          "key": "field_07",
+          "label": "关注官能团",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "关注峰位/官能团：________________________________________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ ATR通常微损；压片、液体池或前处理样品可能无法完整回收"
+        }
+      ]
+    },
+    {
+      "key": "analysis-09",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "Raman拉曼光谱",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □液体   □薄膜   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试类型",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□常温   □高温   □低温   □Mapping   □原位/变气氛"
+        },
+        {
+          "key": "field_05",
+          "label": "激光波长",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□325   □405   □455   □488   □514   □532   □633   □785   □1064 nm"
+        },
+        {
+          "key": "field_06",
+          "label": "位置/区域",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□默认3个位置   □指定数量：________   Mapping区域：________"
+        },
+        {
+          "key": "field_07",
+          "label": "温度/范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "温度点：________________   Raman位移范围：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "关注峰位",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "关注峰/参考谱：____________________________________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 激光照射或高低温处理可能引起局部损伤或相变"
+        }
+      ]
+    },
+    {
+      "key": "analysis-10",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "UV-Vis紫外可见光谱",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□溶液   □薄膜   □粉末   □透明块体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□吸收   □透射   □漫反射   □动力学扫描   □变温"
+        },
+        {
+          "key": "field_05",
+          "label": "波长范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□200–800 nm   □指定：________～________ nm"
+        },
+        {
+          "key": "field_06",
+          "label": "溶剂/基底空白",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "空白：________________   比色皿：□石英   □玻璃   □由实验室选择"
+        },
+        {
+          "key": "field_07",
+          "label": "浓度/稀释",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "浓度：________   稀释倍数：________   □需要浓度梯度"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 常规测试通常可回收；稀释及比色皿残留部分无法完整回收"
+        }
+      ]
+    },
+    {
+      "key": "analysis-11",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "荧光PL与三维荧光EEM",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□溶液   □粉末   □薄膜   □块体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□发射谱   □激发谱   □PL   □EEM   □荧光寿命   □量子产率"
+        },
+        {
+          "key": "field_05",
+          "label": "波长参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "激发波长：________   发射范围：________   激发范围：________"
+        },
+        {
+          "key": "field_06",
+          "label": "浓度/空白",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "浓度：________   空白：________   □需要梯度/猝灭实验"
+        },
+        {
+          "key": "field_07",
+          "label": "样品稳定性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□避光   □易光漂白   □易氧化   □需脱氧   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 光照、稀释、脱氧或加入猝灭剂后的样品可能无法恢复"
+        }
+      ]
+    },
+    {
+      "key": "analysis-12",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "NMR核磁共振",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□液体溶液   □固体粉末   □凝胶   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试核种",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□¹H   □¹³C   □¹⁹F   □³¹P   □²⁹Si   □其他：________"
+        },
+        {
+          "key": "field_05",
+          "label": "测试类型",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□液体NMR   □固体NMR   □二维谱   □变温   □定量NMR"
+        },
+        {
+          "key": "field_06",
+          "label": "溶剂/浓度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "氘代溶剂：________   样品量：________ mg   体积：________ mL"
+        },
+        {
+          "key": "field_07",
+          "label": "结构与参比",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "预期结构/分子量：________________   内标/参比：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "特殊性质",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□顺磁性   □含盐高   □黏度高   □不稳定   □空气/水敏感"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 溶解、转移和长时间测试会消耗少量样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-13",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "EPR电子顺磁共振",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □溶液   □块体   □冷冻样   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□常温   □低温   □原位光照   □自旋捕获   □定量比较"
+        },
+        {
+          "key": "field_05",
+          "label": "样品体系",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "溶剂/基体：________________   目标自由基/缺陷：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "温度/气氛",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "温度：________ K/℃   □空气   □惰性   □真空/密封"
+        },
+        {
+          "key": "field_07",
+          "label": "参比/对照",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□空白   □暗态/光照对照   □反应时间序列   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 光照、冷冻或反应过程可能改变样品状态"
+        }
+      ]
+    },
+    {
+      "key": "analysis-14",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "同步辐射XAFS与软X射线吸收谱",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □薄膜   □块体   □溶液/电池原位   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□XANES   □EXAFS   □软XAS   □同步辐射XRD/PDF/SAXS"
+        },
+        {
+          "key": "field_05",
+          "label": "目标元素/吸收边",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "元素：________   吸收边：________   预计含量：________"
+        },
+        {
+          "key": "field_06",
+          "label": "测量模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□透射   □荧光   □电子产额   □原位/操作态"
+        },
+        {
+          "key": "field_07",
+          "label": "参比与环境",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "参比物：________________   气氛/电化学/温度：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 压片、密封、原位装置或束流照射可能改变样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-15",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "太赫兹与特殊光谱",
+      "category": "谱学与物相",
+      "originalPath": "templates/analysis/A02.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末压片   □薄膜   □晶体   □液体池   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□透射   □反射   □时域谱   □温变   □偏振"
+        },
+        {
+          "key": "field_05",
+          "label": "频率范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□0.1–10 THz   □指定：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸/厚度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "直径/面积：________   厚度：________   基底：________"
+        },
+        {
+          "key": "field_07",
+          "label": "含水/吸湿性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□干燥稳定   □易吸湿   □含水   □需惰性/密封"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 压片、干燥和密封处理可能改变样品状态"
+        }
+      ]
+    },
+    {
+      "key": "analysis-16",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "XRF X射线荧光",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □液体（需确认）   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "是否需要烧失量",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□需要   □不需要   温度/时间：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "是否需要研磨",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□需要   □不需要   ※液体和硬质固体通常无法研磨"
+        },
+        {
+          "key": "field_06",
+          "label": "测试方法",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□压片法   □熔片法   □块体直接测试"
+        },
+        {
+          "key": "field_07",
+          "label": "测试模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□单质   □氧化物   □单质+氧化物   □定性/半定量"
+        },
+        {
+          "key": "field_08",
+          "label": "主要元素范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "已知主要元素：________________   关注元素：________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 制样后的样品通常无法回收，仅回收剩余样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-17",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "ICP-OES ICP-MS与AAS元素分析",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水样/溶液   □消解液   □固体   □油/有机液   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□ICP-OES   □ICP-MS   □AAS   □全元素扫描   □指定元素"
+        },
+        {
+          "key": "field_05",
+          "label": "目标元素",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "元素及预计范围：__________________________________________"
+        },
+        {
+          "key": "field_06",
+          "label": "基体/酸度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "基体：________   酸种/酸度：________   盐度：________"
+        },
+        {
+          "key": "field_07",
+          "label": "前处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□已消解   □需消解   □需稀释   □需过滤   消解方法：________"
+        },
+        {
+          "key": "field_08",
+          "label": "空白/标准",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□提供空白   □提供标准品   □需要加标回收   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 消解、稀释和雾化过程为有损测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-18",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "XPS UPS AES与TOF-SIMS表面分析",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □薄膜/涂层   □晶片   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□XPS全谱   □高分辨谱   □价带谱   □UPS   □AES\n□TOF-SIMS   □深度剖析   □二维成像   □角分辨"
+        },
+        {
+          "key": "field_05",
+          "label": "目标元素/价态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "元素及预期价态：________________________________________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸/基底",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "尺寸：________________   基底：________________   膜厚：________"
+        },
+        {
+          "key": "field_07",
+          "label": "空气敏感性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□稳定   □易氧化/吸水   □需惰性转移   □需真空转移"
+        },
+        {
+          "key": "field_08",
+          "label": "刻蚀要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□不刻蚀   □Ar离子   □团簇离子   深度/时间：________________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 离子刻蚀和深度剖析属于有损测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-19",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "CHNS ONH与碳硫元素分析",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □颗粒   □薄膜剪碎   □液体（需确认）   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□CHNS   □氧氮氢ONH   □碳硫CS   □单元素   □多元素"
+        },
+        {
+          "key": "field_05",
+          "label": "预计含量",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "C：____% H：____% N：____% S：____% O：____% 其他：____"
+        },
+        {
+          "key": "field_06",
+          "label": "样品均匀性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□均匀   □多相/复合   □易吸湿   □易氧化   □其他：________"
+        },
+        {
+          "key": "field_07",
+          "label": "预处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□无需   □干燥   □研磨   □去除溶剂   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 燃烧/熔融分析为破坏性测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-20",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "TOC TC IC总碳分析",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水样/溶液   □固体   □悬浊液   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□TOC   □TC   □IC   □NPOC   □固体总有机碳"
+        },
+        {
+          "key": "field_05",
+          "label": "浓度/范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "预计浓度：________   单位：________   □未知"
+        },
+        {
+          "key": "field_06",
+          "label": "酸碱/盐度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "pH：________   盐度：________   酸/碱基体：________"
+        },
+        {
+          "key": "field_07",
+          "label": "保存方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□常温   □冷藏   □酸化   □避光   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 酸化、吹扫、燃烧或氧化过程为有损测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-21",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "离子色谱与自动电位滴定",
+      "category": "成分与元素",
+      "originalPath": "templates/analysis/A03.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水样   □提取液   □消解液   □有机/混合溶剂   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□阴离子IC   □阳离子IC   □酸碱滴定   □络合滴定   □氧化还原滴定"
+        },
+        {
+          "key": "field_05",
+          "label": "目标离子/指标",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "目标：____________________________________________________"
+        },
+        {
+          "key": "field_06",
+          "label": "预计浓度/基体",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "浓度：________   pH：________   盐度/溶剂：________________"
+        },
+        {
+          "key": "field_07",
+          "label": "过滤/稀释",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□已过滤   □需过滤   □已稀释   □需稀释   倍数：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 过滤、稀释、进样和滴定过程会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-22",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "BET气体吸附与孔结构",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □颗粒   □多孔块体   □膜材料剪碎   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□BET比表面积   □孔容/孔径   □BJH   □DFT   □CO₂微孔"
+        },
+        {
+          "key": "field_05",
+          "label": "吸附气体",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□N₂   □CO₂   □Ar   □Kr   □由实验室选择"
+        },
+        {
+          "key": "field_06",
+          "label": "脱气条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "温度：________℃   时间：________h   □未知/需评估"
+        },
+        {
+          "key": "field_07",
+          "label": "样品稳定性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "最高耐温：________℃   □易分解   □易氧化   □易吸湿"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 脱气和长时间真空处理可能改变样品状态"
+        }
+      ]
+    },
+    {
+      "key": "analysis-23",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "压汞与毛细管流动孔径CFP",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末压片   □膜   □块体   □纤维/无纺布   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□压汞MIP   □CFP干湿法   □泡点   □平均流量孔径   □孔径分布"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "面积/直径：________   厚度：________   质量：________"
+        },
+        {
+          "key": "field_06",
+          "label": "润湿液/接触角",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "润湿液：________   接触角：________   □由实验室选择"
+        },
+        {
+          "key": "field_07",
+          "label": "结构稳定性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□耐压   □可能压缩/破坏   □遇液体变化   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 压汞为破坏性且受汞污染；CFP润湿后样品状态可能改变"
+        }
+      ]
+    },
+    {
+      "key": "analysis-24",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "DLS粒径与Zeta电位",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □液体分散液   □乳液   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□粒径DLS   □PDI   □Zeta电位   □不同pH/盐度条件"
+        },
+        {
+          "key": "field_05",
+          "label": "分散介质",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□水   □乙醇   □缓冲液   □其他：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "浓度/稀释",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "浓度：________   稀释倍数：________   □不允许稀释"
+        },
+        {
+          "key": "field_07",
+          "label": "pH与光学参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "pH：________   折射率：________   吸收率：________"
+        },
+        {
+          "key": "field_08",
+          "label": "分散稳定性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□稳定   □易沉降   □易团聚   □需超声：________min"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 稀释、调pH和超声后的样品可能无法恢复原状态"
+        }
+      ]
+    },
+    {
+      "key": "analysis-25",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "激光粒度与颗粒分布",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□干粉   □悬浮液   □浆料   □颗粒   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试方式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□湿法   □干法   □筛分/图像法   □由实验室选择"
+        },
+        {
+          "key": "field_05",
+          "label": "分散介质/压力",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "介质：________   超声：________min   干法压力：________"
+        },
+        {
+          "key": "field_06",
+          "label": "折射率参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "颗粒折射率：________   吸收率：________   介质折射率：________"
+        },
+        {
+          "key": "field_07",
+          "label": "结果需求",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□D10/D50/D90   □体积分布   □数量分布   □重复性"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 分散、超声和循环测量会消耗或改变部分样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-26",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "GPC SEC分子量分布",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□聚合物固体   □聚合物溶液   □水溶性高分子   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试体系",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□有机相GPC   □水相SEC   □高温GPC   □多检测器"
+        },
+        {
+          "key": "field_05",
+          "label": "溶剂/浓度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "溶剂：________   浓度：________ mg/mL   过滤孔径：________"
+        },
+        {
+          "key": "field_06",
+          "label": "聚合物信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "类型：________   预计分子量：________   是否支化/带电：________"
+        },
+        {
+          "key": "field_07",
+          "label": "标准/校准",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□聚苯乙烯标准   □PEG/PEO标准   □绝对分子量   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 溶解、过滤和进样会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-27",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "接触角与表面张力",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□薄膜   □块体   □涂层   □粉末压片   □液体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□静态接触角   □动态/前进后退角   □滚动角   □表面自由能\n□液体表面张力   □液-液界面张力   □时间变化"
+        },
+        {
+          "key": "field_05",
+          "label": "测试液体",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□水   □二碘甲烷   □乙二醇   □油相   □其他：________"
+        },
+        {
+          "key": "field_06",
+          "label": "测试位置/重复",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "位置数：________   每点液滴数：________   环境温湿度：________"
+        },
+        {
+          "key": "field_07",
+          "label": "表面处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□原样   □清洗   □等离子处理   □需在处理后________内测试"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 液滴接触、清洗或表面处理可能改变局部表面"
+        }
+      ]
+    },
+    {
+      "key": "analysis-28",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "TPD TPR TPO程序升温化学吸附",
+      "category": "孔隙粒径与界面",
+      "originalPath": "templates/analysis/A04.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末催化剂   □颗粒   □负载材料   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□NH₃-TPD   □CO₂-TPD   □H₂-TPR   □O₂-TPO   □脉冲化学吸附"
+        },
+        {
+          "key": "field_05",
+          "label": "样品组成/负载量",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "主要成分：________________   活性组分/负载量：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "预处理条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "气氛：________   温度：________℃   时间：________h"
+        },
+        {
+          "key": "field_07",
+          "label": "升温程序",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "起止温度：________～________℃   速率：________℃/min"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 高温、还原、氧化和吸附过程会改变样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-29",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "TGA热重与TG-DSC同步热分析",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □颗粒   □薄膜/纤维   □液体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□TGA   □DTG   □TG-DSC   □等温   □分段气氛"
+        },
+        {
+          "key": "field_05",
+          "label": "温度程序",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "起始：________℃   终止：________℃   升温：________℃/min"
+        },
+        {
+          "key": "field_06",
+          "label": "气氛",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□N₂   □空气   □O₂   □Ar   □气氛切换：________________"
+        },
+        {
+          "key": "field_07",
+          "label": "样品量/坩埚",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "样品量：________mg   □开放坩埚   □带盖/打孔   □由实验室选择"
+        },
+        {
+          "key": "field_08",
+          "label": "已知风险",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□挥发   □放气   □腐蚀性气体   □剧烈放热   □无已知风险"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 热分析为破坏性测试，测试后残留物通常不回收"
+        }
+      ]
+    },
+    {
+      "key": "analysis-30",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "DSC差示扫描量热",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □颗粒   □薄膜   □液体   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试目的",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□Tg   □Tm   □Tc   □焓变   □固化/反应热   □OIT/OOT"
+        },
+        {
+          "key": "field_05",
+          "label": "温度程序",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "起始：________℃   终止：________℃   升/降温：________℃/min"
+        },
+        {
+          "key": "field_06",
+          "label": "循环/热历史",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□一次升温   □升降温循环   □消除热历史   □保持：________"
+        },
+        {
+          "key": "field_07",
+          "label": "坩埚",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□开放   □密封   □打孔   □高压坩埚   □由实验室选择"
+        },
+        {
+          "key": "field_08",
+          "label": "TGA信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□已提供TGA   分解起始温度：________℃   □未知"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ DSC加热和密封处理可能改变或消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-31",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "TMA与DMA热机械分析",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□薄膜   □条状   □块体   □纤维   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□TMA膨胀/软化   □DMA拉伸   □DMA三点弯曲   □DMA双悬臂"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "长×宽×厚：______________________________________________"
+        },
+        {
+          "key": "field_06",
+          "label": "温度/频率",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "温度：________～________℃   频率：________Hz   速率：________"
+        },
+        {
+          "key": "field_07",
+          "label": "关注参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□CTE   □软化点   □储能模量   □损耗模量   □tanδ/Tg"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 夹持、加载和温度扫描可能造成永久变形或破坏"
+        }
+      ]
+    },
+    {
+      "key": "analysis-32",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "常规力学性能",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□薄膜   □板材   □棒材   □纤维   □泡沫   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□拉伸   □压缩   □三点/四点弯曲   □剥离   □撕裂   □循环加载"
+        },
+        {
+          "key": "field_05",
+          "label": "执行标准",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□GB   □ASTM   □ISO   标准编号：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "长×宽×厚：________________   标距：________   数量：________"
+        },
+        {
+          "key": "field_07",
+          "label": "测试条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "速率：________   温湿度：________   方向：□纵向 □横向 □其他"
+        },
+        {
+          "key": "field_08",
+          "label": "关注参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□强度   □模量   □断裂伸长   □韧性   □循环稳定性"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 力学测试通常为破坏性测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-33",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "纳米压痕与微纳力学",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□块体   □薄膜/涂层   □晶片   □颗粒镶嵌   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□硬度/模量   □载荷-位移   □划痕   □蠕变   □Mapping"
+        },
+        {
+          "key": "field_05",
+          "label": "样品信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "基底：________   膜厚：________   表面粗糙度：________"
+        },
+        {
+          "key": "field_06",
+          "label": "加载条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "最大载荷/深度：________   保载：________s   点数：________"
+        },
+        {
+          "key": "field_07",
+          "label": "测试位置",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□均匀区域   □截面   □指定区域（附图）   □阵列Mapping"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 压痕和划痕会在表面留下永久微小痕迹"
+        }
+      ]
+    },
+    {
+      "key": "analysis-34",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "导热系数与热扩散性能",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□块体   □圆片   □薄膜   □粉末压片   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□Hot Disk导热   □LFA热扩散   □比热   □温度点测试"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "直径/长宽：________   厚度：________   密度：________"
+        },
+        {
+          "key": "field_06",
+          "label": "温度范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "温度点：________________   气氛：________________"
+        },
+        {
+          "key": "field_07",
+          "label": "表面处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□原样   □需喷石墨   □可研磨/抛光   □不可处理"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 喷涂、研磨和高温测试可能改变样品表面"
+        }
+      ]
+    },
+    {
+      "key": "analysis-35",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "电学介电与霍尔性能",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□薄膜/晶片   □块体   □陶瓷   □粉末压片   □器件   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□四探针电阻率   □I-V   □介电常数/损耗   □霍尔   □击穿电压"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸/厚度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "尺寸：________________   厚度：________   电极面积：________"
+        },
+        {
+          "key": "field_06",
+          "label": "电极信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "电极材料/结构：________________   □需制备电极   □已有电极"
+        },
+        {
+          "key": "field_07",
+          "label": "测试条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "频率：________   电压：________   温度：________   磁场：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 电极制备、探针接触和击穿测试可能损伤样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-36",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "电化学CV LSV EIS与充放电",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□已制备电极   □粉末活性材料   □膜/涂层电极   □器件/电池   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□CV   □LSV   □EIS   □GCD   □倍率/循环   □极化/塔菲尔"
+        },
+        {
+          "key": "field_05",
+          "label": "电极信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "工作电极：________   面积：________   载量：________mg/cm²"
+        },
+        {
+          "key": "field_06",
+          "label": "体系配置",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "电解液：________   参比：________   对电极：________   温度：________"
+        },
+        {
+          "key": "field_07",
+          "label": "测试参数",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "电压窗口：________   扫速/电流密度：________   频率：________"
+        },
+        {
+          "key": "field_08",
+          "label": "装配与气氛",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□三电极   □两电极   □扣式/软包   □惰性装配   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 循环、极化和拆解通常会改变或消耗电极/电池"
+        }
+      ]
+    },
+    {
+      "key": "analysis-37",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "磁学VSM与SQUID",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□粉末   □块体   □薄膜   □器件   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□M-H磁滞回线   □M-T   □ZFC/FC   □交流磁化率   □低温/高场"
+        },
+        {
+          "key": "field_05",
+          "label": "样品质量/尺寸",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "质量：________mg   尺寸：________________   基底：________"
+        },
+        {
+          "key": "field_06",
+          "label": "测试范围",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "温度：________～________K   磁场：________～________T"
+        },
+        {
+          "key": "field_07",
+          "label": "磁性预估",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□弱磁   □铁磁   □反铁磁   □超顺磁   □未知"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 强磁场和低温通常不破坏样品，但固定/封装可能留下残留物"
+        }
+      ]
+    },
+    {
+      "key": "analysis-38",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "环境可靠性与老化试验",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□金属/涂层   □聚合物   □电子器件   □电池/组件   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□盐雾   □恒温恒湿   □高低温湿热   □紫外老化   □冷热冲击"
+        },
+        {
+          "key": "field_05",
+          "label": "执行标准",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "标准编号：________________   判定等级/验收指标：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "样品尺寸/数量",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "尺寸：________________   数量：________   安装方式：________"
+        },
+        {
+          "key": "field_07",
+          "label": "试验条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "温度：________   湿度：________   时间：________h   循环：________"
+        },
+        {
+          "key": "field_08",
+          "label": "前后测试",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□外观   □质量   □力学   □电学   □腐蚀评级   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 老化和腐蚀试验通常会造成不可逆变化"
+        }
+      ]
+    },
+    {
+      "key": "analysis-39",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "摩擦磨损划痕与附着力",
+      "category": "性能与可靠性",
+      "originalPath": "templates/analysis/A05.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□块体   □薄膜/涂层   □片材   □纤维/织物   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□摩擦系数   □磨损率   □球-盘/销-盘   □划痕   □附着力/百格"
+        },
+        {
+          "key": "field_05",
+          "label": "样品尺寸/表面",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "尺寸：________________   粗糙度：________   涂层厚度：________"
+        },
+        {
+          "key": "field_06",
+          "label": "对偶/载荷",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "对偶材料：________   载荷：________   速度：________   行程：________"
+        },
+        {
+          "key": "field_07",
+          "label": "环境",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□干摩擦   □润滑   □水/溶液   □温控   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 磨损、划痕和附着力测试为破坏性测试"
+        }
+      ]
+    },
+    {
+      "key": "analysis-40",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "HPLC与LC-MS液相分析",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水样/溶液   □提取液   □反应液   □固体待提取   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□HPLC-UV/FLD   □LC-MS   □LC-MS/MS   □定性   □定量"
+        },
+        {
+          "key": "field_05",
+          "label": "目标物/标准品",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "目标物：________________   标准品：□提供 □需采购/配制"
+        },
+        {
+          "key": "field_06",
+          "label": "溶剂/浓度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "溶剂：________   浓度范围：________   pH：________"
+        },
+        {
+          "key": "field_07",
+          "label": "前处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□已过滤   □已提取   □需SPE/净化   □需稀释   □需方法开发"
+        },
+        {
+          "key": "field_08",
+          "label": "空白/质控",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□溶剂空白   □基质空白   □加标   □平行样   □内标"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 过滤、提取和进样会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-41",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "GC与GC-MS气相分析",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□液体   □气体   □顶空样   □萃取液   □固体待解析   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□GC-FID/TCD   □GC-MS   □顶空   □热解析   □定性   □定量"
+        },
+        {
+          "key": "field_05",
+          "label": "目标物/沸点",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "目标物：________________   预计沸点/范围：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "溶剂/浓度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "溶剂：________   浓度：________   含水：□是 □否"
+        },
+        {
+          "key": "field_07",
+          "label": "前处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□已过滤   □需衍生化   □需顶空   □需萃取/净化   □方法开发"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 进样、顶空、热解析和衍生化会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-42",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "MALDI-TOF与通用质谱",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□纯化小分子   □聚合物   □蛋白/多肽   □寡核苷酸   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□MALDI-TOF   □高分辨MS   □分子量确认   □同位素分布"
+        },
+        {
+          "key": "field_05",
+          "label": "样品信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "分子式/结构：________________   预计分子量：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "溶剂/浓度",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "溶剂：________   浓度：________   盐/缓冲体系：________"
+        },
+        {
+          "key": "field_07",
+          "label": "离子模式",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□正离子   □负离子   □不确定   可能加合物：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 基质混合和进样会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-43",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "水质常规与营养盐分析",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□地表水   □地下水   □废水   □海水   □反应液   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□pH/电导率   □COD   □BOD₅   □TN   □TP   □NH₄⁺-N\n□NO₃⁻/NO₂⁻   □TOC   □浊度   □其他：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "采样信息",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "采样时间：________   地点：________   保存剂：________"
+        },
+        {
+          "key": "field_06",
+          "label": "保存条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□冷藏   □冷冻   □酸化   □避光   □现场固定   □其他：________"
+        },
+        {
+          "key": "field_07",
+          "label": "过滤要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□总量不滤   □溶解态过滤   滤膜：________ μm"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 分析会消耗样品，部分项目需加入保存剂"
+        }
+      ]
+    },
+    {
+      "key": "analysis-44",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "土壤沉积物与固体环境样品",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□土壤   □沉积物   □污泥   □固废   □植物/生物质   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□pH/EC/含水率   □有机质/TOC   □金属   □营养盐\n□有机污染物   □粒径   □其他：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "采样/深度",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "地点：________________   深度：________   采样时间：________"
+        },
+        {
+          "key": "field_06",
+          "label": "预处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□原样湿样   □风干   □冷冻干燥   □研磨过筛   □需前处理"
+        },
+        {
+          "key": "field_07",
+          "label": "保存条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□常温   □4℃   □-20℃   □避光   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 干燥、研磨、消解和萃取均会消耗或改变样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-45",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "有机污染物前处理与定量分析",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水样   □土壤/沉积物   □生物样   □产品/材料   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "目标物",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□PAHs   □PCBs/PBDEs   □农药   □抗生素   □PFAS   □激素\n□邻苯/塑化剂   □其他：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "分析平台",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "□LC-MS/MS   □GC-MS/MS   □HPLC   □GC   □不确定"
+        },
+        {
+          "key": "field_06",
+          "label": "前处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□SPE   □液液萃取   □超声/涡旋   □净化   □氮吹浓缩"
+        },
+        {
+          "key": "field_07",
+          "label": "质控",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□空白   □平行   □加标回收   □替代物/内标   □基质加标"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 萃取、净化和浓缩过程为有损处理"
+        }
+      ]
+    },
+    {
+      "key": "analysis-46",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "生物相容性细胞与抗菌性能",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□材料片/膜   □粉末   □浸提液   □水凝胶   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□细胞活力/毒性   □细胞黏附/增殖   □溶血   □抗菌率\n□抑菌圈   □活死染色   □炎症/基因表达   □其他：________"
+        },
+        {
+          "key": "field_05",
+          "label": "材料与灭菌",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "尺寸/质量：________   灭菌方式：________   □需实验室灭菌"
+        },
+        {
+          "key": "field_06",
+          "label": "浓度/浸提",
+          "type": "date",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "浓度梯度：________   浸提比：________   时间：________"
+        },
+        {
+          "key": "field_07",
+          "label": "细胞/菌株",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "细胞系/菌株：________________   培养条件：________________"
+        },
+        {
+          "key": "field_08",
+          "label": "对照设置",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□阴性   □阳性   □空白基底   □溶剂对照   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_10",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_11",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_11",
+          "templateHint": "□是   □否\n※ 灭菌、浸提、培养和染色均会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "analysis-47",
+      "serviceType": "分析表征",
+      "projectCode": "FX",
+      "title": "氨基酸蛋白与生化组分分析",
+      "category": "色谱质谱环境生物",
+      "originalPath": "templates/analysis/A06.docx",
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true,
+          "dbPath": "organization"
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true,
+          "dbPath": "contactName"
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true,
+          "dbPath": "phone"
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false,
+          "dbPath": "email"
+        },
+        {
+          "key": "projectName",
+          "label": "项目/课题名称",
+          "type": "text",
+          "required": true,
+          "dbPath": "projectName"
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望完成日期",
+          "type": "date",
+          "required": false,
+          "dbPath": "expectedDate"
+        },
+        {
+          "key": "budget",
+          "label": "预算范围（选填）",
+          "type": "text",
+          "required": false,
+          "dbPath": "budget"
+        },
+        {
+          "key": "field_01",
+          "label": "样品数量及编号",
+          "type": "number",
+          "required": false,
+          "dbPath": "formData.field_01",
+          "templateHint": ""
+        },
+        {
+          "key": "field_02",
+          "label": "样品名称及组成",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_02",
+          "templateHint": ""
+        },
+        {
+          "key": "field_03",
+          "label": "样品状态",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_03",
+          "templateHint": "□水解液   □游离氨基酸溶液   □蛋白样   □食品/生物样   □其他：________"
+        },
+        {
+          "key": "field_04",
+          "label": "测试项目",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_04",
+          "templateHint": "□17种水解氨基酸   □游离氨基酸   □蛋白含量   □酶活\n□其他生化指标：________________"
+        },
+        {
+          "key": "field_05",
+          "label": "样品基体",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_05",
+          "templateHint": "基体：________________   预计浓度：________________"
+        },
+        {
+          "key": "field_06",
+          "label": "前处理",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_06",
+          "templateHint": "□已提取/水解   □需提取   □需脱蛋白   □需衍生化"
+        },
+        {
+          "key": "field_07",
+          "label": "保存条件",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_07",
+          "templateHint": "□常温   □4℃   □-20℃   □-80℃   □避光   □其他：________"
+        },
+        {
+          "key": "field_08",
+          "label": "样品安全性",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_08",
+          "templateHint": "□无毒   □有毒   □腐蚀性   □易燃   □易挥发   □其他：________"
+        },
+        {
+          "key": "field_09",
+          "label": "是否有仪器型号要求",
+          "type": "textarea",
+          "required": false,
+          "dbPath": "formData.field_09",
+          "templateHint": "□是，仪器型号：________________   □否"
+        },
+        {
+          "key": "field_10",
+          "label": "剩余样品是否回收",
+          "type": "text",
+          "required": false,
+          "dbPath": "formData.field_10",
+          "templateHint": "□是   □否\n※ 水解、提取、衍生和进样会消耗样品"
+        }
+      ]
+    },
+    {
+      "key": "supplies-general",
+      "serviceType": "耗材仪器",
+      "projectCode": "HC",
+      "title": "耗材仪器采购需求表",
+      "category": "耗材仪器",
+      "originalPath": "templates/original/耗材仪器采购需求表.docx",
+      "interfaceOnly": false,
+      "fields": [
+        {
+          "key": "organization",
+          "label": "委托单位/学校",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "contactName",
+          "label": "联系人",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "phone",
+          "label": "联系电话",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "key": "email",
+          "label": "电子邮箱",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "projectName",
+          "label": "采购项目名称",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "expectedDate",
+          "label": "期望交付日期",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "purchaseMode",
+          "label": "采购方式",
+          "type": "select",
+          "required": true,
+          "options": [
+            "目录商品",
+            "非目录询价",
+            "上传采购清单"
+          ]
+        },
+        {
+          "key": "purchasePurpose",
+          "label": "采购用途",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "items",
+          "label": "采购明细",
+          "type": "table",
+          "required": true,
+          "columns": [
+            {
+              "key": "name",
+              "label": "商品名称"
+            },
+            {
+              "key": "brand",
+              "label": "品牌"
+            },
+            {
+              "key": "catalogNo",
+              "label": "货号"
+            },
+            {
+              "key": "spec",
+              "label": "规格"
+            },
+            {
+              "key": "quantity",
+              "label": "数量"
+            },
+            {
+              "key": "reference",
+              "label": "参考链接/备注"
+            }
+          ]
+        },
+        {
+          "key": "acceptAlternative",
+          "label": "是否接受替代品牌",
+          "type": "select",
+          "required": false,
+          "options": [
+            "接受",
+            "不接受",
+            "需先确认"
+          ]
+        },
+        {
+          "key": "deliveryAddress",
+          "label": "收货地址",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "invoiceRequirements",
+          "label": "开票要求",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "technicalRequirements",
+          "label": "技术与质量要求",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "otherRequirements",
+          "label": "其他要求",
+          "type": "textarea",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "originalTemplateCount": 48,
+  "reservedInterfaceFormCount": 2
+}
