@@ -1,0 +1,16 @@
+{
+  "total": 2231,
+  "categories": 64,
+  "boards": 4,
+  "boardCounts": {
+    "AI项目": 9,
+    "计算模拟": 99,
+    "分析表征": 124,
+    "耗材仪器": 1999
+  },
+  "updated": "2026-07-19",
+  "version": "20260719-contact-catalog-final",
+  "staticProjectPages": 2231,
+  "staticCategoryPages": 37,
+  "note": "9 AI projects, 99 simulation projects, 124 characterization projects and 1999 supply items; full enterprise-WeChat posters and rebuilt latest project catalog."
+}

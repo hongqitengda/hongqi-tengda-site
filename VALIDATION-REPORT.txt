@@ -1,0 +1,12 @@
+红祺腾达官网最终检查报告（2026-07-19）
+
+1. 官方四分类已统一：AI项目、计算模拟、分析表征、耗材仪器。
+2. 全站旧六步骤联系模块已移除。
+3. 保留8个AI项目独立详情页，AI-003至AI-008重复步骤名称已修正。
+4. 头部咨询：AI/模拟、表征/耗材。
+5. 页脚咨询：AI/计算模拟咨询、表征与耗材服务。
+6. 两个弹窗分别使用单独企业微信联系方式。
+7. 自助客服图标及头像使用公司Logo。
+8. GitHub Pages关键文件保留：CNAME、.nojekyll、robots.txt、sitemap.xml、manifest.webmanifest。
+9. 已配置页面标题、描述、canonical、hreflang、Open Graph、JSON-LD与图片站点地图。
+10. 打包前已检查本地图片、CSS、JS及站内HTML链接。

@@ -1,0 +1,1 @@
+V6.1.1: Shortened analysis template paths for Windows/Git compatibility. Original website content unchanged.

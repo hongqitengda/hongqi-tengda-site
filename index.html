@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0756a3" name="theme-color"/>
+<title>红祺腾达科研服务｜AI、计算模拟、分析表征与耗材仪器</title>
+<link href="assets/images/icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/css/site.css" rel="stylesheet"/>
+<link href="assets/css/hqt-redesign.css?v=20260718-ai-redesign" rel="stylesheet"/>
+<style>/* Unified homepage-style shell */
+    body.modal-open { overflow: hidden; }
+
+    .site-header-unified {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 96px;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid #e1e9f2;
+      box-shadow: 0 10px 28px rgba(23, 58, 98, .06);
+      backdrop-filter: blur(16px);
+    }
+
+    .unified-nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      width: min(1440px, calc(100% - 64px));
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .unified-brand {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      width: 350px;
+    }
+
+    .unified-brand img {
+      width: 350px;
+      height: 86px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .unified-site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 30px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .unified-site-nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 60px;
+      color: #31445a;
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .unified-site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      width: 0;
+      height: 3px;
+      border-radius: 4px;
+      background: #ff8a24;
+      transform: translateX(-50%);
+      transition: width .2s ease;
+    }
+
+    .unified-site-nav a:hover,
+    .unified-site-nav a.active {
+      color: #0756a3;
+    }
+
+    .unified-site-nav a:hover::after,
+    .unified-site-nav a.active::after {
+      width: 28px;
+    }
+
+    .unified-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .unified-consult {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(8, 73, 130, .18);
+    }
+
+    .unified-consult-tech { background: #0756a3; }
+    .unified-consult-admin { background: #0b91a7; }
+    .unified-consult:hover { filter: brightness(.94); }
+
+    .modal[hidden] { display: none; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 15, 32, .68);
+      backdrop-filter: blur(5px);
+    }
+
+    .contact-modal-panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 460px);
+      max-height: calc(100vh - 44px);
+      overflow: auto;
+      padding: 30px;
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, .32);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: #f0f4f8;
+      color: #516377;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .contact-modal-panel .modal-kicker {
+      display: block;
+      color: #0871c5;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-modal-panel h2 {
+      margin: 10px 0 14px;
+      color: #10284a;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .contact-modal-panel img {
+      width: min(100%, 310px);
+      max-height: 430px;
+      object-fit: contain;
+      margin: 14px auto 14px;
+      border: 1px solid #dbe6ef;
+      border-radius: 8px;
+      background: #f6f9fc;
+    }
+
+    .contact-modal-panel p {
+      margin: 0;
+      color: #5b6e83;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .modal-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .modal-link-row a {
+      min-height: 36px;
+      padding: 8px 13px;
+      border: 1px solid #d7e4ef;
+      border-radius: 4px;
+      color: #0756a3;
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .modal-link-row a.primary {
+      border-color: #0756a3;
+      background: #0756a3;
+      color: #fff;
+    }
+
+    .footer-unified {
+      background: #062344;
+      color: #d7e8f7;
+    }
+
+    .footer-unified-main {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.35fr) .55fr .7fr minmax(420px, 1.1fr);
+      gap: 52px;
+      align-items: start;
+      width: min(1440px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 60px 0 54px;
+    }
+
+    .footer-brand-block {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand-row img {
+      width: 66px;
+      height: 66px;
+      padding: 7px;
+      border-radius: 12px;
+      background: #fff;
+      object-fit: contain;
+    }
+
+    .footer-brand-row strong {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .footer-brand-row small {
+      display: block;
+      margin-top: 3px;
+      color: #8fb2d2;
+      font-size: 10px;
+    }
+
+    .footer-brand-block h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .footer-brand-block p {
+      margin: 0;
+      color: #a9c6df;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .footer-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-column strong {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .footer-column a,
+    .footer-column button,
+    .footer-column span {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #b8d1e8;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .footer-column button:hover,
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-email {
+      color: #fff !important;
+      font-weight: 900;
+    }
+
+    .footer-service-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+      padding: 28px 34px;
+      border-radius: 2px;
+      background: #2c312f;
+    }
+
+    .footer-service-qr {
+      text-align: center;
+    }
+
+    .footer-service-qr a {
+      display: grid;
+      place-items: center;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 18px;
+      background: #fff;
+    }
+
+    .footer-service-qr img {
+      width: 145px;
+      height: 145px;
+      object-fit: contain;
+    }
+
+    .footer-service-qr strong {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .footer-service-qr small {
+      display: block;
+      margin-top: 4px;
+      color: #f0f6f6;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer-online-tab {
+      position: absolute;
+      top: -4px;
+      right: -18px;
+      display: grid;
+      overflow: hidden;
+      width: 76px;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    }
+
+    .footer-online-tab button {
+      border: 0;
+      padding: 12px 8px;
+      background: #29c5bd;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.25;
+      writing-mode: vertical-rl;
+      letter-spacing: 4px;
+    }
+
+    .footer-online-tab span {
+      display: grid;
+      place-items: center;
+      min-height: 54px;
+      background: #fff;
+      color: #33404c;
+      font-weight: 900;
+    }
+
+    .footer-bottom-final {
+      position: relative;
+      background: #2c312f;
+      color: #eef4f5;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1440px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 30px 0 36px;
+      border-top: 1px solid rgba(255,255,255,.34);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .footer-backtop {
+      position: absolute;
+      top: -54px;
+      right: max(32px, calc((100vw - 1440px) / 2 + 16px));
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fff;
+      color: #26bfb5;
+      font-size: 36px;
+      text-decoration: none;
+      box-shadow: 0 16px 36px rgba(0,0,0,.24);
+    }
+
+    .hq-chat {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 2200;
+    }
+
+    .hq-chat-launcher {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 270px;
+      padding: 15px 24px 15px 15px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0c84dc, #0756a3);
+      color: #fff;
+      text-align: left;
+      box-shadow: 0 18px 40px rgba(5, 62, 112, .28);
+    }
+
+    .hq-chat-launcher-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      font-size: 24px;
+    }
+
+    .hq-chat-launcher strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .hq-chat-launcher small {
+      display: block;
+      margin-top: 3px;
+      color: #d6ebff;
+      font-size: 13px;
+    }
+
+    .hq-chat-panel[hidden] { display: none; }
+    .hq-chat-panel {
+      position: absolute;
+      right: 0;
+      bottom: 86px;
+      width: 410px;
+      max-height: min(680px, calc(100vh - 130px));
+      overflow: hidden;
+      border: 1px solid #d6e1eb;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 26px 70px rgba(16,45,72,.25);
+    }
+
+    .hq-chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg,#0879cf,#0756a3);
+      color: #fff;
+    }
+
+    .hq-chat-header strong { display:block; font-size:16px; }
+    .hq-chat-header small { color:#d7ecff; font-size:11px; }
+
+    .hq-chat-close {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .hq-chat-body {
+      max-height: 500px;
+      overflow: auto;
+      padding: 16px;
+      background: #f5f8fb;
+    }
+
+    .hq-chat-message {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .hq-chat-message.user { justify-content: flex-end; }
+
+    .hq-chat-avatar {
+      display: grid;
+      place-items: center;
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0756a3;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .hq-chat-message.user .hq-chat-avatar { display: none; }
+
+    .hq-chat-bubble {
+      max-width: 290px;
+      padding: 10px 12px;
+      border-radius: 4px 13px 13px 13px;
+      background: #fff;
+      color: #34485b;
+      font-size: 12px;
+      line-height: 1.72;
+      white-space: pre-line;
+      box-shadow: 0 4px 15px rgba(32,61,88,.07);
+    }
+
+    .hq-chat-message.user .hq-chat-bubble {
+      border-radius: 13px 4px 13px 13px;
+      background: #0879cf;
+      color: #fff;
+    }
+
+    .hq-chat-quick {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 4px 0 14px 39px;
+    }
+
+    .hq-chat-quick button {
+      min-height: 38px;
+      padding: 8px 9px;
+      border: 1px solid #cfe0ee;
+      border-radius: 7px;
+      background: #fff;
+      color: #17689e;
+      font-size: 11px;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .hq-chat-wecom[hidden] { display: none; }
+    .hq-chat-wecom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 10px 0 13px 39px;
+    }
+
+    .hq-chat-contact-card[hidden] { display: none; }
+    .hq-chat-contact-card {
+      padding: 12px;
+      border: 1px solid #d8e4ed;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .hq-chat-contact-card img {
+      width: 100%;
+      aspect-ratio: 1.42;
+      object-fit: contain;
+      border-radius: 5px;
+      background: #edf5fb;
+    }
+
+    .hq-chat-contact-card strong {
+      display: block;
+      margin-top: 8px;
+      color: #173e60;
+      font-size: 11px;
+    }
+
+    .hq-chat-contact-card p {
+      min-height: 30px;
+      margin: 3px 0 7px;
+      color: #718496;
+      font-size: 9px;
+      line-height: 1.55;
+    }
+
+    .hq-chat-contact-card button {
+      width: 100%;
+      min-height: 32px;
+      border: 0;
+      border-radius: 5px;
+      background: #0879cf;
+      color: #fff;
+      font-size: 10px;
+    }
+
+    .hq-chat-contact-card button { background: #0879cf; }
+
+    .hq-chat-input {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid #e1e8ee;
+      background: #fff;
+    }
+
+    .hq-chat-input input {
+      min-width: 0;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid #d1dce5;
+      border-radius: 7px;
+      outline: 0;
+      font-size: 12px;
+    }
+
+    .hq-chat-input button {
+      min-width: 62px;
+      border: 0;
+      border-radius: 7px;
+      background: #0879cf;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1240px) {
+      .unified-brand { width: 280px; }
+      .unified-brand img { width: 280px; }
+      .unified-site-nav { gap: 18px; }
+      .unified-site-nav a { font-size: 14px; }
+      .unified-consult { width: 42px; padding: 0; }
+      .unified-consult b { display: none; }
+      .footer-unified-main {
+        grid-template-columns: 1.3fr .7fr .8fr;
+      }
+      .footer-service-panel {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .site-header-unified { height: auto; position: relative; }
+      .unified-nav-wrap {
+        width: min(100% - 28px, 620px);
+        min-height: 92px;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        padding: 12px 0;
+      }
+      .unified-brand,
+      .unified-brand img { width: 260px; height: 64px; }
+      .unified-site-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 18px;
+      }
+      .unified-actions { margin-left: auto; }
+      .footer-unified-main,
+      .footer-bottom-inner {
+        width: min(100% - 28px, 620px);
+      }
+      .footer-unified-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-service-panel {
+        grid-template-columns: 1fr 1fr;
+        padding: 22px;
+      }
+      .footer-online-tab { display: none; }
+      .footer-bottom-inner { display: grid; font-size: 13px; }
+      .footer-backtop { width: 58px; height: 58px; font-size: 28px; }
+      .hq-chat { right: 10px; bottom: 10px; }
+      .hq-chat-launcher { min-width: auto; padding: 10px 12px; }
+      .hq-chat-launcher-text small { display: none; }
+      .hq-chat-panel {
+        position: fixed;
+        right: 10px;
+        left: 10px;
+        bottom: 78px;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .unified-brand,
+      .unified-brand img { width: 220px; }
+      .footer-service-panel { grid-template-columns: 1fr; }
+      .footer-service-qr a { width: min(100%, 210px); height: auto; aspect-ratio: 1; }
+      .footer-service-qr img { width: 78%; height: 78%; }
+      .hq-chat-wecom { grid-template-columns: 1fr; }
+      .hq-chat-quick { grid-template-columns: 1fr; }
+    }
+
+    
+  
+
+/* Homepage consultation: retain the rounded floating widget; remove the old vertical tab only. */
+.footer-online-tab,
+.floating-service { display: none !important; }
+
+.site-header-unified + main { min-height: 60vh; }
+.footer-unified button { font-family: inherit; }
+
+/* Unified case-card image ratio: all four sections use the same 16:9 cover layout. */
+.hqt-feature-card .ai-showcase-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden;
+  background: #061a32;
+}
+.hqt-feature-card .ai-showcase-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover !important;
+  object-position: center;
+  background: #061a32;
+  transition: transform .35s ease, filter .35s ease;
+}
+.hqt-feature-card:hover .ai-showcase-media img {
+  transform: scale(1.025);
+  filter: saturate(1.04) contrast(1.02);
+}
+.hqt-feature-card { position: relative; overflow: hidden; }
+.hqt-feature-card .ai-showcase-copy h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.hqt-feature-card .ai-showcase-copy h3 a:hover { color: #0756a3; }
+.homepage-redone .hqt-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.homepage-redone .ai-showcase-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 224px;
+}
+.homepage-redone .ai-showcase-copy > p { flex: 1; }
+.homepage-redone .ai-showcase-footer { margin-top: 18px; }
+
+/* Slightly wider content and cleaner card rhythm for the homepage. */
+body.homepage-redone { --container: 1280px; }
+.homepage-redone .hqt-capability-section { padding: 68px 0; }
+.homepage-redone .hqt-capability-head { margin-bottom: 28px; }
+.homepage-redone .hqt-feature-grid { gap: 24px; }
+.homepage-redone .ai-showcase-card { border-radius: 10px; }
+.homepage-redone .ai-showcase-copy { min-height: 216px; padding: 22px 22px 19px; }
+.homepage-redone .ai-showcase-copy h3 { margin: 10px 0 9px; font-size: 21px; }
+.homepage-redone .ai-showcase-copy p { line-height: 1.72; }
+.homepage-redone .hqt-more-strip { margin-top: 22px; }
+
+@media (max-width: 1180px) {
+  .unified-brand { width: 285px; }
+  .unified-brand img { width: 285px; }
+  .unified-site-nav { gap: 18px; }
+  .unified-site-nav a { font-size: 14px; }
+  .unified-consult { padding: 0 12px; }
+}
+@media (max-width: 980px) {
+  .site-header-unified { position: relative; height: auto; }
+  .unified-nav-wrap { flex-wrap: wrap; width: min(100% - 30px, 920px); padding: 8px 0 12px; gap: 8px 16px; }
+  .unified-brand { width: 250px; }
+  .unified-brand img { width: 250px; height: 68px; }
+  .unified-site-nav { order: 3; width: 100%; justify-content: flex-start; overflow-x: auto; gap: 22px; }
+  .unified-site-nav a { min-height: 44px; }
+  .unified-actions { margin-left: auto; }
+}
+@media (max-width: 620px) {
+  .unified-brand { width: 205px; }
+  .unified-brand img { width: 205px; height: 58px; }
+  .unified-actions { width: 100%; }
+  .unified-consult { flex: 1; min-height: 42px; }
+  .homepage-redone .hqt-capability-section { padding: 48px 0; }
+}
+
+
+@media (max-width: 900px) {
+  .homepage-redone .hqt-feature-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .homepage-redone .hqt-feature-grid { grid-template-columns: 1fr; }
+  .homepage-redone .ai-showcase-copy { min-height: 0; }
+  .hq-chat-launcher strong { font-size: 17px; }
+  .hq-chat-launcher-icon { width: 46px; height: 46px; }
+}
+</style><link href="assets/css/unified-shell.css?v=20260719-final" rel="stylesheet"/><meta content="红祺腾达科研服务官网，提供 AI项目、DFT/分子动力学等计算模拟、材料分析表征及科研耗材仪器采购服务。" name="description"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><link href="https://www.hongqitengda.com/" rel="canonical"/><meta content="zh_CN" property="og:locale"/><meta content="website" property="og:type"/><meta content="红祺腾达科研服务" property="og:site_name"/><meta content="红祺腾达科研服务｜AI、计算模拟、分析表征与耗材仪器" property="og:title"/><meta content="红祺腾达科研服务官网，提供 AI项目、DFT/分子动力学等计算模拟、材料分析表征及科研耗材仪器采购服务。" property="og:description"/><meta content="https://www.hongqitengda.com/" property="og:url"/><meta content="https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="红祺腾达科研服务｜AI、计算模拟、分析表征与耗材仪器" name="twitter:title"/><meta content="红祺腾达科研服务官网，提供 AI项目、DFT/分子动力学等计算模拟、材料分析表征及科研耗材仪器采购服务。" name="twitter:description"/><meta content="https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png" name="twitter:image"/><script data-hqtd-seo="true" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.hongqitengda.com/#organization","name":"上海红祺腾达信息技术有限公司","alternateName":"HQTD Scientific","url":"https://www.hongqitengda.com/","logo":"https://www.hongqitengda.com/assets/images/logo-mark.png","email":"mailto:drwang@hongqitengda.cn"},{"@type":"WebSite","@id":"https://www.hongqitengda.com/#website","url":"https://www.hongqitengda.com/","name":"红祺腾达科研服务","publisher":{"@id":"https://www.hongqitengda.com/#organization"},"inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.hongqitengda.com/catalog.html?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.hongqitengda.com/#webpage","url":"https://www.hongqitengda.com/","name":"红祺腾达科研服务｜AI、计算模拟、分析表征与耗材仪器","description":"红祺腾达科研服务官网，提供 AI项目、DFT/分子动力学等计算模拟、材料分析表征及科研耗材仪器采购服务。","isPartOf":{"@id":"https://www.hongqitengda.com/#website"},"about":{"@id":"https://www.hongqitengda.com/#organization"},"inLanguage":"zh-CN","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png"}},{"@type":"BreadcrumbList","@id":"https://www.hongqitengda.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.hongqitengda.com/"}]}]}</script><link href="https://www.hongqitengda.com/" hreflang="zh-CN" rel="alternate"/><link href="https://www.hongqitengda.com/" hreflang="x-default" rel="alternate"/><link rel="stylesheet" href="assets/css/order-entry-v9.css?v=20260722-v9"></head>
+<body class="homepage-redone" data-base="" id="top">
+<a class="skip-link" href="#main">跳到主要内容</a><header class="site-header-unified" id="site-header"><div class="unified-nav-wrap"><a aria-label="上海红祺腾达信息技术有限公司首页" class="unified-brand" href="index.html"><img alt="上海红祺腾达信息技术有限公司" decoding="async" loading="lazy" src="assets/images/logo-wordmark.png"/></a><nav aria-label="主导航" class="unified-site-nav"><a class="active" href="index.html">首页</a><a class="" href="board/ai-projects.html">AI项目</a><a class="" href="board/computational-simulation.html">计算模拟</a><a class="" href="board/characterization-analysis.html">分析表征</a><a class="" href="board/research-supplies.html">耗材仪器</a><a class="" href="catalog.html">项目查询</a></nav><div aria-label="企业微信咨询入口" class="unified-actions"><button class="unified-consult unified-consult-tech" data-open-tech="" type="button"><span>Σ</span><b>AI/模拟</b></button><button class="unified-consult unified-consult-admin" data-open-admin="" type="button"><span>▣</span><b>表征/耗材</b></button></div></div></header>
+<main id="main">
+<section class="section hqt-capability-section hqt-capability-ai">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">CORE CAPABILITY</span><h1>AI项目</h1></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="project/ai-001.html">
+<img alt="医学影像智能分割与辅助判读 案例图" decoding="async" fetchpriority="high" loading="eager" src="assets/images/ai-details/ai-001/medical-showcase.png"/>
+</a>
+<div class="ai-showcase-copy">
+<span>AI 医学影像</span>
+<h3><a href="project/ai-001.html">医学影像智能分割与辅助判读</a></h3>
+<p>面向 CT、MRI 与病理图像，提供数据治理、模型训练、可解释评估与可视化交付。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>分割</span><span>分类</span><span>预测</span></div>
+<a href="project/ai-001.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="project/ai-002.html">
+<img alt="候选分子与材料智能筛选 案例图" decoding="async" loading="lazy" src="assets/images/ai-details/ai-002/ai-candidate-screening-cover.jpg"/>
+</a>
+<div class="ai-showcase-copy">
+<span>AI 材料筛选</span>
+<h3><a href="project/ai-002.html">候选分子与材料智能筛选</a></h3>
+<p>融合结构描述符、文献知识、约束条件与预测模型，形成候选材料筛选和排序流程。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>筛选</span><span>排序</span><span>解释</span></div>
+<a href="project/ai-002.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="project/ai-003.html">
+<img alt="配方、工艺与性能预测 案例图" decoding="async" loading="lazy" src="assets/images/ai-details/ai-003/ai-003-formula-process-cover.png"/>
+</a>
+<div class="ai-showcase-copy">
+<span>AI 工艺优化</span>
+<h3><a href="project/ai-003.html">配方、工艺与性能预测</a></h3>
+<p>围绕配方比例、工艺参数和目标性能建立预测模型，支持多目标优化与推荐。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>配方</span><span>工艺</span><span>优化</span></div>
+<a href="project/ai-003.html">查看详情 →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>更多 AI 项目</span><a href="project/ai-004.html">科研知识库与 RAG</a><a href="project/ai-005.html">多模态数据分析</a><a href="project/ai-006.html">机器学习预测</a><a href="project/ai-007.html">实验设计与多目标优化</a><a href="project/ai-008.html">科研智能体开发</a><a href="project/ai-009.html">定制化AI项目</a></div>
+</div>
+</section>
+<section class="section hqt-capability-section hqt-capability-calc">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">02 SIMULATION</span><h2>计算模拟</h2></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="project/js-1.html">
+<img alt="计算流体力学定制 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/04-cfd.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>计算流体力学</span>
+<h3><a href="project/js-1.html">计算流体力学定制</a></h3>
+<p>面向流场、传热、传质和多相过程，交付模型、边界条件、场分布结果及分析说明。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>建模</span><span>计算</span><span>结果图</span></div>
+<a href="project/js-1.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="project/js-2.html">
+<img alt="第一性原理计算定制 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/05-dft.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>第一性原理计算</span>
+<h3><a href="project/js-2.html">第一性原理计算定制</a></h3>
+<p>覆盖结构优化、吸附能、能带、态密度、电荷与反应路径等论文级计算结果。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>DFT</span><span>电子结构</span><span>机理</span></div>
+<a href="project/js-2.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="project/js-3.html">
+<img alt="分子动力学定制 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/06-md-aimd.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>分子动力学</span>
+<h3><a href="project/js-3.html">分子动力学与 AIMD 定制</a></h3>
+<p>覆盖界面行为、扩散、吸附、溶剂化和动态稳定性，交付轨迹、统计曲线与构型图。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>MD</span><span>AIMD</span><span>轨迹</span></div>
+<a href="project/js-3.html">查看详情 →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>更多计算方向</span><a href="category/computational-fluid-dynamics.html">计算流体力学</a><a href="category/first-principles-calculation.html">第一性原理计算</a><a href="category/molecular-dynamics.html">分子动力学</a><a href="category/multiphysics-fem.html">多物理场与有限元仿真</a><a href="category/quantum-chemistry.html">量子化学与分子计算</a></div>
+</div>
+</section>
+<section class="section hqt-capability-section hqt-capability-analysis">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">03 CHARACTERIZATION</span><h2>分析表征</h2></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="project/fx-24.html">
+<img alt="XRD物相分析 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/07-material-characterization.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>材料表征</span>
+<h3><a href="project/fx-24.html">SEM 微观形貌与结构分析</a></h3>
+<p>针对粉体、膜、涂层与复合材料开展表面形貌、粒径、孔结构及微观缺陷分析。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>SEM</span><span>形貌</span><span>微结构</span></div>
+<a href="project/fx-24.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="project/fx-85.html">
+<img alt="XPS全谱分析 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/08-solution-analysis.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>溶液检测</span>
+<h3><a href="project/fx-85.html">HPLC 有机污染物定量检测</a></h3>
+<p>面向水样、反应液与提取液开展组分分离、目标物定性定量及标准曲线分析。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>HPLC</span><span>定量</span><span>色谱</span></div>
+<a href="project/fx-85.html">查看详情 →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="project/fx-15.html">
+<img alt="EIS电化学阻抗 参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/09-performance-testing.webp"/>
+</a>
+<div class="ai-showcase-copy">
+<span>性能测试</span>
+<h3><a href="project/fx-15.html">EIS 电化学阻抗与界面动力学</a></h3>
+<p>通过 Nyquist、Bode 与等效电路拟合评价电荷转移、界面阻抗和循环稳定性。</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>EIS</span><span>界面</span><span>稳定性</span></div>
+<a href="project/fx-15.html">查看详情 →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>更多检测方向</span><a href="category/composition-elements.html">成分元素</a><a href="category/morphology-structure.html">形貌结构</a><a href="category/spectroscopy-phase.html">谱学物相</a><a href="category/performance-reliability.html">性能可靠性</a><a href="category/particle-dispersion.html">粒径与分散性</a></div>
+</div>
+</section>
+<section class="section hqt-capability-section hqt-capability-supplies">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">04 SUPPLIES</span><h2>耗材仪器</h2></div>
+</div>
+<div class="hqt-feature-grid"><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="project/hc-001.html"><img alt="丁腈手套与实验室安全防护 分类参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/10-general-lab-consumables.webp"/></a><div class="ai-showcase-copy"><span>安全防护耗材</span><h3><a href="project/hc-001.html">丁腈手套与实验室安全防护</a></h3><p>S/M/L，100只/盒，适用于实验室日常操作、样品处理与基础安全防护。</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>手套</span><span>防护</span><span>现货</span></div><a href="project/hc-001.html">查看详情 →</a></div></div></article><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="project/hc-085.html"><img alt="离心管与样品处理耗材 分类参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/11-basic-consumables.webp"/></a><div class="ai-showcase-copy"><span>塑料制品</span><h3><a href="project/hc-085.html">离心管与样品处理耗材</a></h3><p>覆盖1.5 mL、2 mL等常用规格，适用于样品分装、离心、保存与常规实验处理。</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>离心管</span><span>样品</span><span>耗材</span></div><a href="project/hc-085.html">查看详情 →</a></div></div></article><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="project/hc-1008.html"><img alt="台式高速离心机 分类参考图" decoding="async" loading="lazy" src="assets/images/homepage-color/12-lab-instruments.webp"/></a><div class="ai-showcase-copy"><span>实验设备</span><h3><a href="project/hc-1008.html">台式高速离心机</a></h3><p>面向样品分离、细胞沉降与常规实验处理，支持按转速、容量和转子配置选型。</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>仪器</span><span>离心机</span><span>选型</span></div><a href="project/hc-1008.html">查看详情 →</a></div></div></article></div>
+<div class="hqt-more-strip"><span>更多耗材分类</span><a href="catalog.html?q=%E9%98%B2%E6%8A%A4%E6%B8%85%E6%B4%81%E7%94%A8%E5%93%81">防护清洁用品</a><a href="catalog.html?q=%E5%A1%91%E6%96%99%E5%88%B6%E5%93%81">塑料制品</a><a href="catalog.html?q=%E7%8E%BB%E7%92%83/%E7%9F%B3%E8%8B%B1/%E9%99%B6%E7%93%B7%E5%99%A8%E7%9A%BF">玻璃/石英/陶瓷器皿</a><a href="catalog.html?q=%E9%87%91%E5%B1%9E%E5%88%B6%E5%93%81%E4%B8%8E%E5%B7%A5%E5%85%B7">金属制品与工具</a><a href="catalog.html?q=%E6%A9%A1%E8%83%B6%E5%88%B6%E5%93%81">橡胶制品</a><a href="catalog.html?q=%E7%BA%B8%E7%B1%BB%E5%88%B6%E5%93%81%E4%B8%8E%E6%A0%87%E7%AD%BE">纸类制品与标签</a><a href="catalog.html?q=%E8%AF%95%E5%89%82%E4%B8%8E%E6%A0%87%E5%87%86%E5%93%81">试剂与标准品</a><a href="catalog.html?q=%E7%94%9F%E5%8C%96%E8%80%97%E6%9D%90">生化耗材</a><a href="catalog.html?q=%E8%BF%87%E6%BB%A4/%E8%89%B2%E8%B0%B1/%E8%86%9C/%E7%94%B5%E5%8C%96%E5%AD%A6%E4%B8%8E%E6%9D%90%E6%96%99%E5%88%B6%E5%A4%87">过滤/色谱/膜/电化学与材料制备</a><a href="catalog.html?q=%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%87%87%E6%A0%B7%E8%80%97%E6%9D%90">环境检测与采样耗材</a><a href="catalog.html?q=%E7%94%B5%E6%B1%A0%E4%B8%8E%E7%94%B5%E5%8C%96%E5%AD%A6%E4%B8%93%E7%94%A8%E8%80%97%E6%9D%90">电池与电化学专用耗材</a></div>
+</div>
+</section>
+</main>
+<footer aria-label="网站底部" class="footer-unified"><div class="footer-unified-main"><section aria-label="公司信息" class="footer-brand-block"><div class="footer-brand-row"><img alt="上海红祺腾达标志" decoding="async" loading="lazy" src="assets/images/logo-mark.png"/><div><strong>上海红祺腾达信息技术有限公司</strong><small>Shanghai Hongqi Tengda Information Technology Co., Ltd.</small></div></div><h2>AI 驱动的科研技术服务与数字化解决方案平台</h2><p>以专业技术服务连接科研需求、数据方法与工程落地。</p></section><nav aria-label="服务导航" class="footer-column"><strong>服务导航</strong><a href="board/ai-projects.html">AI项目</a><a href="board/computational-simulation.html">计算模拟</a><a href="board/characterization-analysis.html">分析表征</a><a href="board/research-supplies.html">耗材仪器</a><a href="catalog.html">项目查询</a></nav><div aria-label="联系我们" class="footer-column"><strong>联系我们</strong><button data-open-tech="" type="button">AI/计算模拟咨询</button><button data-open-admin="" type="button">表征与耗材服务</button><span>官方邮箱</span><span class="footer-email">drwang@hongqitengda.cn</span></div><section aria-label="服务号与小程序" class="footer-service-panel"><figure class="footer-service-qr"><a href="assets/images/wechat-service-account.jpg" rel="noopener noreferrer" target="_blank" title="点击放大服务号二维码"><img alt="红祺腾达服务号/公众号二维码" decoding="async" loading="lazy" src="assets/images/wechat-service-account.jpg"/></a><figcaption><strong>关注服务号 / 公众号</strong><small>通知 / 订单 / 咨询</small></figcaption></figure><figure class="footer-service-qr"><a href="assets/images/wechat-mini-program.jpg" rel="noopener noreferrer" target="_blank" title="点击放大小程序码"><img alt="红祺腾达科研服务小程序码" decoding="async" loading="lazy" src="assets/images/wechat-mini-program.jpg"/></a><figcaption><strong>科研服务小程序</strong><small>项目查询 / 服务入口</small></figcaption></figure></section></div><div class="footer-bottom-final"><a aria-label="返回顶部" class="footer-backtop" href="#top">↑</a><div class="footer-bottom-inner"><span>沪ICP备2026030711号-1X</span><span>Copyright 上海红祺腾达信息技术有限公司 All Rights Reserved</span></div></div></footer><div aria-label="在线咨询" class="hq-chat"><button aria-controls="hq-chat-panel" aria-expanded="false" class="hq-chat-launcher" type="button"><span aria-hidden="true" class="hq-chat-launcher-icon"></span><span class="hq-chat-launcher-text"><strong>在线咨询</strong><small>常见问题 · 企业微信</small></span></button><section class="hq-chat-panel" hidden="" id="hq-chat-panel"><div class="hq-chat-header"><div><strong>红祺腾达自助客服</strong><small>选择问题或输入关键词</small></div><button aria-label="关闭" class="hq-chat-close" type="button">×</button></div><div class="hq-chat-body" id="hq-chat-body"><div class="hq-chat-message"><div aria-hidden="true" class="hq-chat-avatar"></div><div class="hq-chat-bubble">您好，请选择常见问题，或输入 AI、计算模拟、表征、采购、发票、进度等关键词。</div></div><div class="hq-chat-quick"><button data-faq-key="services" type="button">有哪些科研服务？</button><button data-faq-key="price" type="button">如何报价？</button><button data-faq-key="simulation" type="button">计算模拟咨询</button><button data-faq-key="testing" type="button">表征/耗材咨询</button><button data-faq-key="invoice" type="button">合同与发票</button><button data-faq-key="progress" type="button">项目进度咨询</button></div><div class="hq-chat-wecom" hidden="" id="hq-chat-wecom"><article class="hq-chat-contact-card" data-chat-contact="tech"><img alt="AI与计算模拟企业微信" decoding="async" loading="lazy" src="assets/images/contact-ai-simulation-qr.png"/><strong>AI/模拟</strong><p>AI项目、DFT、MD、AIMD、数据分析与软件开发</p><button data-open-tech="" type="button">查看联系方式</button></article><article class="hq-chat-contact-card" data-chat-contact="admin"><img alt="分析表征与耗材仪器企业微信" decoding="async" loading="lazy" src="assets/images/contact-characterization-supplies-qr.png"/><strong>表征/耗材</strong><p>分析表征、耗材仪器、合同、发票、物流与售后</p><button data-open-admin="" type="button">查看联系方式</button></article></div></div><form class="hq-chat-input" id="hq-chat-form"><input autocomplete="off" id="hq-chat-text" placeholder="输入问题关键词" type="text"/><button type="submit">发送</button></form></section></div><div aria-labelledby="tech-qr-title" aria-modal="true" class="modal" hidden="" id="tech-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="关闭" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">AI &amp; SIMULATION</span><h2 id="tech-qr-title">AI/模拟咨询</h2><img alt="AI与计算模拟企业微信二维码" decoding="async" loading="lazy" src="assets/images/contact-ai-simulation-qr.png"/><p>适用于AI项目、DFT、MD、AIMD、数据分析、科研绘图及软件开发需求。添加时请备注“官网咨询 + 单位 + 需求关键词”。</p><div class="modal-link-row"><a class="primary" href="board/ai-projects.html">查看AI项目</a><a href="mailto:drwang@hongqitengda.cn">邮件咨询</a></div></div></div><div aria-labelledby="admin-qr-title" aria-modal="true" class="modal" hidden="" id="admin-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="关闭" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">CHARACTERIZATION &amp; SUPPLIES</span><h2 id="admin-qr-title">表征/耗材咨询</h2><img alt="分析表征与耗材仪器企业微信二维码" decoding="async" loading="lazy" src="assets/images/contact-characterization-supplies-qr.png"/><p>适用于分析表征、耗材仪器、合同、付款、发票、物流及售后事务。</p><div class="modal-link-row"><a class="primary" href="board/characterization-analysis.html">查看分析表征</a><a href="mailto:drwang@hongqitengda.cn">邮件咨询</a></div></div></div><script defer="True" src="assets/js/site.js"></script>
+<!-- HQTD customer portal entry: original homepage content preserved -->
+<a href="customer-portal/" aria-label="客户注册与在线下单" style="position:fixed;right:20px;bottom:88px;z-index:9998;padding:12px 18px;border-radius:999px;background:#9b1c1f;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.18)">客户注册 / 在线下单</a>
+<script src="assets/js/order-entry-v9.js?v=20260722-v9"></script></body>
+</html>
