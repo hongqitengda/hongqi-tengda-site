@@ -10,7 +10,7 @@ function row(label, value){
 }
 function titleFor(type){ return type==='ai'?'AI项目需求表':type==='calculation'?'计算模拟与数据分析需求表':'分析检测送样与技术需求表'; }
 function fieldsFor(type, f){
-  const common=[['业务编号',f.demandNo||f.businessNo],['提交日期',f.submissionDate||new Date().toISOString().slice(0,10)],['项目名称',f.projectName],['联系人',f.name||f.contactName],['单位/学校',f.organization],['手机号/微信',f.contact||f.phone],['邮箱',f.email]];
+  const common=[['项目编号',f.projectId||f.projectCode],['业务编号',f.demandNo||f.businessNo],['提交日期',f.submissionDate||new Date().toISOString().slice(0,10)],['项目名称',f.projectName],['联系人',f.name||f.contactName],['单位/学校',f.organization],['手机号/微信',f.contact||f.phone],['邮箱',f.email]];
   if(type==='ai') return common.concat([
     ['项目目标',f.projectGoal||f.description||f.detail],['现有数据情况',f.dataStatus],['数据类型与规模',f.dataTypeScale],['希望实现的功能',f.expectedFunction],['模型/系统类型',arr(f.selectedOptions)],['预期交付成果',f.deliverables],['是否需要部署',f.deploymentNeed],['补充说明',f.note]
   ]);

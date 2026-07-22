@@ -1,6 +1,6 @@
 {
   "name": "hqtd-web-portal",
-  "version": "8.1.2",
+  "version": "8.1.4",
   "description": "HQTD webPortal - Taobao-style direct order, shared mini-program account, binary attachments and Word export",
   "main": "index.js",
   "engines": {

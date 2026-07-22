@@ -49,335 +49,6 @@
   },
   "templates": [
     {
-      "key": "ai-general",
-      "serviceType": "AI项目",
-      "projectCode": "AI",
-      "title": "AI科研项目需求表",
-      "category": "AI项目",
-      "originalPath": "templates/HQTD-AI-Project-Requirement-Form.docx",
-      "interfaceOnly": false,
-      "fields": [
-        {
-          "key": "organization",
-          "label": "委托单位/学校",
-          "type": "text",
-          "required": true
-        },
-        {
-          "key": "contactName",
-          "label": "联系人",
-          "type": "text",
-          "required": true
-        },
-        {
-          "key": "phone",
-          "label": "联系电话",
-          "type": "tel",
-          "required": true
-        },
-        {
-          "key": "email",
-          "label": "电子邮箱",
-          "type": "email",
-          "required": false
-        },
-        {
-          "key": "projectName",
-          "label": "项目名称",
-          "type": "text",
-          "required": true
-        },
-        {
-          "key": "expectedDate",
-          "label": "期望完成日期",
-          "type": "date",
-          "required": false
-        },
-        {
-          "key": "aiDirection",
-          "label": "AI项目方向",
-          "type": "select",
-          "required": true,
-          "options": [
-            "机器学习预测",
-            "科研数据分析",
-            "图像识别与分割",
-            "大语言模型与智能体",
-            "科研数据库",
-            "科研软件/小程序",
-            "自动化数据处理",
-            "其他定制项目"
-          ]
-        },
-        {
-          "key": "projectBackground",
-          "label": "项目背景与研究目标",
-          "type": "textarea",
-          "required": true
-        },
-        {
-          "key": "dataStatus",
-          "label": "现有数据情况",
-          "type": "select",
-          "required": true,
-          "options": [
-            "已有完整数据",
-            "已有部分数据",
-            "暂无数据，需要先评估",
-            "数据涉及保密"
-          ]
-        },
-        {
-          "key": "datasets",
-          "label": "数据集或功能模块明细",
-          "type": "table",
-          "required": false,
-          "columns": [
-            {
-              "key": "name",
-              "label": "数据集/模块"
-            },
-            {
-              "key": "format",
-              "label": "数据格式"
-            },
-            {
-              "key": "volume",
-              "label": "数据量"
-            },
-            {
-              "key": "target",
-              "label": "目标变量/功能"
-            },
-            {
-              "key": "remark",
-              "label": "备注"
-            }
-          ]
-        },
-        {
-          "key": "expectedDeliverables",
-          "label": "预期成果",
-          "type": "multiselect",
-          "required": true,
-          "options": [
-            "预测模型",
-            "分析报告",
-            "可视化图表",
-            "源代码",
-            "网页演示",
-            "小程序",
-            "软件工具",
-            "方法验证"
-          ]
-        },
-        {
-          "key": "targetMetrics",
-          "label": "目标指标或验收要求",
-          "type": "textarea",
-          "required": false
-        },
-        {
-          "key": "deploymentRequirements",
-          "label": "部署环境与交付要求",
-          "type": "textarea",
-          "required": false
-        },
-        {
-          "key": "sourceCodeRequired",
-          "label": "是否需要源代码",
-          "type": "select",
-          "required": false,
-          "options": [
-            "需要",
-            "不需要",
-            "待沟通"
-          ]
-        },
-        {
-          "key": "confidentialityRequirements",
-          "label": "保密要求",
-          "type": "textarea",
-          "required": false
-        },
-        {
-          "key": "otherRequirements",
-          "label": "其他要求",
-          "type": "textarea",
-          "required": false
-        }
-      ]
-    },
-    {
-      "key": "calc-general",
-      "serviceType": "计算模拟",
-      "projectCode": "JS",
-      "title": "模拟计算需求单",
-      "category": "计算模拟",
-      "originalPath": "templates/模拟计算需求单-动态参考模板.docx",
-      "fields": [
-        {
-          "key": "organization",
-          "label": "委托单位/学校",
-          "type": "text",
-          "required": true,
-          "dbPath": "organization"
-        },
-        {
-          "key": "contactName",
-          "label": "联系人",
-          "type": "text",
-          "required": true,
-          "dbPath": "contactName"
-        },
-        {
-          "key": "phone",
-          "label": "联系电话",
-          "type": "tel",
-          "required": true,
-          "dbPath": "phone"
-        },
-        {
-          "key": "email",
-          "label": "电子邮箱",
-          "type": "email",
-          "required": false,
-          "dbPath": "email"
-        },
-        {
-          "key": "projectName",
-          "label": "项目/课题名称",
-          "type": "text",
-          "required": true,
-          "dbPath": "projectName"
-        },
-        {
-          "key": "expectedDate",
-          "label": "期望完成日期",
-          "type": "date",
-          "required": false,
-          "dbPath": "expectedDate"
-        },
-        {
-          "key": "budget",
-          "label": "预算范围（选填）",
-          "type": "text",
-          "required": false,
-          "dbPath": "budget"
-        },
-        {
-          "key": "calculationPurpose",
-          "label": "一、计算主要目的",
-          "type": "textarea",
-          "required": true,
-          "dbPath": "formData.calculationPurpose",
-          "placeholder": "说明希望通过模拟计算解决的科学问题和预期结论。"
-        },
-        {
-          "key": "basicInformation",
-          "label": "二、计算基本信息",
-          "type": "textarea",
-          "required": true,
-          "dbPath": "formData.basicInformation",
-          "placeholder": "材料、晶面、结构文件、取代方式、官能团、实验数据等。"
-        },
-        {
-          "key": "calculationRequirements",
-          "label": "三、明确计算需求",
-          "type": "textarea",
-          "required": true,
-          "dbPath": "formData.calculationRequirements",
-          "placeholder": "吸附构型、结合能、DOS/PDOS、电荷、ELF、反应路径等。"
-        },
-        {
-          "key": "expectedTrend",
-          "label": "四、预期趋势与实验依据",
-          "type": "textarea",
-          "required": false,
-          "dbPath": "formData.expectedTrend",
-          "placeholder": "说明预期吸附能、能垒、电子结构或性能趋势，并提供可参考的实验结果。"
-        },
-        {
-          "key": "materials",
-          "label": "材料/模型动态明细",
-          "type": "table",
-          "required": false,
-          "columns": [
-            {
-              "key": "no",
-              "label": "编号"
-            },
-            {
-              "key": "name",
-              "label": "材料/分子名称"
-            },
-            {
-              "key": "file",
-              "label": "结构文件"
-            },
-            {
-              "key": "facet",
-              "label": "晶面/模型"
-            },
-            {
-              "key": "modification",
-              "label": "取代/缺陷/官能团"
-            },
-            {
-              "key": "remark",
-              "label": "备注"
-            }
-          ]
-        },
-        {
-          "key": "calculationTasks",
-          "label": "计算任务动态明细",
-          "type": "table",
-          "required": false,
-          "columns": [
-            {
-              "key": "no",
-              "label": "序号"
-            },
-            {
-              "key": "category",
-              "label": "计算类别"
-            },
-            {
-              "key": "system",
-              "label": "计算对象/体系"
-            },
-            {
-              "key": "conditions",
-              "label": "关键参数或条件"
-            },
-            {
-              "key": "output",
-              "label": "预期输出"
-            },
-            {
-              "key": "priority",
-              "label": "优先级"
-            }
-          ]
-        },
-        {
-          "key": "referencesAndFigures",
-          "label": "五、参考文献及出图样式",
-          "type": "textarea",
-          "required": false,
-          "dbPath": "formData.referencesAndFigures"
-        },
-        {
-          "key": "otherRequirements",
-          "label": "六、交付文件与其他要求",
-          "type": "textarea",
-          "required": false,
-          "dbPath": "formData.otherRequirements"
-        }
-      ]
-    },
-    {
       "key": "supplies-general",
       "serviceType": "耗材仪器",
       "projectCode": "HC",
@@ -512,283 +183,1039 @@
       "id": "analysis-01",
       "serviceType": "分析表征",
       "title": "01_SEM扫描电镜与EDS能谱",
-      "originalPath": "templates/analysis/A01.docx"
+      "originalPath": "templates/analysis/FX-1.docx"
     },
     {
       "id": "analysis-02",
       "serviceType": "分析表征",
       "title": "02_TEM透射电镜与电子衍射",
-      "originalPath": "templates/analysis/A02.docx"
+      "originalPath": "templates/analysis/FX-2.docx"
     },
     {
       "id": "analysis-03",
       "serviceType": "分析表征",
       "title": "03_AFM与扫描探针显微镜",
-      "originalPath": "templates/analysis/A03.docx"
+      "originalPath": "templates/analysis/FX-3.docx"
     },
     {
       "id": "analysis-04",
       "serviceType": "分析表征",
       "title": "04_光学显微与激光共聚焦",
-      "originalPath": "templates/analysis/A04.docx"
+      "originalPath": "templates/analysis/FX-4.docx"
     },
     {
       "id": "analysis-05",
       "serviceType": "分析表征",
       "title": "05_FIB截面制样与EBSD",
-      "originalPath": "templates/analysis/A05.docx"
+      "originalPath": "templates/analysis/FX-5.docx"
     },
     {
       "id": "analysis-06",
       "serviceType": "分析表征",
       "title": "06_X射线CT三维成像",
-      "originalPath": "templates/analysis/A06.docx"
+      "originalPath": "templates/analysis/FX-6.docx"
     },
     {
       "id": "analysis-07",
       "serviceType": "分析表征",
       "title": "07_XRD综合物相与薄膜结构",
-      "originalPath": "templates/analysis/A07.docx"
+      "originalPath": "templates/analysis/FX-7.docx"
     },
     {
       "id": "analysis-08",
       "serviceType": "分析表征",
       "title": "08_FTIR傅里叶红外光谱",
-      "originalPath": "templates/analysis/A08.docx"
+      "originalPath": "templates/analysis/FX-8.docx"
     },
     {
       "id": "analysis-09",
       "serviceType": "分析表征",
       "title": "09_Raman拉曼光谱",
-      "originalPath": "templates/analysis/A09.docx"
+      "originalPath": "templates/analysis/FX-9.docx"
     },
     {
       "id": "analysis-10",
       "serviceType": "分析表征",
       "title": "10_UV-Vis紫外可见光谱",
-      "originalPath": "templates/analysis/A10.docx"
+      "originalPath": "templates/analysis/FX-10.docx"
     },
     {
       "id": "analysis-11",
       "serviceType": "分析表征",
       "title": "11_荧光PL与三维荧光EEM",
-      "originalPath": "templates/analysis/A11.docx"
+      "originalPath": "templates/analysis/FX-11.docx"
     },
     {
       "id": "analysis-12",
       "serviceType": "分析表征",
       "title": "12_NMR核磁共振",
-      "originalPath": "templates/analysis/A12.docx"
+      "originalPath": "templates/analysis/FX-12.docx"
     },
     {
       "id": "analysis-13",
       "serviceType": "分析表征",
       "title": "13_EPR电子顺磁共振",
-      "originalPath": "templates/analysis/A13.docx"
+      "originalPath": "templates/analysis/FX-13.docx"
     },
     {
       "id": "analysis-14",
       "serviceType": "分析表征",
       "title": "14_同步辐射XAFS与软X射线吸收谱",
-      "originalPath": "templates/analysis/A14.docx"
+      "originalPath": "templates/analysis/FX-14.docx"
     },
     {
       "id": "analysis-15",
       "serviceType": "分析表征",
       "title": "15_太赫兹与特殊光谱",
-      "originalPath": "templates/analysis/A15.docx"
+      "originalPath": "templates/analysis/FX-15.docx"
     },
     {
       "id": "analysis-16",
       "serviceType": "分析表征",
       "title": "16_XRF X射线荧光",
-      "originalPath": "templates/analysis/A16.docx"
+      "originalPath": "templates/analysis/FX-16.docx"
     },
     {
       "id": "analysis-17",
       "serviceType": "分析表征",
       "title": "17_ICP-OES ICP-MS与AAS元素分析",
-      "originalPath": "templates/analysis/A17.docx"
+      "originalPath": "templates/analysis/FX-17.docx"
     },
     {
       "id": "analysis-18",
       "serviceType": "分析表征",
       "title": "18_XPS UPS AES与TOF-SIMS表面分析",
-      "originalPath": "templates/analysis/A18.docx"
+      "originalPath": "templates/analysis/FX-18.docx"
     },
     {
       "id": "analysis-19",
       "serviceType": "分析表征",
       "title": "19_CHNS ONH与碳硫元素分析",
-      "originalPath": "templates/analysis/A19.docx"
+      "originalPath": "templates/analysis/FX-19.docx"
     },
     {
       "id": "analysis-20",
       "serviceType": "分析表征",
       "title": "20_TOC TC IC总碳分析",
-      "originalPath": "templates/analysis/A20.docx"
+      "originalPath": "templates/analysis/FX-20.docx"
     },
     {
       "id": "analysis-21",
       "serviceType": "分析表征",
       "title": "21_离子色谱与自动电位滴定",
-      "originalPath": "templates/analysis/A21.docx"
+      "originalPath": "templates/analysis/FX-21.docx"
     },
     {
       "id": "analysis-22",
       "serviceType": "分析表征",
       "title": "22_BET气体吸附与孔结构",
-      "originalPath": "templates/analysis/A22.docx"
+      "originalPath": "templates/analysis/FX-22.docx"
     },
     {
       "id": "analysis-23",
       "serviceType": "分析表征",
       "title": "23_压汞与毛细管流动孔径CFP",
-      "originalPath": "templates/analysis/A23.docx"
+      "originalPath": "templates/analysis/FX-23.docx"
     },
     {
       "id": "analysis-24",
       "serviceType": "分析表征",
       "title": "24_DLS粒径与Zeta电位",
-      "originalPath": "templates/analysis/A24.docx"
+      "originalPath": "templates/analysis/FX-24.docx"
     },
     {
       "id": "analysis-25",
       "serviceType": "分析表征",
       "title": "25_激光粒度与颗粒分布",
-      "originalPath": "templates/analysis/A25.docx"
+      "originalPath": "templates/analysis/FX-25.docx"
     },
     {
       "id": "analysis-26",
       "serviceType": "分析表征",
       "title": "26_GPC SEC分子量分布",
-      "originalPath": "templates/analysis/A26.docx"
+      "originalPath": "templates/analysis/FX-26.docx"
     },
     {
       "id": "analysis-27",
       "serviceType": "分析表征",
       "title": "27_接触角与表面张力",
-      "originalPath": "templates/analysis/A27.docx"
+      "originalPath": "templates/analysis/FX-27.docx"
     },
     {
       "id": "analysis-28",
       "serviceType": "分析表征",
       "title": "28_TPD TPR TPO程序升温化学吸附",
-      "originalPath": "templates/analysis/A28.docx"
+      "originalPath": "templates/analysis/FX-28.docx"
     },
     {
       "id": "analysis-29",
       "serviceType": "分析表征",
       "title": "29_TGA热重与TG-DSC同步热分析",
-      "originalPath": "templates/analysis/A29.docx"
+      "originalPath": "templates/analysis/FX-29.docx"
     },
     {
       "id": "analysis-30",
       "serviceType": "分析表征",
       "title": "30_DSC差示扫描量热",
-      "originalPath": "templates/analysis/A30.docx"
+      "originalPath": "templates/analysis/FX-30.docx"
     },
     {
       "id": "analysis-31",
       "serviceType": "分析表征",
       "title": "31_TMA与DMA热机械分析",
-      "originalPath": "templates/analysis/A31.docx"
+      "originalPath": "templates/analysis/FX-31.docx"
     },
     {
       "id": "analysis-32",
       "serviceType": "分析表征",
       "title": "32_常规力学性能",
-      "originalPath": "templates/analysis/A32.docx"
+      "originalPath": "templates/analysis/FX-32.docx"
     },
     {
       "id": "analysis-33",
       "serviceType": "分析表征",
       "title": "33_纳米压痕与微纳力学",
-      "originalPath": "templates/analysis/A33.docx"
+      "originalPath": "templates/analysis/FX-33.docx"
     },
     {
       "id": "analysis-34",
       "serviceType": "分析表征",
       "title": "34_导热系数与热扩散性能",
-      "originalPath": "templates/analysis/A34.docx"
+      "originalPath": "templates/analysis/FX-34.docx"
     },
     {
       "id": "analysis-35",
       "serviceType": "分析表征",
       "title": "35_电学介电与霍尔性能",
-      "originalPath": "templates/analysis/A35.docx"
+      "originalPath": "templates/analysis/FX-35.docx"
     },
     {
       "id": "analysis-36",
       "serviceType": "分析表征",
       "title": "36_电化学CV LSV EIS与充放电",
-      "originalPath": "templates/analysis/A36.docx"
+      "originalPath": "templates/analysis/FX-36.docx"
     },
     {
       "id": "analysis-37",
       "serviceType": "分析表征",
       "title": "37_磁学VSM与SQUID",
-      "originalPath": "templates/analysis/A37.docx"
+      "originalPath": "templates/analysis/FX-37.docx"
     },
     {
       "id": "analysis-38",
       "serviceType": "分析表征",
       "title": "38_环境可靠性与老化试验",
-      "originalPath": "templates/analysis/A38.docx"
+      "originalPath": "templates/analysis/FX-38.docx"
     },
     {
       "id": "analysis-39",
       "serviceType": "分析表征",
       "title": "39_摩擦磨损划痕与附着力",
-      "originalPath": "templates/analysis/A39.docx"
+      "originalPath": "templates/analysis/FX-39.docx"
     },
     {
       "id": "analysis-40",
       "serviceType": "分析表征",
       "title": "40_HPLC与LC-MS液相分析",
-      "originalPath": "templates/analysis/A40.docx"
+      "originalPath": "templates/analysis/FX-40.docx"
     },
     {
       "id": "analysis-41",
       "serviceType": "分析表征",
       "title": "41_GC与GC-MS气相分析",
-      "originalPath": "templates/analysis/A41.docx"
+      "originalPath": "templates/analysis/FX-41.docx"
     },
     {
       "id": "analysis-42",
       "serviceType": "分析表征",
       "title": "42_MALDI-TOF与通用质谱",
-      "originalPath": "templates/analysis/A42.docx"
+      "originalPath": "templates/analysis/FX-42.docx"
     },
     {
       "id": "analysis-43",
       "serviceType": "分析表征",
       "title": "43_水质常规与营养盐分析",
-      "originalPath": "templates/analysis/A43.docx"
+      "originalPath": "templates/analysis/FX-43.docx"
     },
     {
       "id": "analysis-44",
       "serviceType": "分析表征",
       "title": "44_土壤沉积物与固体环境样品",
-      "originalPath": "templates/analysis/A44.docx"
+      "originalPath": "templates/analysis/FX-44.docx"
     },
     {
       "id": "analysis-45",
       "serviceType": "分析表征",
       "title": "45_有机污染物前处理与定量分析",
-      "originalPath": "templates/analysis/A45.docx"
+      "originalPath": "templates/analysis/FX-45.docx"
     },
     {
       "id": "analysis-46",
       "serviceType": "分析表征",
       "title": "46_生物相容性细胞与抗菌性能",
-      "originalPath": "templates/analysis/A46.docx"
+      "originalPath": "templates/analysis/FX-46.docx"
     },
     {
       "id": "analysis-47",
       "serviceType": "分析表征",
       "title": "47_氨基酸蛋白与生化组分分析",
-      "originalPath": "templates/analysis/A47.docx"
+      "originalPath": "templates/analysis/FX-47.docx"
+    },
+    {
+      "key": "ai-ai-1",
+      "title": "AI-1 医学影像智能分割与辅助判读需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-1",
+      "originalPath": "templates/ai/AI-1.docx"
+    },
+    {
+      "key": "ai-ai-2",
+      "title": "AI-2 候选分子与材料智能筛选需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-2",
+      "originalPath": "templates/ai/AI-2.docx"
+    },
+    {
+      "key": "ai-ai-3",
+      "title": "AI-3 配方、工艺与性能预测需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-3",
+      "originalPath": "templates/ai/AI-3.docx"
+    },
+    {
+      "key": "ai-ai-4",
+      "title": "AI-4 科研知识库与 RAG需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-4",
+      "originalPath": "templates/ai/AI-4.docx"
+    },
+    {
+      "key": "ai-ai-5",
+      "title": "AI-5 多模态数据分析需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-5",
+      "originalPath": "templates/ai/AI-5.docx"
+    },
+    {
+      "key": "ai-ai-6",
+      "title": "AI-6 机器学习预测需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-6",
+      "originalPath": "templates/ai/AI-6.docx"
+    },
+    {
+      "key": "ai-ai-7",
+      "title": "AI-7 实验设计与多目标优化需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-7",
+      "originalPath": "templates/ai/AI-7.docx"
+    },
+    {
+      "key": "ai-ai-8",
+      "title": "AI-8 科研智能体开发需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-8",
+      "originalPath": "templates/ai/AI-8.docx"
+    },
+    {
+      "key": "js-js-1",
+      "title": "JS-1 计算流体力学定制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-1",
+      "originalPath": "templates/calculation/JS-1.docx"
+    },
+    {
+      "key": "ai-ai-9",
+      "title": "AI-9 定制化AI项目需求表",
+      "serviceType": "AI项目",
+      "projectCode": "AI-9",
+      "originalPath": "templates/ai/AI-9.docx"
+    },
+    {
+      "key": "js-js-2",
+      "title": "JS-2 第一性原理计算定制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-2",
+      "originalPath": "templates/calculation/JS-2.docx"
+    },
+    {
+      "key": "js-js-3",
+      "title": "JS-3 分子动力学定制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-3",
+      "originalPath": "templates/calculation/JS-3.docx"
+    },
+    {
+      "key": "js-js-4",
+      "title": "JS-4 多物理场与有限元仿真定制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-4",
+      "originalPath": "templates/calculation/JS-4.docx"
+    },
+    {
+      "key": "js-js-5",
+      "title": "JS-5 量子化学与分子计算定制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-5",
+      "originalPath": "templates/calculation/JS-5.docx"
+    },
+    {
+      "key": "js-js-6",
+      "title": "JS-6 纳米流体流动与传热模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-6",
+      "originalPath": "templates/calculation/JS-6.docx"
+    },
+    {
+      "key": "js-js-7",
+      "title": "JS-7 流线分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-7",
+      "originalPath": "templates/calculation/JS-7.docx"
+    },
+    {
+      "key": "js-js-8",
+      "title": "JS-8 压力分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-8",
+      "originalPath": "templates/calculation/JS-8.docx"
+    },
+    {
+      "key": "js-js-9",
+      "title": "JS-9 速度分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-9",
+      "originalPath": "templates/calculation/JS-9.docx"
+    },
+    {
+      "key": "js-js-10",
+      "title": "JS-10 温度分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-10",
+      "originalPath": "templates/calculation/JS-10.docx"
+    },
+    {
+      "key": "js-js-11",
+      "title": "JS-11 湍流强度需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-11",
+      "originalPath": "templates/calculation/JS-11.docx"
+    },
+    {
+      "key": "js-js-12",
+      "title": "JS-12 涡量分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-12",
+      "originalPath": "templates/calculation/JS-12.docx"
+    },
+    {
+      "key": "js-js-13",
+      "title": "JS-13 多相流模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-13",
+      "originalPath": "templates/calculation/JS-13.docx"
+    },
+    {
+      "key": "js-js-14",
+      "title": "JS-14 传热分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-14",
+      "originalPath": "templates/calculation/JS-14.docx"
+    },
+    {
+      "key": "js-js-15",
+      "title": "JS-15 燃烧模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-15",
+      "originalPath": "templates/calculation/JS-15.docx"
+    },
+    {
+      "key": "js-js-16",
+      "title": "JS-16 混合效率分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-16",
+      "originalPath": "templates/calculation/JS-16.docx"
+    },
+    {
+      "key": "js-js-17",
+      "title": "JS-17 颗粒轨迹追踪需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-17",
+      "originalPath": "templates/calculation/JS-17.docx"
+    },
+    {
+      "key": "js-js-18",
+      "title": "JS-18 泵与风机仿真需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-18",
+      "originalPath": "templates/calculation/JS-18.docx"
+    },
+    {
+      "key": "js-js-19",
+      "title": "JS-19 晶体结构需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-19",
+      "originalPath": "templates/calculation/JS-19.docx"
+    },
+    {
+      "key": "js-js-20",
+      "title": "JS-20 吸附构型需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-20",
+      "originalPath": "templates/calculation/JS-20.docx"
+    },
+    {
+      "key": "js-js-21",
+      "title": "JS-21 吸附能需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-21",
+      "originalPath": "templates/calculation/JS-21.docx"
+    },
+    {
+      "key": "js-js-22",
+      "title": "JS-22 能带结构需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-22",
+      "originalPath": "templates/calculation/JS-22.docx"
+    },
+    {
+      "key": "js-js-23",
+      "title": "JS-23 DOS需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-23",
+      "originalPath": "templates/calculation/JS-23.docx"
+    },
+    {
+      "key": "js-js-24",
+      "title": "JS-24 PDOS需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-24",
+      "originalPath": "templates/calculation/JS-24.docx"
+    },
+    {
+      "key": "js-js-25",
+      "title": "JS-25 电荷密度差需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-25",
+      "originalPath": "templates/calculation/JS-25.docx"
+    },
+    {
+      "key": "js-js-26",
+      "title": "JS-26 ELF需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-26",
+      "originalPath": "templates/calculation/JS-26.docx"
+    },
+    {
+      "key": "js-js-27",
+      "title": "JS-27 Bader电荷需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-27",
+      "originalPath": "templates/calculation/JS-27.docx"
+    },
+    {
+      "key": "js-js-28",
+      "title": "JS-28 静电势分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-28",
+      "originalPath": "templates/calculation/JS-28.docx"
+    },
+    {
+      "key": "js-js-29",
+      "title": "JS-29 COHP需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-29",
+      "originalPath": "templates/calculation/JS-29.docx"
+    },
+    {
+      "key": "js-js-30",
+      "title": "JS-30 ICOHP需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-30",
+      "originalPath": "templates/calculation/JS-30.docx"
+    },
+    {
+      "key": "js-js-31",
+      "title": "JS-31 AIMD模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-31",
+      "originalPath": "templates/calculation/JS-31.docx"
+    },
+    {
+      "key": "js-js-32",
+      "title": "JS-32 NEB能垒需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-32",
+      "originalPath": "templates/calculation/JS-32.docx"
+    },
+    {
+      "key": "js-js-33",
+      "title": "JS-33 声子谱需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-33",
+      "originalPath": "templates/calculation/JS-33.docx"
+    },
+    {
+      "key": "js-js-34",
+      "title": "JS-34 声子DOS需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-34",
+      "originalPath": "templates/calculation/JS-34.docx"
+    },
+    {
+      "key": "js-js-35",
+      "title": "JS-35 光学性质需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-35",
+      "originalPath": "templates/calculation/JS-35.docx"
+    },
+    {
+      "key": "js-js-36",
+      "title": "JS-36 功函数需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-36",
+      "originalPath": "templates/calculation/JS-36.docx"
+    },
+    {
+      "key": "js-js-37",
+      "title": "JS-37 电子局域函数需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-37",
+      "originalPath": "templates/calculation/JS-37.docx"
+    },
+    {
+      "key": "js-js-38",
+      "title": "JS-38 非晶质分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-38",
+      "originalPath": "templates/calculation/JS-38.docx"
+    },
+    {
+      "key": "js-js-39",
+      "title": "JS-39 表面能计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-39",
+      "originalPath": "templates/calculation/JS-39.docx"
+    },
+    {
+      "key": "js-js-40",
+      "title": "JS-40 界面结合能需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-40",
+      "originalPath": "templates/calculation/JS-40.docx"
+    },
+    {
+      "key": "js-js-41",
+      "title": "JS-41 缺陷形成能需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-41",
+      "originalPath": "templates/calculation/JS-41.docx"
+    },
+    {
+      "key": "js-js-42",
+      "title": "JS-42 杂质掺杂需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-42",
+      "originalPath": "templates/calculation/JS-42.docx"
+    },
+    {
+      "key": "js-js-43",
+      "title": "JS-43 应变效应分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-43",
+      "originalPath": "templates/calculation/JS-43.docx"
+    },
+    {
+      "key": "js-js-44",
+      "title": "JS-44 压电性质需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-44",
+      "originalPath": "templates/calculation/JS-44.docx"
+    },
+    {
+      "key": "js-js-45",
+      "title": "JS-45 铁电性质需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-45",
+      "originalPath": "templates/calculation/JS-45.docx"
+    },
+    {
+      "key": "js-js-46",
+      "title": "JS-46 磁性性质需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-46",
+      "originalPath": "templates/calculation/JS-46.docx"
+    },
+    {
+      "key": "js-js-47",
+      "title": "JS-47 交换耦合常数需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-47",
+      "originalPath": "templates/calculation/JS-47.docx"
+    },
+    {
+      "key": "js-js-48",
+      "title": "JS-48 自旋极化需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-48",
+      "originalPath": "templates/calculation/JS-48.docx"
+    },
+    {
+      "key": "js-js-49",
+      "title": "JS-49 拓扑性质需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-49",
+      "originalPath": "templates/calculation/JS-49.docx"
+    },
+    {
+      "key": "js-js-50",
+      "title": "JS-50 非线性光学需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-50",
+      "originalPath": "templates/calculation/JS-50.docx"
+    },
+    {
+      "key": "js-js-51",
+      "title": "JS-51 电化学反应模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-51",
+      "originalPath": "templates/calculation/JS-51.docx"
+    },
+    {
+      "key": "js-js-52",
+      "title": "JS-52 电化学反应与电极过程模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-52",
+      "originalPath": "templates/calculation/JS-52.docx"
+    },
+    {
+      "key": "js-js-53",
+      "title": "JS-53 催化反应机理与活性计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-53",
+      "originalPath": "templates/calculation/JS-53.docx"
+    },
+    {
+      "key": "js-js-54",
+      "title": "JS-54 电池材料储能机理与电压计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-54",
+      "originalPath": "templates/calculation/JS-54.docx"
+    },
+    {
+      "key": "js-js-55",
+      "title": "JS-55 径向分布函数(RDF)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-55",
+      "originalPath": "templates/calculation/JS-55.docx"
+    },
+    {
+      "key": "js-js-56",
+      "title": "JS-56 平均平方位移(MSD)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-56",
+      "originalPath": "templates/calculation/JS-56.docx"
+    },
+    {
+      "key": "js-js-57",
+      "title": "JS-57 扩散系数需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-57",
+      "originalPath": "templates/calculation/JS-57.docx"
+    },
+    {
+      "key": "js-js-58",
+      "title": "JS-58 速度自相关(VACF)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-58",
+      "originalPath": "templates/calculation/JS-58.docx"
+    },
+    {
+      "key": "js-js-59",
+      "title": "JS-59 氢键分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-59",
+      "originalPath": "templates/calculation/JS-59.docx"
+    },
+    {
+      "key": "js-js-60",
+      "title": "JS-60 密度分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-60",
+      "originalPath": "templates/calculation/JS-60.docx"
+    },
+    {
+      "key": "js-js-61",
+      "title": "JS-61 RMSD需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-61",
+      "originalPath": "templates/calculation/JS-61.docx"
+    },
+    {
+      "key": "js-js-62",
+      "title": "JS-62 RMSF需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-62",
+      "originalPath": "templates/calculation/JS-62.docx"
+    },
+    {
+      "key": "js-js-63",
+      "title": "JS-63 溶剂可及表面积(SASA)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-63",
+      "originalPath": "templates/calculation/JS-63.docx"
+    },
+    {
+      "key": "js-js-64",
+      "title": "JS-64 回转半径(Rg)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-64",
+      "originalPath": "templates/calculation/JS-64.docx"
+    },
+    {
+      "key": "js-js-65",
+      "title": "JS-65 二面角分布需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-65",
+      "originalPath": "templates/calculation/JS-65.docx"
+    },
+    {
+      "key": "js-js-66",
+      "title": "JS-66 构象聚类分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-66",
+      "originalPath": "templates/calculation/JS-66.docx"
+    },
+    {
+      "key": "js-js-67",
+      "title": "JS-67 自由能面(FES)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-67",
+      "originalPath": "templates/calculation/JS-67.docx"
+    },
+    {
+      "key": "js-js-68",
+      "title": "JS-68 Umbrella采样需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-68",
+      "originalPath": "templates/calculation/JS-68.docx"
+    },
+    {
+      "key": "js-js-69",
+      "title": "JS-69 热力学积分(TI)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-69",
+      "originalPath": "templates/calculation/JS-69.docx"
+    },
+    {
+      "key": "js-js-70",
+      "title": "JS-70 集度平均(IM)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-70",
+      "originalPath": "templates/calculation/JS-70.docx"
+    },
+    {
+      "key": "js-js-71",
+      "title": "JS-71 非平衡MD(NEMD)需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-71",
+      "originalPath": "templates/calculation/JS-71.docx"
+    },
+    {
+      "key": "js-js-72",
+      "title": "JS-72 黏度计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-72",
+      "originalPath": "templates/calculation/JS-72.docx"
+    },
+    {
+      "key": "js-js-73",
+      "title": "JS-73 热导率计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-73",
+      "originalPath": "templates/calculation/JS-73.docx"
+    },
+    {
+      "key": "js-js-74",
+      "title": "JS-74 离子电导率需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-74",
+      "originalPath": "templates/calculation/JS-74.docx"
+    },
+    {
+      "key": "js-js-75",
+      "title": "JS-75 电池电解液分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-75",
+      "originalPath": "templates/calculation/JS-75.docx"
+    },
+    {
+      "key": "js-js-76",
+      "title": "JS-76 聚合物链构象需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-76",
+      "originalPath": "templates/calculation/JS-76.docx"
+    },
+    {
+      "key": "js-js-77",
+      "title": "JS-77 吸附扩散机制需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-77",
+      "originalPath": "templates/calculation/JS-77.docx"
+    },
+    {
+      "key": "js-js-78",
+      "title": "JS-78 溶剂化与溶液结构模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-78",
+      "originalPath": "templates/calculation/JS-78.docx"
+    },
+    {
+      "key": "js-js-79",
+      "title": "JS-79 界面相互作用模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-79",
+      "originalPath": "templates/calculation/JS-79.docx"
+    },
+    {
+      "key": "js-js-80",
+      "title": "JS-80 表面润湿性与接触角模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-80",
+      "originalPath": "templates/calculation/JS-80.docx"
+    },
+    {
+      "key": "js-js-81",
+      "title": "JS-81 多孔材料吸附分离性能模拟需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-81",
+      "originalPath": "templates/calculation/JS-81.docx"
+    },
+    {
+      "key": "js-js-82",
+      "title": "JS-82 分子动力学模拟与界面行为研究需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-82",
+      "originalPath": "templates/calculation/JS-82.docx"
+    },
+    {
+      "key": "js-js-83",
+      "title": "JS-83 静力学分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-83",
+      "originalPath": "templates/calculation/JS-83.docx"
+    },
+    {
+      "key": "js-js-84",
+      "title": "JS-84 位移分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-84",
+      "originalPath": "templates/calculation/JS-84.docx"
+    },
+    {
+      "key": "js-js-85",
+      "title": "JS-85 应变分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-85",
+      "originalPath": "templates/calculation/JS-85.docx"
+    },
+    {
+      "key": "js-js-86",
+      "title": "JS-86 频率分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-86",
+      "originalPath": "templates/calculation/JS-86.docx"
+    },
+    {
+      "key": "js-js-87",
+      "title": "JS-87 屈曲分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-87",
+      "originalPath": "templates/calculation/JS-87.docx"
+    },
+    {
+      "key": "js-js-88",
+      "title": "JS-88 热应力分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-88",
+      "originalPath": "templates/calculation/JS-88.docx"
+    },
+    {
+      "key": "js-js-89",
+      "title": "JS-89 瞬态动力学需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-89",
+      "originalPath": "templates/calculation/JS-89.docx"
+    },
+    {
+      "key": "js-js-90",
+      "title": "JS-90 疲劳寿命分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-90",
+      "originalPath": "templates/calculation/JS-90.docx"
+    },
+    {
+      "key": "js-js-91",
+      "title": "JS-91 接触分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-91",
+      "originalPath": "templates/calculation/JS-91.docx"
+    },
+    {
+      "key": "js-js-92",
+      "title": "JS-92 复合材料分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-92",
+      "originalPath": "templates/calculation/JS-92.docx"
+    },
+    {
+      "key": "js-js-93",
+      "title": "JS-93 断裂分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-93",
+      "originalPath": "templates/calculation/JS-93.docx"
+    },
+    {
+      "key": "js-js-94",
+      "title": "JS-94 优化设计需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-94",
+      "originalPath": "templates/calculation/JS-94.docx"
+    },
+    {
+      "key": "js-js-95",
+      "title": "JS-95 结构优化需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-95",
+      "originalPath": "templates/calculation/JS-95.docx"
+    },
+    {
+      "key": "js-js-96",
+      "title": "JS-96 ESP电势需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-96",
+      "originalPath": "templates/calculation/JS-96.docx"
+    },
+    {
+      "key": "js-js-97",
+      "title": "JS-97 IGMH分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-97",
+      "originalPath": "templates/calculation/JS-97.docx"
+    },
+    {
+      "key": "js-js-98",
+      "title": "JS-98 键级分析需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-98",
+      "originalPath": "templates/calculation/JS-98.docx"
+    },
+    {
+      "key": "js-js-99",
+      "title": "JS-99 自由能计算需求表",
+      "serviceType": "计算模拟",
+      "projectCode": "JS-99",
+      "originalPath": "templates/calculation/JS-99.docx"
     }
   ],
   "originalTemplateCount": 48,

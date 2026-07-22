@@ -163,7 +163,29 @@
     }));
     body.dataset.fillMode = 'online';
     body.querySelector('[data-form-cart]')?.addEventListener('click', () => saveProjectForm(false));
+    body.querySelector('[data-form-generate]')?.addEventListener('click', generateCurrentWord);
     body.querySelector('[data-form-submit]')?.addEventListener('click', () => saveProjectForm(true));
+  }
+
+
+  function normalizedProjectCode(raw, serviceType) {
+    const value = String(raw || '').trim().toUpperCase();
+    let match = value.match(/^AI-0*(\d+)$/); if (match) return `AI-${Number(match[1])}`;
+    match = value.match(/^JS-0*(\d+)$/); if (match) return `JS-${Number(match[1])}`;
+    match = value.match(/^FX-0*(\d+)$/); if (match) return `FX-${Number(match[1])}`;
+    match = value.match(/^HC-0*(\d+)$/); if (match) return `HC-${Number(match[1])}`;
+    match = value.match(/^A0*(\d+)$/); if (match) return `FX-${Number(match[1])}`;
+    if (serviceType === 'AI项目') return 'AI-1';
+    if (serviceType === '计算模拟') return 'JS-1';
+    if (serviceType === '分析表征') return 'FX-1';
+    if (serviceType === '耗材仪器') return 'HC-1';
+    return value || 'ZH-1';
+  }
+
+  function draftBusinessNo(item) {
+    const now = new Date();
+    const ymd = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
+    return `HQTD-${ymd}-${normalizedProjectCode(item.id, item.serviceType)}-DRAFT`;
   }
 
   function buildProjectForm(item) {
@@ -176,7 +198,7 @@
           <button type="button" data-fill-mode="word"><b>上传 Word</b><span>下载当前项目模板，填写后直接上传</span></button>
         </div>
         <div class="hqtd-word-mode" hidden>
-          <a href="${escapeHtml(template)}" data-template-link download="${escapeHtml(item.id)}-${escapeHtml(item.serviceType)}需求表.docx">下载 ${escapeHtml(item.id)} Word 模板</a>
+          <a href="${escapeHtml(template)}" data-template-link download="${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}-${escapeHtml(item.serviceType)}需求表.docx">下载 ${escapeHtml(normalizedProjectCode(item.id, item.serviceType))} Word 模板</a>
           <label class="hqtd-upload"><span>上传填写后的 Word <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx"></label>
         </div>
       </section>`;
@@ -184,7 +206,7 @@
     if (item.serviceType === 'AI项目') {
       fields = `
         <section class="hqtd-scroll-section"><h3>1. 项目基本信息</h3><div class="hqtd-form-grid">
-          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(item.id)}" readonly></label>
+          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}" readonly></label>
           <label class="hqtd-field"><span>项目名称 <em>*</em></span><input id="hqtdProjectName" value="${escapeHtml(item.title)}" maxlength="200"></label>
           <label class="hqtd-field full"><span>项目目标 <em>*</em></span><textarea id="hqtdNeed" maxlength="3000" placeholder="希望解决什么问题、实现什么功能或得到什么结果"></textarea></label>
         </div></section>
@@ -197,7 +219,7 @@
     } else if (item.serviceType === '计算模拟') {
       fields = `
         <section class="hqtd-scroll-section"><h3>1. 研究体系</h3><div class="hqtd-form-grid">
-          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(item.id)}" readonly></label>
+          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}" readonly></label>
           <label class="hqtd-field"><span>项目名称</span><input id="hqtdProjectName" value="${escapeHtml(item.title)}" maxlength="200"></label>
           <label class="hqtd-field full"><span>研究对象/体系 <em>*</em></span><textarea id="hqtdSystem" maxlength="1000" placeholder="材料、分子、界面、反应体系、流体区域等"></textarea></label>
         </div></section>
@@ -211,7 +233,7 @@
     } else {
       fields = `
         <section class="hqtd-scroll-section"><h3>1. 样品信息</h3><div class="hqtd-form-grid">
-          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(item.id)}" readonly></label>
+          <label class="hqtd-field"><span>项目编号</span><input value="${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}" readonly></label>
           <label class="hqtd-field"><span>样品数量 <em>*</em></span><input id="hqtdSampleCount" type="number" min="1" max="999" value="1"></label>
           <label class="hqtd-field"><span>样品编号</span><input id="hqtdSampleCodes" maxlength="500" placeholder="默认 1,2,3…；也可自行填写"></label>
           <label class="hqtd-field"><span>样品状态</span><select id="hqtdSampleState"><option>粉末</option><option>块体</option><option>薄膜/涂层</option><option>液体/分散液</option><option>气体</option><option>其他</option></select></label>
@@ -227,13 +249,51 @@
         </div></section>`;
     }
     return `
-      <div class="hqtd-selected-project"><b>${escapeHtml(item.id)}</b><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || item.serviceType)}${item.priceText ? ` · ${escapeHtml(item.priceText)}` : ''}</span></div></div>
+      <div class="hqtd-selected-project"><b>${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}</b><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || item.serviceType)}${item.priceText ? ` · ${escapeHtml(item.priceText)}` : ''}</span></div></div>
       <div class="hqtd-simple-tip">向下滚动逐项填写。带 * 为必填；不确定的参数可填写“请技术人员评估”。</div>
       <div class="hqtd-form-scroll">${fields}</div>
       ${templateBlock}
       <section class="hqtd-scroll-section"><h3>3. 附件与提交</h3><label class="hqtd-upload"><span>附件（选填）</span><input id="hqtdFiles" type="file" multiple accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.mol2,.xyz,.txt,.dat,.log,.gjf,.com,.inp,.vasp"><small>最多 5 个，单个不超过 5 MB。订单先创建，附件后台上传。</small></label></section>
-      <div class="hqtd-panel-actions"><button type="button" class="secondary" data-form-cart>加入需求清单</button><button type="button" class="primary" data-form-submit>立即提交</button></div>
+      <div class="hqtd-panel-actions three-actions"><button type="button" class="secondary" data-form-cart>加入需求清单</button><button type="button" class="secondary" data-form-generate>生成 Word</button><button type="button" class="primary" data-form-submit>立即提交</button></div>
       <div class="hqtd-order-message" id="hqtdOrderMessage" aria-live="polite"></div>`;
+  }
+
+
+  async function generateCurrentWord() {
+    const button = document.querySelector('[data-form-generate]');
+    try {
+      const item = collectProjectForm();
+      if (item.fillMethod === 'word') throw new Error('Word 模式请下载模板填写并上传；在线填写模式才可直接生成 Word');
+      if (button) { button.disabled = true; button.textContent = '正在生成…'; }
+      setMessage('正在根据在线表单生成 Word…');
+      const type = project.serviceType === 'AI项目' ? 'ai' : project.serviceType === '计算模拟' ? 'calculation' : 'analysis';
+      const demandNo = draftBusinessNo(project);
+      const result = await api('generateRequirementDocuments', {
+        type,
+        demandNo,
+        form: {
+          demandNo,
+          projectId: normalizedProjectCode(project.id, project.serviceType),
+          projectName: project.title,
+          description: item.note,
+          ...(item.details || {})
+        }
+      });
+      const docx = result.item && result.item.docx;
+      const url = docx && (docx.tempURL || docx.downloadUrl || docx.url);
+      setMessage(`Word 已生成：${docx && docx.filename ? docx.filename : demandNo}`, 'success');
+      if (url) {
+        const a = document.createElement('a');
+        a.href = url; a.download = (docx && docx.filename) || `${demandNo}.docx`;
+        document.body.appendChild(a); a.click(); a.remove();
+      } else {
+        showToast('Word 已保存到客户文档中心');
+      }
+    } catch (error) {
+      setMessage(error.message || '生成 Word 失败', 'error');
+    } finally {
+      if (button) { button.disabled = false; button.textContent = '生成 Word'; }
+    }
   }
 
   function checkedValues(name) {
@@ -247,27 +307,27 @@
     if (fillMethod === 'word') {
       if (!wordFile) throw new Error('请下载并填写 Word 模板后上传');
       files.push(wordFile);
-      return { ...project, qty: 1, note: `项目编号：${project.id}\n客户使用填写后的 Word 模板提交`, details: { projectId: project.id, fillMethod: 'word' }, files, fillMethod, cartKey: `${project.id}-${Date.now()}` };
+      return { ...project, qty: 1, note: `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n客户使用填写后的 Word 模板提交`, details: { projectId: normalizedProjectCode(project.id, project.serviceType), fillMethod: 'word' }, files, fillMethod, cartKey: `${project.id}-${Date.now()}` };
     }
     let note = '';
-    const details = { projectId: project.id, projectName: value('hqtdProjectName') || project.title };
+    const details = { projectId: normalizedProjectCode(project.id, project.serviceType), projectName: value('hqtdProjectName') || project.title };
     if (project.serviceType === 'AI项目') {
       const need = value('hqtdNeed');
       if (!need) throw new Error('请填写项目目标');
       Object.assign(details, { dataStatus: value('hqtdDataStatus'), dataScale: value('hqtdDataScale'), aiTasks: checkedValues('hqtdAiTasks'), deliverables: value('hqtdDeliverables'), customNeed: need });
-      note = `项目编号：${project.id}\n项目目标：${need}\n现有数据：${details.dataStatus}\n功能：${details.aiTasks.join('、') || '请评估'}\n交付：${details.deliverables || '待确认'}`;
+      note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n项目目标：${need}\n现有数据：${details.dataStatus}\n功能：${details.aiTasks.join('、') || '请评估'}\n交付：${details.deliverables || '待确认'}`;
     } else if (project.serviceType === '计算模拟') {
       const system = value('hqtdSystem'), need = value('hqtdNeed');
       if (!system) throw new Error('请填写研究对象或体系');
       if (!need) throw new Error('请填写具体计算需求');
       Object.assign(details, { system, calculationNeed: need, calculationTasks: checkedValues('hqtdCalcTasks'), method: value('hqtdMethod'), parameters: value('hqtdParameters'), deliverables: value('hqtdDeliverables') });
-      note = `项目编号：${project.id}\n研究体系：${system}\n计算内容：${details.calculationTasks.join('、') || '请评估'}\n具体需求：${need}\n方法参数：${[details.method, details.parameters].filter(Boolean).join('；') || '待评估'}`;
+      note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n研究体系：${system}\n计算内容：${details.calculationTasks.join('、') || '请评估'}\n具体需求：${need}\n方法参数：${[details.method, details.parameters].filter(Boolean).join('；') || '待评估'}`;
     } else {
       const count = Math.max(1, Number(value('hqtdSampleCount') || 1));
       const need = value('hqtdNeed');
       if (!need) throw new Error('请填写测试参数或具体分析要求');
       Object.assign(details, { sampleCount: count, sampleCodes: value('hqtdSampleCodes') || Array.from({length:Math.min(count,100)},(_,i)=>i+1).join(','), sampleState: value('hqtdSampleState'), composition: value('hqtdComposition'), hazards: checkedValues('hqtdHazards'), temperature: value('hqtdTemperature'), atmosphere: value('hqtdAtmosphere'), dataAnalysis: document.querySelector('input[name="hqtdAnalysisService"]:checked')?.value || '请评估', testNeed: need, experimentNote: value('hqtdExperimentNote') });
-      note = `项目编号：${project.id}\n样品数量：${count}\n样品编号：${details.sampleCodes}\n样品状态：${details.sampleState}\n成分：${details.composition || '未说明'}\n危险性：${details.hazards.join('、') || '未选择'}\n测试要求：${need}`;
+      note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n样品数量：${count}\n样品编号：${details.sampleCodes}\n样品状态：${details.sampleState}\n成分：${details.composition || '未说明'}\n危险性：${details.hazards.join('、') || '未选择'}\n测试要求：${need}`;
     }
     return { ...project, title: details.projectName || project.title, fillMethod, qty: project.serviceType === '分析表征' ? Number(details.sampleCount || 1) : 1, note, details, files, cartKey: `${project.id}-${Date.now()}` };
   }
@@ -368,7 +428,7 @@
         serviceType: items.length === 1 ? items[0].serviceType : '官网综合订单',
         projectName: items.length === 1 ? items[0].title : `综合订单（${items.length}种）`,
         description, details: description, items: payloadItems, cartItems: payloadItems,
-        sourcePage: location.href, clientVersion: 'web-10.3.0-dynamic-docs-resilient-pdf'
+        sourcePage: location.href, clientVersion: 'web-10.6.0-scroll-form-word-generation'
       });
       const recordId = result.order?.id || result.requirementId || result.id || '';
       const demandNo = result.businessNo || result.demandNo || result.order?.demandNo || '已提交';
@@ -449,9 +509,10 @@
   }
 
   function templateUrl(item) {
-    if (item.serviceType === 'AI项目') return new URL('../customer-portal/templates/HQTD-AI-Project-Requirement-Form.docx', document.baseURI).href;
-    if (item.serviceType === '计算模拟') return new URL('../customer-portal/templates/HQTD-Simulation-Requirement-Form.docx', document.baseURI).href;
-    if (item.serviceType === '分析表征') return new URL('../customer-portal/templates/HQTD-Analysis-Sample-Form.docx', document.baseURI).href;
+    const code = normalizedProjectCode(item.id, item.serviceType);
+    if (item.serviceType === 'AI项目') return new URL(`../customer-portal/templates/ai/${encodeURIComponent(code)}.docx`, document.baseURI).href;
+    if (item.serviceType === '计算模拟') return new URL(`../customer-portal/templates/calculation/${encodeURIComponent(code)}.docx`, document.baseURI).href;
+    if (item.serviceType === '分析表征') return new URL(`../customer-portal/templates/analysis/${encodeURIComponent(code)}.docx`, document.baseURI).href;
     return new URL('../customer-portal/templates/耗材仪器采购需求表.docx', document.baseURI).href;
   }
 
@@ -462,7 +523,7 @@
       const source = `${item.title} ${item.category}`.toLowerCase();
       const score = template => String(template.title || '').toLowerCase().split(/[与及、（）()\s/+-]+/).filter(x => x.length > 1).reduce((sum, term) => sum + (source.includes(term) ? term.length : 0), 0);
       const selected = templates.slice().sort((a, b) => score(b) - score(a))[0];
-      return new URL(`../customer-portal/${selected?.originalPath || 'templates/analysis/A01.docx'}`, document.baseURI).href;
+      return new URL(`../customer-portal/${selected?.originalPath || 'templates/analysis/FX-1.docx'}`, document.baseURI).href;
     } catch (_) { return templateUrl(item); }
   }
 

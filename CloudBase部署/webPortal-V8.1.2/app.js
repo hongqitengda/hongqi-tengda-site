@@ -551,7 +551,12 @@ function sanitizeItems(value) {
 function projectCodeFromBody(body, items) {
   const ids = (items || []).map(x => sanitizeText(x.id, 30).toUpperCase()).filter(Boolean);
   if (ids.length !== 1) return ids.length > 1 ? 'ZH' : 'ZH';
-  const id = ids[0];
+  let id = ids[0];
+  let legacy = id.match(/^A0*(\d+)$/); if (legacy) id = `FX-${Number(legacy[1])}`;
+  legacy = id.match(/^AI-0*(\d+)$/); if (legacy) id = `AI-${Number(legacy[1])}`;
+  legacy = id.match(/^JS-0*(\d+)$/); if (legacy) id = `JS-${Number(legacy[1])}`;
+  legacy = id.match(/^FX-0*(\d+)$/); if (legacy) id = `FX-${Number(legacy[1])}`;
+  legacy = id.match(/^HC-0*(\d+)$/); if (legacy) id = `HC-${Number(legacy[1])}`;
   if (/^AI-\d+$/.test(id)) return id;
   if (/^JS-\d+$/.test(id)) return id;
   if (/^FX-\d+$/.test(id)) return id;
@@ -916,7 +921,7 @@ function accountBalanceCents(account) {
 async function compatibleAccountRows(collection, accountId, limit = 200) {
   const result = [];
   const seen = new Set();
-  for (const field of ['accountId', 'customerId']) {
+  for (const field of ['accountId', 'customerId', 'customerAccountId', 'clientAccountId', 'websiteAccountId']) {
     try {
       const batch = rows(await getDb().collection(collection).where({ [field]: accountId }).limit(limit).get());
       for (const row of batch) {
@@ -941,13 +946,13 @@ async function collectionCount(collection, accountId) {
 async function dashboard(headers, body) {
   const { profile, accountId } = await requireUser(headers, body);
   const account = await getDoc(COLLECTIONS.accounts, accountId) || {};
-  const [requirements, ordersList, projects, quotes, deliveries, afterSales, unreadNotifications] = await Promise.all([
+  const [requirements, ordersList, projectRows, quoteRows, deliveryRows, afterSalesRows, unreadNotifications] = await Promise.all([
     compatibleAccountRows(COLLECTIONS.requirements, accountId, 200),
     compatibleAccountRows(COLLECTIONS.orders, accountId, 200),
-    collectionCount('projects', accountId),
-    collectionCount('quotes', accountId),
-    collectionCount('deliveries', accountId),
-    collectionCount('after_sales', accountId),
+    compatibleAccountRows('projects', accountId, 300),
+    compatibleAccountRows('quotes', accountId, 300),
+    compatibleAccountRows('deliveries', accountId, 300),
+    compatibleAccountRows('after_sales', accountId, 300),
     (async () => {
       try {
         const result = await getDb().collection(COLLECTIONS.notifications).where({ accountId, read: false }).count();
@@ -965,6 +970,14 @@ async function dashboard(headers, body) {
     ...ordersList.map(publicOrder)
   ].sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)));
 
+  const normStatus = row => String((row && (row.status || row.state || row.stage || row.progressStatus)) || '').toLowerCase();
+  const isClosed = status => /completed|complete|finished|closed|cancelled|canceled|rejected|已完成|已关闭|已取消|已拒绝/.test(status);
+  const isQuoteDone = status => /accepted|confirmed|approved|paid|declined|rejected|已确认|已接受|已批准|已付款|已拒绝/.test(status);
+  const isDeliveryDone = status => /confirmed|accepted|completed|closed|已确认|已接收|已完成|已关闭/.test(status);
+  const projects = projectRows.filter(row => !isClosed(normStatus(row))).length;
+  const quotes = quoteRows.filter(row => !isQuoteDone(normStatus(row))).length;
+  const deliveries = deliveryRows.filter(row => !isDeliveryDone(normStatus(row))).length;
+  const afterSales = afterSalesRows.filter(row => !isClosed(normStatus(row))).length;
   const balanceCents = accountBalanceCents(account);
   const counts = {
     requirements: requirements.length,
@@ -1409,7 +1422,16 @@ async function generateRequirementDocuments(headers, body) {
       pdfMessage = error.message || String(error);
     }
   }
-  const item = { demandNo, type, title: titleFor(type), docx: { fileID: upload.fileID, filename }, pdf, pdfStatus, pdfMessage, createdAt: nowIso() };
+  let docxTempURL = '';
+  let pdfTempURL = '';
+  try {
+    const ids = [upload.fileID].concat(pdf && pdf.fileID ? [pdf.fileID] : []);
+    const temp = await cloudApp.getTempFileURL({ fileList: ids });
+    const files = (temp && temp.fileList) || [];
+    docxTempURL = files.find(x => x.fileID === upload.fileID)?.tempFileURL || '';
+    if (pdf && pdf.fileID) pdfTempURL = files.find(x => x.fileID === pdf.fileID)?.tempFileURL || '';
+  } catch (_) {}
+  const item = { demandNo, type, title: titleFor(type), docx: { fileID: upload.fileID, filename, tempURL: docxTempURL }, pdf: pdf ? { ...pdf, tempURL: pdfTempURL } : null, pdfStatus, pdfMessage, createdAt: nowIso() };
   await setDoc('resource_manifest', `generated-${demandNo}`, item);
   return ok({ item, message: pdf ? 'Word/PDF已生成' : 'Word已生成；PDF转换服务暂不可用，可稍后重试' });
 }

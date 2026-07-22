@@ -1,6 +1,6 @@
 [
   {
-    "id": "AI-001",
+    "id": "AI-1",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI医学影像",
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "id": "AI-002",
+    "id": "AI-2",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI材料筛选",
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "id": "AI-003",
+    "id": "AI-3",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI工艺优化",
@@ -81,7 +81,7 @@
     ]
   },
   {
-    "id": "AI-004",
+    "id": "AI-4",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI知识库",
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "id": "AI-005",
+    "id": "AI-5",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI多模态分析",
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "id": "AI-006",
+    "id": "AI-6",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI预测建模",
@@ -162,7 +162,7 @@
     ]
   },
   {
-    "id": "AI-007",
+    "id": "AI-7",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI实验设计",
@@ -189,7 +189,7 @@
     ]
   },
   {
-    "id": "AI-008",
+    "id": "AI-8",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI智能体",
@@ -241,7 +241,7 @@
     ]
   },
   {
-    "id": "AI-009",
+    "id": "AI-9",
     "board": "AI项目",
     "boardSlug": "ai-projects",
     "category": "AI定制开发",
@@ -5818,7 +5818,7 @@
     ]
   },
   {
-    "id": "HC-001",
+    "id": "HC-1",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5845,7 +5845,7 @@
     ]
   },
   {
-    "id": "HC-002",
+    "id": "HC-2",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5872,7 +5872,7 @@
     ]
   },
   {
-    "id": "HC-003",
+    "id": "HC-3",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5899,7 +5899,7 @@
     ]
   },
   {
-    "id": "HC-004",
+    "id": "HC-4",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5926,7 +5926,7 @@
     ]
   },
   {
-    "id": "HC-005",
+    "id": "HC-5",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5953,7 +5953,7 @@
     ]
   },
   {
-    "id": "HC-006",
+    "id": "HC-6",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -5980,7 +5980,7 @@
     ]
   },
   {
-    "id": "HC-007",
+    "id": "HC-7",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6007,7 +6007,7 @@
     ]
   },
   {
-    "id": "HC-008",
+    "id": "HC-8",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6034,7 +6034,7 @@
     ]
   },
   {
-    "id": "HC-009",
+    "id": "HC-9",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6061,7 +6061,7 @@
     ]
   },
   {
-    "id": "HC-010",
+    "id": "HC-10",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6088,7 +6088,7 @@
     ]
   },
   {
-    "id": "HC-011",
+    "id": "HC-11",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6115,7 +6115,7 @@
     ]
   },
   {
-    "id": "HC-012",
+    "id": "HC-12",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6142,7 +6142,7 @@
     ]
   },
   {
-    "id": "HC-013",
+    "id": "HC-13",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6169,7 +6169,7 @@
     ]
   },
   {
-    "id": "HC-014",
+    "id": "HC-14",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6196,7 +6196,7 @@
     ]
   },
   {
-    "id": "HC-015",
+    "id": "HC-15",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6223,7 +6223,7 @@
     ]
   },
   {
-    "id": "HC-016",
+    "id": "HC-16",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6250,7 +6250,7 @@
     ]
   },
   {
-    "id": "HC-017",
+    "id": "HC-17",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6277,7 +6277,7 @@
     ]
   },
   {
-    "id": "HC-018",
+    "id": "HC-18",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6304,7 +6304,7 @@
     ]
   },
   {
-    "id": "HC-019",
+    "id": "HC-19",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6331,7 +6331,7 @@
     ]
   },
   {
-    "id": "HC-020",
+    "id": "HC-20",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6358,7 +6358,7 @@
     ]
   },
   {
-    "id": "HC-021",
+    "id": "HC-21",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6385,7 +6385,7 @@
     ]
   },
   {
-    "id": "HC-022",
+    "id": "HC-22",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6412,7 +6412,7 @@
     ]
   },
   {
-    "id": "HC-023",
+    "id": "HC-23",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6439,7 +6439,7 @@
     ]
   },
   {
-    "id": "HC-024",
+    "id": "HC-24",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6466,7 +6466,7 @@
     ]
   },
   {
-    "id": "HC-025",
+    "id": "HC-25",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6493,7 +6493,7 @@
     ]
   },
   {
-    "id": "HC-026",
+    "id": "HC-26",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6520,7 +6520,7 @@
     ]
   },
   {
-    "id": "HC-027",
+    "id": "HC-27",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6547,7 +6547,7 @@
     ]
   },
   {
-    "id": "HC-028",
+    "id": "HC-28",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6574,7 +6574,7 @@
     ]
   },
   {
-    "id": "HC-029",
+    "id": "HC-29",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6601,7 +6601,7 @@
     ]
   },
   {
-    "id": "HC-030",
+    "id": "HC-30",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6628,7 +6628,7 @@
     ]
   },
   {
-    "id": "HC-031",
+    "id": "HC-31",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6655,7 +6655,7 @@
     ]
   },
   {
-    "id": "HC-032",
+    "id": "HC-32",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6682,7 +6682,7 @@
     ]
   },
   {
-    "id": "HC-033",
+    "id": "HC-33",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6709,7 +6709,7 @@
     ]
   },
   {
-    "id": "HC-034",
+    "id": "HC-34",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6736,7 +6736,7 @@
     ]
   },
   {
-    "id": "HC-035",
+    "id": "HC-35",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6763,7 +6763,7 @@
     ]
   },
   {
-    "id": "HC-036",
+    "id": "HC-36",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6790,7 +6790,7 @@
     ]
   },
   {
-    "id": "HC-037",
+    "id": "HC-37",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6817,7 +6817,7 @@
     ]
   },
   {
-    "id": "HC-038",
+    "id": "HC-38",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6844,7 +6844,7 @@
     ]
   },
   {
-    "id": "HC-039",
+    "id": "HC-39",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6871,7 +6871,7 @@
     ]
   },
   {
-    "id": "HC-040",
+    "id": "HC-40",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6898,7 +6898,7 @@
     ]
   },
   {
-    "id": "HC-041",
+    "id": "HC-41",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6925,7 +6925,7 @@
     ]
   },
   {
-    "id": "HC-042",
+    "id": "HC-42",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6952,7 +6952,7 @@
     ]
   },
   {
-    "id": "HC-043",
+    "id": "HC-43",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -6979,7 +6979,7 @@
     ]
   },
   {
-    "id": "HC-044",
+    "id": "HC-44",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7006,7 +7006,7 @@
     ]
   },
   {
-    "id": "HC-045",
+    "id": "HC-45",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7033,7 +7033,7 @@
     ]
   },
   {
-    "id": "HC-046",
+    "id": "HC-46",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7060,7 +7060,7 @@
     ]
   },
   {
-    "id": "HC-047",
+    "id": "HC-47",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7087,7 +7087,7 @@
     ]
   },
   {
-    "id": "HC-048",
+    "id": "HC-48",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7114,7 +7114,7 @@
     ]
   },
   {
-    "id": "HC-049",
+    "id": "HC-49",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7141,7 +7141,7 @@
     ]
   },
   {
-    "id": "HC-050",
+    "id": "HC-50",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7168,7 +7168,7 @@
     ]
   },
   {
-    "id": "HC-051",
+    "id": "HC-51",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7195,7 +7195,7 @@
     ]
   },
   {
-    "id": "HC-052",
+    "id": "HC-52",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7222,7 +7222,7 @@
     ]
   },
   {
-    "id": "HC-053",
+    "id": "HC-53",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7249,7 +7249,7 @@
     ]
   },
   {
-    "id": "HC-054",
+    "id": "HC-54",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7276,7 +7276,7 @@
     ]
   },
   {
-    "id": "HC-055",
+    "id": "HC-55",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7303,7 +7303,7 @@
     ]
   },
   {
-    "id": "HC-056",
+    "id": "HC-56",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7330,7 +7330,7 @@
     ]
   },
   {
-    "id": "HC-057",
+    "id": "HC-57",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7357,7 +7357,7 @@
     ]
   },
   {
-    "id": "HC-058",
+    "id": "HC-58",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7384,7 +7384,7 @@
     ]
   },
   {
-    "id": "HC-059",
+    "id": "HC-59",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7411,7 +7411,7 @@
     ]
   },
   {
-    "id": "HC-060",
+    "id": "HC-60",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7438,7 +7438,7 @@
     ]
   },
   {
-    "id": "HC-061",
+    "id": "HC-61",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7465,7 +7465,7 @@
     ]
   },
   {
-    "id": "HC-062",
+    "id": "HC-62",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7492,7 +7492,7 @@
     ]
   },
   {
-    "id": "HC-063",
+    "id": "HC-63",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7519,7 +7519,7 @@
     ]
   },
   {
-    "id": "HC-064",
+    "id": "HC-64",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7546,7 +7546,7 @@
     ]
   },
   {
-    "id": "HC-065",
+    "id": "HC-65",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7573,7 +7573,7 @@
     ]
   },
   {
-    "id": "HC-066",
+    "id": "HC-66",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7600,7 +7600,7 @@
     ]
   },
   {
-    "id": "HC-067",
+    "id": "HC-67",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7627,7 +7627,7 @@
     ]
   },
   {
-    "id": "HC-068",
+    "id": "HC-68",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7654,7 +7654,7 @@
     ]
   },
   {
-    "id": "HC-069",
+    "id": "HC-69",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7681,7 +7681,7 @@
     ]
   },
   {
-    "id": "HC-070",
+    "id": "HC-70",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7708,7 +7708,7 @@
     ]
   },
   {
-    "id": "HC-071",
+    "id": "HC-71",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7735,7 +7735,7 @@
     ]
   },
   {
-    "id": "HC-072",
+    "id": "HC-72",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7762,7 +7762,7 @@
     ]
   },
   {
-    "id": "HC-073",
+    "id": "HC-73",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7789,7 +7789,7 @@
     ]
   },
   {
-    "id": "HC-074",
+    "id": "HC-74",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7816,7 +7816,7 @@
     ]
   },
   {
-    "id": "HC-075",
+    "id": "HC-75",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7843,7 +7843,7 @@
     ]
   },
   {
-    "id": "HC-076",
+    "id": "HC-76",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7870,7 +7870,7 @@
     ]
   },
   {
-    "id": "HC-077",
+    "id": "HC-77",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7897,7 +7897,7 @@
     ]
   },
   {
-    "id": "HC-078",
+    "id": "HC-78",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "防护清洁用品",
@@ -7924,7 +7924,7 @@
     ]
   },
   {
-    "id": "HC-079",
+    "id": "HC-79",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -7951,7 +7951,7 @@
     ]
   },
   {
-    "id": "HC-080",
+    "id": "HC-80",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -7978,7 +7978,7 @@
     ]
   },
   {
-    "id": "HC-081",
+    "id": "HC-81",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8005,7 +8005,7 @@
     ]
   },
   {
-    "id": "HC-082",
+    "id": "HC-82",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8032,7 +8032,7 @@
     ]
   },
   {
-    "id": "HC-083",
+    "id": "HC-83",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8059,7 +8059,7 @@
     ]
   },
   {
-    "id": "HC-084",
+    "id": "HC-84",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8086,7 +8086,7 @@
     ]
   },
   {
-    "id": "HC-085",
+    "id": "HC-85",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8113,7 +8113,7 @@
     ]
   },
   {
-    "id": "HC-086",
+    "id": "HC-86",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8140,7 +8140,7 @@
     ]
   },
   {
-    "id": "HC-087",
+    "id": "HC-87",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8167,7 +8167,7 @@
     ]
   },
   {
-    "id": "HC-088",
+    "id": "HC-88",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8194,7 +8194,7 @@
     ]
   },
   {
-    "id": "HC-089",
+    "id": "HC-89",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8221,7 +8221,7 @@
     ]
   },
   {
-    "id": "HC-090",
+    "id": "HC-90",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8248,7 +8248,7 @@
     ]
   },
   {
-    "id": "HC-091",
+    "id": "HC-91",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8275,7 +8275,7 @@
     ]
   },
   {
-    "id": "HC-092",
+    "id": "HC-92",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8302,7 +8302,7 @@
     ]
   },
   {
-    "id": "HC-093",
+    "id": "HC-93",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8329,7 +8329,7 @@
     ]
   },
   {
-    "id": "HC-094",
+    "id": "HC-94",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8356,7 +8356,7 @@
     ]
   },
   {
-    "id": "HC-095",
+    "id": "HC-95",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8383,7 +8383,7 @@
     ]
   },
   {
-    "id": "HC-096",
+    "id": "HC-96",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8410,7 +8410,7 @@
     ]
   },
   {
-    "id": "HC-097",
+    "id": "HC-97",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8437,7 +8437,7 @@
     ]
   },
   {
-    "id": "HC-098",
+    "id": "HC-98",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
@@ -8464,7 +8464,7 @@
     ]
   },
   {
-    "id": "HC-099",
+    "id": "HC-99",
     "board": "耗材仪器",
     "boardSlug": "research-supplies",
     "category": "塑料制品",
