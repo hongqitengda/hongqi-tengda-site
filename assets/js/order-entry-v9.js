@@ -167,7 +167,7 @@
   function buildProjectForm(item) {
     const template = templateUrl(item);
     const templateBlock = item.serviceType === '耗材仪器' ? '' : `
-      <div class="hqtd-fill-mode"><button type="button" class="active" data-fill-mode="online"><b>在线填写</b><span>填写后自动生成 Word/PDF</span></button><button type="button" data-fill-mode="word"><b>Word 填写</b><span>下载模板后直接上传</span></button></div><div class="hqtd-word-mode" hidden><a href="${escapeHtml(template)}" data-template-link download>下载当前 Word 模板</a><label class="hqtd-upload"><span>上传填写后的 Word <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx"></label></div>`;
+      <div class="hqtd-fill-mode"><button type="button" class="active" data-fill-mode="online"><b>在线填写</b><span>填写后自动生成 Word；PDF服务可用时同步生成</span></button><button type="button" data-fill-mode="word"><b>Word 填写</b><span>下载模板后直接上传</span></button></div><div class="hqtd-word-mode" hidden><a href="${escapeHtml(template)}" data-template-link download>下载当前 Word 模板</a><label class="hqtd-upload"><span>上传填写后的 Word <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx"></label></div>`;
     let fields = '';
     if (item.serviceType === 'AI项目') {
       fields = `
@@ -322,7 +322,7 @@
         serviceType: items.length === 1 ? items[0].serviceType : '官网综合订单',
         projectName: items.length === 1 ? items[0].title : `综合订单（${items.length}种）`,
         description, details: description, items: payloadItems, cartItems: payloadItems,
-        sourcePage: location.href, clientVersion: 'web-10.2.0-dynamic-docs'
+        sourcePage: location.href, clientVersion: 'web-10.3.0-dynamic-docs-resilient-pdf'
       });
       const recordId = result.order?.id || result.requirementId || result.id || '';
       const demandNo = result.businessNo || result.demandNo || result.order?.demandNo || '已提交';
@@ -332,7 +332,7 @@
         api('generateRequirementDocuments', { type, demandNo: demandNo, form: { demandNo, projectName: onlineItem.title, name, phone, organization, description: onlineItem.note, ...(onlineItem.details || {}) } }).catch(() => {});
       }
       const files = state.checkoutFiles || [];
-      setMessage(successHtml(demandNo, files.length ? `订单已创建，${files.length} 个附件正在后台上传` : '技术人员将尽快评估'), 'success', true);
+      setMessage(successHtml(demandNo, files.length ? `订单已创建，${files.length} 个附件正在后台上传` : 'Word需求单将在后台生成；PDF服务暂不可用时不影响提交'), 'success', true);
       if (button) { button.disabled = false; button.textContent = '提交成功'; }
       state.submitting = false;
       showToast(`提交成功：${demandNo}`);

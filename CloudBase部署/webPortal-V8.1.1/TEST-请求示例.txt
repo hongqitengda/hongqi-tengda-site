@@ -1,0 +1,44 @@
+1. 健康检查
+GET https://cloud1-d3gji859l94c3e5ec-1447812542.ap-shanghai.app.tcloudbase.com/api/webPortal?action=health
+
+2. 数据库检查
+GET https://cloud1-d3gji859l94c3e5ec-1447812542.ap-shanghai.app.tcloudbase.com/api/webPortal?action=databaseCheck
+
+3. 新客户注册
+POST /api/webPortal
+Content-Type: application/json
+{
+  "action":"register",
+  "name":"官网测试客户",
+  "phone":"13800138000",
+  "email":"webtest@example.com",
+  "password":"Test123456",
+  "organization":"测试单位"
+}
+
+4. 已有小程序客户开通官网登录
+POST /api/webPortal
+{
+  "action":"activateExisting",
+  "customerNo":"小程序中显示的客户编号",
+  "phone":"原账户手机号",
+  "password":"Test123456"
+}
+
+5. 登录
+POST /api/webPortal
+{
+  "action":"login",
+  "identity":"13800138000",
+  "password":"Test123456"
+}
+
+6. 登录后提交需求
+Authorization: Bearer 登录返回的 token
+POST /api/webPortal
+{
+  "action":"submitRequirement",
+  "projectName":"DFT计算测试",
+  "serviceType":"第一性原理计算",
+  "details":"这是一条官网与小程序共库测试需求"
+}
