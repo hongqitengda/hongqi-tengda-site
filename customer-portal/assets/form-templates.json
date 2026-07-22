@@ -1,5 +1,5 @@
 {
-  "version": "2026.07.22-V6.0.0",
+  "version": "9.1.0-simple-order",
   "numbering": {
     "format": "HQTD-{PROJECT}-{YYYYMMDDHHmmss}-{SEQ}",
     "sequenceStart": 1,
@@ -54,7 +54,7 @@
       "projectCode": "AI",
       "title": "AI科研项目需求表",
       "category": "AI项目",
-      "originalPath": "templates/original/AI项目需求表.docx",
+      "originalPath": "templates/AI项目需求表.docx",
       "interfaceOnly": false,
       "fields": [
         {
@@ -214,7 +214,7 @@
       "projectCode": "JS",
       "title": "模拟计算需求单",
       "category": "计算模拟",
-      "originalPath": "templates/original/模拟计算需求单-参考模板.docx",
+      "originalPath": "templates/模拟计算需求单-动态参考模板.docx",
       "fields": [
         {
           "key": "organization",
@@ -7052,7 +7052,7 @@
       "projectCode": "HC",
       "title": "耗材仪器采购需求表",
       "category": "耗材仪器",
-      "originalPath": "templates/original/耗材仪器采购需求表.docx",
+      "originalPath": "templates/耗材仪器采购需求表.docx",
       "interfaceOnly": false,
       "fields": [
         {
