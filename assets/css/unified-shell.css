@@ -1000,3 +1000,5 @@
   .hq-chat-contact-card img{width:min(100%,210px)!important;}
   .hqt-class-group-supplies>div{grid-template-columns:1fr!important;}
 }
+/* V10.5 scrolling Word-style online forms */
+.hqtd-form-scroll{display:flex;flex-direction:column;gap:18px;max-height:58vh;overflow-y:auto;padding:2px 8px 10px 2px;scrollbar-gutter:stable}.hqtd-scroll-section{border:1px solid #dbe7f1;border-radius:18px;padding:20px;background:#fff}.hqtd-scroll-section h3{margin:0 0 16px;color:#083b67;font-size:18px}.hqtd-fill-choice{margin-top:18px}.hqtd-order-panel{max-height:92vh}.hqtd-order-panel-body{overflow:hidden}.hqtd-form-scroll .hqtd-choice-group{display:flex;flex-wrap:wrap;gap:10px}.hqtd-form-scroll .hqtd-choice-group label{background:#f5f9fc;border:1px solid #d9e5ee;border-radius:10px;padding:9px 12px}.hqtd-global-customer-center+*{}@media(max-width:760px){.hqtd-form-scroll{max-height:62vh}.hqtd-scroll-section{padding:15px}.hqtd-fill-mode{grid-template-columns:1fr}}

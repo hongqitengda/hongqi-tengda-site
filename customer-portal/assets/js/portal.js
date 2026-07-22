@@ -614,6 +614,9 @@
     loadBusinessData();
   }
 
+  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) loadDashboard().catch(() => {}); }, 30000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } });
+
   async function loadDashboard() {
     const result = await apiOptional('dashboard');
     if (result.optionalError) {
@@ -624,6 +627,7 @@
     state.accounts = result.accounts || result.data?.accounts || [];
     const account = result.account || result.currentAccount || result.data?.account || {};
     const summary = result.summary || result.metrics || result.data?.summary || {};
+    const counts = result.counts || result.data?.counts || {};
     $('#homeAccountName').textContent = account.name || account.accountName || state.profile?.organization || state.profile?.name || '当前客户账户';
     $('#homeAccountMeta').textContent = [
       state.profile?.name,
@@ -631,10 +635,10 @@
       account.accountNo ? `账户编号 ${account.accountNo}` : '',
       summary.balanceCents != null ? `可用余额 ${formatMoney(summary.balanceCents)}` : ''
     ].filter(Boolean).join('｜') || '官网与小程序共用同一客户账户';
-    $('#metricQuotes').textContent = summary.pendingQuotes ?? summary.quotes ?? result.quotes?.length ?? 0;
-    $('#metricProjects').textContent = summary.activeProjects ?? summary.projects ?? result.projects?.length ?? 0;
-    $('#metricDeliveries').textContent = summary.pendingDeliveries ?? summary.deliveries ?? result.deliveries?.length ?? 0;
-    $('#metricAfterSales').textContent = summary.activeAfterSales ?? summary.afterSales ?? result.afterSales?.length ?? 0;
+    $('#metricQuotes').textContent = counts.quotes ?? summary.pendingQuotes ?? summary.quotes ?? result.quotes?.length ?? 0;
+    $('#metricProjects').textContent = counts.projects ?? summary.activeProjects ?? summary.projects ?? result.projects?.length ?? 0;
+    $('#metricDeliveries').textContent = counts.deliveries ?? summary.pendingDeliveries ?? summary.deliveries ?? result.deliveries?.length ?? 0;
+    $('#metricAfterSales').textContent = counts.afterSales ?? summary.activeAfterSales ?? summary.afterSales ?? result.afterSales?.length ?? 0;
     $('#accountSwitchBtn')?.classList.toggle('hidden', state.accounts.length < 2);
     renderAccountList();
     populateProfile();

@@ -547,14 +547,38 @@ function sanitizeItems(value) {
     };
   }).filter(item => item.title || item.name);
 }
-function buildRequirementRecord(userContext, body, mode) {
+
+function projectCodeFromBody(body, items) {
+  const ids = (items || []).map(x => sanitizeText(x.id, 30).toUpperCase()).filter(Boolean);
+  if (ids.length !== 1) return ids.length > 1 ? 'ZH' : 'ZH';
+  const id = ids[0];
+  if (/^AI-\d+$/.test(id)) return id;
+  if (/^JS-\d+$/.test(id)) return id;
+  if (/^FX-\d+$/.test(id)) return id;
+  if (/^HC-\d+$/.test(id)) return id;
+  const st = sanitizeText(body.serviceType || '', 80);
+  return st === 'AI项目' ? 'AI-1' : st === '计算模拟' ? 'JS-1' : st === '分析表征' ? 'FX-1' : st === '耗材仪器' ? 'HC-1' : 'ZH-1';
+}
+async function nextBusinessNo(body, items) {
+  const date = new Date();
+  const ymd = `${date.getFullYear()}${String(date.getMonth()+1).padStart(2,'0')}${String(date.getDate()).padStart(2,'0')}`;
+  const rawCode = projectCodeFromBody(body, items);
+  const combined = (items || []).length > 1;
+  const code = combined ? 'ZH' : rawCode;
+  const prefix = `HQTD-${ymd}-${code}-`;
+  let rows = [];
+  try { rows = await querySafe(COLLECTIONS.requirements, {}, 1000); } catch (_) {}
+  const used = rows.map(r => String(r.demandNo || r.no || '')).filter(n => n.startsWith(prefix)).map(n => Number(n.slice(prefix.length))).filter(Number.isFinite);
+  return `${prefix}${(used.length ? Math.max(...used) : 0) + 1}`;
+}
+async function buildRequirementRecord(userContext, body, mode) {
   const profile = userContext && userContext.profile || {};
   const accountId = userContext && userContext.accountId || '';
   const items = sanitizeItems(body.items || body.cartItems);
   const attachments = sanitizeAttachments(body.attachments || body.files);
   const totalQuantity = items.reduce((sum, item) => sum + item.qty, 0);
   const estimatedAmount = items.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const demandNo = `HQT-W-${Date.now()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`;
+  const demandNo = await nextBusinessNo(body, items);
   const contact = normalizePhone(body.phone || body.contact || profile.phone) || sanitizeText(body.contact || profile.wechatId || profile.email, 120);
   const projectName = sanitizeText(body.projectName || body.project || body.title, 300) || (items.length ? `服务与采购清单（${items.length}种 / ${totalQuantity}项）` : '官网客户需求');
   const description = sanitizeText(body.details || body.requirements || body.description || body.note, 10000) || items.map(item => `${item.name} × ${item.qty}`).join('\n');
@@ -655,7 +679,7 @@ function dispatchRequirementNotice(id, record, mode) {
 }
 async function saveRequirement(headers, body, mode) {
   const user = await resolveSubmissionUser(headers, body);
-  const record = buildRequirementRecord(user, body, mode);
+  const record = await buildRequirementRecord(user, body, mode);
   if (!record.name || !record.contact || !record.description) return fail('请完整填写联系人、联系方式和需求内容');
   if (mode === 'order' && !record.cartItems.length && !record.projectName) return fail('请至少选择一个项目或填写项目名称');
   record.notificationStatus = 'queued';
