@@ -1,5 +1,0 @@
-本版本基于 hongqi-tengda-site-github-upload-20260718-lean-132007 更新。
-1. 首页 index.html 替换为“三案例详情布局版”。
-2. project/ai-001.html 至 project/ai-008.html 替换为 1-AI项目中的新版详情页。
-3. 8 个 AI 详情页统一使用首页的头部、底部、咨询弹窗与在线客服模板。
-4. AI 详情页图片统一存放在 assets/images/ai-details/。
