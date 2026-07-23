@@ -13,7 +13,7 @@
   if (!isProjectPage || document.querySelector('.hqtd-order-shell')) return;
 
   const project = readProject();
-  const state = { mode: 'single', current: project, submitting: false, registry: null };
+  const state = { mode: 'single', current: project, submitting: false, registry: null, projectTemplateMap: null };
   injectShell();
   bindEvents();
   updateCartCount();
@@ -146,13 +146,28 @@
     body.innerHTML = buildProjectForm(project);
     openPanel();
     body.querySelector('[data-template-link]')?.addEventListener('click', async event => {
-      if (project.serviceType !== '分析表征') return;
       event.preventDefault();
       const link = event.currentTarget;
-      link.textContent = '正在匹配模板…';
-      link.href = await analysisTemplateUrl(project);
-      link.textContent = '下载 Word 表格（备选）';
-      location.href = link.href;
+      const original = link.textContent;
+      link.textContent = '正在核对项目编号与模板…';
+      try {
+        const template = await exactTemplate(project);
+        link.href = template.url;
+        link.download = template.filename;
+        if (!template.titleMatched) {
+          throw new Error(`项目编号 ${template.code} 对应模板为“${template.projectName}”，当前页面标题为“${project.title}”。已阻止错误模板下载。`);
+        }
+        const anchor = document.createElement('a');
+        anchor.href = template.url;
+        anchor.download = template.filename;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        link.textContent = `下载 ${template.code} 专用模板`;
+      } catch (error) {
+        link.textContent = original;
+        setMessage(error.message, 'error');
+      }
     });
     body.querySelectorAll('[data-fill-mode]').forEach(button => button.addEventListener('click', () => {
       body.querySelectorAll('[data-fill-mode]').forEach(x => x.classList.toggle('active', x === button));
@@ -231,8 +246,8 @@
           <button type="button" data-fill-mode="word"><b>上传 Word</b><span>下载当前项目模板，填写后直接上传</span></button>
         </div>
         <div class="hqtd-word-mode" hidden>
-          <a href="${escapeHtml(template)}" data-template-link download="${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}-${escapeHtml(item.serviceType)}需求表.docx">下载 ${escapeHtml(normalizedProjectCode(item.id, item.serviceType))} Word 模板</a>
-          <label class="hqtd-upload"><span>上传填写后的 Word <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx"></label>
+          <a href="#" data-template-link>下载并核对 ${escapeHtml(normalizedProjectCode(item.id, item.serviceType))} 专用 Word 模板</a>
+          <label class="hqtd-upload"><span>上传填写后的模板或相关资料 <em>*</em></span><input id="hqtdWordFile" type="file" accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.webp,.zip,.rar,.7z"></label>
         </div>
       </section>`;
     let fields = '';
@@ -644,23 +659,40 @@
     } finally { clearTimeout(timer); }
   }
 
-  function templateUrl(item) {
+  async function loadProjectTemplateMap() {
+    if (state.projectTemplateMap) return state.projectTemplateMap;
+    const url = new URL('../customer-portal/assets/project-template-map.json?v=20260723-v1166', document.baseURI);
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error('项目模板映射加载失败');
+    state.projectTemplateMap = await response.json();
+    return state.projectTemplateMap;
+  }
+
+  async function exactTemplate(item) {
     const code = normalizedProjectCode(item.id, item.serviceType);
-    if (item.serviceType === 'AI项目') return new URL(`../customer-portal/templates/ai/${encodeURIComponent(code)}.docx`, document.baseURI).href;
-    if (item.serviceType === '计算模拟') return new URL(`../customer-portal/templates/calculation/${encodeURIComponent(code)}.docx`, document.baseURI).href;
-    if (item.serviceType === '分析表征') return new URL(`../customer-portal/templates/analysis/${encodeURIComponent(code)}.docx`, document.baseURI).href;
-    return new URL('../customer-portal/templates/耗材仪器采购需求表.docx', document.baseURI).href;
+    const map = await loadProjectTemplateMap();
+    const config = map[code];
+    if (!config || !config.filename) {
+      throw new Error(`未找到 ${code} 对应的专用 Word 模板`);
+    }
+    const expectedName = String(config.projectName || '').trim();
+    const actualName = String(item.title || item.name || '').trim();
+    return {
+      code,
+      filename: config.filename,
+      projectName: expectedName,
+      titleMatched: !expectedName || !actualName || expectedName === actualName,
+      url: new URL(`../customer-portal/templates/projects/${encodeURIComponent(config.filename)}`, document.baseURI).href
+    };
+  }
+
+  function templateUrl(item) {
+    return '#';
   }
 
   async function analysisTemplateUrl(item) {
-    try {
-      if (!state.registry) state.registry = await fetch(new URL('../customer-portal/assets/form-templates.json', document.baseURI)).then(r => r.json());
-      const templates = (state.registry.templates || []).filter(x => x.serviceType === '分析表征');
-      const source = `${item.title} ${item.category}`.toLowerCase();
-      const score = template => String(template.title || '').toLowerCase().split(/[与及、（）()\s/+-]+/).filter(x => x.length > 1).reduce((sum, term) => sum + (source.includes(term) ? term.length : 0), 0);
-      const selected = templates.slice().sort((a, b) => score(b) - score(a))[0];
-      return new URL(`../customer-portal/${selected?.originalPath || 'templates/analysis/FX-1.docx'}`, document.baseURI).href;
-    } catch (_) { return templateUrl(item); }
+    const template = await exactTemplate(item);
+    return template.url;
   }
 
   function readCart() { try { const rows = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); return Array.isArray(rows) ? rows.slice(0, 30) : []; } catch (_) { return []; } }

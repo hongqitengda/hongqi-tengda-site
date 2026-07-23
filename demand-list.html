@@ -19,13 +19,17 @@
     .summary{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:20px;padding-top:18px;border-top:1px solid #e2e8f0}
     .summary b{font-size:18px}.bottom-actions{display:flex;gap:12px}.btn{padding:12px 18px;border-radius:10px;text-decoration:none;border:0;cursor:pointer;font-weight:700}
     .secondary{background:#f1f5f9;color:#334155}.primary{background:#1677ff;color:#fff}
+    .direct-order{margin-top:20px;padding:20px;border:1px solid #dbe7f1;border-radius:14px;background:#f8fbfe}
+    .direct-order h3{margin:0 0 8px}.direct-order p{margin:0 0 16px;color:#64748b}
+    .direct-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.direct-grid label{display:flex;flex-direction:column;gap:6px;font-size:14px}.direct-grid input,.direct-grid textarea{padding:11px 12px;border:1px solid #cbd9e7;border-radius:9px;font:inherit}.direct-grid textarea{min-height:80px;resize:vertical}.direct-grid .full{grid-column:1/-1}.direct-status{margin-top:12px;font-size:14px}
+    @media(max-width:640px){.direct-grid{grid-template-columns:1fr}}
     @media(max-width:640px){.top,.summary{align-items:flex-start;flex-direction:column}.item{grid-template-columns:1fr}.bottom-actions{width:100%}.btn{flex:1;text-align:center}}
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
-      <div><h1>需求清单</h1><p>AI、计算模拟和分析表征项目统一保存与提交。</p></div>
+      <div><h1>需求清单</h1><p>AI、计算模拟、分析表征和耗材项目均可在当前清单直接提交。</p></div>
       <a class="back" href="index.html">返回首页</a>
     </div>
     <section class="card">
@@ -33,6 +37,6 @@
       <div id="demandSummary"></div>
     </section>
   </main>
-  <script src="assets/js/demand-list-v1131.js"></script>
+  <script src="assets/js/demand-list-v1131.js?v=20260723-v1168"></script>
 </body>
 </html>
