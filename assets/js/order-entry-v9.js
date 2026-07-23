@@ -188,6 +188,39 @@
     return `HQTD-${ymd}-${normalizedProjectCode(item.id, item.serviceType)}-DRAFT`;
   }
 
+  function projectSpecificProfile(item) {
+    const text = `${item.id || ''} ${item.title || ''} ${item.category || ''}`.toLowerCase();
+    const field=(key,label,placeholder,type='text')=>({key,label,placeholder,type});
+    if (item.serviceType === 'AI项目') {
+      if (/影像|图像|医学|识别|分割|检测/.test(text)) return {title:'项目专用参数：图像/医学影像', fields:[field('imageModality','影像/图像类型','CT、MRI、SEM、光学图像等'),field('annotationStatus','标注情况','已标注/部分标注/未标注'),field('targetTask','任务类型','分类、检测、分割、配准等'),field('evaluationMetric','评价指标','AUC、F1、Dice、IoU等'),field('deploymentEnvironment','部署环境','本地、服务器、网页、小程序')]};
+      if (/材料|筛选|性能|分子|配方/.test(text)) return {title:'项目专用参数：材料与分子筛选', fields:[field('candidateSpace','候选空间','材料、分子或配方范围'),field('descriptorSource','描述符来源','组成、结构、实验、计算描述符'),field('targetProperty','目标性能','需要预测或优化的性能'),field('validationPlan','验证方式','留出集、外部数据、实验或计算验证'),field('screeningOutput','筛选输出','Top-N候选、排序、解释和不确定性')]};
+      if (/agent|智能体|llm|rag|知识库|大模型/.test(text)) return {title:'项目专用参数：LLM / RAG / Agent', fields:[field('knowledgeSource','知识库来源','论文、SOP、数据库、内部文档'),field('toolIntegration','工具调用','搜索、数据库、计算脚本、业务系统'),field('workflow','工作流程','输入→推理→工具→审核→输出'),field('outputFormat','输出格式','报告、JSON、表格、网页或消息'),field('permissionBoundary','权限与安全边界','用户角色、数据权限、人工确认节点')]};
+      return {title:'项目专用参数：预测与数据分析', fields:[field('inputFeatures','输入特征','主要输入变量或数据字段'),field('predictionTarget','预测目标','分类标签或连续目标'),field('baselineModel','基线模型','现有方法或希望对比的模型'),field('evaluationMetric','评价指标','MAE、RMSE、R²、AUC、F1等'),field('dataSplit','数据划分','训练/验证/测试或交叉验证')]};
+    }
+    if (item.serviceType === '计算模拟') {
+      if (/分子动力学|md|gromacs|lammps/.test(text)) return {title:'项目专用参数：分子动力学', fields:[field('forceField','力场','CHARMM、AMBER、OPLS、COMPASS等'),field('boxComposition','体系组成与盒子尺寸','分子数、溶剂、离子和尺寸'),field('ensemble','系综与条件','NVT/NPT、温度、压力'),field('simulationTime','模拟时长','平衡与生产阶段时长'),field('trajectoryAnalysis','轨迹分析','RDF、MSD、氢键、自由能等')]};
+      if (/cf[d]?|流体|fluent/.test(text)) return {title:'项目专用参数：CFD', fields:[field('geometrySource','几何模型','CAD、尺寸或示意图'),field('fluidProperties','流体物性','密度、黏度、组分等'),field('boundaryConditions','边界条件','入口、出口、壁面、热边界'),field('meshRequirement','网格要求','网格尺度、边界层和无关性验证'),field('outputVariables','输出变量','速度、压力、温度、传质等')]};
+      if (/comsol|多物理场|有限元|结构力学|abaqus|ansys/.test(text)) return {title:'项目专用参数：多物理场/有限元', fields:[field('physicsCoupling','物理场耦合','结构、热、流、电、传质等'),field('materialProperties','材料参数','弹性、热、电、扩散等参数'),field('loadsConstraints','载荷与约束','力、位移、温度、电位等'),field('geometryMesh','几何与网格','模型尺寸、接触与网格策略'),field('resultRequest','结果要求','应力、变形、场分布、参数扫描')]};
+      if (/量子化学|gaussian|orca|分子轨道/.test(text)) return {title:'项目专用参数：量子化学', fields:[field('molecularCharge','电荷与多重度','例如 0 1'),field('methodBasis','方法与基组','B3LYP-D3/def2-TZVP等'),field('solventModel','溶剂模型','气相、PCM、SMD等'),field('calculationTasks','计算任务','优化、频率、激发态、NBO、ESP等'),field('conformerTreatment','构象处理','指定构象或构象搜索')]};
+      return {title:'项目专用参数：DFT/第一性原理', fields:[field('structureFormat','结构文件','CIF、POSCAR或结构来源'),field('functional','泛函与色散','PBE、HSE06、DFT-D3等'),field('cutoffKpoints','截断能与K点','指定或由技术人员收敛测试'),field('spinU','自旋与U值','磁性、初始磁矩、DFT+U'),field('calculationOutputs','输出内容','能带、DOS、吸附能、电荷、过渡态等')]};
+    }
+    if (item.serviceType === '分析表征') {
+      if (/sem|扫描电镜|eds|能谱/.test(text)) return {title:'项目专用参数：SEM / EDS', fields:[field('coatingRequirement','喷金/喷碳要求','需要、不需要或请评估'),field('magnification','放大倍数','期望倍数或视野尺度'),field('acceleratingVoltage','加速电压','指定范围或请评估'),field('edsPosition','EDS位置与元素','点、线、面扫及目标元素'),field('crossSection','截面制样','表面/截面及切割方式')]};
+      if (/xrd|衍射|物相/.test(text)) return {title:'项目专用参数：XRD', fields:[field('scanRange','扫描范围','例如 5–80°'),field('stepSpeed','步长/扫描速度','指定或常规'),field('measurementMode','测试模式','粉末、薄膜、掠入射等'),field('phaseAnalysis','物相分析','检索、定量、晶粒尺寸等'),field('samplePreparation','制样要求','粉末量、基底、是否研磨')]};
+      if (/xps|光电子/.test(text)) return {title:'项目专用参数：XPS', fields:[field('targetElements','目标元素','全谱及重点高分辨元素'),field('depthProfiling','刻蚀/深度分析','是否需要及刻蚀时间'),field('chargeCorrection','荷电校正','C 1s 或其他标准'),field('peakFitting','峰拟合要求','价态、峰型、约束'),field('sampleHandling','样品保存','避光、惰性、真空转移等')]};
+      if (/bet|比表面|孔径|吸附/.test(text)) return {title:'项目专用参数：BET / 孔径', fields:[field('degassingTemperature','脱气温度','℃'),field('degassingTime','脱气时间','h'),field('adsorptiveGas','吸附气体','N₂、Ar、CO₂等'),field('poreModel','孔径模型','BJH、DFT、NLDFT等'),field('sampleMass','样品量','mg 或 g')]};
+      if (/icp|元素|质谱|oes/.test(text)) return {title:'项目专用参数：ICP 元素分析', fields:[field('targetElements','目标元素','列出需要检测的元素'),field('expectedConcentration','预计浓度范围','便于选择稀释倍数'),field('matrixAcidity','基体与酸度','酸种类、浓度和盐含量'),field('digestionNeed','消解要求','是否需要消解及样品质量'),field('qcRequirement','质控要求','空白、平行、加标回收、内标')]};
+      return {title:'项目专用测试参数', fields:[field('instrumentParameters','仪器关键参数','扫描范围、分辨率、模式等'),field('samplePreparation','制样要求','尺寸、质量、基底和前处理'),field('dataFormat','数据格式','原始数据、Excel、图片等'),field('analysisModel','分析方法','拟合、数据库检索或统计方法')]};
+    }
+    return {title:'项目专用参数',fields:[]};
+  }
+
+  function renderProjectSpecificFields(item) {
+    const profile=projectSpecificProfile(item);
+    if (!profile.fields.length) return '';
+    return `<section class="hqtd-scroll-section hqtd-specific-section"><h3>${escapeHtml(profile.title)}</h3><div class="hqtd-form-grid">${profile.fields.map(f=>`<label class="hqtd-field ${f.type==='textarea'?'full':''}"><span>${escapeHtml(f.label)}</span>${f.type==='textarea'?`<textarea data-profile-field="${escapeHtml(f.key)}" maxlength="1200" placeholder="${escapeHtml(f.placeholder)}"></textarea>`:`<input data-profile-field="${escapeHtml(f.key)}" maxlength="500" placeholder="${escapeHtml(f.placeholder)}">`}</label>`).join('')}</div></section>`;
+  }
+
   function buildProjectForm(item) {
     const template = templateUrl(item);
     const templateBlock = item.serviceType === '耗材仪器' ? '' : `
@@ -251,7 +284,7 @@
     return `
       <div class="hqtd-selected-project"><b>${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}</b><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || item.serviceType)}${item.priceText ? ` · ${escapeHtml(item.priceText)}` : ''}</span></div></div>
       <div class="hqtd-simple-tip">向下滚动逐项填写。带 * 为必填；不确定的参数可填写“请技术人员评估”。</div>
-      <div class="hqtd-form-scroll">${fields}</div>
+      <div class="hqtd-form-scroll">${fields}${renderProjectSpecificFields(item)}</div>
       ${templateBlock}
       <section class="hqtd-scroll-section"><h3>3. 附件与提交</h3><label class="hqtd-upload"><span>附件（选填）</span><input id="hqtdFiles" type="file" multiple accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.mol2,.xyz,.txt,.dat,.log,.gjf,.com,.inp,.vasp"><small>最多 5 个，单个不超过 5 MB。订单先创建，附件后台上传。</small></label></section>
       <div class="hqtd-panel-actions three-actions"><button type="button" class="secondary" data-form-cart>加入需求清单</button><button type="button" class="secondary" data-form-generate>生成 Word</button><button type="button" class="primary" data-form-submit>立即提交</button></div>
@@ -281,13 +314,12 @@
       });
       const docx = result.item && result.item.docx;
       const url = docx && (docx.tempURL || docx.downloadUrl || docx.url);
-      setMessage(`Word 已生成：${docx && docx.filename ? docx.filename : demandNo}`, 'success');
+      if (url) setMessage(`Word 已生成：<a href="${escapeHtml(url)}" target="_blank" rel="noopener">点击下载 ${escapeHtml((docx && docx.filename) || demandNo)}</a>`, 'success');
+      else setMessage(`Word 已生成并保存到云存储，但临时下载链接获取失败。请进入客户中心“交付文件”重试下载。文件ID：${escapeHtml((docx && docx.fileID) || '-')}`, 'warning');
       if (url) {
         const a = document.createElement('a');
         a.href = url; a.download = (docx && docx.filename) || `${demandNo}.docx`;
         document.body.appendChild(a); a.click(); a.remove();
-      } else {
-        showToast('Word 已保存到客户文档中心');
       }
     } catch (error) {
       setMessage(error.message || '生成 Word 失败', 'error');
@@ -329,6 +361,7 @@
       Object.assign(details, { sampleCount: count, sampleCodes: value('hqtdSampleCodes') || Array.from({length:Math.min(count,100)},(_,i)=>i+1).join(','), sampleState: value('hqtdSampleState'), composition: value('hqtdComposition'), hazards: checkedValues('hqtdHazards'), temperature: value('hqtdTemperature'), atmosphere: value('hqtdAtmosphere'), dataAnalysis: document.querySelector('input[name="hqtdAnalysisService"]:checked')?.value || '请评估', testNeed: need, experimentNote: value('hqtdExperimentNote') });
       note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n样品数量：${count}\n样品编号：${details.sampleCodes}\n样品状态：${details.sampleState}\n成分：${details.composition || '未说明'}\n危险性：${details.hazards.join('、') || '未选择'}\n测试要求：${need}`;
     }
+    const profileData = {}; document.querySelectorAll('[data-profile-field]').forEach(node => { const key=node.dataset.profileField; const val=String(node.value||'').trim(); if(key && val) profileData[key]=val; }); details.projectSpecific = profileData; if(Object.keys(profileData).length) note += `\n项目专用参数：${Object.entries(profileData).map(([k,v])=>`${k}=${v}`).join('；')}`;
     return { ...project, title: details.projectName || project.title, fillMethod, qty: project.serviceType === '分析表征' ? Number(details.sampleCount || 1) : 1, note, details, files, cartKey: `${project.id}-${Date.now()}` };
   }
 
@@ -428,7 +461,7 @@
         serviceType: items.length === 1 ? items[0].serviceType : '官网综合订单',
         projectName: items.length === 1 ? items[0].title : `综合订单（${items.length}种）`,
         description, details: description, items: payloadItems, cartItems: payloadItems,
-        sourcePage: location.href, clientVersion: 'web-10.6.0-scroll-form-word-generation'
+        sourcePage: location.href, clientVersion: 'web-11.0.0-enterprise'
       });
       const recordId = result.order?.id || result.requirementId || result.id || '';
       const demandNo = result.businessNo || result.demandNo || result.order?.demandNo || '已提交';
@@ -448,8 +481,12 @@
           else showToast('附件上传完成');
         }).catch(() => showToast('附件上传未完成，可在客户中心补充'));
       }
-      setTimeout(closePanel, 900);
-      // 保留采购/需求清单，方便客户继续追加或再次核对；仅订单记录写入 CloudBase。
+      // 成功提交后只清除本次已提交清单，避免重复下单。
+      const submittedKeys = new Set(items.map(item => item.cartKey).filter(Boolean));
+      const remaining = readCart().filter(item => !submittedKeys.has(item.cartKey));
+      writeCart(remaining);
+      updateCartCount();
+      setTimeout(closePanel, 1200);
     } catch (error) {
       setMessage(error.message || '提交失败，请稍后重试', 'error');
     } finally {

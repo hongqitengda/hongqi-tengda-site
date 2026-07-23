@@ -11,7 +11,7 @@ let cloudApp;
 let database;
 let sdkInitError = null;
 
-const VERSION = '8.1.1';
+const VERSION = '8.1.5';
 const DEFAULT_ENV_ID = 'cloud1-d3gji859l94c3e5ec';
 
 const COLLECTIONS = Object.freeze({
@@ -974,9 +974,20 @@ async function dashboard(headers, body) {
   const isClosed = status => /completed|complete|finished|closed|cancelled|canceled|rejected|已完成|已关闭|已取消|已拒绝/.test(status);
   const isQuoteDone = status => /accepted|confirmed|approved|paid|declined|rejected|已确认|已接受|已批准|已付款|已拒绝/.test(status);
   const isDeliveryDone = status => /confirmed|accepted|completed|closed|已确认|已接收|已完成|已关闭/.test(status);
-  const projects = projectRows.filter(row => !isClosed(normStatus(row))).length;
-  const quotes = quoteRows.filter(row => !isQuoteDone(normStatus(row))).length;
-  const deliveries = deliveryRows.filter(row => !isDeliveryDone(normStatus(row))).length;
+  // 顶部统计与业务列表使用同一批记录；独立集合为空时从订单/需求状态回退计算。
+  const orderStatusRows = [...ordersList, ...openRequirements];
+  const quoteLike = status => /quote|quoted|pending_quote|待报价|已报价|待确认报价|待客户确认/.test(status);
+  const projectLike = status => /confirmed|accepted|processing|in_progress|running|testing|calculating|已确认|进行中|处理中|计算中|测试中/.test(status) && !isClosed(status);
+  const deliveryLike = status => /delivery|delivered|pending_acceptance|待交付|已交付待确认|待确认交付/.test(status) && !isDeliveryDone(status);
+  const projects = projectRows.length
+    ? projectRows.filter(row => !isClosed(normStatus(row))).length
+    : orderStatusRows.filter(row => projectLike(normStatus(row))).length;
+  const quotes = quoteRows.length
+    ? quoteRows.filter(row => !isQuoteDone(normStatus(row))).length
+    : orderStatusRows.filter(row => quoteLike(normStatus(row)) && !isQuoteDone(normStatus(row))).length;
+  const deliveries = deliveryRows.length
+    ? deliveryRows.filter(row => !isDeliveryDone(normStatus(row))).length
+    : orderStatusRows.filter(row => deliveryLike(normStatus(row))).length;
   const afterSales = afterSalesRows.filter(row => !isClosed(normStatus(row))).length;
   const balanceCents = accountBalanceCents(account);
   const counts = {
@@ -1397,6 +1408,7 @@ async function generateRequirementDocuments(headers, body) {
   const demandNo = sanitizeText(body.demandNo || form.demandNo || body.businessNo, 80) || randomId('HQTD-');
   form.demandNo = demandNo;
   const buffer = await buildRequirementDocx(type, form);
+  getDb(); // 确保 cloudApp 已初始化，避免 uploadFile 为 undefined
   const filename = `${titleFor(type)}-${demandNo}.docx`;
   const cloudPath = `generated/requirements/${demandNo}-${type}.docx`;
   const upload = await cloudApp.uploadFile({ cloudPath, fileContent: buffer });
@@ -1568,7 +1580,7 @@ async function processBinaryUpload({ method = 'POST', headers = {}, query = {}, 
       const result = fail('不支持该附件类型', 415, 'UNSUPPORTED_FILE_TYPE');
       return { ...result, headers: { ...result.headers, ...cors } };
     }
-    getDb();
+    getDb(); // 确保 cloudApp 已初始化
     const ownerKey = user ? user.accountId : requirementId;
     const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
     const cloudPath = `website-uploads/${sha256(ownerKey).slice(0, 16)}/${date}/${Date.now()}-${crypto.randomBytes(3).toString('hex')}-${safeCloudFilename(originalName)}`;

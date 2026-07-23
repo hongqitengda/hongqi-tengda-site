@@ -1,0 +1,72 @@
+{
+  "version": "11.3.0",
+  "customerFlow": [
+    {
+      "step": 1,
+      "key": "select",
+      "label": "选择项目"
+    },
+    {
+      "step": 2,
+      "key": "fill",
+      "label": "填写需求"
+    },
+    {
+      "step": 3,
+      "key": "preview",
+      "label": "确认内容"
+    },
+    {
+      "step": 4,
+      "key": "submit",
+      "label": "提交订单"
+    },
+    {
+      "step": 5,
+      "key": "track",
+      "label": "客户中心"
+    }
+  ],
+  "homeEntries": [
+    {
+      "key": "ai",
+      "code": "AI",
+      "title": "AI项目",
+      "subtitle": "预测、图像、知识库与智能体",
+      "webUrl": "board/ai-projects.html",
+      "miniUrl": "/pages/projects/projects?type=ai",
+      "orderUrl": "/pages/demand/demand?mode=ai"
+    },
+    {
+      "key": "calculation",
+      "code": "JS",
+      "title": "计算模拟",
+      "subtitle": "DFT、MD、CFD、COMSOL与有限元",
+      "webUrl": "board/computational-simulation.html",
+      "miniUrl": "/pages/projects/projects?type=calculation",
+      "orderUrl": "/pages/demand/demand?mode=calculation"
+    },
+    {
+      "key": "analysis",
+      "code": "FX",
+      "title": "分析表征",
+      "subtitle": "样品信息、测试参数与数据分析",
+      "webUrl": "board/characterization-analysis.html",
+      "miniUrl": "/pages/projects/projects?type=analysis",
+      "orderUrl": "/pages/demand/demand?mode=analysis"
+    },
+    {
+      "key": "supplies",
+      "code": "HC",
+      "title": "耗材仪器",
+      "subtitle": "商品选择、数量调整与采购清单",
+      "webUrl": "board/research-supplies.html",
+      "miniUrl": "/pages/services/services?category=supplies",
+      "orderUrl": "/pages/services/services?category=supplies"
+    }
+  ],
+  "management": {
+    "website": false,
+    "miniProgram": true
+  }
+}
