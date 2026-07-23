@@ -6,3 +6,36 @@
 
 /* V10.6: true scrolling form + explicit Word generation */
 .hqtd-panel-actions.three-actions{grid-template-columns:1fr 1fr 1.25fr}.hqtd-form-scroll{max-height:58vh;overflow-y:auto;overscroll-behavior:contain;padding-right:8px}.hqtd-scroll-section{scroll-margin-top:16px}@media(max-width:700px){.hqtd-panel-actions.three-actions{grid-template-columns:1fr}.hqtd-form-scroll{max-height:none;overflow:visible}}
+
+
+/* V11.3.2 必填项自动定位 */
+.hqtd-required-error {
+  position: relative;
+  border-radius: 12px;
+  outline: 2px solid #e5484d !important;
+  outline-offset: 4px;
+  background: #fff7f7 !important;
+  animation: hqtdRequiredShake .34s ease-in-out;
+}
+.hqtd-required-error input,
+.hqtd-required-error textarea,
+.hqtd-required-error select {
+  border-color: #e5484d !important;
+  box-shadow: 0 0 0 3px rgba(229,72,77,.12) !important;
+}
+.hqtd-field-error-tip {
+  margin-top: 7px;
+  color: #c81e1e;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+@keyframes hqtdRequiredShake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hqtd-required-error { animation: none; }
+}

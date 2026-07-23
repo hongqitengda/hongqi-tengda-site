@@ -1,0 +1,1087 @@
+{
+  "AI-1": {
+    "projectCode": "AI-1",
+    "projectName": "医学影像智能分割与辅助判读",
+    "type": "ai",
+    "filename": "AI-1-医学影像智能分割与辅助判读.docx",
+    "webPath": "templates/projects/AI-1-医学影像智能分割与辅助判读.docx"
+  },
+  "AI-2": {
+    "projectCode": "AI-2",
+    "projectName": "候选分子与材料智能筛选",
+    "type": "ai",
+    "filename": "AI-2-候选分子与材料智能筛选.docx",
+    "webPath": "templates/projects/AI-2-候选分子与材料智能筛选.docx"
+  },
+  "AI-3": {
+    "projectCode": "AI-3",
+    "projectName": "配方、工艺与性能预测",
+    "type": "ai",
+    "filename": "AI-3-配方、工艺与性能预测.docx",
+    "webPath": "templates/projects/AI-3-配方、工艺与性能预测.docx"
+  },
+  "AI-4": {
+    "projectCode": "AI-4",
+    "projectName": "科研知识库与 RAG",
+    "type": "ai",
+    "filename": "AI-4-科研知识库与 RAG.docx",
+    "webPath": "templates/projects/AI-4-科研知识库与 RAG.docx"
+  },
+  "AI-5": {
+    "projectCode": "AI-5",
+    "projectName": "多模态数据分析",
+    "type": "ai",
+    "filename": "AI-5-多模态数据分析.docx",
+    "webPath": "templates/projects/AI-5-多模态数据分析.docx"
+  },
+  "AI-6": {
+    "projectCode": "AI-6",
+    "projectName": "机器学习预测",
+    "type": "ai",
+    "filename": "AI-6-机器学习预测.docx",
+    "webPath": "templates/projects/AI-6-机器学习预测.docx"
+  },
+  "AI-7": {
+    "projectCode": "AI-7",
+    "projectName": "实验设计与多目标优化",
+    "type": "ai",
+    "filename": "AI-7-实验设计与多目标优化.docx",
+    "webPath": "templates/projects/AI-7-实验设计与多目标优化.docx"
+  },
+  "AI-8": {
+    "projectCode": "AI-8",
+    "projectName": "科研智能体开发",
+    "type": "ai",
+    "filename": "AI-8-科研智能体开发.docx",
+    "webPath": "templates/projects/AI-8-科研智能体开发.docx"
+  },
+  "AI-9": {
+    "projectCode": "AI-9",
+    "projectName": "定制化AI项目",
+    "type": "ai",
+    "filename": "AI-9-定制化AI项目.docx",
+    "webPath": "templates/projects/AI-9-定制化AI项目.docx"
+  },
+  "JS-1": {
+    "projectCode": "JS-1",
+    "projectName": "计算流体力学定制",
+    "type": "calculation",
+    "filename": "JS-1-计算流体力学定制.docx",
+    "webPath": "templates/projects/JS-1-计算流体力学定制.docx"
+  },
+  "JS-10": {
+    "projectCode": "JS-10",
+    "projectName": "温度分布",
+    "type": "calculation",
+    "filename": "JS-10-温度分布.docx",
+    "webPath": "templates/projects/JS-10-温度分布.docx"
+  },
+  "JS-11": {
+    "projectCode": "JS-11",
+    "projectName": "湍流强度",
+    "type": "calculation",
+    "filename": "JS-11-湍流强度.docx",
+    "webPath": "templates/projects/JS-11-湍流强度.docx"
+  },
+  "JS-12": {
+    "projectCode": "JS-12",
+    "projectName": "涡量分布",
+    "type": "calculation",
+    "filename": "JS-12-涡量分布.docx",
+    "webPath": "templates/projects/JS-12-涡量分布.docx"
+  },
+  "JS-13": {
+    "projectCode": "JS-13",
+    "projectName": "多相流模拟",
+    "type": "calculation",
+    "filename": "JS-13-多相流模拟.docx",
+    "webPath": "templates/projects/JS-13-多相流模拟.docx"
+  },
+  "JS-14": {
+    "projectCode": "JS-14",
+    "projectName": "传热分析",
+    "type": "calculation",
+    "filename": "JS-14-传热分析.docx",
+    "webPath": "templates/projects/JS-14-传热分析.docx"
+  },
+  "JS-15": {
+    "projectCode": "JS-15",
+    "projectName": "燃烧模拟",
+    "type": "calculation",
+    "filename": "JS-15-燃烧模拟.docx",
+    "webPath": "templates/projects/JS-15-燃烧模拟.docx"
+  },
+  "JS-16": {
+    "projectCode": "JS-16",
+    "projectName": "混合效率分析",
+    "type": "calculation",
+    "filename": "JS-16-混合效率分析.docx",
+    "webPath": "templates/projects/JS-16-混合效率分析.docx"
+  },
+  "JS-17": {
+    "projectCode": "JS-17",
+    "projectName": "颗粒轨迹追踪",
+    "type": "calculation",
+    "filename": "JS-17-颗粒轨迹追踪.docx",
+    "webPath": "templates/projects/JS-17-颗粒轨迹追踪.docx"
+  },
+  "JS-18": {
+    "projectCode": "JS-18",
+    "projectName": "泵与风机仿真",
+    "type": "calculation",
+    "filename": "JS-18-泵与风机仿真.docx",
+    "webPath": "templates/projects/JS-18-泵与风机仿真.docx"
+  },
+  "JS-19": {
+    "projectCode": "JS-19",
+    "projectName": "晶体结构",
+    "type": "calculation",
+    "filename": "JS-19-晶体结构.docx",
+    "webPath": "templates/projects/JS-19-晶体结构.docx"
+  },
+  "JS-2": {
+    "projectCode": "JS-2",
+    "projectName": "第一性原理计算定制",
+    "type": "calculation",
+    "filename": "JS-2-第一性原理计算定制.docx",
+    "webPath": "templates/projects/JS-2-第一性原理计算定制.docx"
+  },
+  "JS-20": {
+    "projectCode": "JS-20",
+    "projectName": "吸附构型",
+    "type": "calculation",
+    "filename": "JS-20-吸附构型.docx",
+    "webPath": "templates/projects/JS-20-吸附构型.docx"
+  },
+  "JS-21": {
+    "projectCode": "JS-21",
+    "projectName": "吸附能",
+    "type": "calculation",
+    "filename": "JS-21-吸附能.docx",
+    "webPath": "templates/projects/JS-21-吸附能.docx"
+  },
+  "JS-22": {
+    "projectCode": "JS-22",
+    "projectName": "能带结构",
+    "type": "calculation",
+    "filename": "JS-22-能带结构.docx",
+    "webPath": "templates/projects/JS-22-能带结构.docx"
+  },
+  "JS-23": {
+    "projectCode": "JS-23",
+    "projectName": "DOS",
+    "type": "calculation",
+    "filename": "JS-23-DOS.docx",
+    "webPath": "templates/projects/JS-23-DOS.docx"
+  },
+  "JS-24": {
+    "projectCode": "JS-24",
+    "projectName": "PDOS",
+    "type": "calculation",
+    "filename": "JS-24-PDOS.docx",
+    "webPath": "templates/projects/JS-24-PDOS.docx"
+  },
+  "JS-25": {
+    "projectCode": "JS-25",
+    "projectName": "电荷密度差",
+    "type": "calculation",
+    "filename": "JS-25-电荷密度差.docx",
+    "webPath": "templates/projects/JS-25-电荷密度差.docx"
+  },
+  "JS-26": {
+    "projectCode": "JS-26",
+    "projectName": "ELF",
+    "type": "calculation",
+    "filename": "JS-26-ELF.docx",
+    "webPath": "templates/projects/JS-26-ELF.docx"
+  },
+  "JS-27": {
+    "projectCode": "JS-27",
+    "projectName": "Bader电荷",
+    "type": "calculation",
+    "filename": "JS-27-Bader电荷.docx",
+    "webPath": "templates/projects/JS-27-Bader电荷.docx"
+  },
+  "JS-28": {
+    "projectCode": "JS-28",
+    "projectName": "静电势分布",
+    "type": "calculation",
+    "filename": "JS-28-静电势分布.docx",
+    "webPath": "templates/projects/JS-28-静电势分布.docx"
+  },
+  "JS-29": {
+    "projectCode": "JS-29",
+    "projectName": "COHP",
+    "type": "calculation",
+    "filename": "JS-29-COHP.docx",
+    "webPath": "templates/projects/JS-29-COHP.docx"
+  },
+  "JS-3": {
+    "projectCode": "JS-3",
+    "projectName": "分子动力学定制",
+    "type": "calculation",
+    "filename": "JS-3-分子动力学定制.docx",
+    "webPath": "templates/projects/JS-3-分子动力学定制.docx"
+  },
+  "JS-30": {
+    "projectCode": "JS-30",
+    "projectName": "ICOHP",
+    "type": "calculation",
+    "filename": "JS-30-ICOHP.docx",
+    "webPath": "templates/projects/JS-30-ICOHP.docx"
+  },
+  "JS-31": {
+    "projectCode": "JS-31",
+    "projectName": "AIMD模拟",
+    "type": "calculation",
+    "filename": "JS-31-AIMD模拟.docx",
+    "webPath": "templates/projects/JS-31-AIMD模拟.docx"
+  },
+  "JS-32": {
+    "projectCode": "JS-32",
+    "projectName": "NEB能垒",
+    "type": "calculation",
+    "filename": "JS-32-NEB能垒.docx",
+    "webPath": "templates/projects/JS-32-NEB能垒.docx"
+  },
+  "JS-33": {
+    "projectCode": "JS-33",
+    "projectName": "声子谱",
+    "type": "calculation",
+    "filename": "JS-33-声子谱.docx",
+    "webPath": "templates/projects/JS-33-声子谱.docx"
+  },
+  "JS-34": {
+    "projectCode": "JS-34",
+    "projectName": "声子DOS",
+    "type": "calculation",
+    "filename": "JS-34-声子DOS.docx",
+    "webPath": "templates/projects/JS-34-声子DOS.docx"
+  },
+  "JS-35": {
+    "projectCode": "JS-35",
+    "projectName": "光学性质",
+    "type": "calculation",
+    "filename": "JS-35-光学性质.docx",
+    "webPath": "templates/projects/JS-35-光学性质.docx"
+  },
+  "JS-36": {
+    "projectCode": "JS-36",
+    "projectName": "功函数",
+    "type": "calculation",
+    "filename": "JS-36-功函数.docx",
+    "webPath": "templates/projects/JS-36-功函数.docx"
+  },
+  "JS-37": {
+    "projectCode": "JS-37",
+    "projectName": "电子局域函数",
+    "type": "calculation",
+    "filename": "JS-37-电子局域函数.docx",
+    "webPath": "templates/projects/JS-37-电子局域函数.docx"
+  },
+  "JS-38": {
+    "projectCode": "JS-38",
+    "projectName": "非晶质分析",
+    "type": "calculation",
+    "filename": "JS-38-非晶质分析.docx",
+    "webPath": "templates/projects/JS-38-非晶质分析.docx"
+  },
+  "JS-39": {
+    "projectCode": "JS-39",
+    "projectName": "表面能计算",
+    "type": "calculation",
+    "filename": "JS-39-表面能计算.docx",
+    "webPath": "templates/projects/JS-39-表面能计算.docx"
+  },
+  "JS-4": {
+    "projectCode": "JS-4",
+    "projectName": "多物理场与有限元仿真定制",
+    "type": "calculation",
+    "filename": "JS-4-多物理场与有限元仿真定制.docx",
+    "webPath": "templates/projects/JS-4-多物理场与有限元仿真定制.docx"
+  },
+  "JS-40": {
+    "projectCode": "JS-40",
+    "projectName": "界面结合能",
+    "type": "calculation",
+    "filename": "JS-40-界面结合能.docx",
+    "webPath": "templates/projects/JS-40-界面结合能.docx"
+  },
+  "JS-41": {
+    "projectCode": "JS-41",
+    "projectName": "缺陷形成能",
+    "type": "calculation",
+    "filename": "JS-41-缺陷形成能.docx",
+    "webPath": "templates/projects/JS-41-缺陷形成能.docx"
+  },
+  "JS-42": {
+    "projectCode": "JS-42",
+    "projectName": "杂质掺杂",
+    "type": "calculation",
+    "filename": "JS-42-杂质掺杂.docx",
+    "webPath": "templates/projects/JS-42-杂质掺杂.docx"
+  },
+  "JS-43": {
+    "projectCode": "JS-43",
+    "projectName": "应变效应分析",
+    "type": "calculation",
+    "filename": "JS-43-应变效应分析.docx",
+    "webPath": "templates/projects/JS-43-应变效应分析.docx"
+  },
+  "JS-44": {
+    "projectCode": "JS-44",
+    "projectName": "压电性质",
+    "type": "calculation",
+    "filename": "JS-44-压电性质.docx",
+    "webPath": "templates/projects/JS-44-压电性质.docx"
+  },
+  "JS-45": {
+    "projectCode": "JS-45",
+    "projectName": "铁电性质",
+    "type": "calculation",
+    "filename": "JS-45-铁电性质.docx",
+    "webPath": "templates/projects/JS-45-铁电性质.docx"
+  },
+  "JS-46": {
+    "projectCode": "JS-46",
+    "projectName": "磁性性质",
+    "type": "calculation",
+    "filename": "JS-46-磁性性质.docx",
+    "webPath": "templates/projects/JS-46-磁性性质.docx"
+  },
+  "JS-47": {
+    "projectCode": "JS-47",
+    "projectName": "交换耦合常数",
+    "type": "calculation",
+    "filename": "JS-47-交换耦合常数.docx",
+    "webPath": "templates/projects/JS-47-交换耦合常数.docx"
+  },
+  "JS-48": {
+    "projectCode": "JS-48",
+    "projectName": "自旋极化",
+    "type": "calculation",
+    "filename": "JS-48-自旋极化.docx",
+    "webPath": "templates/projects/JS-48-自旋极化.docx"
+  },
+  "JS-49": {
+    "projectCode": "JS-49",
+    "projectName": "拓扑性质",
+    "type": "calculation",
+    "filename": "JS-49-拓扑性质.docx",
+    "webPath": "templates/projects/JS-49-拓扑性质.docx"
+  },
+  "JS-5": {
+    "projectCode": "JS-5",
+    "projectName": "量子化学与分子计算定制",
+    "type": "calculation",
+    "filename": "JS-5-量子化学与分子计算定制.docx",
+    "webPath": "templates/projects/JS-5-量子化学与分子计算定制.docx"
+  },
+  "JS-50": {
+    "projectCode": "JS-50",
+    "projectName": "非线性光学",
+    "type": "calculation",
+    "filename": "JS-50-非线性光学.docx",
+    "webPath": "templates/projects/JS-50-非线性光学.docx"
+  },
+  "JS-51": {
+    "projectCode": "JS-51",
+    "projectName": "电化学反应模拟",
+    "type": "calculation",
+    "filename": "JS-51-电化学反应模拟.docx",
+    "webPath": "templates/projects/JS-51-电化学反应模拟.docx"
+  },
+  "JS-52": {
+    "projectCode": "JS-52",
+    "projectName": "电化学反应与电极过程模拟",
+    "type": "calculation",
+    "filename": "JS-52-电化学反应与电极过程模拟.docx",
+    "webPath": "templates/projects/JS-52-电化学反应与电极过程模拟.docx"
+  },
+  "JS-53": {
+    "projectCode": "JS-53",
+    "projectName": "催化反应机理与活性计算",
+    "type": "calculation",
+    "filename": "JS-53-催化反应机理与活性计算.docx",
+    "webPath": "templates/projects/JS-53-催化反应机理与活性计算.docx"
+  },
+  "JS-54": {
+    "projectCode": "JS-54",
+    "projectName": "电池材料储能机理与电压计算",
+    "type": "calculation",
+    "filename": "JS-54-电池材料储能机理与电压计算.docx",
+    "webPath": "templates/projects/JS-54-电池材料储能机理与电压计算.docx"
+  },
+  "JS-55": {
+    "projectCode": "JS-55",
+    "projectName": "径向分布函数(RDF)",
+    "type": "calculation",
+    "filename": "JS-55-径向分布函数(RDF).docx",
+    "webPath": "templates/projects/JS-55-径向分布函数(RDF).docx"
+  },
+  "JS-56": {
+    "projectCode": "JS-56",
+    "projectName": "平均平方位移(MSD)",
+    "type": "calculation",
+    "filename": "JS-56-平均平方位移(MSD).docx",
+    "webPath": "templates/projects/JS-56-平均平方位移(MSD).docx"
+  },
+  "JS-57": {
+    "projectCode": "JS-57",
+    "projectName": "扩散系数",
+    "type": "calculation",
+    "filename": "JS-57-扩散系数.docx",
+    "webPath": "templates/projects/JS-57-扩散系数.docx"
+  },
+  "JS-58": {
+    "projectCode": "JS-58",
+    "projectName": "速度自相关(VACF)",
+    "type": "calculation",
+    "filename": "JS-58-速度自相关(VACF).docx",
+    "webPath": "templates/projects/JS-58-速度自相关(VACF).docx"
+  },
+  "JS-59": {
+    "projectCode": "JS-59",
+    "projectName": "氢键分析",
+    "type": "calculation",
+    "filename": "JS-59-氢键分析.docx",
+    "webPath": "templates/projects/JS-59-氢键分析.docx"
+  },
+  "JS-6": {
+    "projectCode": "JS-6",
+    "projectName": "纳米流体流动与传热模拟",
+    "type": "calculation",
+    "filename": "JS-6-纳米流体流动与传热模拟.docx",
+    "webPath": "templates/projects/JS-6-纳米流体流动与传热模拟.docx"
+  },
+  "JS-60": {
+    "projectCode": "JS-60",
+    "projectName": "密度分布",
+    "type": "calculation",
+    "filename": "JS-60-密度分布.docx",
+    "webPath": "templates/projects/JS-60-密度分布.docx"
+  },
+  "JS-61": {
+    "projectCode": "JS-61",
+    "projectName": "RMSD",
+    "type": "calculation",
+    "filename": "JS-61-RMSD.docx",
+    "webPath": "templates/projects/JS-61-RMSD.docx"
+  },
+  "JS-62": {
+    "projectCode": "JS-62",
+    "projectName": "RMSF",
+    "type": "calculation",
+    "filename": "JS-62-RMSF.docx",
+    "webPath": "templates/projects/JS-62-RMSF.docx"
+  },
+  "JS-63": {
+    "projectCode": "JS-63",
+    "projectName": "溶剂可及表面积(SASA)",
+    "type": "calculation",
+    "filename": "JS-63-溶剂可及表面积(SASA).docx",
+    "webPath": "templates/projects/JS-63-溶剂可及表面积(SASA).docx"
+  },
+  "JS-64": {
+    "projectCode": "JS-64",
+    "projectName": "回转半径(Rg)",
+    "type": "calculation",
+    "filename": "JS-64-回转半径(Rg).docx",
+    "webPath": "templates/projects/JS-64-回转半径(Rg).docx"
+  },
+  "JS-65": {
+    "projectCode": "JS-65",
+    "projectName": "二面角分布",
+    "type": "calculation",
+    "filename": "JS-65-二面角分布.docx",
+    "webPath": "templates/projects/JS-65-二面角分布.docx"
+  },
+  "JS-66": {
+    "projectCode": "JS-66",
+    "projectName": "构象聚类分析",
+    "type": "calculation",
+    "filename": "JS-66-构象聚类分析.docx",
+    "webPath": "templates/projects/JS-66-构象聚类分析.docx"
+  },
+  "JS-67": {
+    "projectCode": "JS-67",
+    "projectName": "自由能面(FES)",
+    "type": "calculation",
+    "filename": "JS-67-自由能面(FES).docx",
+    "webPath": "templates/projects/JS-67-自由能面(FES).docx"
+  },
+  "JS-68": {
+    "projectCode": "JS-68",
+    "projectName": "Umbrella采样",
+    "type": "calculation",
+    "filename": "JS-68-Umbrella采样.docx",
+    "webPath": "templates/projects/JS-68-Umbrella采样.docx"
+  },
+  "JS-69": {
+    "projectCode": "JS-69",
+    "projectName": "热力学积分(TI)",
+    "type": "calculation",
+    "filename": "JS-69-热力学积分(TI).docx",
+    "webPath": "templates/projects/JS-69-热力学积分(TI).docx"
+  },
+  "JS-7": {
+    "projectCode": "JS-7",
+    "projectName": "流线分布",
+    "type": "calculation",
+    "filename": "JS-7-流线分布.docx",
+    "webPath": "templates/projects/JS-7-流线分布.docx"
+  },
+  "JS-70": {
+    "projectCode": "JS-70",
+    "projectName": "集度平均(IM)",
+    "type": "calculation",
+    "filename": "JS-70-集度平均(IM).docx",
+    "webPath": "templates/projects/JS-70-集度平均(IM).docx"
+  },
+  "JS-71": {
+    "projectCode": "JS-71",
+    "projectName": "非平衡MD(NEMD)",
+    "type": "calculation",
+    "filename": "JS-71-非平衡MD(NEMD).docx",
+    "webPath": "templates/projects/JS-71-非平衡MD(NEMD).docx"
+  },
+  "JS-72": {
+    "projectCode": "JS-72",
+    "projectName": "黏度计算",
+    "type": "calculation",
+    "filename": "JS-72-黏度计算.docx",
+    "webPath": "templates/projects/JS-72-黏度计算.docx"
+  },
+  "JS-73": {
+    "projectCode": "JS-73",
+    "projectName": "热导率计算",
+    "type": "calculation",
+    "filename": "JS-73-热导率计算.docx",
+    "webPath": "templates/projects/JS-73-热导率计算.docx"
+  },
+  "JS-74": {
+    "projectCode": "JS-74",
+    "projectName": "离子电导率",
+    "type": "calculation",
+    "filename": "JS-74-离子电导率.docx",
+    "webPath": "templates/projects/JS-74-离子电导率.docx"
+  },
+  "JS-75": {
+    "projectCode": "JS-75",
+    "projectName": "电池电解液分析",
+    "type": "calculation",
+    "filename": "JS-75-电池电解液分析.docx",
+    "webPath": "templates/projects/JS-75-电池电解液分析.docx"
+  },
+  "JS-76": {
+    "projectCode": "JS-76",
+    "projectName": "聚合物链构象",
+    "type": "calculation",
+    "filename": "JS-76-聚合物链构象.docx",
+    "webPath": "templates/projects/JS-76-聚合物链构象.docx"
+  },
+  "JS-77": {
+    "projectCode": "JS-77",
+    "projectName": "吸附扩散机制",
+    "type": "calculation",
+    "filename": "JS-77-吸附扩散机制.docx",
+    "webPath": "templates/projects/JS-77-吸附扩散机制.docx"
+  },
+  "JS-78": {
+    "projectCode": "JS-78",
+    "projectName": "溶剂化与溶液结构模拟",
+    "type": "calculation",
+    "filename": "JS-78-溶剂化与溶液结构模拟.docx",
+    "webPath": "templates/projects/JS-78-溶剂化与溶液结构模拟.docx"
+  },
+  "JS-79": {
+    "projectCode": "JS-79",
+    "projectName": "界面相互作用模拟",
+    "type": "calculation",
+    "filename": "JS-79-界面相互作用模拟.docx",
+    "webPath": "templates/projects/JS-79-界面相互作用模拟.docx"
+  },
+  "JS-8": {
+    "projectCode": "JS-8",
+    "projectName": "压力分布",
+    "type": "calculation",
+    "filename": "JS-8-压力分布.docx",
+    "webPath": "templates/projects/JS-8-压力分布.docx"
+  },
+  "JS-80": {
+    "projectCode": "JS-80",
+    "projectName": "表面润湿性与接触角模拟",
+    "type": "calculation",
+    "filename": "JS-80-表面润湿性与接触角模拟.docx",
+    "webPath": "templates/projects/JS-80-表面润湿性与接触角模拟.docx"
+  },
+  "JS-81": {
+    "projectCode": "JS-81",
+    "projectName": "多孔材料吸附分离性能模拟",
+    "type": "calculation",
+    "filename": "JS-81-多孔材料吸附分离性能模拟.docx",
+    "webPath": "templates/projects/JS-81-多孔材料吸附分离性能模拟.docx"
+  },
+  "JS-82": {
+    "projectCode": "JS-82",
+    "projectName": "分子动力学模拟与界面行为研究",
+    "type": "calculation",
+    "filename": "JS-82-分子动力学模拟与界面行为研究.docx",
+    "webPath": "templates/projects/JS-82-分子动力学模拟与界面行为研究.docx"
+  },
+  "JS-83": {
+    "projectCode": "JS-83",
+    "projectName": "静力学分析",
+    "type": "calculation",
+    "filename": "JS-83-静力学分析.docx",
+    "webPath": "templates/projects/JS-83-静力学分析.docx"
+  },
+  "JS-84": {
+    "projectCode": "JS-84",
+    "projectName": "位移分析",
+    "type": "calculation",
+    "filename": "JS-84-位移分析.docx",
+    "webPath": "templates/projects/JS-84-位移分析.docx"
+  },
+  "JS-85": {
+    "projectCode": "JS-85",
+    "projectName": "应变分析",
+    "type": "calculation",
+    "filename": "JS-85-应变分析.docx",
+    "webPath": "templates/projects/JS-85-应变分析.docx"
+  },
+  "JS-86": {
+    "projectCode": "JS-86",
+    "projectName": "频率分析",
+    "type": "calculation",
+    "filename": "JS-86-频率分析.docx",
+    "webPath": "templates/projects/JS-86-频率分析.docx"
+  },
+  "JS-87": {
+    "projectCode": "JS-87",
+    "projectName": "屈曲分析",
+    "type": "calculation",
+    "filename": "JS-87-屈曲分析.docx",
+    "webPath": "templates/projects/JS-87-屈曲分析.docx"
+  },
+  "JS-88": {
+    "projectCode": "JS-88",
+    "projectName": "热应力分析",
+    "type": "calculation",
+    "filename": "JS-88-热应力分析.docx",
+    "webPath": "templates/projects/JS-88-热应力分析.docx"
+  },
+  "JS-89": {
+    "projectCode": "JS-89",
+    "projectName": "瞬态动力学",
+    "type": "calculation",
+    "filename": "JS-89-瞬态动力学.docx",
+    "webPath": "templates/projects/JS-89-瞬态动力学.docx"
+  },
+  "JS-9": {
+    "projectCode": "JS-9",
+    "projectName": "速度分布",
+    "type": "calculation",
+    "filename": "JS-9-速度分布.docx",
+    "webPath": "templates/projects/JS-9-速度分布.docx"
+  },
+  "JS-90": {
+    "projectCode": "JS-90",
+    "projectName": "疲劳寿命分析",
+    "type": "calculation",
+    "filename": "JS-90-疲劳寿命分析.docx",
+    "webPath": "templates/projects/JS-90-疲劳寿命分析.docx"
+  },
+  "JS-91": {
+    "projectCode": "JS-91",
+    "projectName": "接触分析",
+    "type": "calculation",
+    "filename": "JS-91-接触分析.docx",
+    "webPath": "templates/projects/JS-91-接触分析.docx"
+  },
+  "JS-92": {
+    "projectCode": "JS-92",
+    "projectName": "复合材料分析",
+    "type": "calculation",
+    "filename": "JS-92-复合材料分析.docx",
+    "webPath": "templates/projects/JS-92-复合材料分析.docx"
+  },
+  "JS-93": {
+    "projectCode": "JS-93",
+    "projectName": "断裂分析",
+    "type": "calculation",
+    "filename": "JS-93-断裂分析.docx",
+    "webPath": "templates/projects/JS-93-断裂分析.docx"
+  },
+  "JS-94": {
+    "projectCode": "JS-94",
+    "projectName": "优化设计",
+    "type": "calculation",
+    "filename": "JS-94-优化设计.docx",
+    "webPath": "templates/projects/JS-94-优化设计.docx"
+  },
+  "JS-95": {
+    "projectCode": "JS-95",
+    "projectName": "结构优化",
+    "type": "calculation",
+    "filename": "JS-95-结构优化.docx",
+    "webPath": "templates/projects/JS-95-结构优化.docx"
+  },
+  "JS-96": {
+    "projectCode": "JS-96",
+    "projectName": "ESP电势",
+    "type": "calculation",
+    "filename": "JS-96-ESP电势.docx",
+    "webPath": "templates/projects/JS-96-ESP电势.docx"
+  },
+  "JS-97": {
+    "projectCode": "JS-97",
+    "projectName": "IGMH分析",
+    "type": "calculation",
+    "filename": "JS-97-IGMH分析.docx",
+    "webPath": "templates/projects/JS-97-IGMH分析.docx"
+  },
+  "JS-98": {
+    "projectCode": "JS-98",
+    "projectName": "键级分析",
+    "type": "calculation",
+    "filename": "JS-98-键级分析.docx",
+    "webPath": "templates/projects/JS-98-键级分析.docx"
+  },
+  "JS-99": {
+    "projectCode": "JS-99",
+    "projectName": "自由能计算",
+    "type": "calculation",
+    "filename": "JS-99-自由能计算.docx",
+    "webPath": "templates/projects/JS-99-自由能计算.docx"
+  },
+  "FX-1": {
+    "projectCode": "FX-1",
+    "projectName": "SEM扫描电镜与EDS能谱",
+    "type": "analysis",
+    "filename": "FX-1-SEM扫描电镜与EDS能谱.docx",
+    "webPath": "templates/projects/FX-1-SEM扫描电镜与EDS能谱.docx"
+  },
+  "FX-2": {
+    "projectCode": "FX-2",
+    "projectName": "TEM透射电镜与电子衍射",
+    "type": "analysis",
+    "filename": "FX-2-TEM透射电镜与电子衍射.docx",
+    "webPath": "templates/projects/FX-2-TEM透射电镜与电子衍射.docx"
+  },
+  "FX-3": {
+    "projectCode": "FX-3",
+    "projectName": "AFM与扫描探针显微镜",
+    "type": "analysis",
+    "filename": "FX-3-AFM与扫描探针显微镜.docx",
+    "webPath": "templates/projects/FX-3-AFM与扫描探针显微镜.docx"
+  },
+  "FX-4": {
+    "projectCode": "FX-4",
+    "projectName": "光学显微与激光共聚焦",
+    "type": "analysis",
+    "filename": "FX-4-光学显微与激光共聚焦.docx",
+    "webPath": "templates/projects/FX-4-光学显微与激光共聚焦.docx"
+  },
+  "FX-5": {
+    "projectCode": "FX-5",
+    "projectName": "FIB截面制样与EBSD",
+    "type": "analysis",
+    "filename": "FX-5-FIB截面制样与EBSD.docx",
+    "webPath": "templates/projects/FX-5-FIB截面制样与EBSD.docx"
+  },
+  "FX-6": {
+    "projectCode": "FX-6",
+    "projectName": "X射线CT三维成像",
+    "type": "analysis",
+    "filename": "FX-6-X射线CT三维成像.docx",
+    "webPath": "templates/projects/FX-6-X射线CT三维成像.docx"
+  },
+  "FX-7": {
+    "projectCode": "FX-7",
+    "projectName": "XRD综合物相与薄膜结构",
+    "type": "analysis",
+    "filename": "FX-7-XRD综合物相与薄膜结构.docx",
+    "webPath": "templates/projects/FX-7-XRD综合物相与薄膜结构.docx"
+  },
+  "FX-8": {
+    "projectCode": "FX-8",
+    "projectName": "FTIR傅里叶红外光谱",
+    "type": "analysis",
+    "filename": "FX-8-FTIR傅里叶红外光谱.docx",
+    "webPath": "templates/projects/FX-8-FTIR傅里叶红外光谱.docx"
+  },
+  "FX-9": {
+    "projectCode": "FX-9",
+    "projectName": "Raman拉曼光谱",
+    "type": "analysis",
+    "filename": "FX-9-Raman拉曼光谱.docx",
+    "webPath": "templates/projects/FX-9-Raman拉曼光谱.docx"
+  },
+  "FX-10": {
+    "projectCode": "FX-10",
+    "projectName": "UV-Vis紫外可见光谱",
+    "type": "analysis",
+    "filename": "FX-10-UV-Vis紫外可见光谱.docx",
+    "webPath": "templates/projects/FX-10-UV-Vis紫外可见光谱.docx"
+  },
+  "FX-11": {
+    "projectCode": "FX-11",
+    "projectName": "荧光PL与三维荧光EEM",
+    "type": "analysis",
+    "filename": "FX-11-荧光PL与三维荧光EEM.docx",
+    "webPath": "templates/projects/FX-11-荧光PL与三维荧光EEM.docx"
+  },
+  "FX-12": {
+    "projectCode": "FX-12",
+    "projectName": "NMR核磁共振",
+    "type": "analysis",
+    "filename": "FX-12-NMR核磁共振.docx",
+    "webPath": "templates/projects/FX-12-NMR核磁共振.docx"
+  },
+  "FX-13": {
+    "projectCode": "FX-13",
+    "projectName": "EPR电子顺磁共振",
+    "type": "analysis",
+    "filename": "FX-13-EPR电子顺磁共振.docx",
+    "webPath": "templates/projects/FX-13-EPR电子顺磁共振.docx"
+  },
+  "FX-14": {
+    "projectCode": "FX-14",
+    "projectName": "同步辐射XAFS与软X射线吸收谱",
+    "type": "analysis",
+    "filename": "FX-14-同步辐射XAFS与软X射线吸收谱.docx",
+    "webPath": "templates/projects/FX-14-同步辐射XAFS与软X射线吸收谱.docx"
+  },
+  "FX-15": {
+    "projectCode": "FX-15",
+    "projectName": "太赫兹与特殊光谱",
+    "type": "analysis",
+    "filename": "FX-15-太赫兹与特殊光谱.docx",
+    "webPath": "templates/projects/FX-15-太赫兹与特殊光谱.docx"
+  },
+  "FX-16": {
+    "projectCode": "FX-16",
+    "projectName": "XRF X射线荧光",
+    "type": "analysis",
+    "filename": "FX-16-XRF X射线荧光.docx",
+    "webPath": "templates/projects/FX-16-XRF X射线荧光.docx"
+  },
+  "FX-17": {
+    "projectCode": "FX-17",
+    "projectName": "ICP-OES ICP-MS与AAS元素分析",
+    "type": "analysis",
+    "filename": "FX-17-ICP-OES ICP-MS与AAS元素分析.docx",
+    "webPath": "templates/projects/FX-17-ICP-OES ICP-MS与AAS元素分析.docx"
+  },
+  "FX-18": {
+    "projectCode": "FX-18",
+    "projectName": "XPS UPS AES与TOF-SIMS表面分析",
+    "type": "analysis",
+    "filename": "FX-18-XPS UPS AES与TOF-SIMS表面分析.docx",
+    "webPath": "templates/projects/FX-18-XPS UPS AES与TOF-SIMS表面分析.docx"
+  },
+  "FX-19": {
+    "projectCode": "FX-19",
+    "projectName": "CHNS ONH与碳硫元素分析",
+    "type": "analysis",
+    "filename": "FX-19-CHNS ONH与碳硫元素分析.docx",
+    "webPath": "templates/projects/FX-19-CHNS ONH与碳硫元素分析.docx"
+  },
+  "FX-20": {
+    "projectCode": "FX-20",
+    "projectName": "TOC TC IC总碳分析",
+    "type": "analysis",
+    "filename": "FX-20-TOC TC IC总碳分析.docx",
+    "webPath": "templates/projects/FX-20-TOC TC IC总碳分析.docx"
+  },
+  "FX-21": {
+    "projectCode": "FX-21",
+    "projectName": "离子色谱与自动电位滴定",
+    "type": "analysis",
+    "filename": "FX-21-离子色谱与自动电位滴定.docx",
+    "webPath": "templates/projects/FX-21-离子色谱与自动电位滴定.docx"
+  },
+  "FX-22": {
+    "projectCode": "FX-22",
+    "projectName": "BET气体吸附与孔结构",
+    "type": "analysis",
+    "filename": "FX-22-BET气体吸附与孔结构.docx",
+    "webPath": "templates/projects/FX-22-BET气体吸附与孔结构.docx"
+  },
+  "FX-23": {
+    "projectCode": "FX-23",
+    "projectName": "压汞与毛细管流动孔径CFP",
+    "type": "analysis",
+    "filename": "FX-23-压汞与毛细管流动孔径CFP.docx",
+    "webPath": "templates/projects/FX-23-压汞与毛细管流动孔径CFP.docx"
+  },
+  "FX-24": {
+    "projectCode": "FX-24",
+    "projectName": "DLS粒径与Zeta电位",
+    "type": "analysis",
+    "filename": "FX-24-DLS粒径与Zeta电位.docx",
+    "webPath": "templates/projects/FX-24-DLS粒径与Zeta电位.docx"
+  },
+  "FX-25": {
+    "projectCode": "FX-25",
+    "projectName": "激光粒度与颗粒分布",
+    "type": "analysis",
+    "filename": "FX-25-激光粒度与颗粒分布.docx",
+    "webPath": "templates/projects/FX-25-激光粒度与颗粒分布.docx"
+  },
+  "FX-26": {
+    "projectCode": "FX-26",
+    "projectName": "GPC SEC分子量分布",
+    "type": "analysis",
+    "filename": "FX-26-GPC SEC分子量分布.docx",
+    "webPath": "templates/projects/FX-26-GPC SEC分子量分布.docx"
+  },
+  "FX-27": {
+    "projectCode": "FX-27",
+    "projectName": "接触角与表面张力",
+    "type": "analysis",
+    "filename": "FX-27-接触角与表面张力.docx",
+    "webPath": "templates/projects/FX-27-接触角与表面张力.docx"
+  },
+  "FX-28": {
+    "projectCode": "FX-28",
+    "projectName": "TPD TPR TPO程序升温化学吸附",
+    "type": "analysis",
+    "filename": "FX-28-TPD TPR TPO程序升温化学吸附.docx",
+    "webPath": "templates/projects/FX-28-TPD TPR TPO程序升温化学吸附.docx"
+  },
+  "FX-29": {
+    "projectCode": "FX-29",
+    "projectName": "TGA热重与TG-DSC同步热分析",
+    "type": "analysis",
+    "filename": "FX-29-TGA热重与TG-DSC同步热分析.docx",
+    "webPath": "templates/projects/FX-29-TGA热重与TG-DSC同步热分析.docx"
+  },
+  "FX-30": {
+    "projectCode": "FX-30",
+    "projectName": "DSC差示扫描量热",
+    "type": "analysis",
+    "filename": "FX-30-DSC差示扫描量热.docx",
+    "webPath": "templates/projects/FX-30-DSC差示扫描量热.docx"
+  },
+  "FX-31": {
+    "projectCode": "FX-31",
+    "projectName": "TMA与DMA热机械分析",
+    "type": "analysis",
+    "filename": "FX-31-TMA与DMA热机械分析.docx",
+    "webPath": "templates/projects/FX-31-TMA与DMA热机械分析.docx"
+  },
+  "FX-32": {
+    "projectCode": "FX-32",
+    "projectName": "常规力学性能",
+    "type": "analysis",
+    "filename": "FX-32-常规力学性能.docx",
+    "webPath": "templates/projects/FX-32-常规力学性能.docx"
+  },
+  "FX-33": {
+    "projectCode": "FX-33",
+    "projectName": "纳米压痕与微纳力学",
+    "type": "analysis",
+    "filename": "FX-33-纳米压痕与微纳力学.docx",
+    "webPath": "templates/projects/FX-33-纳米压痕与微纳力学.docx"
+  },
+  "FX-34": {
+    "projectCode": "FX-34",
+    "projectName": "导热系数与热扩散性能",
+    "type": "analysis",
+    "filename": "FX-34-导热系数与热扩散性能.docx",
+    "webPath": "templates/projects/FX-34-导热系数与热扩散性能.docx"
+  },
+  "FX-35": {
+    "projectCode": "FX-35",
+    "projectName": "电学介电与霍尔性能",
+    "type": "analysis",
+    "filename": "FX-35-电学介电与霍尔性能.docx",
+    "webPath": "templates/projects/FX-35-电学介电与霍尔性能.docx"
+  },
+  "FX-36": {
+    "projectCode": "FX-36",
+    "projectName": "电化学CV LSV EIS与充放电",
+    "type": "analysis",
+    "filename": "FX-36-电化学CV LSV EIS与充放电.docx",
+    "webPath": "templates/projects/FX-36-电化学CV LSV EIS与充放电.docx"
+  },
+  "FX-37": {
+    "projectCode": "FX-37",
+    "projectName": "磁学VSM与SQUID",
+    "type": "analysis",
+    "filename": "FX-37-磁学VSM与SQUID.docx",
+    "webPath": "templates/projects/FX-37-磁学VSM与SQUID.docx"
+  },
+  "FX-38": {
+    "projectCode": "FX-38",
+    "projectName": "环境可靠性与老化试验",
+    "type": "analysis",
+    "filename": "FX-38-环境可靠性与老化试验.docx",
+    "webPath": "templates/projects/FX-38-环境可靠性与老化试验.docx"
+  },
+  "FX-39": {
+    "projectCode": "FX-39",
+    "projectName": "摩擦磨损划痕与附着力",
+    "type": "analysis",
+    "filename": "FX-39-摩擦磨损划痕与附着力.docx",
+    "webPath": "templates/projects/FX-39-摩擦磨损划痕与附着力.docx"
+  },
+  "FX-40": {
+    "projectCode": "FX-40",
+    "projectName": "HPLC与LC-MS液相分析",
+    "type": "analysis",
+    "filename": "FX-40-HPLC与LC-MS液相分析.docx",
+    "webPath": "templates/projects/FX-40-HPLC与LC-MS液相分析.docx"
+  },
+  "FX-41": {
+    "projectCode": "FX-41",
+    "projectName": "GC与GC-MS气相分析",
+    "type": "analysis",
+    "filename": "FX-41-GC与GC-MS气相分析.docx",
+    "webPath": "templates/projects/FX-41-GC与GC-MS气相分析.docx"
+  },
+  "FX-42": {
+    "projectCode": "FX-42",
+    "projectName": "MALDI-TOF与通用质谱",
+    "type": "analysis",
+    "filename": "FX-42-MALDI-TOF与通用质谱.docx",
+    "webPath": "templates/projects/FX-42-MALDI-TOF与通用质谱.docx"
+  },
+  "FX-43": {
+    "projectCode": "FX-43",
+    "projectName": "水质常规与营养盐分析",
+    "type": "analysis",
+    "filename": "FX-43-水质常规与营养盐分析.docx",
+    "webPath": "templates/projects/FX-43-水质常规与营养盐分析.docx"
+  },
+  "FX-44": {
+    "projectCode": "FX-44",
+    "projectName": "土壤沉积物与固体环境样品",
+    "type": "analysis",
+    "filename": "FX-44-土壤沉积物与固体环境样品.docx",
+    "webPath": "templates/projects/FX-44-土壤沉积物与固体环境样品.docx"
+  },
+  "FX-45": {
+    "projectCode": "FX-45",
+    "projectName": "有机污染物前处理与定量分析",
+    "type": "analysis",
+    "filename": "FX-45-有机污染物前处理与定量分析.docx",
+    "webPath": "templates/projects/FX-45-有机污染物前处理与定量分析.docx"
+  },
+  "FX-46": {
+    "projectCode": "FX-46",
+    "projectName": "生物相容性细胞与抗菌性能",
+    "type": "analysis",
+    "filename": "FX-46-生物相容性细胞与抗菌性能.docx",
+    "webPath": "templates/projects/FX-46-生物相容性细胞与抗菌性能.docx"
+  },
+  "FX-47": {
+    "projectCode": "FX-47",
+    "projectName": "氨基酸蛋白与生化组分分析",
+    "type": "analysis",
+    "filename": "FX-47-氨基酸蛋白与生化组分分析.docx",
+    "webPath": "templates/projects/FX-47-氨基酸蛋白与生化组分分析.docx"
+  }
+}

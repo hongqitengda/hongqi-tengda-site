@@ -332,38 +332,112 @@
     return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x => x.value);
   }
 
+
+  function clearRequiredFieldErrors() {
+    document.querySelectorAll('.hqtd-required-error').forEach(node => node.classList.remove('hqtd-required-error'));
+    document.querySelectorAll('.hqtd-field-error-tip').forEach(node => node.remove());
+  }
+
+  function locateRequiredField(target, message) {
+    if (!target) {
+      setMessage(message || '请完成必填项', 'error');
+      return;
+    }
+    clearRequiredFieldErrors();
+    const wrapper = target.closest('.hqtd-field, .hqtd-upload, .hqtd-choice-group') || target;
+    wrapper.classList.add('hqtd-required-error');
+
+    const tip = document.createElement('div');
+    tip.className = 'hqtd-field-error-tip';
+    tip.textContent = message || '此项为必填项';
+    wrapper.appendChild(tip);
+
+    const scrollBox = document.querySelector('.hqtd-form-scroll');
+    const panelBody = document.getElementById('hqtdPanelBody');
+    const scroller = scrollBox && scrollBox.scrollHeight > scrollBox.clientHeight ? scrollBox : panelBody;
+    if (scroller) {
+      const top = target.getBoundingClientRect().top - scroller.getBoundingClientRect().top + scroller.scrollTop - 90;
+      scroller.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    } else {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    setTimeout(() => {
+      try { target.focus({ preventScroll: true }); } catch (_) { try { target.focus(); } catch (_) {} }
+      if (typeof target.reportValidity === 'function') target.reportValidity();
+    }, 420);
+    setMessage(message || '请完成必填项', 'error');
+  }
+
+  function requireField(id, message) {
+    const target = document.getElementById(id);
+    const value = String(target?.value || '').trim();
+    if (!value) {
+      locateRequiredField(target, message);
+      const error = new Error(message);
+      error.hqtdLocated = true;
+      throw error;
+    }
+    return value;
+  }
+
+  function requireUploadedWord(message) {
+    const target = document.getElementById('hqtdWordFile');
+    const file = target?.files?.[0];
+    if (!file) {
+      locateRequiredField(target, message);
+      const error = new Error(message);
+      error.hqtdLocated = true;
+      throw error;
+    }
+    return file;
+  }
+
   function collectProjectForm() {
     const files = [...(document.getElementById('hqtdFiles')?.files || [])];
     const fillMethod = document.getElementById('hqtdPanelBody')?.dataset.fillMode || 'online';
     const wordFile = document.getElementById('hqtdWordFile')?.files?.[0];
     if (fillMethod === 'word') {
-      if (!wordFile) throw new Error('请下载并填写 Word 模板后上传');
-      files.push(wordFile);
+      const requiredWordFile = wordFile || requireUploadedWord('请上传填写完成的 Word 模板');
+      files.push(requiredWordFile);
       return { ...project, qty: 1, note: `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n客户使用填写后的 Word 模板提交`, details: { projectId: normalizedProjectCode(project.id, project.serviceType), fillMethod: 'word' }, files, fillMethod, cartKey: `${project.id}-${Date.now()}` };
     }
     let note = '';
     const details = { projectId: normalizedProjectCode(project.id, project.serviceType), projectName: value('hqtdProjectName') || project.title };
     if (project.serviceType === 'AI项目') {
-      const need = value('hqtdNeed');
-      if (!need) throw new Error('请填写项目目标');
+      const need = requireField('hqtdNeed', '请填写项目目标');
       Object.assign(details, { dataStatus: value('hqtdDataStatus'), dataScale: value('hqtdDataScale'), aiTasks: checkedValues('hqtdAiTasks'), deliverables: value('hqtdDeliverables'), customNeed: need });
       note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n项目目标：${need}\n现有数据：${details.dataStatus}\n功能：${details.aiTasks.join('、') || '请评估'}\n交付：${details.deliverables || '待确认'}`;
     } else if (project.serviceType === '计算模拟') {
-      const system = value('hqtdSystem'), need = value('hqtdNeed');
-      if (!system) throw new Error('请填写研究对象或体系');
-      if (!need) throw new Error('请填写具体计算需求');
+      const system = requireField('hqtdSystem', '请填写研究对象或体系');
+      const need = requireField('hqtdNeed', '请填写具体计算需求');
       Object.assign(details, { system, calculationNeed: need, calculationTasks: checkedValues('hqtdCalcTasks'), method: value('hqtdMethod'), parameters: value('hqtdParameters'), deliverables: value('hqtdDeliverables') });
       note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n研究体系：${system}\n计算内容：${details.calculationTasks.join('、') || '请评估'}\n具体需求：${need}\n方法参数：${[details.method, details.parameters].filter(Boolean).join('；') || '待评估'}`;
     } else {
       const count = Math.max(1, Number(value('hqtdSampleCount') || 1));
-      const need = value('hqtdNeed');
-      if (!need) throw new Error('请填写测试参数或具体分析要求');
+      const need = requireField('hqtdNeed', '请填写测试参数或具体分析要求');
       Object.assign(details, { sampleCount: count, sampleCodes: value('hqtdSampleCodes') || Array.from({length:Math.min(count,100)},(_,i)=>i+1).join(','), sampleState: value('hqtdSampleState'), composition: value('hqtdComposition'), hazards: checkedValues('hqtdHazards'), temperature: value('hqtdTemperature'), atmosphere: value('hqtdAtmosphere'), dataAnalysis: document.querySelector('input[name="hqtdAnalysisService"]:checked')?.value || '请评估', testNeed: need, experimentNote: value('hqtdExperimentNote') });
       note = `项目编号：${normalizedProjectCode(project.id, project.serviceType)}\n样品数量：${count}\n样品编号：${details.sampleCodes}\n样品状态：${details.sampleState}\n成分：${details.composition || '未说明'}\n危险性：${details.hazards.join('、') || '未选择'}\n测试要求：${need}`;
     }
     const profileData = {}; document.querySelectorAll('[data-profile-field]').forEach(node => { const key=node.dataset.profileField; const val=String(node.value||'').trim(); if(key && val) profileData[key]=val; }); details.projectSpecific = profileData; if(Object.keys(profileData).length) note += `\n项目专用参数：${Object.entries(profileData).map(([k,v])=>`${k}=${v}`).join('；')}`;
     return { ...project, title: details.projectName || project.title, fillMethod, qty: project.serviceType === '分析表征' ? Number(details.sampleCount || 1) : 1, note, details, files, cartKey: `${project.id}-${Date.now()}` };
   }
+
+
+  document.addEventListener('input', event => {
+    const wrapper = event.target.closest?.('.hqtd-required-error');
+    if (wrapper && String(event.target.value || '').trim()) {
+      wrapper.classList.remove('hqtd-required-error');
+      wrapper.querySelector('.hqtd-field-error-tip')?.remove();
+    }
+  });
+  document.addEventListener('change', event => {
+    const wrapper = event.target.closest?.('.hqtd-required-error');
+    if (wrapper && (event.target.files?.length || String(event.target.value || '').trim())) {
+      wrapper.classList.remove('hqtd-required-error');
+      wrapper.querySelector('.hqtd-field-error-tip')?.remove();
+    }
+  });
 
   function saveProjectForm(submitNow) {
     try {
@@ -374,7 +448,9 @@
       writeCart(rows);
       closePanel();
       showToast('已加入需求清单，可继续选择其他项目');
-    } catch (error) { setMessage(error.message, 'error'); }
+    } catch (error) {
+      if (!error.hqtdLocated) setMessage(error.message, 'error');
+    }
   }
 
   function openCart() {

@@ -30,19 +30,15 @@
     const dock = document.createElement('nav');
     dock.className = 'hqtd-quick-dock-v113';
     dock.setAttribute('aria-label', '快捷下单');
+    const root = location.pathname.includes('/project/') || location.pathname.includes('/board/') || location.pathname.includes('/category/')
+      ? '../' : '';
     dock.innerHTML = `
-      <a href="board/ai-projects.html"><b>AI</b><span>AI项目</span></a>
-      <a href="board/computational-simulation.html"><b>JS</b><span>计算模拟</span></a>
-      <a href="board/characterization-analysis.html"><b>FX</b><span>分析表征</span></a>
-      <a href="board/research-supplies.html"><b>HC</b><span>耗材仪器</span></a>
-      <button type="button" data-open-demand-list-v113><b>清单</b><span>需求清单</span></button>`;
+      <a href="${root}board/ai-projects.html"><b>AI</b><span>AI项目</span></a>
+      <a href="${root}board/computational-simulation.html"><b>JS</b><span>计算模拟</span></a>
+      <a href="${root}board/characterization-analysis.html"><b>FX</b><span>分析表征</span></a>
+      <a href="${root}board/research-supplies.html"><b>HC</b><span>耗材仪器</span></a>
+      <a href="${root}demand-list.html" data-open-demand-list-v113><b>清单</b><span>需求清单</span></a>`;
     document.body.appendChild(dock);
-
-    dock.querySelector('[data-open-demand-list-v113]').addEventListener('click', () => {
-      const existing = document.querySelector('[data-open-demand-list], #demand-list-button, .demand-list-button');
-      if (existing) existing.click();
-      else window.location.href = 'customer-center.html';
-    });
   }
 
   function alignActionLabels() {

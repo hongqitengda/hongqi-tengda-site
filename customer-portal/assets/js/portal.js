@@ -6,6 +6,7 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const state = {
     registry: { templates: [] },
+    projectTemplateMap: {},
     catalog: [],
     token: localStorage.getItem('hqtd_token') || '',
     profile: null,
@@ -127,12 +128,14 @@
   }
 
   async function loadRegistry() {
-    const [registry, catalog] = await Promise.all([
+    const [registry, catalog, projectTemplateMap] = await Promise.all([
       fetch('assets/form-templates.json').then(response => response.json()),
-      fetch('../assets/data/catalog.json').then(response => response.json())
+      fetch('../assets/data/catalog.json').then(response => response.json()),
+      fetch('assets/project-template-map.json?v=11.4.0').then(response => response.json())
     ]);
     state.registry = registry;
     state.catalog = Array.isArray(catalog) ? catalog : [];
+    state.projectTemplateMap = projectTemplateMap || {};
     fixTemplatePaths();
   }
 
@@ -193,19 +196,24 @@
   }
 
   function templateForProject(project) {
-    const type = project?.board || inferType(project?.id, project?.service);
-    if (type === 'AI项目') return state.registry.templates.find(item => item.key === 'ai-general') || null;
-    if (type === '计算模拟') return state.registry.templates.find(item => item.key === 'calc-general') || null;
-    if (type === '耗材仪器') return state.registry.templates.find(item => item.key === 'supplies-general') || null;
-    const analysis = state.registry.templates.filter(item => item.serviceType === '分析表征');
-    if (!analysis.length) return null;
-    const projectText = `${project?.service || ''} ${project?.category || ''}`.toLowerCase();
-    const score = template => {
-      const title = String(template.title || '').toLowerCase();
-      const terms = title.split(/[与及、（）()\s/+-]+/).filter(term => term.length >= 2);
-      return terms.reduce((sum, term) => sum + (projectText.includes(term) ? term.length : 0), 0);
-    };
-    return analysis.slice().sort((a, b) => score(b) - score(a))[0] || analysis[0];
+    const code = String(project?.id || project?.projectCode || '').toUpperCase().replace(/^([A-Z]+)(\d+)$/, '$1-$2');
+    const exact = state.projectTemplateMap?.[code];
+    if (exact) {
+      return {
+        key: code,
+        projectCode: code,
+        serviceType: project?.board || inferType(code, project?.service),
+        title: `${code}-${exact.projectName}`,
+        originalPath: exact.webPath,
+        filename: exact.filename,
+        exactProjectTemplate: true,
+        fields: []
+      };
+    }
+    if ((project?.board || inferType(code, project?.service)) === '耗材仪器') {
+      return state.registry.templates.find(item => item.key === 'supplies-general') || null;
+    }
+    return null;
   }
 
   function chooseProject(project, closeChooser = true) {
@@ -614,7 +622,7 @@
     loadBusinessData();
   }
 
-  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) loadDashboard().catch(() => {}); }, 30000);
+  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } }, 15000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } });
 
   async function loadDashboard() {
@@ -701,9 +709,21 @@
 
   function renderRecord(record, options = {}) {
     const amount = record.amountCents != null ? formatMoney(record.amountCents) : (record.amount ? `¥${Number(record.amount).toLocaleString('zh-CN')}` : '');
-    const fileUrl = record.downloadUrl || record.fileUrl || record.url || '';
+    const files = []
+      .concat(Array.isArray(record.attachments) ? record.attachments : [])
+      .concat(Array.isArray(record.files) ? record.files : [])
+      .concat(record.deliveryFiles && Array.isArray(record.deliveryFiles) ? record.deliveryFiles : []);
     const actions = [];
-    if (fileUrl) actions.push(`<a href="${escapeHtml(fileUrl)}" target="_blank" rel="noopener">下载文件</a>`);
+    const directUrl = record.downloadUrl || record.fileUrl || record.url || record.documentUrl || '';
+    if (directUrl) actions.push(`<a href="${escapeHtml(directUrl)}" target="_blank" rel="noopener">下载文件</a>`);
+    files.forEach((file, index) => {
+      const url = file.tempURL || file.downloadUrl || file.url || '';
+      if (url) actions.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener">下载：${escapeHtml(file.name || file.filename || `文件${index + 1}`)}</a>`);
+      else if (file.fileID) actions.push(`<button type="button" data-download-file="${escapeHtml(file.fileID)}" data-file-name="${escapeHtml(file.name || file.filename || '项目文件')}">下载：${escapeHtml(file.name || file.filename || `文件${index + 1}`)}</button>`);
+    });
+    const businessId = record._id || record.id || '';
+    const businessType = record._type || record.kind || '';
+    if (businessId) actions.push(`<label class="record-upload-label">上传补充文件<input type="file" hidden data-business-upload="${escapeHtml(businessId)}" data-business-type="${escapeHtml(businessType)}"></label>`);
     if (record._type === 'quote' && /待|pending|confirm/i.test(recordStatus(record))) {
       actions.push(`<button type="button" data-confirm-quote="${escapeHtml(record._id || record.id || recordNo(record))}">确认报价</button>`);
       actions.push(`<button type="button" data-change-quote="${escapeHtml(record._id || record.id || recordNo(record))}">申请改价</button>`);
@@ -739,6 +759,46 @@
   }
 
   function bindRecordActions(root) {
+    $$('[data-download-file]', root).forEach(button => button.onclick = async () => {
+      button.disabled = true;
+      try {
+        const result = await api('getBusinessFileUrl', { fileID: button.dataset.downloadFile, filename: button.dataset.fileName });
+        const url = result.downloadUrl || result.url || result.tempFileURL;
+        if (!url) throw new Error('暂时无法生成下载地址');
+        window.open(url, '_blank', 'noopener');
+      } catch (error) { alert(error.message); }
+      finally { button.disabled = false; }
+    });
+    $$('[data-business-upload]', root).forEach(input => input.onchange = async () => {
+      const file = input.files?.[0];
+      if (!file) return;
+      const label = input.closest('.record-upload-label');
+      const original = label?.childNodes?.[0]?.textContent || '上传补充文件';
+      if (label) label.childNodes[0].textContent = '上传中…';
+      try {
+        if (file.size > 10 * 1024 * 1024) throw new Error('单个文件不能超过 10 MB');
+        const base = String(cfg.WEB_PORTAL_URL || '').replace(/\/+$/, '');
+        const response = await fetch(`${base}?action=uploadBusinessFile&businessId=${encodeURIComponent(input.dataset.businessUpload)}&businessType=${encodeURIComponent(input.dataset.businessType)}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/octet-stream',
+            'X-Filename': encodeURIComponent(file.name),
+            'X-Mime-Type': file.type || 'application/octet-stream',
+            'X-File-Size': String(file.size),
+            Authorization: `Bearer ${state.token}`
+          },
+          body: file
+        });
+        const result = await response.json();
+        if (!response.ok || result.ok === false) throw new Error(result.message || '上传失败');
+        await loadBusinessData();
+        renderBusiness('all');
+      } catch (error) { alert(error.message); }
+      finally {
+        input.value = '';
+        if (label) label.childNodes[0].textContent = original;
+      }
+    });
     $$('[data-confirm-quote]', root).forEach(button => button.onclick = async () => {
       button.disabled = true;
       try {
