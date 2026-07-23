@@ -12,3 +12,24 @@
 }
 .record-actions button,.record-actions a{white-space:nowrap}
 .realtime-note{font-size:12px;color:#39708f;margin-top:8px}
+
+/* V11.6.9 统一业务编号显示 */
+.business-card, .business-item, .order-card { min-width: 0; }
+.business-no, .order-no, [data-business-no] {
+  display: block;
+  min-width: 220px;
+  max-width: 100%;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+  letter-spacing: .01em;
+}
+@media (max-width: 720px) {
+  .business-card, .business-item, .order-card {
+    grid-template-columns: 1fr !important;
+  }
+  .business-no, .order-no, [data-business-no] {
+    min-width: 0;
+  }
+}
