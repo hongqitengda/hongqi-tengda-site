@@ -141,5 +141,23 @@
 <div aria-labelledby="tech-qr-title" aria-modal="true" class="modal" hidden="" id="tech-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="关闭" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">AI &amp; SIMULATION</span><h2 id="tech-qr-title">AI/模拟咨询</h2><img alt="AI与计算模拟企业微信二维码" decoding="async" loading="lazy" src="assets/images/contact-ai-simulation-qr.png"/><p>适用于AI项目、DFT、MD、AIMD、数据分析、科研绘图及软件开发需求。添加时请备注“官网咨询 + 单位 + 需求关键词”。</p><div class="modal-link-row"><a class="primary" href="board/ai-projects.html">查看AI项目</a><a href="mailto:drwang@hongqitengda.cn">邮件咨询</a></div></div></div>
 <div aria-labelledby="admin-qr-title" aria-modal="true" class="modal" hidden="" id="admin-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="关闭" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">CHARACTERIZATION &amp; SUPPLIES</span><h2 id="admin-qr-title">表征/耗材咨询</h2><img alt="分析表征与耗材仪器企业微信二维码" decoding="async" loading="lazy" src="assets/images/contact-characterization-supplies-qr.png"/><p>适用于分析表征、耗材仪器、合同、付款、发票、物流及售后事务。</p><div class="modal-link-row"><a class="primary" href="board/characterization-analysis.html">查看分析表征</a><a href="mailto:drwang@hongqitengda.cn">邮件咨询</a></div></div></div>
 <script defer="True" src="assets/js/site.js"></script>
-<script src="../assets/js/order-entry-v9.js?v=20260722-v1000"></script><script defer src="../assets/js/customer-flow-v112.js"></script><script defer src="../assets/js/unified-customer-flow-v113.js?v=11.3.0"></script></body>
+<script src="../assets/js/order-entry-v9.js?v=20260722-v1000"></script><script defer src="../assets/js/customer-flow-v112.js"></script><script defer src="../assets/js/unified-customer-flow-v113.js?v=11.3.0"></script>
+<script id="hqtd-smart-back-v1164">
+document.addEventListener('DOMContentLoaded', function () {
+  var backLinks = Array.from(document.querySelectorAll('a')).filter(function (a) {
+    return /返回|耗材|上一页/.test((a.textContent || '').trim()) &&
+      /research-supplies|board\/research-supplies/.test(a.getAttribute('href') || '');
+  });
+  backLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      if (history.length > 1 && document.referrer && document.referrer.indexOf(location.host) >= 0) {
+        event.preventDefault();
+        history.back();
+      }
+    });
+  });
+});
+</script>
+
+</body>
 </html>

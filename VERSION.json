@@ -1,5 +1,5 @@
 {
-  "version": "11.3.0",
+  "version": "11.6.4",
   "name": "HQTD Enterprise V11.3 官网小程序下单统一版",
   "buildDate": "2026-07-23",
   "managementSurface": "miniProgramOnly",
@@ -12,5 +12,6 @@
     "官网不增加管理端",
     "小程序保留全部管理端页面",
     "官网与小程序共享同一份客户流程配置结构"
-  ]
+  ],
+  "updatedAt": "2026-07-23"
 }

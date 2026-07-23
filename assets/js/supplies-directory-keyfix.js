@@ -1,19 +1,277 @@
 (() => {
 'use strict';
-const data=(window.HQTD_CATALOG_DATA||[]).filter(x=>x.board==='耗材仪器');
-const cards=[...document.querySelectorAll('[data-supply-category]')],panel=document.getElementById('supply-category-projects'),title=document.getElementById('supply-category-title'),count=document.getElementById('supply-category-count'),grid=document.getElementById('supply-category-results'),search=document.getElementById('supply-category-search'),more=document.getElementById('supply-category-more'),allLink=document.getElementById('supply-category-all-link');
-if(!cards.length||!panel)return;
-const CART_KEY='hqtd_requirement_cart_v2';
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const norm=v=>String(v??'').normalize('NFKC').toLowerCase().replace(/[\s·•_—–\-\/\\（）()【】\[\]，,、；;：:'"“”‘’.]+/g,'');
-let category='',rows=[],shown=18,selected={};
-const bar=document.createElement('div');bar.className='hqtd-batch-bar';bar.innerHTML='<div><strong>批量采购清单</strong><span data-batch-summary>已选 0 种 / 0 件</span></div><button type="button" data-batch-clear>清空</button><button type="button" class="primary" data-batch-add>批量加入采购车</button>';document.body.appendChild(bar);
-function itemCard(i){const qty=Number(selected[i.id]||0);return `<article class="supply-project-card batch-card" data-id="${esc(i.id)}"><div><span>${esc(i.id)}</span><strong>${esc(i.service)}</strong><small>${esc(i.details||i.category)}</small></div><div class="supply-project-meta"><span>${esc(i.priceText||(i.price==null?'面议':`¥${i.price}`))} / ${esc(i.unit||'项')}</span><div class="batch-stepper"><button type="button" data-minus>−</button><input type="number" min="0" max="999" value="${qty}" data-qty><button type="button" data-plus>＋</button></div><a href="${esc(i.detailUrl)}">详情</a></div></article>`;}
-function updateBar(){const vals=Object.values(selected).map(Number).filter(x=>x>0);bar.querySelector('[data-batch-summary]').textContent=`已选 ${vals.length} 种 / ${vals.reduce((a,b)=>a+b,0)} 件`;bar.classList.toggle('show',vals.length>0);}
-function bind(){grid.querySelectorAll('.batch-card').forEach(card=>{const id=card.dataset.id,input=card.querySelector('[data-qty]');const set=n=>{n=Math.max(0,Math.min(999,Number(n)||0));input.value=n; if(n)selected[id]=n;else delete selected[id];updateBar();};card.querySelector('[data-minus]').onclick=()=>set(Number(input.value)-1);card.querySelector('[data-plus]').onclick=()=>set(Number(input.value)+1);input.onchange=()=>set(input.value);});}
-function render(){const q=norm(search.value),filtered=rows.filter(i=>!q||norm([i.id,i.service,i.details].join(' ')).includes(q));grid.innerHTML=filtered.slice(0,shown).map(itemCard).join('');bind();count.textContent=`${filtered.length} 项`;more.hidden=filtered.length<=shown;allLink.href='catalog.html?'+new URLSearchParams({board:'耗材仪器',category}).toString();if(!filtered.length)grid.innerHTML='<div class="supply-no-result">当前关键词没有匹配项目，可进入项目查询或联系表征/耗材顾问。</div>';}
-function open(cat,source){category=cat;rows=data.filter(i=>norm(i.category)===norm(cat));shown=18;search.value='';title.textContent=cat;cards.forEach(c=>{const active=c===source;c.classList.toggle('active',active);c.setAttribute('aria-expanded',String(active));});panel.hidden=false;render();setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}),50);}
-bar.querySelector('[data-batch-clear]').onclick=()=>{selected={};render();updateBar();};
-bar.querySelector('[data-batch-add]').onclick=()=>{const current=JSON.parse(localStorage.getItem(CART_KEY)||'[]');Object.entries(selected).forEach(([id,qty])=>{const item=data.find(x=>x.id===id);if(!item)return;const old=current.find(x=>x.id===id&&x.serviceType==='耗材仪器');if(old)old.qty=Math.min(999,Number(old.qty||0)+Number(qty));else current.push({id,title:item.service,name:item.service,serviceType:'耗材仪器',board:'耗材仪器',category:item.category||'',qty:Number(qty),unit:item.unit||'件',price:Number(item.price||0),priceText:item.priceText||'待评估',note:'批量采购',details:{},cartKey:`${id}-${Date.now()}`});});localStorage.setItem(CART_KEY,JSON.stringify(current));selected={};render();updateBar();alert('已批量加入采购车，可进入任意耗材详情页打开清单统一结算。');};
-cards.forEach(c=>c.addEventListener('click',e=>{e.preventDefault();open(c.dataset.supplyCategory,c);}));search.oninput=()=>{shown=18;render();};more.onclick=()=>{shown+=18;render();};
+
+const data = (window.HQTD_CATALOG_DATA || []).filter(item => item.board === '耗材仪器');
+const cards = [...document.querySelectorAll('[data-supply-category]')];
+const panel = document.getElementById('supply-category-projects');
+const title = document.getElementById('supply-category-title');
+const count = document.getElementById('supply-category-count');
+const grid = document.getElementById('supply-category-results');
+const search = document.getElementById('supply-category-search');
+const more = document.getElementById('supply-category-more');
+const allLink = document.getElementById('supply-category-all-link');
+
+if (!cards.length || !panel || !grid) return;
+
+const CART_KEY = 'hqtd_requirement_cart_v2';
+const STATE_KEY = 'hqtd_supplies_directory_state_v1164';
+const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[char]));
+const norm = value => String(value ?? '')
+  .normalize('NFKC')
+  .toLowerCase()
+  .replace(/[\s·•_—–\-\/\\（）()【】\[\]，,、；;：:'"“”‘’.]+/g, '');
+
+let category = '';
+let rows = [];
+let shown = 18;
+let selected = {};
+
+const bar = document.createElement('div');
+bar.className = 'hqtd-batch-bar';
+bar.innerHTML = `
+  <div>
+    <strong>采购清单</strong>
+    <span data-batch-summary>已选 0 种 / 0 件</span>
+  </div>
+  <button type="button" data-batch-clear>清空</button>
+  <button type="button" class="secondary" data-batch-add>加入清单</button>
+  <a class="primary" href="../demand-list.html" data-open-cart>查看清单</a>
+`;
+document.body.appendChild(bar);
+
+const toast = document.createElement('div');
+toast.className = 'hqtd-inline-toast';
+toast.hidden = true;
+document.body.appendChild(toast);
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.hidden = false;
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => { toast.hidden = true; }, 2200);
+}
+
+function saveState(extra = {}) {
+  sessionStorage.setItem(STATE_KEY, JSON.stringify({
+    category,
+    keyword: search ? search.value : '',
+    shown,
+    scrollY: window.scrollY,
+    ...extra
+  }));
+}
+
+function restoreState() {
+  try {
+    return JSON.parse(sessionStorage.getItem(STATE_KEY) || '{}');
+  } catch (_) {
+    return {};
+  }
+}
+
+function itemCard(item) {
+  const qty = Number(selected[item.id] || 0);
+  return `
+    <article class="supply-project-card batch-card" data-id="${esc(item.id)}">
+      <div>
+        <span>${esc(item.id)}</span>
+        <strong>${esc(item.service)}</strong>
+        <small>${esc(item.details || item.category)}</small>
+      </div>
+      <div class="supply-project-meta">
+        <span>${esc(item.priceText || (item.price == null ? '面议' : `¥${item.price}`))} / ${esc(item.unit || '项')}</span>
+        <div class="batch-stepper">
+          <button type="button" data-minus aria-label="减少数量">−</button>
+          <input type="number" min="0" max="999" value="${qty}" data-qty aria-label="采购数量">
+          <button type="button" data-plus aria-label="增加数量">＋</button>
+        </div>
+        <a href="${esc(item.detailUrl)}" data-detail-link>详情</a>
+      </div>
+    </article>
+  `;
+}
+
+function updateBar() {
+  const values = Object.values(selected).map(Number).filter(value => value > 0);
+  const localCart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+  const cartQty = localCart
+    .filter(item => item.serviceType === '耗材仪器')
+    .reduce((sum, item) => sum + Number(item.qty || 0), 0);
+
+  bar.querySelector('[data-batch-summary]').textContent =
+    values.length
+      ? `本页已选 ${values.length} 种 / ${values.reduce((a, b) => a + b, 0)} 件`
+      : `清单内共 ${cartQty} 件`;
+
+  bar.classList.add('show');
+}
+
+function bindRows() {
+  grid.querySelectorAll('.batch-card').forEach(card => {
+    const id = card.dataset.id;
+    const input = card.querySelector('[data-qty]');
+
+    const setQty = next => {
+      const qty = Math.max(0, Math.min(999, Number(next) || 0));
+      input.value = qty;
+      if (qty) selected[id] = qty;
+      else delete selected[id];
+      updateBar();
+    };
+
+    card.querySelector('[data-minus]').addEventListener('click', () => setQty(Number(input.value) - 1));
+    card.querySelector('[data-plus]').addEventListener('click', () => setQty(Number(input.value) + 1));
+    input.addEventListener('change', () => setQty(input.value));
+
+    const detail = card.querySelector('[data-detail-link]');
+    detail.addEventListener('click', () => {
+      saveState({ returnPending: true });
+    });
+  });
+}
+
+function render() {
+  const keyword = norm(search.value);
+  const filtered = rows.filter(item =>
+    !keyword || norm([item.id, item.service, item.details, item.category].join(' ')).includes(keyword)
+  );
+
+  grid.innerHTML = filtered.slice(0, shown).map(itemCard).join('');
+  bindRows();
+
+  count.textContent = `${filtered.length} 项`;
+  more.hidden = filtered.length <= shown;
+  allLink.href = '../catalog.html?' + new URLSearchParams({
+    board: '耗材仪器',
+    category
+  }).toString();
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="supply-no-result">当前关键词没有匹配项目，可调整关键词或联系耗材顾问。</div>';
+  }
+}
+
+function openCategory(cat, source, options = {}) {
+  category = cat;
+  rows = data.filter(item => norm(item.category) === norm(cat));
+  shown = Number(options.shown || 18);
+  search.value = options.keyword || '';
+  title.textContent = cat;
+
+  cards.forEach(card => {
+    const active = norm(card.dataset.supplyCategory) === norm(cat);
+    card.classList.toggle('active', active);
+    card.setAttribute('aria-expanded', String(active));
+  });
+
+  panel.hidden = false;
+  render();
+
+  if (options.restoreScroll) {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: Number(options.scrollY || 0), behavior: 'auto' });
+    });
+  } else {
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+
+bar.querySelector('[data-batch-clear]').addEventListener('click', () => {
+  selected = {};
+  render();
+  updateBar();
+});
+
+bar.querySelector('[data-batch-add]').addEventListener('click', () => {
+  const current = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+  let addedKinds = 0;
+  let addedQty = 0;
+
+  Object.entries(selected).forEach(([id, qty]) => {
+    const item = data.find(row => row.id === id);
+    if (!item) return;
+
+    const existing = current.find(row => row.id === id && row.serviceType === '耗材仪器');
+    if (existing) {
+      existing.qty = Math.min(999, Number(existing.qty || 0) + Number(qty));
+    } else {
+      current.push({
+        id,
+        title: item.service,
+        name: item.service,
+        serviceType: '耗材仪器',
+        board: '耗材仪器',
+        category: item.category || '',
+        qty: Number(qty),
+        unit: item.unit || '件',
+        price: Number(item.price || 0),
+        priceText: item.priceText || '待评估',
+        note: '批量采购',
+        details: {},
+        cartKey: `${id}-${Date.now()}`
+      });
+    }
+
+    addedKinds += 1;
+    addedQty += Number(qty);
+  });
+
+  if (!addedKinds) {
+    showToast('请先选择商品数量');
+    return;
+  }
+
+  localStorage.setItem(CART_KEY, JSON.stringify(current));
+  selected = {};
+  render();
+  updateBar();
+  showToast(`已加入采购清单：${addedKinds} 种，共 ${addedQty} 件`);
+});
+
+cards.forEach(card => card.addEventListener('click', event => {
+  event.preventDefault();
+  openCategory(card.dataset.supplyCategory, card);
+}));
+
+search.addEventListener('input', () => {
+  shown = 18;
+  render();
+  saveState();
+});
+
+more.addEventListener('click', () => {
+  shown += 18;
+  render();
+  saveState();
+});
+
+window.addEventListener('pagehide', () => saveState());
+window.addEventListener('pageshow', event => {
+  const state = restoreState();
+  if (state.category) {
+    openCategory(state.category, null, {
+      keyword: state.keyword,
+      shown: state.shown,
+      scrollY: state.scrollY,
+      restoreScroll: event.persisted || state.returnPending
+    });
+    sessionStorage.setItem(STATE_KEY, JSON.stringify({ ...state, returnPending: false }));
+  } else {
+    updateBar();
+  }
+});
+
+const initialState = restoreState();
+if (initialState.category) {
+  openCategory(initialState.category, null, {
+    keyword: initialState.keyword,
+    shown: initialState.shown,
+    scrollY: initialState.scrollY,
+    restoreScroll: Boolean(initialState.returnPending)
+  });
+} else {
+  updateBar();
+}
 })();

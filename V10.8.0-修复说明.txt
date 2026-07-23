@@ -1,7 +1,0 @@
-HQTD 官网 V10.8.0 关键修复
-
-1. 修复 generateRequirementDocuments 中 cloudApp 未初始化导致 Cannot read properties of undefined (reading uploadFile)。
-2. 生成 Word 后页面直接显示可点击下载链接，不再只弹出“已生成”。
-3. 客户中心顶部四项统计与业务列表采用同一账户、同一状态来源；独立 projects/quotes/deliveries 集合为空时，从 orders/requirements 回退计算。
-4. 仍保留 AI、计算模拟、分析表征滚动填写和项目专用 Word。
-5. 部署时必须同时覆盖网站文件和 CloudBase webPortal 云函数。

@@ -51,13 +51,15 @@
 
   async function api(action, data = {}) {
     if (!cfg.WEB_PORTAL_URL) throw new Error('官网业务接口尚未配置');
-    const response = await fetch(cfg.WEB_PORTAL_URL, {
+    const endpoint = `${cfg.WEB_PORTAL_URL}${cfg.WEB_PORTAL_URL.includes('?') ? '&' : '?'}_ts=${Date.now()}`;
+    const response = await fetch(endpoint, {
       method: 'POST',
+      cache: 'no-store',
       headers: {
         'Content-Type': 'application/json',
         ...(state.token ? { Authorization: `Bearer ${state.token}` } : {})
       },
-      body: JSON.stringify({ action, ...data })
+      body: JSON.stringify({ action, ...data, requestNonce: `${Date.now()}-${Math.random().toString(36).slice(2,8)}` })
     });
     const result = await response.json().catch(() => ({ ok: false, message: '接口返回格式错误' }));
     if (!response.ok || result.ok === false) {
@@ -618,11 +620,10 @@
   }
 
   async function loadInitialData() {
-    await loadDashboard();
-    loadBusinessData();
+    await Promise.all([loadDashboard(), loadBusinessData()]);
   }
 
-  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } }, 10000);
+  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) { Promise.all([loadDashboard(), loadBusinessData()]).catch(() => {}); } }, 8000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } });
 
   async function loadDashboard() {
@@ -648,6 +649,13 @@
     $('#metricDeliveries').textContent = counts.deliveries ?? summary.pendingDeliveries ?? summary.deliveries ?? result.deliveries?.length ?? 0;
     $('#metricAfterSales').textContent = counts.afterSales ?? summary.activeAfterSales ?? summary.afterSales ?? result.afterSales?.length ?? 0;
     $('#accountSwitchBtn')?.classList.toggle('hidden', state.accounts.length < 2);
+    const refreshedAt = result.refreshedAt || result.data?.refreshedAt || new Date().toISOString();
+    const meta = $('#homeAccountMeta');
+    if (meta) {
+      meta.dataset.refreshedAt = refreshedAt;
+      const syncText = `最近同步 ${dateText(refreshedAt).slice(11,16)}`;
+      if (!meta.textContent.includes('最近同步')) meta.textContent = `${meta.textContent}｜${syncText}`;
+    }
     renderAccountList();
     populateProfile();
   }
@@ -1008,4 +1016,8 @@ window.addEventListener('focus', () => {
       loadBusinessData().catch(() => {});
     }
   } catch (_) {}
+});
+
+window.addEventListener('pageshow', () => {
+  if (state && state.token) Promise.all([loadDashboard(), loadBusinessData()]).catch(() => {});
 });

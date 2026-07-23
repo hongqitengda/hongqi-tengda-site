@@ -39,3 +39,36 @@
 @media (prefers-reduced-motion: reduce) {
   .hqtd-required-error { animation: none; }
 }
+
+.hqtd-batch-bar a.primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 20px;
+  border-radius:12px;
+  background:#086bb4;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+}
+.hqtd-batch-bar button.secondary{
+  background:#eaf4fb;
+  color:#08639e;
+}
+.hqtd-inline-toast{
+  position:fixed;
+  left:50%;
+  bottom:110px;
+  transform:translateX(-50%);
+  z-index:10002;
+  max-width:min(88vw,520px);
+  padding:12px 20px;
+  border-radius:12px;
+  background:rgba(20,35,50,.94);
+  color:#fff;
+  font-size:15px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+.hqtd-inline-toast[hidden]{display:none}
