@@ -313,13 +313,36 @@
         }
       });
       const docx = result.item && result.item.docx;
+      const filename = (docx && docx.filename) || `${demandNo}.docx`;
+      const base64 = docx && docx.base64;
       const url = docx && (docx.tempURL || docx.downloadUrl || docx.url);
-      if (url) setMessage(`Word 已生成：<a href="${escapeHtml(url)}" target="_blank" rel="noopener">点击下载 ${escapeHtml((docx && docx.filename) || demandNo)}</a>`, 'success');
-      else setMessage(`Word 已生成并保存到云存储，但临时下载链接获取失败。请进入客户中心“交付文件”重试下载。文件ID：${escapeHtml((docx && docx.fileID) || '-')}`, 'warning');
-      if (url) {
+
+      if (base64) {
+        const binary = atob(base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+        const blob = new Blob([bytes], {
+          type: (docx && docx.mimeType) || 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        });
+        const objectUrl = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url; a.download = (docx && docx.filename) || `${demandNo}.docx`;
-        document.body.appendChild(a); a.click(); a.remove();
+        a.href = objectUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 3000);
+        setMessage(`Word 已生成并开始下载：${escapeHtml(filename)}`, 'success');
+      } else if (url) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setMessage(`Word 已生成并开始下载：${escapeHtml(filename)}`, 'success');
+      } else {
+        throw new Error('Word 已生成，但未收到可下载文件，请重新部署 webPortal V8.1.6');
       }
     } catch (error) {
       setMessage(error.message || '生成 Word 失败', 'error');

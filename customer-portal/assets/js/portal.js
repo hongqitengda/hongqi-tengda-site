@@ -622,7 +622,7 @@
     loadBusinessData();
   }
 
-  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } }, 15000);
+  let dashboardRefreshTimer = setInterval(() => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } }, 10000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden && state.token) { loadDashboard().catch(() => {}); loadBusinessData().catch(() => {}); } });
 
   async function loadDashboard() {
@@ -1000,3 +1000,12 @@
 
   init().catch(error => message($('#authMessage'), escapeHtml(error.message), 'error'));
 })();
+
+window.addEventListener('focus', () => {
+  try {
+    if (state && state.token) {
+      loadDashboard().catch(() => {});
+      loadBusinessData().catch(() => {});
+    }
+  } catch (_) {}
+});
