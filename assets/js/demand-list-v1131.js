@@ -31,7 +31,7 @@
           <strong class="name">${esc(item.title || item.name || '未命名项目')}</strong>
           <span class="desc">${esc(item.note || item.spec || item.category || '已保存项目需求')}</span>
         </div>
-        <div class="actions"><span class="qty">× ${Number(item.qty || 1)}</span><button class="remove" data-index="${index}">删除</button></div>
+        <div class="actions"><div class="qty-stepper"><button type="button" data-minus="${index}">−</button><input type="number" min="1" max="999" value="${Number(item.qty || 1)}" data-qty="${index}"><button type="button" data-plus="${index}">＋</button></div><button class="remove" data-index="${index}">删除</button></div>
       </article>`).join('');
     list.querySelectorAll('[data-index]').forEach(button => {
       button.addEventListener('click', () => {
@@ -40,6 +40,19 @@
         write(next);
       });
     });
+    const setQty = (index, value) => {
+      const next = read();
+      if (!next[index]) return;
+      next[index].qty = Math.max(1, Math.min(999, Number(value || 1)));
+      write(next);
+    };
+    list.querySelectorAll('[data-minus]').forEach(button => button.addEventListener('click', () => {
+      const index = Number(button.dataset.minus); const rows = read(); setQty(index, Number(rows[index]?.qty || 1) - 1);
+    }));
+    list.querySelectorAll('[data-plus]').forEach(button => button.addEventListener('click', () => {
+      const index = Number(button.dataset.plus); const rows = read(); setQty(index, Number(rows[index]?.qty || 1) + 1);
+    }));
+    list.querySelectorAll('[data-qty]').forEach(input => input.addEventListener('change', () => setQty(Number(input.dataset.qty), input.value)));
     const total = rows.reduce((sum, item) => sum + Number(item.qty || 1), 0);
     summary.innerHTML = `
       <div class="summary">

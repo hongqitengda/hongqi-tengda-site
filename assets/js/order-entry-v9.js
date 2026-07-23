@@ -283,9 +283,9 @@
     }
     return `
       <div class="hqtd-selected-project"><b>${escapeHtml(normalizedProjectCode(item.id, item.serviceType))}</b><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || item.serviceType)}${item.priceText ? ` · ${escapeHtml(item.priceText)}` : ''}</span></div></div>
-      <div class="hqtd-simple-tip">向下滚动逐项填写。带 * 为必填；不确定的参数可填写“请技术人员评估”。</div>
-      <div class="hqtd-form-scroll">${fields}${renderProjectSpecificFields(item)}</div>
       ${templateBlock}
+      <div class="hqtd-simple-tip"><b>请先选择填写方式：</b>在线滚动填写可直接继续向下填写；选择“上传 Word”后，请先下载当前项目专用模板，填写完成再上传。</div>
+      <div class="hqtd-form-scroll">${fields}${renderProjectSpecificFields(item)}</div>
       <section class="hqtd-scroll-section"><h3>3. 附件与提交</h3><label class="hqtd-upload"><span>附件（选填）</span><input id="hqtdFiles" type="file" multiple accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.mol2,.xyz,.txt,.dat,.log,.gjf,.com,.inp,.vasp"><small>最多 5 个，单个不超过 5 MB。订单先创建，附件后台上传。</small></label></section>
       <div class="hqtd-panel-actions three-actions"><button type="button" class="secondary" data-form-cart>加入需求清单</button><button type="button" class="secondary" data-form-generate>生成 Word</button><button type="button" class="primary" data-form-submit>立即提交</button></div>
       <div class="hqtd-order-message" id="hqtdOrderMessage" aria-live="polite"></div>`;
