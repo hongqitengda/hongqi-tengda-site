@@ -394,3 +394,186 @@
   enhanceProjectVisuals();
 
 })();
+
+/* HQTD Emerging Contaminants Platform · homepage integration · 2026-09-17 */
+(() => {
+  "use strict";
+
+  const pageName = (location.pathname.split("/").pop() || "").toLowerCase();
+  if (pageName && pageName !== "index.html") return;
+
+  const platformHref = "emerging-contaminants.html";
+
+  // Upgrade the original "溶液检测" card in place without changing the homepage layout.
+  const analysisCards = [...document.querySelectorAll(".hqt-capability-analysis .hqt-feature-card")];
+  const solutionCard = analysisCards.find(card =>
+    /溶液检测|HPLC\s*有机污染物定量检测/.test(card.textContent || "")
+  );
+
+  if (solutionCard) {
+    solutionCard.querySelectorAll('a[href="project/fx-85.html"]').forEach(link => {
+      link.href = platformHref;
+    });
+
+    const label = solutionCard.querySelector(".ai-showcase-copy > span");
+    if (label) label.textContent = "新污染物检测";
+
+    const title = solutionCard.querySelector(".ai-showcase-copy h3 a, .ai-showcase-copy h3");
+    if (title) title.textContent = "新污染物精准检测与风险识别";
+
+    const desc = solutionCard.querySelector(".ai-showcase-copy > p");
+    if (desc) {
+      desc.textContent = "覆盖 PFAS、抗生素、农药及代谢物、药物、内分泌干扰物等重点新污染物，支持靶向定量、筛查、产物鉴定与风险识别。";
+    }
+
+    const tags = solutionCard.querySelector(".ai-showcase-tags");
+    if (tags) tags.innerHTML = "<span>PFAS</span><span>LC–MS/MS</span><span>风险识别</span>";
+
+    const detail = solutionCard.querySelector(".ai-showcase-footer > a");
+    if (detail) {
+      detail.href = platformHref;
+      detail.textContent = "进入专题平台 →";
+    }
+
+    const media = solutionCard.querySelector(".ai-showcase-media");
+    if (media) media.href = platformHref;
+  }
+
+  if (document.getElementById("hqtd-emerging-platform-entry")) return;
+
+  const style = document.createElement("style");
+  style.id = "hqtd-emerging-platform-style";
+  style.textContent = `
+    .hqtd-ec-float {
+      position: fixed;
+      right: 30px;
+      top: 150px;
+      z-index: 2140;
+      width: min(390px, calc(100vw - 40px));
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 14px;
+      background: linear-gradient(138deg,#062f59 0%,#075fa7 58%,#0b91a7 100%);
+      color: #fff;
+      box-shadow: 0 22px 54px rgba(7,56,101,.28);
+    }
+    .hqtd-ec-float::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 28%);
+    }
+    .hqtd-ec-float-close {
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%;
+      background: rgba(0,0,0,.12);
+      color: #fff;
+      font-size: 19px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .hqtd-ec-float-link {
+      position: relative;
+      z-index: 2;
+      display: block;
+      padding: 25px 27px 24px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .hqtd-ec-float-kicker {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: #bdebf0;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+    }
+    .hqtd-ec-float-kicker::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      border-radius: 3px;
+      background: #ff9a3d;
+    }
+    .hqtd-ec-float h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 25px;
+      line-height: 1.32;
+      letter-spacing: -.4px;
+    }
+    .hqtd-ec-float p {
+      margin: 12px 0 16px;
+      color: #dceef8;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .hqtd-ec-float-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+    .hqtd-ec-float-tags span {
+      padding: 5px 8px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 3px;
+      background: rgba(255,255,255,.08);
+      color: #f2fbff;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .hqtd-ec-float-action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 4px;
+      background: #fff;
+      color: #0756a3;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    @media (max-width: 900px) {
+      .hqtd-ec-float {
+        top: auto;
+        right: 14px;
+        bottom: 84px;
+        width: min(360px, calc(100vw - 28px));
+      }
+      .hqtd-ec-float-link { padding: 20px 22px 19px; }
+      .hqtd-ec-float h2 { font-size: 21px; }
+      .hqtd-ec-float p { display: none; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const entry = document.createElement("aside");
+  entry.id = "hqtd-emerging-platform-entry";
+  entry.className = "hqtd-ec-float";
+  entry.setAttribute("aria-label", "新污染物精准检测与风险识别平台专题入口");
+  entry.innerHTML = `
+    <button class="hqtd-ec-float-close" type="button" aria-label="关闭专题入口">×</button>
+    <a class="hqtd-ec-float-link" href="${platformHref}">
+      <span class="hqtd-ec-float-kicker">EMERGING CONTAMINANTS PLATFORM</span>
+      <h2>新污染物精准检测<br>与风险识别平台</h2>
+      <p>面向科研场景的目标物筛选、精准检测、数据质控与风险识别专题平台。</p>
+      <div class="hqtd-ec-float-tags"><span>PFAS</span><span>农药及代谢物</span><span>抗生素</span><span>产物鉴定</span></div>
+      <span class="hqtd-ec-float-action">进入专题平台 →</span>
+    </a>`;
+  document.body.appendChild(entry);
+
+  entry.querySelector(".hqtd-ec-float-close")?.addEventListener("click", () => entry.remove());
+})();
