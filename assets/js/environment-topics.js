@@ -11,7 +11,9 @@
   const closeModal = modal => {
     if (!modal) return;
     modal.hidden = true;
-    if (!document.querySelector(".env-contact-modal:not([hidden])")) document.body.style.overflow = "";
+    if (!document.querySelector(".env-contact-modal:not([hidden])")) {
+      document.body.style.overflow = "";
+    }
   };
 
   document.addEventListener("click", event => {
@@ -42,7 +44,9 @@
     const cards = [...document.querySelectorAll("[data-env-category]")];
     filter.addEventListener("input", () => {
       const q = filter.value.trim().toLowerCase();
-      cards.forEach(card => card.hidden = Boolean(q && !card.textContent.toLowerCase().includes(q)));
+      cards.forEach(card => {
+        card.hidden = Boolean(q && !card.textContent.toLowerCase().includes(q));
+      });
     });
   }
 
@@ -52,15 +56,19 @@
     return file === "" || file === "index.html" || document.body.classList.contains("homepage-redone");
   };
 
-  const removeLegacyEmergingPopup = () => {
-    const leaves = [...document.querySelectorAll("body *")].filter(el =>
-      el.childElementCount === 0 && /EMERGING\s+CONTAMINANTS\s+PLATFORM/i.test(el.textContent || "")
-    );
-    leaves.forEach(leaf => {
-      let node = leaf;
+  const removeLegacyPopup = root => {
+    const scope = root?.querySelectorAll ? root : document;
+    [...scope.querySelectorAll("*")].forEach(el => {
+      if (el.matches?.("[data-env-floating-hub],[data-env-floating-reopen]")) return;
+      const txt = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (!txt) return;
+      const legacy = /EMERGING\s+CONTAMINANTS\s+PLATFORM/i.test(txt) ||
+        (/新污染物精准检测/.test(txt) && /风险识别平台/.test(txt) && !/环境精准检测专题平台/.test(txt));
+      if (!legacy) return;
+      let node = el;
       for (let i = 0; node && node !== document.body && i < 10; i += 1, node = node.parentElement) {
-        const style = window.getComputedStyle(node);
-        if (style.position === "fixed") {
+        const style = getComputedStyle(node);
+        if (style.position === "fixed" && !node.matches("[data-env-floating-hub],[data-env-floating-reopen]")) {
           node.remove();
           return;
         }
@@ -68,54 +76,57 @@
     });
   };
 
+  const scrollToTopic = id => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: id === "environment-topics" ? "start" : "center" });
+    if (id !== "environment-topics") {
+      target.classList.remove("env-topic-focus");
+      void target.offsetWidth;
+      target.classList.add("env-topic-focus");
+      window.setTimeout(() => target.classList.remove("env-topic-focus"), 1700);
+    }
+  };
+
   const floatingHubHtml = `
-    <button class="env-floating-close" type="button" data-env-floating-close aria-label="关闭环境专题浮窗">×</button>
+    <button class="env-floating-close" type="button" data-env-floating-close aria-label="关闭环境检测专题导航">×</button>
     <div class="env-floating-kicker"><span></span> ENVIRONMENTAL PRECISION ANALYTICS</div>
     <h2>环境精准检测专题平台</h2>
-    <p class="env-floating-intro">面向环境前沿研究，整合新污染物、温室气体与微塑料专题检测入口。</p>
-    <div class="env-floating-topics">
-      <a class="env-floating-topic" href="emerging-contaminants.html">
-        <div><strong>新污染物精准检测与风险识别</strong><small>PFAS · 农药及代谢物 · 抗生素 · 387 项</small></div>
-        <span>进入 →</span>
-      </a>
-      <a class="env-floating-topic" href="greenhouse-gas-detection.html">
-        <div><strong>温室气体精准检测与排放分析</strong><small>CH₄ · CO₂ · N₂O · GC-FID / ECD</small></div>
-        <span>进入 →</span>
-      </a>
-      <a class="env-floating-topic" href="microplastics-detection.html">
-        <div><strong>微塑料精准检测与聚合物识别</strong><small>土壤 · 水样 · FTIR · 聚合物识别</small></div>
-        <span>进入 →</span>
-      </a>
+    <p class="env-floating-intro">一站式科研检测专题入口</p>
+    <div class="env-floating-shortcuts" aria-label="环境检测专题快捷导航">
+      <button type="button" data-env-jump="env-topic-emerging">新污染物</button>
+      <button type="button" data-env-jump="env-topic-greenhouse">温室气体</button>
+      <button type="button" data-env-jump="env-topic-microplastics">微塑料</button>
+      <button type="button" data-env-jump="env-topic-custom">综合检测</button>
     </div>
-    <div class="env-floating-foot"><span>红祺腾达环境精准检测专题矩阵</span><a href="#environment-topics">查看全部专题 ↓</a></div>`;
+    <button class="env-floating-all" type="button" data-env-jump="environment-topics">查看专题平台 →</button>`;
 
   const ensureFloatingHub = () => {
     if (!isHomepage()) return;
-    removeLegacyEmergingPopup();
 
-    let hub = document.querySelector("[data-env-floating-hub]");
-    if (!hub) {
-      hub = document.createElement("aside");
-      hub.className = "env-floating-hub";
-      hub.setAttribute("data-env-floating-hub", "");
-      hub.setAttribute("aria-label", "环境精准检测专题平台");
-      hub.innerHTML = floatingHubHtml;
-      document.body.appendChild(hub);
-    } else {
-      hub.innerHTML = floatingHubHtml;
-      hub.hidden = false;
-    }
+    // Hard-remove the historical single-topic popup and its injected style.
+    document.getElementById("hqtd-emerging-platform-entry")?.remove();
+    document.getElementById("hqtd-emerging-platform-style")?.remove();
+    removeLegacyPopup(document);
+    document.querySelectorAll("[data-env-floating-hub],[data-env-floating-reopen]").forEach(el => el.remove());
 
-    let reopen = document.querySelector("[data-env-floating-reopen]");
-    if (!reopen) {
-      reopen = document.createElement("button");
-      reopen.type = "button";
-      reopen.className = "env-floating-reopen";
-      reopen.setAttribute("data-env-floating-reopen", "");
-      reopen.hidden = true;
-      reopen.innerHTML = `<strong>环境精准检测专题</strong><small>新污染物 · 温室气体 · 微塑料</small>`;
-      document.body.appendChild(reopen);
-    }
+    const hub = document.createElement("aside");
+    hub.className = "env-floating-hub env-floating-hub-v6";
+    hub.setAttribute("data-env-floating-hub", "");
+    hub.setAttribute("aria-label", "环境精准检测专题平台");
+    hub.innerHTML = floatingHubHtml;
+    document.body.appendChild(hub);
+
+    const reopen = document.createElement("button");
+    reopen.type = "button";
+    reopen.className = "env-floating-reopen env-floating-reopen-v6";
+    reopen.setAttribute("data-env-floating-reopen", "");
+    reopen.innerHTML = `<strong>环境检测专题</strong><small>4 个专题入口</small>`;
+    document.body.appendChild(reopen);
+
+    const mobile = window.matchMedia("(max-width: 820px)").matches;
+    hub.hidden = mobile;
+    reopen.hidden = !mobile;
 
     hub.querySelector("[data-env-floating-close]")?.addEventListener("click", () => {
       hub.hidden = true;
@@ -125,6 +136,31 @@
       reopen.hidden = true;
       hub.hidden = false;
     });
+
+    hub.querySelectorAll("[data-env-jump]").forEach(button => {
+      button.addEventListener("click", () => {
+        scrollToTopic(button.dataset.envJump);
+        if (window.matchMedia("(max-width: 820px)").matches) {
+          hub.hidden = true;
+          reopen.hidden = false;
+        }
+      });
+    });
+
+    const observer = new MutationObserver(records => {
+      for (const record of records) {
+        for (const node of record.addedNodes) {
+          if (node.nodeType === 1 && !node.matches?.("[data-env-floating-hub],[data-env-floating-reopen]")) {
+            if (node.id === "hqtd-emerging-platform-entry" || node.id === "hqtd-emerging-platform-style") {
+              node.remove();
+              continue;
+            }
+            removeLegacyPopup(node);
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   };
 
   if (document.readyState === "loading") {

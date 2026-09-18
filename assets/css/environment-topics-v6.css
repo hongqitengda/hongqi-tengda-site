@@ -1,0 +1,71 @@
+/* HQTD Environmental Precision Analytics · V6 final polish · 2026-09-17 */
+html{scroll-behavior:smooth}
+#environment-topics{scroll-margin-top:110px}
+#env-topic-emerging,#env-topic-greenhouse,#env-topic-microplastics,#env-topic-custom{scroll-margin-top:120px}
+
+/* Homepage: 2 x 2 matrix, same system with subtle topic identity */
+.env-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
+.env-topic-card{min-height:310px!important}
+.env-topic-card.topic-emerging:before{background:linear-gradient(90deg,#0756a3,#1597d5)!important}
+.env-topic-card.topic-greenhouse:before{background:linear-gradient(90deg,#087f91,#29b8a8)!important}
+.env-topic-card.topic-microplastics:before{background:linear-gradient(90deg,#5266b0,#0b91a7)!important}
+.env-topic-card.topic-custom:before{background:linear-gradient(90deg,#334d68,#d88431)!important}
+.env-topic-card.topic-custom .env-topic-status{background:#fff2e5;color:#a75913}
+.env-topic-focus{animation:envTopicFocusV6 1.65s ease both}
+@keyframes envTopicFocusV6{0%,100%{box-shadow:0 14px 34px rgba(24,67,104,.08)}20%,72%{box-shadow:0 0 0 4px rgba(11,145,167,.18),0 24px 50px rgba(20,69,108,.22);transform:translateY(-5px)}}
+
+/* Board strip: four services, responsive */
+.env-board-strip-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.env-board-strip-grid a:nth-child(4){border-top:3px solid #d88431}
+
+/* Compact homepage navigator: navigation only, no duplicated card content */
+.env-floating-hub-v6{
+  position:fixed!important;top:122px!important;right:26px!important;z-index:2090!important;
+  width:min(326px,calc(100vw - 34px))!important;max-height:none!important;overflow:visible!important;
+  padding:21px 19px 18px!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:15px!important;
+  background:linear-gradient(145deg,#073d70 0%,#0873b8 58%,#0b91a7 100%)!important;
+  color:#fff!important;box-shadow:0 22px 56px rgba(5,54,96,.28)!important;backdrop-filter:blur(15px)
+}
+.env-floating-hub-v6[hidden],.env-floating-reopen-v6[hidden]{display:none!important}
+.env-floating-hub-v6 .env-floating-close{position:absolute;right:10px;top:10px;width:31px;height:31px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.env-floating-hub-v6 .env-floating-kicker{display:flex;align-items:center;gap:7px;padding-right:34px;color:#caeff8;font-size:9px;font-weight:900;letter-spacing:1.35px;text-transform:uppercase}
+.env-floating-hub-v6 .env-floating-kicker span{display:block;width:27px;height:4px;border-radius:999px;background:#ff9a2f}
+.env-floating-hub-v6 h2{margin:12px 35px 4px 0!important;color:#fff!important;font-size:22px!important;line-height:1.22!important;letter-spacing:-.2px!important}
+.env-floating-hub-v6 .env-floating-intro{margin:0 0 13px!important;color:#d9eff8!important;font-size:11px!important;line-height:1.55!important}
+.env-floating-shortcuts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:10px}
+.env-floating-shortcuts button{min-height:36px;padding:7px 5px;border:1px solid rgba(255,255,255,.23);border-radius:7px;background:rgba(255,255,255,.1);color:#fff;font-size:11px;font-weight:900;cursor:pointer}
+.env-floating-shortcuts button:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.42)}
+.env-floating-all{width:100%;min-height:39px;border:0;border-radius:7px;background:#fff;color:#0756a3;font-size:11px;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(4,44,80,.12)}
+.env-floating-reopen-v6{position:fixed;right:24px;top:150px;z-index:2088;min-width:164px;padding:10px 13px;border:1px solid rgba(255,255,255,.26);border-radius:10px;background:linear-gradient(135deg,#0756a3,#0b91a7);color:#fff;text-align:left;box-shadow:0 16px 38px rgba(5,54,96,.24);cursor:pointer}
+.env-floating-reopen-v6 strong{display:block;font-size:12px}.env-floating-reopen-v6 small{display:block;margin-top:2px;color:#d4eff8;font-size:9px}
+
+/* Unified topic-page return path */
+.env-topic-return{background:#f5f9fc;border-bottom:1px solid #dce7f1}
+.env-topic-return-inner{width:min(1240px,calc(100% - 48px));margin:0 auto;padding:13px 0}
+.env-topic-return a{display:inline-flex;align-items:center;gap:6px;color:#0756a3;font-size:12px;font-weight:900;text-decoration:none}
+.env-topic-return a:hover{color:#0b91a7}
+
+/* Customized analysis / method-development page */
+.custom-scope-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.custom-scope-card{padding:22px;border:1px solid #dce7ef;border-radius:10px;background:#fff;box-shadow:0 8px 24px rgba(25,64,96,.05)}
+.custom-scope-card .num{display:block;color:#0b91a7;font-size:11px;font-weight:900;letter-spacing:1px}
+.custom-scope-card h3{margin:10px 0 8px;color:#173654;font-size:18px}.custom-scope-card p{margin:0;color:#6d8092;font-size:12px;line-height:1.75}
+.custom-highlight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.custom-highlight{padding:25px;border-radius:11px;background:linear-gradient(135deg,#072f58,#086d82);color:#fff}
+.custom-highlight:nth-child(2){background:linear-gradient(135deg,#263d58,#8a5c2c)}
+.custom-highlight span{display:block;color:#98e2e0;font-size:10px;font-weight:900;letter-spacing:1.3px}.custom-highlight h3{margin:9px 0 10px;font-size:21px}.custom-highlight p{margin:0;color:#d5e8f0;font-size:13px;line-height:1.8}
+.custom-method-note{margin-top:20px;padding:18px 20px;border-left:4px solid #d88431;background:#fff8ef;color:#5f5142;font-size:12px;line-height:1.8}
+.custom-method-note strong{color:#7f4b17}
+
+@media(max-width:1080px){.env-board-strip-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.custom-scope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){
+  .env-topic-grid{grid-template-columns:1fr!important}
+  .env-floating-hub-v6{top:auto!important;right:12px!important;bottom:88px!important;width:calc(100vw - 24px)!important;padding:19px 16px 15px!important}
+  .env-floating-reopen-v6{top:auto!important;right:12px!important;bottom:88px!important;min-width:155px}
+  .env-topic-return-inner{width:min(100% - 28px,620px)}
+  .custom-highlight-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){.env-board-strip-grid,.custom-scope-grid{grid-template-columns:1fr!important}}
+
+/* V6.1 fail-safe: never show the retired single-topic floating ad */
+#hqtd-emerging-platform-entry,.hqtd-ec-float{display:none!important}
