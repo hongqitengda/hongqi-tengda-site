@@ -1,6 +1,34 @@
 (() => {
   "use strict";
 
+  const normalizeUnifiedShellV95 = () => {
+    const header = document.querySelector('.site-header-unified');
+    if (!header) return;
+    const nav = header.querySelector('.unified-site-nav');
+    if (nav) {
+      const labels = new Map([
+        ['index.html','首页'],
+        ['board/ai-projects.html','AI项目'],
+        ['board/computational-simulation.html','计算模拟'],
+        ['board/characterization-analysis.html','材料表征 / 环境检测'],
+        ['board/research-supplies.html','耗材仪器'],
+        ['catalog.html','项目查询']
+      ]);
+      nav.querySelectorAll('a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').replace(/^\.\//,'');
+        for (const [key,label] of labels) {
+          if (href.endsWith(key) || href === key) { a.textContent = label; break; }
+        }
+      });
+    }
+    const actions = header.querySelector('.unified-actions');
+    if (actions) {
+      actions.innerHTML = '<button class="unified-consult unified-consult-tech" data-open-tech data-env-tech type="button"><span>Σ</span><b>AI/模拟</b></button><button class="unified-consult unified-consult-admin" data-open-admin data-env-submit type="button"><span>▣</span><b>表征/环境/耗材</b></button>';
+    }
+  };
+
+  normalizeUnifiedShellV95();
+
   const ensureUpdateCss = () => {
     if (document.querySelector('link[href*="environment-topics-update.css"]')) return;
     const link = document.createElement('link');
@@ -143,6 +171,6 @@
     }));
   };
 
-  const init = () => { ensureUpdateCss(); ensureRequirementTemplate(); ensureFloatingHub(); };
+  const init = () => { normalizeUnifiedShellV95(); ensureUpdateCss(); ensureRequirementTemplate(); ensureFloatingHub(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();

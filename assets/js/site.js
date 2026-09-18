@@ -1,6 +1,34 @@
 (() => {
   "use strict";
 
+  const normalizeUnifiedShellV95 = () => {
+    const header = document.querySelector('.site-header-unified');
+    if (!header) return;
+    const nav = header.querySelector('.unified-site-nav');
+    if (nav) {
+      const labels = new Map([
+        ['index.html','首页'],
+        ['board/ai-projects.html','AI项目'],
+        ['board/computational-simulation.html','计算模拟'],
+        ['board/characterization-analysis.html','材料表征 / 环境检测'],
+        ['board/research-supplies.html','耗材仪器'],
+        ['catalog.html','项目查询']
+      ]);
+      nav.querySelectorAll('a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').replace(/^\.\//,'');
+        for (const [key,label] of labels) {
+          if (href.endsWith(key) || href === key) { a.textContent = label; break; }
+        }
+      });
+    }
+    const actions = header.querySelector('.unified-actions');
+    if (actions) {
+      actions.innerHTML = '<button class="unified-consult unified-consult-tech" data-open-tech data-env-tech type="button"><span>Σ</span><b>AI/模拟</b></button><button class="unified-consult unified-consult-admin" data-open-admin data-env-submit type="button"><span>▣</span><b>表征/环境/耗材</b></button>';
+    }
+  };
+
+  normalizeUnifiedShellV95();
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
   if (toggle && nav) {
@@ -80,6 +108,20 @@
   });
 
 
+
+  const normalizeCustomerServiceCopyV95 = () => {
+    document.querySelectorAll('[data-chat-contact="admin"] strong').forEach(el => el.textContent = '表征&检测');
+    document.querySelectorAll('[data-chat-contact="admin"] p').forEach(el => el.textContent = '材料表征、环境检测、耗材仪器、合同、发票、物流与售后');
+    document.querySelectorAll('[data-faq-key="testing"]').forEach(el => el.textContent = '表征&检测咨询');
+    const adminModal = document.getElementById('admin-qr-modal');
+    if (adminModal) {
+      const h2 = adminModal.querySelector('h2'); if (h2) h2.textContent = '表征&检测咨询';
+      const p = adminModal.querySelector('p'); if (p) p.textContent = '适用于材料表征、环境检测、耗材仪器、合同、付款、发票、物流及售后事务。';
+      const primary = adminModal.querySelector('.modal-link-row a.primary'); if (primary) primary.textContent = '查看材料表征 / 环境检测';
+    }
+  };
+  normalizeCustomerServiceCopyV95();
+
   const messageForm = document.getElementById("wechat-message-form");
   const messageStatus = document.getElementById("message-form-status");
 
@@ -142,7 +184,7 @@
       ]);
       const useAdmin = adminCategories.has(value("category"));
       const targetModal = useAdmin ? adminQrModal : techQrModal;
-      const targetName = useAdmin ? "表征/耗材顾问" : "AI/模拟工程师";
+      const targetName = useAdmin ? "表征&检测顾问" : "AI/模拟工程师";
 
       try {
         await copyText(content);
@@ -192,14 +234,14 @@
 6. 生物、环境及高端测试服务。`,
     price: `官网项目页面展示的是参考价格。最终费用需根据样品数量、模型规模、技术要求、计算量、交付内容和完成周期综合确认。`,
     simulation: `AI与计算模拟项目请联系对应工程师。建议准备研究体系、结构文件、计算指标、模型或路径数量、参考文献、期望完成时间和交付要求。`,
-    testing: `分析表征与耗材仪器请联系表征/耗材顾问。请先说明测试项目、样品类型、样品数量、尺寸或质量及特殊测试条件。`,
+    testing: `表征&检测与耗材仪器请联系表征&检测顾问。请先说明测试项目、样品类型、样品数量、尺寸或质量及特殊测试条件。`,
     cycle: `项目周期取决于服务类型、样品数量、模型规模和仪器排期。确认需求后会提供预计完成时间。`,
-    invoice: `采购询价、合同资料、付款信息、发票申请、物流及售后协调等事务，请联系企业微信表征/耗材顾问。`,
-    progress: `AI与计算模拟项目请联系对应工程师；分析表征和耗材仪器项目请联系表征/耗材顾问。请同时提供项目编号、项目名称、联系人及联系方式。`,
+    invoice: `采购询价、合同资料、付款信息、发票申请、物流及售后协调等事务，请联系企业微信表征&检测顾问。`,
+    progress: `AI与计算模拟项目请联系对应工程师；表征&检测和耗材仪器项目请联系表征&检测顾问。请同时提供项目编号、项目名称、联系人及联系方式。`,
     careers: `我们长期关注计算模拟、材料表征、数据分析、软件与AI开发、市场商务及行政运营方向人才。简历及合作介绍可发送至官方邮箱：drwang@hongqitengda.cn。`,
     techwechat: `请扫描下方二维码添加AI/模拟工程师企业微信，适用于 DFT、MD、AIMD、数据分析、科研绘图及软件技术需求。`,
-    adminwechat: `请扫描下方二维码添加表征/耗材企业微信，适用于分析表征、耗材仪器、合同、付款、发票及物流事务。`,
-    fallback: `请根据业务类型选择对应企业微信：计算模拟、数据与软件联系AI/模拟工程师；分析表征、耗材仪器及合同发票联系表征/耗材顾问。`
+    adminwechat: `请扫描下方二维码添加表征&检测企业微信，适用于材料表征、环境检测、耗材仪器、合同、付款、发票及物流事务。`,
+    fallback: `请根据业务类型选择对应企业微信：计算模拟、数据与软件联系AI/模拟工程师；表征&检测、耗材仪器及合同发票联系表征&检测顾问。`
   };
 
   const hqFaqLabels = {
@@ -212,7 +254,7 @@
     progress: "如何咨询项目进度？",
     careers: "加入我们 / 招聘",
     techwechat: "添加AI/模拟企业微信",
-    adminwechat: "添加表征/耗材企业微信"
+    adminwechat: "添加表征&检测企业微信"
   };
 
   const setChatContacts = mode => {
@@ -328,7 +370,7 @@
     const bar = document.createElement("nav");
     bar.className = "mobile-contact-bar";
     bar.setAttribute("aria-label", "移动端快捷咨询");
-    bar.innerHTML = `<a href="${base}catalog.html"><span>⌕</span><strong>项目查询</strong></a><button type="button" data-open-tech><span>Σ</span><strong>AI/模拟</strong></button><button type="button" data-open-admin><span>▣</span><strong>表征/耗材</strong></button>`;
+    bar.innerHTML = `<a href="${base}catalog.html"><span>⌕</span><strong>项目查询</strong></a><button type="button" data-open-tech><span>Σ</span><strong>AI/模拟</strong></button><button type="button" data-open-admin><span>▣</span><strong>表征&检测</strong></button>`;
     document.body.appendChild(bar);
   }
 
@@ -393,187 +435,4 @@
   };
   enhanceProjectVisuals();
 
-})();
-
-/* HQTD Emerging Contaminants Platform · homepage integration · 2026-09-17 */
-(() => {
-  "use strict";
-
-  const pageName = (location.pathname.split("/").pop() || "").toLowerCase();
-  if (pageName && pageName !== "index.html") return;
-
-  const platformHref = "emerging-contaminants.html";
-
-  // Upgrade the original "溶液检测" card in place without changing the homepage layout.
-  const analysisCards = [...document.querySelectorAll(".hqt-capability-analysis .hqt-feature-card")];
-  const solutionCard = analysisCards.find(card =>
-    /溶液检测|HPLC\s*有机污染物定量检测/.test(card.textContent || "")
-  );
-
-  if (solutionCard) {
-    solutionCard.querySelectorAll('a[href="project/fx-85.html"]').forEach(link => {
-      link.href = platformHref;
-    });
-
-    const label = solutionCard.querySelector(".ai-showcase-copy > span");
-    if (label) label.textContent = "新污染物检测";
-
-    const title = solutionCard.querySelector(".ai-showcase-copy h3 a, .ai-showcase-copy h3");
-    if (title) title.textContent = "新污染物精准检测与风险识别";
-
-    const desc = solutionCard.querySelector(".ai-showcase-copy > p");
-    if (desc) {
-      desc.textContent = "覆盖 PFAS、抗生素、农药及代谢物、药物、内分泌干扰物等重点新污染物，支持靶向定量、筛查、产物鉴定与风险识别。";
-    }
-
-    const tags = solutionCard.querySelector(".ai-showcase-tags");
-    if (tags) tags.innerHTML = "<span>PFAS</span><span>LC–MS/MS</span><span>风险识别</span>";
-
-    const detail = solutionCard.querySelector(".ai-showcase-footer > a");
-    if (detail) {
-      detail.href = platformHref;
-      detail.textContent = "进入专题平台 →";
-    }
-
-    const media = solutionCard.querySelector(".ai-showcase-media");
-    if (media) media.href = platformHref;
-  }
-
-  if (document.getElementById("hqtd-emerging-platform-entry")) return;
-
-  const style = document.createElement("style");
-  style.id = "hqtd-emerging-platform-style";
-  style.textContent = `
-    .hqtd-ec-float {
-      position: fixed;
-      right: 30px;
-      top: 150px;
-      z-index: 2140;
-      width: min(390px, calc(100vw - 40px));
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.28);
-      border-radius: 14px;
-      background: linear-gradient(138deg,#062f59 0%,#075fa7 58%,#0b91a7 100%);
-      color: #fff;
-      box-shadow: 0 22px 54px rgba(7,56,101,.28);
-    }
-    .hqtd-ec-float::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 88% 12%,rgba(255,255,255,.22),transparent 28%);
-    }
-    .hqtd-ec-float-close {
-      position: absolute;
-      top: 11px;
-      right: 11px;
-      z-index: 3;
-      display: grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      border: 1px solid rgba(255,255,255,.26);
-      border-radius: 50%;
-      background: rgba(0,0,0,.12);
-      color: #fff;
-      font-size: 19px;
-      line-height: 1;
-      cursor: pointer;
-    }
-    .hqtd-ec-float-link {
-      position: relative;
-      z-index: 2;
-      display: block;
-      padding: 25px 27px 24px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .hqtd-ec-float-kicker {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 14px;
-      color: #bdebf0;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.7px;
-    }
-    .hqtd-ec-float-kicker::before {
-      content: "";
-      width: 30px;
-      height: 3px;
-      border-radius: 3px;
-      background: #ff9a3d;
-    }
-    .hqtd-ec-float h2 {
-      margin: 0;
-      color: #fff;
-      font-size: 25px;
-      line-height: 1.32;
-      letter-spacing: -.4px;
-    }
-    .hqtd-ec-float p {
-      margin: 12px 0 16px;
-      color: #dceef8;
-      font-size: 13px;
-      line-height: 1.75;
-    }
-    .hqtd-ec-float-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 18px;
-    }
-    .hqtd-ec-float-tags span {
-      padding: 5px 8px;
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 3px;
-      background: rgba(255,255,255,.08);
-      color: #f2fbff;
-      font-size: 10px;
-      font-weight: 800;
-    }
-    .hqtd-ec-float-action {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 4px;
-      background: #fff;
-      color: #0756a3;
-      font-size: 12px;
-      font-weight: 900;
-    }
-    @media (max-width: 900px) {
-      .hqtd-ec-float {
-        top: auto;
-        right: 14px;
-        bottom: 84px;
-        width: min(360px, calc(100vw - 28px));
-      }
-      .hqtd-ec-float-link { padding: 20px 22px 19px; }
-      .hqtd-ec-float h2 { font-size: 21px; }
-      .hqtd-ec-float p { display: none; }
-    }
-  `;
-  document.head.appendChild(style);
-
-  const entry = document.createElement("aside");
-  entry.id = "hqtd-emerging-platform-entry";
-  entry.className = "hqtd-ec-float";
-  entry.setAttribute("aria-label", "新污染物精准检测与风险识别平台专题入口");
-  entry.innerHTML = `
-    <button class="hqtd-ec-float-close" type="button" aria-label="关闭专题入口">×</button>
-    <a class="hqtd-ec-float-link" href="${platformHref}">
-      <span class="hqtd-ec-float-kicker">EMERGING CONTAMINANTS PLATFORM</span>
-      <h2>新污染物精准检测<br>与风险识别平台</h2>
-      <p>面向科研场景的目标物筛选、精准检测、数据质控与风险识别专题平台。</p>
-      <div class="hqtd-ec-float-tags"><span>PFAS</span><span>农药及代谢物</span><span>抗生素</span><span>产物鉴定</span></div>
-      <span class="hqtd-ec-float-action">进入专题平台 →</span>
-    </a>`;
-  document.body.appendChild(entry);
-
-  entry.querySelector(".hqtd-ec-float-close")?.addEventListener("click", () => entry.remove());
 })();

@@ -118,3 +118,12 @@ html{scroll-behavior:smooth}
 .hqtd-env-cart-toast{position:fixed;left:50%;bottom:34px;z-index:4000;transform:translate(-50%,24px);padding:10px 16px;border-radius:8px;background:#092e50;color:#fff;font-size:12px;font-weight:800;opacity:0;pointer-events:none;transition:.2s}
 .hqtd-env-cart-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:820px){.custom-method-visual{grid-template-columns:1fr!important}.hqtd-env-cart-dock{right:12px;bottom:84px}}
+
+
+/* V9.5 comprehensive-testing layout hardening */
+.custom-method-visual-v95{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:18px!important;align-items:start!important;padding:22px!important;border:1px solid #dce7ef!important;border-radius:12px!important;background:#fff!important;overflow:hidden!important}
+.custom-method-visual-v95>div{min-width:0!important}
+.custom-method-visual-v95 img{display:block!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;object-fit:contain!important;object-position:center!important;max-width:100%!important;max-height:none!important;margin:0 auto!important;border-radius:10px!important;background:#f8fafc!important}
+.env-page .site-header-unified,.ghg-topic .site-header-unified{font-family:Arial,"Microsoft YaHei",sans-serif!important}
+.env-page .unified-actions .unified-consult,.ghg-topic .unified-actions .unified-consult{cursor:pointer!important}
+@media(max-width:820px){.custom-method-visual-v95{padding:14px!important}}
