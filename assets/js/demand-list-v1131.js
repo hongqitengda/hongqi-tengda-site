@@ -163,7 +163,7 @@
     const suppliesOnly = rows.every(item => item.serviceType === '耗材仪器' || item.board === '耗材仪器' || /^HC-/.test(item.id || ''));
     const hasResearchServices = rows.some(item =>
       /^(AI|JS|FX)-/.test(item.id || '') ||
-      ['AI项目','计算模拟','分析表征','材料表征','环境检测'].includes(item.serviceType || item.board)
+      ['AI项目','计算模拟','表征&检测','材料表征','环境检测'].includes(item.serviceType || item.board)
     );
     summary.innerHTML = `
       <div class="summary">

@@ -178,7 +178,7 @@ body.ec-platform{margin:0;background:#eef4f8;color:var(--ec-ink);font-family:Ari
       <a href="index.html">首页</a>
       <a href="board/ai-projects.html">AI项目</a>
       <a href="board/computational-simulation.html">计算模拟</a>
-      <a class="active" href="board/characterization-analysis.html">材料表征 / 环境检测</a>
+      <a class="active" href="board/characterization-analysis.html">表征&检测</a>
       <a href="board/research-supplies.html">耗材仪器</a>
       <a href="catalog.html">项目查询</a>
     </nav>
@@ -385,7 +385,7 @@ body.ec-platform{margin:0;background:#eef4f8;color:var(--ec-ink);font-family:Ari
 <footer class="ec-footer">
   <div class="ec-shell">
     <span>上海红祺腾达信息技术有限公司 · 新污染物精准检测与风险识别平台</span>
-    <span><a href="index.html">返回首页</a> · <a href="board/characterization-analysis.html">材料表征 / 环境检测</a> · drwang@hongqitengda.cn</span>
+    <span><a href="index.html">返回首页</a> · <a href="board/characterization-analysis.html">表征&检测</a> · drwang@hongqitengda.cn</span>
   </div>
 </footer>
 
@@ -430,8 +430,7 @@ body.ec-platform{margin:0;background:#eef4f8;color:var(--ec-ink);font-family:Ari
       const hasPositive = [r.recovery1,r.recovery2].some(v => typeof v === 'number' && v > 0);
       if (r.recoveryAvg !== 0 || hasPositive) return r.recoveryAvg;
     }
-    if (typeof r.recoveryPct === 'number' && Number.isFinite(r.recoveryPct)) return r.recoveryPct;
-    const nums = [r.recovery1,r.recovery2].filter(v => typeof v === 'number' && Number.isFinite(v) && v !== 0);
+    const nums = [r.recovery1,r.recovery2].filter(v => typeof v === 'number' && Number.isFinite(v));
     return nums.length ? nums.reduce((a,b)=>a+b,0)/nums.length : null;
   }
   function cartPayload(r) {
@@ -442,7 +441,7 @@ body.ec-platform{margin:0;background:#eef4f8;color:var(--ec-ink);font-family:Ari
       name: r.cn || r.en || '新污染物目标物检测',
       serviceType: '环境检测', board: '环境检测', category: r.category || '新污染物', qty: 1, unit: '项', price: 0, priceText: '待评估',
       note: `${r.category || '新污染物'}；${r.en || ''}；回收率1 ${recoveryText(r.recovery1)}；回收率2 ${recoveryText(r.recovery2)}；平均 ${avg == null ? '—' : recoveryText(avg)}`,
-      details: { recordId:r.id, recovery1:r.recovery1, recovery2:r.recovery2, recoveryAvg:avg, recoveryPct:r.recoveryPct, cas:r.cas||'', formula:r.formula||'' },
+      details: { recordId:r.id, recovery1:r.recovery1, recovery2:r.recovery2, recoveryAvg:avg, cas:r.cas||'', formula:r.formula||'' },
       sourceUrl: `${location.origin}${location.pathname}?target=${encodeURIComponent(r.id)}#database`
     };
   }
@@ -453,13 +452,13 @@ body.ec-platform{margin:0;background:#eef4f8;color:var(--ec-ink);font-family:Ari
     if (!visible.length) {
       resultsEl.innerHTML = `<div class="ec-empty"><strong>暂无匹配项目</strong><br><small>请切换类别或更换关键词。</small></div>`;
     } else {
-      resultsEl.innerHTML = `<div class="ec-record-list-head"><span>目标物 / 基本信息</span><span>回收率 1</span><span>回收率 2</span><span>平均 / 参考回收率</span><span>操作</span></div>` + visible.map(r => {
+      resultsEl.innerHTML = `<div class="ec-record-list-head"><span>目标物 / 基本信息</span><span>回收率 1</span><span>回收率 2</span><span>平均回收率</span><span>操作</span></div>` + visible.map(r => {
         const avg = averageRecovery(r);
         return `<article class="ec-record" data-record-id="${esc(r.id)}">
           <div class="ec-record-name"><span class="ec-record-tag">${esc(r.acronym || r.category)}</span><h3>${esc(r.cn || r.en || '未命名项目')}</h3><div class="en">${esc(r.en || '')}</div><div class="ec-meta">${r.cas ? `<span>CAS ${esc(r.cas)}</span>` : ''}${r.formula ? `<span>${esc(r.formula)}</span>` : ''}${r.molecularWeight ? `<span>MW ${esc(r.molecularWeight)}</span>` : ''}</div></div>
           <div class="ec-recovery-cell"><small>Recovery 1</small><span>${esc(recoveryText(r.recovery1))}</span></div>
           <div class="ec-recovery-cell"><small>Recovery 2</small><span>${esc(recoveryText(r.recovery2))}</span></div>
-          <div class="ec-recovery-cell avg"><small>Average / reported</small><span>${esc(avg == null ? '—' : recoveryText(avg))}</span></div>
+          <div class="ec-recovery-cell avg"><small>Average</small><span>${esc(avg == null ? '—' : recoveryText(avg))}</span></div>
           <div class="ec-record-action"><button class="ec-add-cart" type="button" data-add-env-record="${esc(r.id)}">加入需求清单</button><a href="catalog.html?q=${encodeURIComponent(r.cn || r.en || '')}&board=${encodeURIComponent('环境检测')}">在项目查询中查看 →</a></div>
         </article>`;
       }).join('');

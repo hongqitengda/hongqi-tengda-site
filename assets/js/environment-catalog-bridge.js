@@ -8,8 +8,7 @@
   const fmt = value => (typeof value === 'number' && Number.isFinite(value)) ? `${Number(value).toFixed(1)}%` : (value ? String(value) : '—');
   const average = r => {
     if (typeof r.recoveryAvg === 'number' && Number.isFinite(r.recoveryAvg) && !(r.recoveryAvg === 0 && ![r.recovery1,r.recovery2].some(v => typeof v === 'number' && v > 0))) return r.recoveryAvg;
-    if (typeof r.recoveryPct === 'number' && Number.isFinite(r.recoveryPct)) return r.recoveryPct;
-    const nums = [r.recovery1, r.recovery2].filter(v => typeof v === 'number' && Number.isFinite(v) && v !== 0);
+    const nums = [r.recovery1, r.recovery2].filter(v => typeof v === 'number' && Number.isFinite(v));
     return nums.length ? nums.reduce((a,b) => a+b,0) / nums.length : null;
   };
   const code = r => `ENV-${String(r.acronym || r.categoryId || 'TARGET').replace(/[^A-Za-z0-9]+/g,'').toUpperCase()}-${String(Number(r.serial || 0)).padStart(3,'0')}`;
@@ -18,7 +17,7 @@
     const id = code(r);
     if (has.has(id)) return;
     const avg = average(r);
-    const recText = `回收率1 ${fmt(r.recovery1)}；回收率2 ${fmt(r.recovery2)}；平均/参考 ${avg == null ? '—' : fmt(avg)}`;
+    const recText = `回收率1 ${fmt(r.recovery1)}；回收率2 ${fmt(r.recovery2)}；平均 ${avg == null ? '—' : fmt(avg)}`;
     window.HQTD_CATALOG_DATA.push({
       id,
       board: '环境检测',
@@ -36,8 +35,7 @@
       envRecordId: r.id,
       recovery1: r.recovery1,
       recovery2: r.recovery2,
-      recoveryAvg: avg,
-      recoveryPct: r.recoveryPct
+      recoveryAvg: avg
     });
   });
 })();
