@@ -1,4 +1,4 @@
-/* HQTD direct-overwrite update V9.1 · 2026-09-18
+/* HQTD direct-overwrite update V9.2 · 2026-09-18
    Keep original homepage layout; add environment topic section beneath original characterization. */
 html{scroll-behavior:smooth}
 #environment-topics,#env-topic-emerging,#env-topic-greenhouse,#env-topic-microplastics,#env-topic-custom{scroll-margin-top:112px}
@@ -98,3 +98,23 @@ html{scroll-behavior:smooth}
   .hqtd-env-card .ai-showcase-copy{min-height:0!important}
   .hqtd-env-method-copy h3{font-size:24px}
 }
+
+/* V9.2 visual consistency + cart */
+.hqtd-env-card .hqtd-env-media{height:auto!important;aspect-ratio:16/9!important;padding:0!important;background:#f6f9fc!important}
+.hqtd-env-card .hqtd-env-media img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+@media(max-width:1050px){.hqtd-env-grid .hqtd-env-card:last-child .hqtd-env-media{height:auto!important;aspect-ratio:16/9!important}}
+@media(max-width:820px){.hqtd-env-card .hqtd-env-media{height:auto!important;aspect-ratio:16/9!important}}
+@media(max-width:620px){.hqtd-env-card .hqtd-env-media{height:auto!important;aspect-ratio:16/9!important}}
+
+.custom-scope-card{display:flex;flex-direction:column}
+.custom-scope-card p{flex:1}
+.custom-scope-cart{width:100%;min-height:38px;margin-top:15px;border:1px solid #0b91a7;border-radius:6px;background:#eefafa;color:#087985;font-size:12px;font-weight:900;cursor:pointer}
+.custom-scope-cart:hover,.custom-scope-cart.added{background:#0b91a7;color:#fff}
+.custom-method-visual{grid-template-columns:minmax(0,1fr) minmax(360px,.9fr)!important}
+.custom-method-visual img{width:100%!important;aspect-ratio:16/9;max-height:none!important;object-fit:contain!important;background:#f8fafc}
+
+.hqtd-env-cart-dock{position:fixed;right:24px;bottom:112px;z-index:2190;display:flex;align-items:center;gap:9px;padding:11px 14px;border-radius:999px;background:#062f55;color:#fff!important;text-decoration:none;box-shadow:0 14px 32px rgba(3,45,79,.22);font-size:12px;font-weight:900}
+.hqtd-env-cart-dock b{display:grid;place-items:center;min-width:25px;height:25px;padding:0 6px;border-radius:999px;background:#49c8b8;color:#062f55}
+.hqtd-env-cart-toast{position:fixed;left:50%;bottom:34px;z-index:4000;transform:translate(-50%,24px);padding:10px 16px;border-radius:8px;background:#092e50;color:#fff;font-size:12px;font-weight:800;opacity:0;pointer-events:none;transition:.2s}
+.hqtd-env-cart-toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:820px){.custom-method-visual{grid-template-columns:1fr!important}.hqtd-env-cart-dock{right:12px;bottom:84px}}

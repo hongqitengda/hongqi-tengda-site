@@ -126,7 +126,7 @@
   function render() {
     const rows = read();
     if (!rows.length) {
-      list.innerHTML = '<div class="empty"><strong>需求清单为空</strong><span>请先在 AI、计算模拟或分析表征项目页面填写需求并加入清单。</span></div>';
+      list.innerHTML = '<div class="empty"><strong>需求清单为空</strong><span>请先在 AI、计算模拟、材料表征或环境检测项目页面加入需求清单。</span></div>';
       summary.innerHTML = '<div class="summary"><span>当前没有待提交项目</span><div class="bottom-actions"><a class="btn primary" href="index.html">选择项目</a></div></div>';
       return;
     }
@@ -163,7 +163,7 @@
     const suppliesOnly = rows.every(item => item.serviceType === '耗材仪器' || item.board === '耗材仪器' || /^HC-/.test(item.id || ''));
     const hasResearchServices = rows.some(item =>
       /^(AI|JS|FX)-/.test(item.id || '') ||
-      ['AI项目','计算模拟','分析表征'].includes(item.serviceType || item.board)
+      ['AI项目','计算模拟','分析表征','材料表征','环境检测'].includes(item.serviceType || item.board)
     );
     summary.innerHTML = `
       <div class="summary">
@@ -177,14 +177,14 @@
         <h3>${suppliesOnly ? '采购联系人' : '联系人及需求信息'}</h3>
         <p>${suppliesOnly
           ? '无需进入客户中心，在此填写后直接提交采购订单。'
-          : 'AI、计算模拟和分析表征项目也可在当前清单直接提交，无需进入客户中心。'}</p>
+          : 'AI、计算模拟、材料表征和环境检测项目也可在当前清单直接提交，无需进入客户中心。'}</p>
         <div class="direct-grid">
           <label>联系人<input id="directName" maxlength="80" required></label>
           <label>手机号/微信<input id="directContact" maxlength="80" required></label>
           <label>单位<input id="directOrganization" maxlength="160"></label>
           <label>邮箱<input id="directEmail" type="email" maxlength="160"></label>
           <label class="full">收货地址<input id="directAddress" maxlength="300"></label>
-          <label class="full">采购说明<textarea id="directNote" maxlength="2000" placeholder="品牌、规格、交期、开票等补充要求"></textarea></label>
+          <label class="full">补充说明<textarea id="directNote" maxlength="2000" placeholder="品牌、规格、交期、开票等补充要求"></textarea></label>
         </div>
         <div class="bottom-actions" style="margin-top:14px">
           <button class="btn secondary" id="cancelDirectSubmit">取消</button>

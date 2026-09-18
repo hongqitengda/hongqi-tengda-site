@@ -1,0 +1,19 @@
+红祺腾达官网 V9.3 直接覆盖更新包
+
+本版在 V9.2 基础上继续更新：
+1. 将环境检测专题区的 3 个主卡片与“土壤碳指标及组分分析”主视觉全部替换为重新绘制的高清图片；
+2. 四张图片统一为 16:9 比例，适配官网卡片显示；
+3. 不改变原有页面链接、购物车、项目查询与回收率查询逻辑。
+
+对应替换图片：
+- 新污染物 / PFAS：assets/images/environment-topics/emerging-contaminants.png
+- 温室气体：assets/images/environment-topics/greenhouse-gas.png
+- 微塑料：assets/images/environment-topics/microplastics.png
+- 土壤碳指标及组分分析：assets/images/environment-topics/method-development-soil-carbon.png
+
+使用方法：
+1）直接将本压缩包解压；
+2）把里面全部内容复制到 hongqi-tengda-site 根目录；
+3）覆盖同名文件；
+4）GitHub Desktop 中 Commit to main -> Push origin；
+5）网页打开后按 Ctrl + F5 强制刷新缓存。

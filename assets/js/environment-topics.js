@@ -5,7 +5,7 @@
     if (document.querySelector('link[href*="environment-topics-update.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'assets/css/environment-topics-update.css?v=20260918-v91';
+    link.href = 'assets/css/environment-topics-update.css?v=20260918-v92';
     document.head.appendChild(link);
   };
 
@@ -87,7 +87,7 @@
     const hub = document.createElement('aside');
     hub.className = 'env-floating-hub-v90';
     hub.setAttribute('data-env-floating-hub','');
-    hub.setAttribute('aria-label','新污染物精准检测与风险识别平台');
+    hub.setAttribute('aria-label','环境精准检测专题平台');
     hub.innerHTML = `
       <button class="env-floating-close" type="button" data-env-floating-close aria-label="关闭">×</button>
       <div class="env-floating-panel-head">
@@ -120,7 +120,7 @@
           <span class="env-floating-topic-en">CUSTOM ANALYTICS</span>
           <h3>综合检测与方法开发</h3>
           <p>植物、土壤及环境样品定制分析与方法开发。</p>
-          <div class="env-floating-chip-row"><span>GPPD-O</span><span>筛查</span><span>方法开发</span></div>
+          <div class="env-floating-chip-row"><span>6PPD-Q</span><span>筛查</span><span>方法开发</span></div>
           <strong>点击进入 →</strong>
         </a>
       </div>
