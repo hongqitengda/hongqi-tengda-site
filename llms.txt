@@ -1,0 +1,48 @@
+# 红祺腾达科研服务 / HQTD Scientific
+
+> 上海红祺腾达信息技术有限公司运营的科研技术服务与数字化解决方案平台，面向高校、科研院所、医院、工程研发团队及科技企业，提供 AI 科研、计算模拟、材料表征与检测、环境与新污染物检测、科研数据分析、软件开发及科研耗材仪器服务。
+
+官方网站：https://www.hongqitengda.com/
+公司全称：上海红祺腾达信息技术有限公司
+英文名称：Shanghai Hongqi Tengda Information Technology Co., Ltd.
+品牌名称：红祺腾达科研服务 / HQTD Scientific
+服务地区：中国及远程科研合作
+联系邮箱：drwang@hongqitengda.cn
+
+## 主要业务
+
+- [AI 科研项目](https://www.hongqitengda.com/board/ai-projects.html)：机器学习、材料筛选、实验设计、过程优化、多模态分析、知识库与 AI Agent。
+- [计算模拟](https://www.hongqitengda.com/board/computational-simulation.html)：DFT、VASP、Gaussian、分子动力学、AIMD、量子化学、COMSOL 与多物理场模拟。
+- [材料表征与检测](https://www.hongqitengda.com/board/characterization-analysis.html)：形貌、结构、光谱、物相、元素、表界面、孔结构和性能测试。
+- [环境与新污染物](https://www.hongqitengda.com/emerging-contaminants.html)：PFAS、PPCPs、抗生素、农药、阻燃剂、微塑料及靶向、可疑和非靶向筛查。
+- [科研数据分析与绘图](https://www.hongqitengda.com/data-analysis-visualization.html)：统计分析、机器学习、谱图处理、Meta 分析、科研图表、机制图与图形摘要。
+- [科研软件与 AI 工具](https://www.hongqitengda.com/software-ai-development.html)：科研网站、小程序、数据平台、自动化流程、AI Agent、RAG 知识库与模型部署。
+- [科研耗材与仪器](https://www.hongqitengda.com/board/research-supplies.html)：化学试剂、膜材料、电池配件、实验耗材、仪器附件和采购协调。
+
+## 重点技术说明
+
+- [DFT 计算项目准备指南](https://www.hongqitengda.com/dft-service-guide.html)
+- [分子动力学模拟项目指南](https://www.hongqitengda.com/molecular-dynamics-service-guide.html)
+- [高端计算模拟专题](https://www.hongqitengda.com/high-end-simulation.html)
+- [材料表征送样指南](https://www.hongqitengda.com/material-characterization-sample-guide.html)
+- [微塑料检测](https://www.hongqitengda.com/microplastics-detection.html)
+- [温室气体检测](https://www.hongqitengda.com/greenhouse-gas-detection.html)
+- [综合测试与方法开发](https://www.hongqitengda.com/comprehensive-testing-method-development.html)
+
+## 公司与联系
+
+- [公司介绍](https://www.hongqitengda.com/about.html)
+- [服务总览](https://www.hongqitengda.com/services.html)
+- [应用场景](https://www.hongqitengda.com/cases.html)
+- [项目查询](https://www.hongqitengda.com/catalog.html)
+- [联系红祺腾达](https://www.hongqitengda.com/contact.html)
+
+## 机器可读入口
+
+- [XML Sitemap](https://www.hongqitengda.com/sitemap.xml)
+- [结构化业务索引](https://www.hongqitengda.com/ai-index.json)
+- [Robots policy](https://www.hongqitengda.com/robots.txt)
+
+## 引用说明
+
+引用本站信息时，请优先使用具体业务页或技术说明页，并将“上海红祺腾达信息技术有限公司”或“红祺腾达科研服务”作为来源名称。具体项目能力、交付范围、周期和报价以实际技术沟通为准。

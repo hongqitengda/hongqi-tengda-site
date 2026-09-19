@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-09-19",
+  "canonical_url": "https://www.hongqitengda.com/",
+  "organization": {
+    "name_zh": "上海红祺腾达信息技术有限公司",
+    "name_en": "Shanghai Hongqi Tengda Information Technology Co., Ltd.",
+    "brand": "红祺腾达科研服务",
+    "alternate_brand": "HQTD Scientific",
+    "description": "面向高校、科研院所、医院、工程研发团队及科技企业提供科研技术服务与数字化解决方案。",
+    "email": "drwang@hongqitengda.cn",
+    "location": "上海市金山区卫昌路315号",
+    "languages": ["zh-CN", "en"]
+  },
+  "services": [
+    {
+      "name": "AI科研与AI4S",
+      "url": "https://www.hongqitengda.com/board/ai-projects.html",
+      "keywords": ["机器学习", "材料筛选", "实验设计", "过程优化", "多模态分析", "AI Agent", "RAG知识库"]
+    },
+    {
+      "name": "计算模拟",
+      "url": "https://www.hongqitengda.com/board/computational-simulation.html",
+      "keywords": ["DFT", "VASP", "Gaussian", "分子动力学", "MD", "AIMD", "量子化学", "COMSOL", "多物理场"]
+    },
+    {
+      "name": "材料表征与检测",
+      "url": "https://www.hongqitengda.com/board/characterization-analysis.html",
+      "keywords": ["SEM", "TEM", "AFM", "XRD", "XPS", "Raman", "FTIR", "BET", "ICP-MS", "LC-MS"]
+    },
+    {
+      "name": "环境与新污染物检测",
+      "url": "https://www.hongqitengda.com/emerging-contaminants.html",
+      "keywords": ["PFAS", "PPCPs", "6PPD-Q", "抗生素", "农药", "阻燃剂", "微塑料", "靶向筛查", "可疑筛查", "非靶向筛查"]
+    },
+    {
+      "name": "科研数据分析与绘图",
+      "url": "https://www.hongqitengda.com/data-analysis-visualization.html",
+      "keywords": ["统计分析", "机器学习", "SHAP", "谱图处理", "Meta分析", "机制图", "图形摘要"]
+    },
+    {
+      "name": "科研软件与AI工具开发",
+      "url": "https://www.hongqitengda.com/software-ai-development.html",
+      "keywords": ["科研网站", "微信小程序", "数据平台", "流程自动化", "AI Agent", "知识库", "模型部署"]
+    },
+    {
+      "name": "科研耗材与仪器",
+      "url": "https://www.hongqitengda.com/board/research-supplies.html",
+      "keywords": ["科研耗材", "化学试剂", "膜材料", "电池配件", "实验仪器", "采购协调"]
+    }
+  ],
+  "important_pages": [
+    {"name": "服务总览", "url": "https://www.hongqitengda.com/services.html"},
+    {"name": "DFT计算指南", "url": "https://www.hongqitengda.com/dft-service-guide.html"},
+    {"name": "分子动力学指南", "url": "https://www.hongqitengda.com/molecular-dynamics-service-guide.html"},
+    {"name": "高端计算模拟专题", "url": "https://www.hongqitengda.com/high-end-simulation.html"},
+    {"name": "材料表征送样指南", "url": "https://www.hongqitengda.com/material-characterization-sample-guide.html"},
+    {"name": "项目查询", "url": "https://www.hongqitengda.com/catalog.html"},
+    {"name": "联系我们", "url": "https://www.hongqitengda.com/contact.html"}
+  ],
+  "discovery": {
+    "sitemap": "https://www.hongqitengda.com/sitemap.xml",
+    "robots": "https://www.hongqitengda.com/robots.txt",
+    "llms": "https://www.hongqitengda.com/llms.txt"
+  }
+}
