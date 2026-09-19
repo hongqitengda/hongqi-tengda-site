@@ -1,0 +1,12 @@
+Bing 站点验证更新包
+
+使用方法：
+1. 解压本压缩包。
+2. 将 index.html 复制到 GitHub Desktop 对应仓库的最外层根目录。
+3. 选择“替换目标中的文件”。
+4. 在 GitHub Desktop 中提交并 Push origin。
+
+本次只新增 Bing 官方站点验证标签：
+<meta name="msvalidate.01" content="2B9FA482DE4462F44BB99162B3715BCC"/>
+
+不要删除此标签；验证成功后仍需长期保留。
