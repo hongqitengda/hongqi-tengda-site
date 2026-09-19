@@ -435,4 +435,103 @@
   };
   enhanceProjectVisuals();
 
+
+  // V10.3: site-wide high-end simulation integration
+  const enhanceHighEndSimulationV103 = () => {
+    const base = document.body?.dataset.base || '';
+    const abs = path => `${base}${path}`;
+
+    if (!document.querySelector('link[data-hqtd-v103]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = abs('assets/css/global-v103.css?v=20260919-v103');
+      link.dataset.hqtdV103 = '1';
+      document.head.appendChild(link);
+    }
+
+    // Keep the high-end simulation topic discoverable from every footer without crowding the top nav.
+    document.querySelectorAll('.footer-column').forEach(col => {
+      const strong = col.querySelector(':scope > strong');
+      if (!strong || strong.textContent.trim() !== '服务导航') return;
+      if (col.querySelector('a[data-highsim-global]')) return;
+      const sim = [...col.querySelectorAll('a')].find(a => /计算模拟/.test(a.textContent));
+      const a = document.createElement('a');
+      a.href = abs('high-end-simulation.html');
+      a.textContent = '高端计算模拟';
+      a.dataset.highsimGlobal = '1';
+      if (sim) sim.insertAdjacentElement('afterend', a); else col.appendChild(a);
+    });
+
+    // Unify AI / simulation contact copy site-wide.
+    document.querySelectorAll('[data-chat-contact="tech"] strong').forEach(el => el.textContent = 'AI / 高端计算');
+    document.querySelectorAll('[data-chat-contact="tech"] p').forEach(el => el.textContent = 'AI项目、DFT、MD、AIMD、反应路径、界面机理与高端计算方案定制');
+    const techModal = document.getElementById('tech-qr-modal');
+    if (techModal) {
+      const title = techModal.querySelector('h2');
+      if (title) title.textContent = 'AI / 高端计算模拟咨询';
+      const p = techModal.querySelector('p');
+      if (p) p.textContent = '适用于 AI 项目、DFT、MD、AIMD、反应路径、界面机理及高端计算方案定制。添加时请备注“官网咨询 + 单位 + 研究方向”。';
+      const row = techModal.querySelector('.modal-link-row');
+      if (row && !row.querySelector('[data-highsim-modal-link]')) {
+        const a = document.createElement('a');
+        a.href = abs('high-end-simulation.html');
+        a.textContent = '高端计算专题';
+        a.dataset.highsimModalLink = '1';
+        row.insertBefore(a, row.firstChild);
+      }
+    }
+
+    // Add one high-value quick question to the existing customer-service box.
+    const quick = document.querySelector('.hq-chat-quick');
+    if (quick && !quick.querySelector('[data-highsim-chat]')) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.dataset.highsimChat = '1';
+      btn.textContent = '高端计算方案';
+      btn.addEventListener('click', () => {
+        const panel = document.getElementById('hq-chat-panel');
+        if (panel) panel.hidden = false;
+        const launcher = document.querySelector('.hq-chat-launcher');
+        launcher?.setAttribute('aria-expanded','true');
+        const body = document.getElementById('hq-chat-body');
+        if (body) {
+          const msg = document.createElement('div');
+          msg.className = 'hq-chat-message bot';
+          msg.innerHTML = '<div class="hq-chat-avatar" aria-hidden="true"></div><div class="hq-chat-bubble">高端计算模拟面向催化缺陷、膜分离与分子界面、复杂污染物界面、能源电化学及聚合物复合界面。可按科学问题组合 DFT、MD、AIMD、CI-NEB、自由能等方法，并支持定制计算路线。</div>';
+          const contacts = document.getElementById('hq-chat-wecom');
+          body.insertBefore(msg, contacts || null);
+          if (contacts) {
+            contacts.hidden = false;
+            contacts.querySelector('[data-chat-contact="tech"]')?.removeAttribute('hidden');
+            contacts.querySelector('[data-chat-contact="admin"]')?.setAttribute('hidden','');
+          }
+          body.scrollTop = body.scrollHeight;
+        }
+      });
+      quick.insertBefore(btn, quick.children[2] || null);
+    }
+
+    // Every existing computational-simulation project detail page gets a concise high-end upgrade path + WeCom contact.
+    const pathname = String(location.pathname || '').toLowerCase();
+    if (/\/project\/js-\d+\.html$/.test(pathname) && !document.querySelector('[data-global-highsim-cta]')) {
+      const main = document.querySelector('main');
+      if (main) {
+        const section = document.createElement('section');
+        section.className = 'hqtd-global-highsim-cta';
+        section.dataset.globalHighsimCta = '1';
+        section.innerHTML = `<div><span>ADVANCED COMPUTATIONAL SCIENCE</span><h2>需要更深入的机理计算？</h2><p>可升级至高端计算专题：缺陷工程、界面电子转移、膜分子输运、复杂污染物反应、电化学界面及多尺度定制方案。</p></div><div class="hqtd-global-highsim-cta-actions"><a href="${abs('high-end-simulation.html')}">查看高端计算专题 →</a><button type="button" data-open-tech>企业微信咨询</button></div>`;
+        main.appendChild(section);
+      }
+    }
+
+    // Project-query pages: update helper copy to explicitly include the high-end route.
+    document.querySelectorAll('.sidebar-help').forEach(box => {
+      const strong = box.querySelector('strong');
+      const p = box.querySelector('p');
+      if (strong) strong.textContent = '需要高端或定制方案？';
+      if (p) p.textContent = '高端计算、AI、DFT/MD/AIMD 与数据软件联系计算模拟工程师；材料表征、环境检测及采购联系表征&检测顾问。';
+    });
+  };
+  enhanceHighEndSimulationV103();
+
 })();
