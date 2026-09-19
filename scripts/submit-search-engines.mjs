@@ -29,11 +29,21 @@ function sitemapUrls() {
   return [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
 }
 
+function isPublicHtml(relative) {
+  if (!relative.endsWith(".html")) return false;
+  if (config.excludePrefixes.some((prefix) => relative === prefix || relative.startsWith(prefix))) return false;
+  return fs.existsSync(path.join(root, relative));
+}
+
 const changed = changedPaths();
+const changedHtmlPaths = changed.filter(isPublicHtml);
+const baiduUrls = [...new Set(changedHtmlPaths.map(urlFor))]
+  .filter((url) => url.startsWith(`${siteUrl}/`))
+  .slice(0, 2000);
+
 let urls;
 if (changed.length) {
-  const paths = changed.filter((item) => item.endsWith(".html") && !config.excludePrefixes.some((prefix) => item === prefix || item.startsWith(prefix)));
-  urls = [...new Set([...config.corePaths.map(urlFor), ...paths.map(urlFor)])];
+  urls = [...new Set([...config.corePaths.map(urlFor), ...changedHtmlPaths.map(urlFor)])];
 } else {
   urls = [...new Set([...config.corePaths.map(urlFor), ...sitemapUrls()])];
 }
@@ -60,15 +70,37 @@ async function submitBaidu() {
     console.log("BAIDU_TOKEN is not configured; Baidu API submission was skipped.");
     return;
   }
+
+  if (!baiduUrls.length) {
+    console.log("No new or modified public HTML pages detected; Baidu submission was skipped to preserve quota.");
+    return;
+  }
+
   const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(config.host)}&token=${encodeURIComponent(token)}`;
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "content-type": "text/plain; charset=utf-8" },
-    body: urls.join("\n")
+    body: baiduUrls.join("\n")
   });
   const result = await response.text();
-  if (!response.ok) throw new Error(`Baidu returned HTTP ${response.status}: ${result}`);
-  console.log(`Baidu accepted the submission request: ${result}`);
+
+  let payload = null;
+  try {
+    payload = JSON.parse(result);
+  } catch {
+    // Keep the raw response if Baidu returns non-JSON text.
+  }
+
+  if (!response.ok) {
+    const message = String(payload?.message || result || "");
+    if (/over quota/i.test(message)) {
+      console.warn(`::warning::Baidu daily submission quota is exhausted. Skipped ${baiduUrls.length} changed URL(s); the workflow will continue without failing.`);
+      return;
+    }
+    throw new Error(`Baidu returned HTTP ${response.status}: ${result}`);
+  }
+
+  console.log(`Baidu accepted ${baiduUrls.length} changed URL(s): ${result}`);
 }
 
 const results = await Promise.allSettled([submitIndexNow(), submitBaidu()]);
