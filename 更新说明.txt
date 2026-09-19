@@ -1,4 +1,4 @@
-Bing 站点验证更新包
+Google Search Console 站点验证更新包
 
 使用方法：
 1. 解压本压缩包。
@@ -6,7 +6,6 @@ Bing 站点验证更新包
 3. 选择“替换目标中的文件”。
 4. 在 GitHub Desktop 中提交并 Push origin。
 
-本次只新增 Bing 官方站点验证标签：
-<meta name="msvalidate.01" content="2B9FA482DE4462F44BB99162B3715BCC"/>
+本次新增 Google 官方站点验证标签，并完整保留 Bing 验证标签及此前的搜索与 AI 检索配置。
 
-不要删除此标签；验证成功后仍需长期保留。
+请勿删除 Google 或 Bing 验证标签；验证成功后仍需长期保留。
