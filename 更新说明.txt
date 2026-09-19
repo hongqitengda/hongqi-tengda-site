@@ -1,11 +1,13 @@
-Google Search Console 站点验证更新包
+百度搜索资源平台验证更新包
 
 使用方法：
-1. 解压本压缩包。
-2. 将 index.html 复制到 GitHub Desktop 对应仓库的最外层根目录。
-3. 选择“替换目标中的文件”。
-4. 在 GitHub Desktop 中提交并 Push origin。
+1. 先在 GitHub Desktop 点击 Fetch origin；如出现 Pull origin，也点击。
+2. 解压本压缩包。
+3. 将 baidu_verify_codeva-OJYSwoSvIM.html 复制到 GitHub 仓库最外层根目录。
+4. 不要修改文件名和文件内容。
+5. 在 GitHub Desktop 中 Commit 并 Push origin。
+6. 部署完成后访问：
+   https://www.hongqitengda.com/baidu_verify_codeva-OJYSwoSvIM.html
+7. 确认页面能显示验证码后，返回百度搜索资源平台点击“完成验证”。
 
-本次新增 Google 官方站点验证标签，并完整保留 Bing 验证标签及此前的搜索与 AI 检索配置。
-
-请勿删除 Google 或 Bing 验证标签；验证成功后仍需长期保留。
+验证成功后请长期保留该文件。
