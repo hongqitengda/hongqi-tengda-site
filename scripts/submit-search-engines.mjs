@@ -60,7 +60,7 @@ async function submitBaidu() {
     console.log("BAIDU_TOKEN is not configured; Baidu API submission was skipped.");
     return;
   }
-  const endpoint = `https://data.zz.baidu.com/urls?site=${encodeURIComponent(siteUrl)}&token=${encodeURIComponent(token)}`;
+  const endpoint = `http://data.zz.baidu.com/urls?site=${encodeURIComponent(siteUrl)}&token=${encodeURIComponent(token)}`;
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "content-type": "text/plain; charset=utf-8" },
