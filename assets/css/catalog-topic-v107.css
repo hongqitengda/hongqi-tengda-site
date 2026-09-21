@@ -57,3 +57,22 @@
 }
 .hqt-board-stats .hqt-board-stat{min-height:108px;align-items:center}
 .hqt-board-stats .hqt-board-stat strong{line-height:1}
+
+
+/* HQTD V10.10 final: Environment summary card has no special top accent */
+.hqt-board-stats > .hqt-board-stat-env{
+  border:1px solid #dbe6ef!important;
+  border-top:1px solid #dbe6ef!important;
+  background:#fff!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  position:relative!important;
+}
+.hqt-board-stats > .hqt-board-stat-env:before,
+.hqt-board-stats > .hqt-board-stat-env:after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  height:0!important;
+}

@@ -45,7 +45,7 @@
     if (!document.querySelector('link[href*="home-topic-grid-v106.css"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = 'assets/css/home-topic-grid-v106.css?v=20260921-v106';
+      link.href = 'assets/css/home-topic-grid-v106.css?v=20260921-v110';
       document.head.appendChild(link);
     }
   };
@@ -108,18 +108,18 @@
 
   const environmentCardsHtml = () => `
     <div class="hqtd-six-head">
-      <div><span class="section-en">ENVIRONMENTAL TESTING</span><h2>环境检测专题</h2></div>
-      <p>六个独立入口覆盖精准检测、常规检测与方法开发。客户可直接按研究方向或样品类型进入对应专题。</p>
+      <div><span class="section-en">REPRESENTATIVE ENVIRONMENTAL PROJECTS</span><h2>环境检测代表性项目</h2></div>
+      <p>精选环境检测中的代表性项目，覆盖新污染物、温室气体、微塑料、水质、土壤及非常规方法开发；更多具体指标可进入项目查询。</p>
     </div>
     <div class="hqtd-six-grid">
-      <a class="hqtd-six-card a1" href="emerging-contaminants.html"><span class="topic-en">EMERGING CONTAMINANTS</span><h3>新污染物精准检测</h3><p>PFAS、农药及代谢物、抗生素、药物、激素等目标物筛选、定量与产物鉴定。</p><div class="hqtd-six-tags"><span>PFAS</span><span>LC-MS/MS</span><span>精准定量</span></div><strong class="hqtd-six-link">进入专题 →</strong></a>
-      <a class="hqtd-six-card a2" href="greenhouse-gas-detection.html"><span class="topic-en">GREENHOUSE GAS</span><h3>温室气体精准检测</h3><p>面向土壤与环境样品中的 CO₂、CH₄、N₂O 等温室气体监测与排放分析。</p><div class="hqtd-six-tags"><span>CO₂</span><span>CH₄</span><span>N₂O</span></div><strong class="hqtd-six-link">进入专题 →</strong></a>
-      <a class="hqtd-six-card a3" href="microplastics-detection.html"><span class="topic-en">MICROPLASTIC ANALYTICS</span><h3>微塑料及裂解微塑料</h3><p>支持颗粒计数、粒径/形貌、聚合物识别及来源分析。</p><div class="hqtd-six-tags"><span>Raman</span><span>μ-FTIR</span><span>来源识别</span></div><strong class="hqtd-six-link">进入专题 →</strong></a>
-      <a class="hqtd-six-card a4" href="water-testing.html"><span class="topic-en">ROUTINE WATER TESTING</span><h3>水质常规检测</h3><p>基础理化、营养盐、有机碳、离子及元素/重金属等 30 项常规检测。</p><div class="hqtd-six-tags"><span>30 项</span><span>水样</span><span>常规指标</span></div><strong class="hqtd-six-link">进入水质检测 →</strong></a>
-      <a class="hqtd-six-card a5" href="soil-testing.html"><span class="topic-en">ROUTINE SOIL TESTING</span><h3>土壤常规检测</h3><p>基础理化、养分、离子、碳/腐殖质、元素/重金属与生态指标等 35 项。</p><div class="hqtd-six-tags"><span>35 项</span><span>土壤</span><span>常规指标</span></div><strong class="hqtd-six-link">进入土壤检测 →</strong></a>
-      <a class="hqtd-six-card a6" href="comprehensive-testing-method-development.html"><span class="topic-en">METHOD DEVELOPMENT</span><h3>综合检测与方法开发</h3><p>针对复杂基质、新目标物与非常规科研问题设计前处理、仪器路线和质量控制方案。</p><div class="hqtd-six-tags"><span>6PPD-Q</span><span>元素</span><span>方法定制</span></div><strong class="hqtd-six-link">进入方法开发 →</strong></a>
+      <a class="hqtd-six-card a1" href="emerging-contaminants.html"><span class="topic-en">EMERGING CONTAMINANTS</span><h3>PFAS及新污染物精准检测</h3><p>覆盖 PFAS、农药及代谢物、抗生素、药物、激素等目标物筛选、定量与产物鉴定。</p><div class="hqtd-six-tags"><span>PFAS</span><span>LC-MS/MS</span><span>产物鉴定</span></div><strong class="hqtd-six-link">查看项目 →</strong></a>
+      <a class="hqtd-six-card a2" href="greenhouse-gas-detection.html"><span class="topic-en">GREENHOUSE GAS</span><h3>温室气体精准检测</h3><p>面向土壤与环境样品中的 CO₂、CH₄、N₂O 等温室气体监测与排放分析。</p><div class="hqtd-six-tags"><span>CO₂</span><span>CH₄</span><span>N₂O</span></div><strong class="hqtd-six-link">查看项目 →</strong></a>
+      <a class="hqtd-six-card a3" href="microplastics-detection.html"><span class="topic-en">MICROPLASTIC ANALYTICS</span><h3>微塑料及裂解微塑料分析</h3><p>支持颗粒计数、粒径与形貌分析、聚合物识别及来源分析。</p><div class="hqtd-six-tags"><span>Raman</span><span>μ-FTIR</span><span>聚合物识别</span></div><strong class="hqtd-six-link">查看项目 →</strong></a>
+      <a class="hqtd-six-card a4" href="water-testing.html"><span class="topic-en">ROUTINE WATER TESTING</span><h3>水质常规检测</h3><p>覆盖 pH、电导率、TDS、COD、DOC/TOC、TN/TP、离子及元素/重金属等 30 项。</p><div class="hqtd-six-tags"><span>30 项</span><span>水质</span><span>元素/离子</span></div><strong class="hqtd-six-link">查看30项 →</strong></a>
+      <a class="hqtd-six-card a5" href="soil-testing.html"><span class="topic-en">ROUTINE SOIL TESTING</span><h3>土壤常规检测</h3><p>覆盖基础理化、氮磷养分、离子、碳/腐殖质、元素/重金属及生态指标等 35 项。</p><div class="hqtd-six-tags"><span>35 项</span><span>土壤</span><span>养分/碳</span></div><strong class="hqtd-six-link">查看35项 →</strong></a>
+      <a class="hqtd-six-card a6" href="comprehensive-testing-method-development.html"><span class="topic-en">METHOD DEVELOPMENT</span><h3>综合检测与方法开发</h3><p>针对复杂基质、新目标物及非常规科研问题设计前处理、仪器路线、定量与质量控制方案。</p><div class="hqtd-six-tags"><span>方法定制</span><span>前处理</span><span>质量控制</span></div><strong class="hqtd-six-link">查看项目 →</strong></a>
     </div>
-    <div class="hqtd-six-footer"><span>环境检测项目可继续在“项目查询”中按关键词、分类和检测方向检索，并加入原需求清单。</span><a href="catalog.html?board=%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B">查询全部环境检测项目 →</a></div>`;
+    <div class="hqtd-six-footer"><span>这里展示代表性项目；完整环境检测项目仍统一进入项目查询和需求清单。</span><a href="catalog.html?board=%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B">查询全部环境检测项目 →</a></div>`;
 
   const ensureRoutineHomepageCards = () => {
     if (!isHomepage()) return;
