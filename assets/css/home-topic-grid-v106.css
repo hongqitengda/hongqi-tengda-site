@@ -1,0 +1,40 @@
+
+/* HQTD V10.6 · coordinated six-topic grids for homepage */
+.hqtd-six-topic-section{padding:66px 0;border-top:1px solid #e1e9f2;border-bottom:1px solid #e1e9f2}
+.hqtd-six-topic-section.highsim-six{background:linear-gradient(180deg,#fff,#f5f9fd)}
+.hqtd-six-topic-section.env-six{background:#f5f9fc}
+.hqtd-six-head{display:flex;justify-content:space-between;align-items:flex-end;gap:34px;margin-bottom:24px}
+.hqtd-six-head>div{min-width:0}.hqtd-six-head .section-en{display:block;color:#5a7f9e;font-size:11px;font-weight:900;letter-spacing:2px}
+.hqtd-six-head h2{margin:7px 0 0;color:#173854;font-size:34px;line-height:1.2;letter-spacing:-.4px}
+.hqtd-six-head p{max-width:620px;margin:0;color:#65798b;font-size:13px;line-height:1.78}
+.hqtd-six-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.hqtd-six-card{--accent:#176fd1;position:relative;display:flex;flex-direction:column;min-height:230px;padding:20px;border:1px solid #dbe6ee;border-radius:13px;background:#fff;color:inherit;text-decoration:none;box-shadow:0 9px 26px rgba(20,56,88,.055);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.hqtd-six-card:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--accent)}
+.hqtd-six-card:hover{transform:translateY(-3px);box-shadow:0 17px 36px rgba(20,56,88,.11);border-color:#cbdbe7}
+.hqtd-six-card .topic-no{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}
+.hqtd-six-card .topic-no b{color:var(--accent);font-size:27px;line-height:1}.hqtd-six-card .topic-no span{color:#8aa0b1;font-size:9px;font-weight:900;letter-spacing:1.5px}
+.hqtd-six-card .topic-en{display:block;color:var(--accent);font-size:9px;font-weight:900;letter-spacing:1.45px}
+.hqtd-six-card h3{margin:7px 0 8px;color:#173854;font-size:20px;line-height:1.38}
+.hqtd-six-card p{margin:0;color:#687d8e;font-size:12px;line-height:1.72}
+.hqtd-six-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:15px}
+.hqtd-six-tags span{padding:4px 7px;border:1px solid #d9e4ec;border-radius:999px;background:#f8fafc;color:#587082;font-size:9px;font-weight:800}
+.hqtd-six-link{display:inline-flex;margin-top:12px;color:var(--accent);font-size:11px;font-weight:900}
+.hqtd-six-card.a1{--accent:#176fd1}.hqtd-six-card.a2{--accent:#178f87}.hqtd-six-card.a3{--accent:#6b5fd7}.hqtd-six-card.a4{--accent:#c58a28}.hqtd-six-card.a5{--accent:#4e7aa3}.hqtd-six-card.a6{--accent:#8a6f48}
+.env-six .hqtd-six-card.a1{--accent:#0874c9}.env-six .hqtd-six-card.a2{--accent:#2a944e}.env-six .hqtd-six-card.a3{--accent:#7551d8}.env-six .hqtd-six-card.a4{--accent:#0b88c7}.env-six .hqtd-six-card.a5{--accent:#7b8d49}.env-six .hqtd-six-card.a6{--accent:#cf7a2d}
+.hqtd-six-footer{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:18px;padding:14px 16px;border:1px solid #dce6ee;border-radius:10px;background:rgba(255,255,255,.72)}
+.hqtd-six-footer span{color:#657a8c;font-size:11px;line-height:1.65}.hqtd-six-footer a{color:#0756a3;font-size:11px;font-weight:900;text-decoration:none;white-space:nowrap}
+
+/* Clarify hierarchy: core simulation first, advanced topics second */
+.hqtd-calc-core-enhanced .hqt-capability-head{margin-bottom:24px}
+.hqtd-calc-core-note{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:18px;padding:13px 16px;border:1px solid #dce6ed;border-radius:10px;background:#f8fbfd}
+.hqtd-calc-core-note span{color:#61798d;font-size:11px;line-height:1.65}.hqtd-calc-core-note b{color:#173854}
+.hqtd-calc-core-note a{color:#0756a3;font-size:11px;font-weight:900;text-decoration:none;white-space:nowrap}
+
+/* Environment board six-topic insertion */
+.hqtd-board-env-six{padding:54px 0;background:#f5f9fc;border-top:1px solid #e2eaf1;border-bottom:1px solid #e2eaf1}
+.hqtd-board-env-six .hqtd-six-head{margin-bottom:20px}
+
+/* Floating panels: six entries without overflow */
+.env-floating-hub-v90,.highsim-floating-hub-v103{max-height:calc(100vh - 145px);overflow:auto}
+@media(max-width:980px){.hqtd-six-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.hqtd-six-topic-section{padding:48px 0}.hqtd-six-head{align-items:flex-start;flex-direction:column;gap:8px}.hqtd-six-head h2{font-size:28px}.hqtd-six-grid{grid-template-columns:1fr}.hqtd-six-card{min-height:205px}.hqtd-six-footer,.hqtd-calc-core-note{align-items:flex-start;flex-direction:column}}

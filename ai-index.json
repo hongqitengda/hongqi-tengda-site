@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-19",
+  "last_updated": "2026-09-21",
   "canonical_url": "https://www.hongqitengda.com/",
   "organization": {
     "name_zh": "上海红祺腾达信息技术有限公司",
@@ -10,57 +10,219 @@
     "description": "面向高校、科研院所、医院、工程研发团队及科技企业提供科研技术服务与数字化解决方案。",
     "email": "drwang@hongqitengda.cn",
     "location": "上海市金山区卫昌路315号",
-    "languages": ["zh-CN", "en"]
+    "languages": [
+      "zh-CN",
+      "en"
+    ]
   },
   "services": [
     {
       "name": "AI科研与AI4S",
       "url": "https://www.hongqitengda.com/board/ai-projects.html",
-      "keywords": ["机器学习", "材料筛选", "实验设计", "过程优化", "多模态分析", "AI Agent", "RAG知识库"]
+      "keywords": [
+        "机器学习",
+        "材料筛选",
+        "实验设计",
+        "过程优化",
+        "多模态分析",
+        "AI Agent",
+        "RAG知识库"
+      ]
     },
     {
       "name": "计算模拟",
       "url": "https://www.hongqitengda.com/board/computational-simulation.html",
-      "keywords": ["DFT", "VASP", "Gaussian", "分子动力学", "MD", "AIMD", "量子化学", "COMSOL", "多物理场"]
+      "keywords": [
+        "DFT",
+        "VASP",
+        "Gaussian",
+        "分子动力学",
+        "MD",
+        "AIMD",
+        "量子化学",
+        "COMSOL",
+        "多物理场"
+      ]
     },
     {
       "name": "材料表征与检测",
       "url": "https://www.hongqitengda.com/board/characterization-analysis.html",
-      "keywords": ["SEM", "TEM", "AFM", "XRD", "XPS", "Raman", "FTIR", "BET", "ICP-MS", "LC-MS"]
+      "keywords": [
+        "SEM",
+        "TEM",
+        "AFM",
+        "XRD",
+        "XPS",
+        "Raman",
+        "FTIR",
+        "BET",
+        "ICP-MS",
+        "LC-MS"
+      ]
     },
     {
       "name": "环境与新污染物检测",
       "url": "https://www.hongqitengda.com/emerging-contaminants.html",
-      "keywords": ["PFAS", "PPCPs", "6PPD-Q", "抗生素", "农药", "阻燃剂", "微塑料", "靶向筛查", "可疑筛查", "非靶向筛查"]
+      "keywords": [
+        "PFAS",
+        "PPCPs",
+        "6PPD-Q",
+        "抗生素",
+        "农药",
+        "阻燃剂",
+        "微塑料",
+        "靶向筛查",
+        "可疑筛查",
+        "非靶向筛查"
+      ]
     },
     {
       "name": "科研数据分析与绘图",
       "url": "https://www.hongqitengda.com/data-analysis-visualization.html",
-      "keywords": ["统计分析", "机器学习", "SHAP", "谱图处理", "Meta分析", "机制图", "图形摘要"]
+      "keywords": [
+        "统计分析",
+        "机器学习",
+        "SHAP",
+        "谱图处理",
+        "Meta分析",
+        "机制图",
+        "图形摘要"
+      ]
     },
     {
       "name": "科研软件与AI工具开发",
       "url": "https://www.hongqitengda.com/software-ai-development.html",
-      "keywords": ["科研网站", "微信小程序", "数据平台", "流程自动化", "AI Agent", "知识库", "模型部署"]
+      "keywords": [
+        "科研网站",
+        "微信小程序",
+        "数据平台",
+        "流程自动化",
+        "AI Agent",
+        "知识库",
+        "模型部署"
+      ]
     },
     {
       "name": "科研耗材与仪器",
       "url": "https://www.hongqitengda.com/board/research-supplies.html",
-      "keywords": ["科研耗材", "化学试剂", "膜材料", "电池配件", "实验仪器", "采购协调"]
+      "keywords": [
+        "科研耗材",
+        "化学试剂",
+        "膜材料",
+        "电池配件",
+        "实验仪器",
+        "采购协调"
+      ]
+    },
+    {
+      "name": "水质常规检测",
+      "url": "https://www.hongqitengda.com/water-testing.html",
+      "keywords": [
+        "水质检测",
+        "PH值",
+        "电导率",
+        "TDS",
+        "COD",
+        "DOC",
+        "TOC",
+        "TN",
+        "TP",
+        "氨氮",
+        "硝态氮",
+        "离子",
+        "重金属",
+        "ICPMS"
+      ]
+    },
+    {
+      "name": "土壤常规检测",
+      "url": "https://www.hongqitengda.com/soil-testing.html",
+      "keywords": [
+        "土壤检测",
+        "PH值",
+        "电导率",
+        "含水率",
+        "全氮",
+        "有效磷",
+        "TOC",
+        "腐殖酸",
+        "重金属",
+        "发芽指数",
+        "ICPMS"
+      ]
     }
   ],
   "important_pages": [
-    {"name": "服务总览", "url": "https://www.hongqitengda.com/services.html"},
-    {"name": "DFT计算指南", "url": "https://www.hongqitengda.com/dft-service-guide.html"},
-    {"name": "分子动力学指南", "url": "https://www.hongqitengda.com/molecular-dynamics-service-guide.html"},
-    {"name": "高端计算模拟专题", "url": "https://www.hongqitengda.com/high-end-simulation.html"},
-    {"name": "材料表征送样指南", "url": "https://www.hongqitengda.com/material-characterization-sample-guide.html"},
-    {"name": "项目查询", "url": "https://www.hongqitengda.com/catalog.html"},
-    {"name": "联系我们", "url": "https://www.hongqitengda.com/contact.html"}
+    {
+      "name": "服务总览",
+      "url": "https://www.hongqitengda.com/services.html"
+    },
+    {
+      "name": "DFT计算指南",
+      "url": "https://www.hongqitengda.com/dft-service-guide.html"
+    },
+    {
+      "name": "分子动力学指南",
+      "url": "https://www.hongqitengda.com/molecular-dynamics-service-guide.html"
+    },
+    {
+      "name": "高端计算模拟专题",
+      "url": "https://www.hongqitengda.com/high-end-simulation.html"
+    },
+    {
+      "name": "材料表征送样指南",
+      "url": "https://www.hongqitengda.com/material-characterization-sample-guide.html"
+    },
+    {
+      "name": "水土常规检测专题",
+      "url": "https://www.hongqitengda.com/water-soil-testing.html"
+    },
+    {
+      "name": "项目查询",
+      "url": "https://www.hongqitengda.com/catalog.html"
+    },
+    {
+      "name": "联系我们",
+      "url": "https://www.hongqitengda.com/contact.html"
+    },
+    {
+      "name": "水质常规检测专题",
+      "url": "https://www.hongqitengda.com/water-testing.html"
+    },
+    {
+      "name": "土壤常规检测专题",
+      "url": "https://www.hongqitengda.com/soil-testing.html"
+    }
   ],
   "discovery": {
     "sitemap": "https://www.hongqitengda.com/sitemap.xml",
     "robots": "https://www.hongqitengda.com/robots.txt",
     "llms": "https://www.hongqitengda.com/llms.txt"
+  },
+  "topic_hubs": {
+    "environment_testing": {
+      "name": "环境检测专题",
+      "count": 6,
+      "topics": [
+        "新污染物精准检测",
+        "温室气体精准检测",
+        "微塑料及裂解微塑料",
+        "水质常规检测",
+        "土壤常规检测",
+        "综合检测与方法开发"
+      ]
+    },
+    "advanced_simulation": {
+      "name": "高端计算模拟专题",
+      "count": 6,
+      "topics": [
+        "催化机理与缺陷工程",
+        "膜分离与分子界面",
+        "复杂污染物界面反应",
+        "能源与电化学界面",
+        "聚合物与复合材料界面",
+        "高端计算方案定制"
+      ]
+    }
   }
 }

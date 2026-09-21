@@ -1,6 +1,6 @@
 # 红祺腾达科研服务 / HQTD Scientific
 
-> 上海红祺腾达信息技术有限公司运营的科研技术服务与数字化解决方案平台，面向高校、科研院所、医院、工程研发团队及科技企业，提供 AI 科研、计算模拟、材料表征与检测、环境与新污染物检测、科研数据分析、软件开发及科研耗材仪器服务。
+> 上海红祺腾达信息技术有限公司运营的科研技术服务与数字化解决方案平台，面向高校、科研院所、医院、工程研发团队及科技企业，提供 AI 科研、计算模拟、材料表征与检测、环境与新污染物检测、水土常规检测、科研数据分析、软件开发及科研耗材仪器服务。
 
 官方网站：https://www.hongqitengda.com/
 公司全称：上海红祺腾达信息技术有限公司
@@ -15,6 +15,7 @@
 - [计算模拟](https://www.hongqitengda.com/board/computational-simulation.html)：DFT、VASP、Gaussian、分子动力学、AIMD、量子化学、COMSOL 与多物理场模拟。
 - [材料表征与检测](https://www.hongqitengda.com/board/characterization-analysis.html)：形貌、结构、光谱、物相、元素、表界面、孔结构和性能测试。
 - [环境与新污染物](https://www.hongqitengda.com/emerging-contaminants.html)：PFAS、PPCPs、抗生素、农药、阻燃剂、微塑料及靶向、可疑和非靶向筛查。
+- [水土常规检测](https://www.hongqitengda.com/water-soil-testing.html)：水质与土壤基础理化、营养盐、离子、元素与重金属、土壤碳组分、腐殖质及生态指标。
 - [科研数据分析与绘图](https://www.hongqitengda.com/data-analysis-visualization.html)：统计分析、机器学习、谱图处理、Meta 分析、科研图表、机制图与图形摘要。
 - [科研软件与 AI 工具](https://www.hongqitengda.com/software-ai-development.html)：科研网站、小程序、数据平台、自动化流程、AI Agent、RAG 知识库与模型部署。
 - [科研耗材与仪器](https://www.hongqitengda.com/board/research-supplies.html)：化学试剂、膜材料、电池配件、实验耗材、仪器附件和采购协调。
@@ -27,6 +28,9 @@
 - [材料表征送样指南](https://www.hongqitengda.com/material-characterization-sample-guide.html)
 - [微塑料检测](https://www.hongqitengda.com/microplastics-detection.html)
 - [温室气体检测](https://www.hongqitengda.com/greenhouse-gas-detection.html)
+- [水土常规检测](https://www.hongqitengda.com/water-soil-testing.html)
+- [水质常规检测](https://www.hongqitengda.com/water-testing.html)：30项水质常规理化、营养盐、有机碳、离子及元素/重金属检测。
+- [土壤常规检测](https://www.hongqitengda.com/soil-testing.html)：35项土壤理化、养分、离子、碳与腐殖质、重金属及生态指标检测。
 - [综合测试与方法开发](https://www.hongqitengda.com/comprehensive-testing-method-development.html)
 
 ## 公司与联系
@@ -46,3 +50,22 @@
 ## 引用说明
 
 引用本站信息时，请优先使用具体业务页或技术说明页，并将“上海红祺腾达信息技术有限公司”或“红祺腾达科研服务”作为来源名称。具体项目能力、交付范围、周期和报价以实际技术沟通为准。
+
+
+## 专题入口（2026-09-21 更新）
+
+### 六个环境检测专题
+- 新污染物精准检测
+- 温室气体精准检测
+- 微塑料及裂解微塑料
+- 水质常规检测（30项）
+- 土壤常规检测（35项）
+- 综合检测与方法开发
+
+### 六个高端计算专题
+- 催化机理与缺陷工程
+- 膜分离与分子界面
+- 复杂污染物界面反应
+- 能源与电化学界面
+- 聚合物与复合材料界面
+- 高端计算方案定制
