@@ -24,3 +24,36 @@
 .catalog-search-suggestions-v107 a{padding:6px 9px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;text-decoration:none;font-size:10px;font-weight:800;background:rgba(255,255,255,.08)}
 @media(max-width:900px){.catalog-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-topic-hub-v107 .hub-head{align-items:flex-start;flex-direction:column;gap:6px}}
 @media(max-width:620px){.catalog-topic-grid{grid-template-columns:1fr}.catalog-topic-card{min-height:132px}.catalog-topic-hub-v107{padding-top:25px}}
+
+
+/* HQTD V10.8 */
+.hqt-board-stat-env.v108-no-top-mark,
+.hqt-board-stat-env{border-top-width:1px!important;border-top-color:#d7e2ea!important;background:#fff!important}
+.hqt-class-group-environment h3{display:flex;align-items:center;gap:8px}
+.hqt-class-group-environment h3:after{content:"专题项目与常规检测";color:#8395a3;font-size:10px;font-weight:700}
+
+
+/* HQTD V10.9 · remove Environment Testing top accent */
+.hqt-board-stat-env,
+.hqt-board-stat-env.v108-no-top-mark,
+.hqt-board-stat-env.v109-clean{
+  border:1px solid #dbe6ef!important;
+  border-top:1px solid #dbe6ef!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+.hqt-board-stat-env::before,
+.hqt-board-stat-env::after{
+  content:none!important;
+  display:none!important;
+  height:0!important;
+  border:0!important;
+  background:none!important;
+}
+.hqt-board-stat-env:hover{
+  border-color:#c7d8e4!important;
+  background:#fff!important;
+  box-shadow:0 8px 22px rgba(20,55,86,.06)!important;
+}
+.hqt-board-stats .hqt-board-stat{min-height:108px;align-items:center}
+.hqt-board-stats .hqt-board-stat strong{line-height:1}

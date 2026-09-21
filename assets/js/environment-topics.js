@@ -135,15 +135,150 @@
   const ensureBoardEnvironmentTopics = () => {
     const path = String(location.pathname || '').replace(/\\/g,'/').toLowerCase();
     if (!path.endsWith('/board/characterization-analysis.html') && !path.endsWith('board/characterization-analysis.html')) return;
-    if (document.querySelector('.hqtd-board-env-six')) return;
+
     const main = document.querySelector('main');
     if (!main) return;
-    const first = main.querySelector('.hqt-capability-analysis');
-    if (!first) return;
-    const sec = document.createElement('section');
-    sec.className = 'hqtd-board-env-six';
-    sec.innerHTML = `<div class="container">${environmentCardsHtml()}</div>`;
-    first.insertAdjacentElement('afterend', sec);
+
+    let envSection = [...main.querySelectorAll('section')].find(sec => {
+      const kicker = (sec.querySelector('.section-en')?.textContent || '').trim().toUpperCase();
+      const h2 = (sec.querySelector('h2')?.textContent || '').trim();
+      return kicker.includes('ENVIRONMENTAL TESTING') ||
+             h2 === '环境检测专题' ||
+             h2 === '环境代表性检测项目' ||
+             sec.classList.contains('hqtd-board-env-six');
+    });
+
+    const candidates = [...main.querySelectorAll('section')].filter(sec => {
+      const kicker = (sec.querySelector('.section-en')?.textContent || '').trim().toUpperCase();
+      const h2 = (sec.querySelector('h2')?.textContent || '').trim();
+      return kicker.includes('ENVIRONMENTAL TESTING') ||
+             h2 === '环境检测专题' ||
+             h2 === '环境代表性检测项目' ||
+             sec.classList.contains('hqtd-board-env-six');
+    });
+    candidates.slice(1).forEach(sec => sec.remove());
+    envSection = candidates[0] || envSection;
+
+    if (!envSection) {
+      const representative = [...main.querySelectorAll('section')].find(sec => {
+        const h2 = (sec.querySelector('.section-title-row h2')?.textContent || '').trim();
+        return h2 === '代表项目';
+      });
+      envSection = document.createElement('section');
+      envSection.className = 'section hqt-section-soft hqtd-env-representative-v109';
+      if (representative) representative.insertAdjacentElement('afterend', envSection);
+      else main.appendChild(envSection);
+    }
+
+    envSection.className = 'section hqt-section-soft hqtd-env-representative-v109';
+    envSection.id = 'environment-representative-projects';
+    envSection.innerHTML = `
+      <div class="container">
+        <div class="section-title-row reveal">
+          <div>
+            <span class="section-en">ENVIRONMENTAL PROJECTS</span>
+            <h2>环境代表性检测项目</h2>
+          </div>
+          <p class="hqtd-env-rep-intro">覆盖新污染物、温室气体、微塑料，以及新增的水质和土壤常规检测。更多具体指标可进入项目查询。</p>
+        </div>
+
+        <div class="hqt-board-card-grid hqtd-env-rep-grid">
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="emerging-contaminants.html">
+              <img alt="PFAS及新污染物精准检测" loading="lazy" decoding="async" src="assets/images/environment-topics/emerging-contaminants.png"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>新污染物检测</span>
+              <h3>PFAS及产物鉴定</h3>
+              <p>PFAS、农药及代谢物、抗生素、药物、激素等目标物筛选、定量与产物鉴定。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>PFAS</span><span>LC-MS/MS</span><span>产物鉴定</span></div>
+                <a href="emerging-contaminants.html">了解方案 →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="greenhouse-gas-detection.html">
+              <img alt="温室气体精准检测" loading="lazy" decoding="async" src="assets/images/environment-topics/greenhouse-gas.png"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>气体检测</span>
+              <h3>CO₂ / CH₄ / N₂O 温室气体检测</h3>
+              <p>面向土壤、环境样品与排放研究开展温室气体浓度与变化分析。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>CO₂</span><span>CH₄</span><span>N₂O</span></div>
+                <a href="greenhouse-gas-detection.html">了解方案 →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="microplastics-detection.html">
+              <img alt="微塑料及裂解微塑料检测" loading="lazy" decoding="async" src="assets/images/environment-topics/microplastics.png"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>微塑料检测</span>
+              <h3>微塑料及裂解微塑料分析</h3>
+              <p>支持颗粒计数、粒径/形貌、聚合物识别及来源分析。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>Raman</span><span>μ-FTIR</span><span>聚合物识别</span></div>
+                <a href="microplastics-detection.html">了解方案 →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="water-testing.html">
+              <img alt="水质常规检测" loading="lazy" decoding="async" src="assets/images/homepage-color/08-solution-analysis.webp"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>水质常规检测</span>
+              <h3>水质基础理化、营养盐与元素分析</h3>
+              <p>覆盖 pH、电导率、TDS、COD、DOC/TOC、TN/TP、离子及元素/重金属等 30 项。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>30项</span><span>TOC/TN/TP</span><span>ICP-MS</span></div>
+                <a href="water-testing.html">查看30项 →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="soil-testing.html">
+              <img alt="土壤常规检测" loading="lazy" decoding="async" src="assets/images/environment-topics/method-development-soil-carbon.png"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>土壤常规检测</span>
+              <h3>土壤理化、养分、碳组分与重金属分析</h3>
+              <p>覆盖基础理化、氮磷养分、离子、碳/腐殖质、元素/重金属及生态指标等 35 项。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>35项</span><span>养分/碳</span><span>重金属</span></div>
+                <a href="soil-testing.html">查看35项 →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ai-showcase-card hqt-compact-card hqt-card-board-analysis">
+            <a class="ai-showcase-media" href="comprehensive-testing-method-development.html">
+              <img alt="综合检测与方法开发" loading="lazy" decoding="async" src="assets/images/environment-topics/method-development-soil-carbon.png"/>
+            </a>
+            <div class="ai-showcase-copy">
+              <span>方法开发</span>
+              <h3>复杂基质与非常规项目方法开发</h3>
+              <p>面向新目标物、复杂基质和非标准科研需求，设计前处理、仪器条件、定量与质量控制路线。</p>
+              <div class="ai-showcase-footer">
+                <div class="ai-showcase-tags"><span>方法定制</span><span>前处理</span><span>质量控制</span></div>
+                <a href="comprehensive-testing-method-development.html">了解方案 →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="hqtd-env-rep-more">
+          <span>需要直接查具体指标？水质 30 项、土壤 35 项及其他环境检测项目均已并入项目查询。</span>
+          <a href="catalog.html?board=%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B">查看全部环境检测项目 →</a>
+        </div>
+      </div>`;
   };
 
   const removeLegacyPopup = () => {

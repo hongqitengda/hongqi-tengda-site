@@ -224,5 +224,31 @@
         "高端计算方案定制"
       ]
     }
+  },
+  "page_structure": {
+    "characterization_analysis": [
+      "表征&检测",
+      "表征&检测分类",
+      "代表项目",
+      "环境代表性检测项目"
+    ],
+    "catalog": {
+      "boards": [
+        "AI项目",
+        "计算模拟",
+        "材料表征",
+        "环境检测",
+        "耗材仪器"
+      ],
+      "environment_count": 462,
+      "environment_categories_include": [
+        "新污染物",
+        "温室气体",
+        "微塑料",
+        "水质常规检测",
+        "土壤常规检测",
+        "综合检测与方法开发"
+      ]
+    }
   }
 }

@@ -108,7 +108,7 @@
 
   const ensureCss=()=>{
     if(document.querySelector('link[href*="catalog-topic-v107.css"]'))return;
-    const l=document.createElement('link');l.rel='stylesheet';l.href='assets/css/catalog-topic-v107.css?v=20260921-v107';document.head.appendChild(l);
+    const l=document.createElement('link');l.rel='stylesheet';l.href='assets/css/catalog-topic-v107.css?v=20260921-v109';document.head.appendChild(l);
   };
 
   const renderCards=(items)=>items.map(x=>`<a class="catalog-topic-card" href="${esc(x.href)}"><small>${esc(x.en)}</small><b>${esc(x.title)}</b><p>${esc(x.desc)}</p><strong>进入专题 →</strong></a>`).join('');
@@ -187,5 +187,45 @@
 
   const init=()=>{ensureCss();enhanceSearch();enhanceEnvCategoryGroup();enhanceTopicHub();enhanceHighsimFeature();fixCartSource();};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+
+;(() => {
+  'use strict';
+
+  const TOTAL_ENVIRONMENT_COUNT = 462;
+
+  const normalizeCatalogV109 = () => {
+    document.querySelectorAll('.hqt-board-stat-analysis > span:first-child').forEach(x => x.textContent = '材料表征');
+    document.querySelectorAll('.hqt-board-stat-env > span:first-child').forEach(x => x.textContent = '环境检测');
+
+    document.querySelectorAll('.hqt-board-stat-env').forEach(el => {
+      el.classList.add('v109-clean');
+      el.style.setProperty('border', '1px solid #dbe6ef', 'important');
+      el.style.setProperty('border-top', '1px solid #dbe6ef', 'important');
+      el.style.setProperty('background', '#fff', 'important');
+      el.style.setProperty('box-shadow', 'none', 'important');
+    });
+
+    document.querySelectorAll('[data-board-count="环境检测"]').forEach(node => {
+      node.textContent = TOTAL_ENVIRONMENT_COUNT.toLocaleString('zh-CN');
+    });
+
+    const envGroup = document.querySelector('.hqt-class-group-environment');
+    if (envGroup) {
+      const h3 = envGroup.querySelector('h3');
+      if (h3) h3.textContent = '环境检测';
+    }
+
+    document.querySelectorAll('.hqt-class-group h3').forEach(h3 => {
+      if (h3.textContent.trim() === '分析表征') h3.textContent = '材料表征';
+    });
+  };
+
+  const run = () => {
+    normalizeCatalogV109();
+    [80,250,700,1500].forEach(ms => setTimeout(normalizeCatalogV109, ms));
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
+  else run();
 })();
 
