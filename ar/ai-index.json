@@ -1,0 +1,22 @@
+{
+  "language": "ar",
+  "base_url": "https://www.hongqitengda.com/ar/",
+  "counts": {
+    "ai": 9,
+    "simulation": 105,
+    "characterization": 124,
+    "environment": 462,
+    "supplies": 1999,
+    "total": 2699
+  },
+  "new_cases": [
+    {
+      "journal": "ACS Catalysis",
+      "doi": "10.1021/acscatal.5c06674"
+    },
+    {
+      "journal": "Journal of Power Sources",
+      "doi": "10.1016/j.jpowsour.2025.238971"
+    }
+  ]
+}

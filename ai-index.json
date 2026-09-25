@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-25",
   "canonical_url": "https://www.hongqitengda.com/",
   "organization": {
     "name_zh": "上海红祺腾达信息技术有限公司",
@@ -250,5 +250,26 @@
         "综合检测与方法开发"
       ]
     }
-  }
+  },
+  "languages": {
+    "zh-CN": "https://www.hongqitengda.com/",
+    "zh-Hant": "https://www.hongqitengda.com/zh-hant/",
+    "en": "https://www.hongqitengda.com/en/",
+    "fr": "https://www.hongqitengda.com/fr/",
+    "es": "https://www.hongqitengda.com/es/",
+    "ar": "https://www.hongqitengda.com/ar/",
+    "ru": "https://www.hongqitengda.com/ru/"
+  },
+  "new_high_end_simulation_cases": [
+    {
+      "topic": "催化机理与缺陷工程",
+      "journal": "ACS Catalysis",
+      "doi": "10.1021/acscatal.5c06674"
+    },
+    {
+      "topic": "能源与电化学界面",
+      "journal": "Journal of Power Sources",
+      "doi": "10.1016/j.jpowsour.2025.238971"
+    }
+  ]
 }

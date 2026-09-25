@@ -86,3 +86,15 @@
 - 原环境检测区调整为“环境代表性检测项目”。
 - 代表环境项目包含：新污染物、温室气体、微塑料、水质常规检测、土壤常规检测、综合检测与方法开发。
 - 水质 30 项和土壤 35 项均进入项目查询。
+
+## 多语言官网
+- 繁體中文: https://www.hongqitengda.com/zh-hant/
+- English: https://www.hongqitengda.com/en/
+- Français: https://www.hongqitengda.com/fr/
+- Español: https://www.hongqitengda.com/es/
+- العربية: https://www.hongqitengda.com/ar/
+- Русский: https://www.hongqitengda.com/ru/
+
+## 新增高端计算代表案例
+- ACS Catalysis 2026 — Orchestrating Cluster-Level Atomic Assemblies for Hydrogen/Solvent-Free Plastic Upcycling — 催化机理与缺陷工程
+- Journal of Power Sources 2026 — Cycle performance and mechanism of Mg2+ storage in nanoflower-like 1T/2H-MoSe2 cathode — 能源与电化学界面

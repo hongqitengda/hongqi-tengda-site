@@ -1,0 +1,26 @@
+{
+  "html_counts": {
+    "zh-hant": 18,
+    "en": 18,
+    "fr": 18,
+    "es": 18,
+    "ar": 18,
+    "ru": 18
+  },
+  "html_parse_errors": [],
+  "js_syntax": {
+    "multilingual-catalog-v1.js": true,
+    "multilingual-water-soil-v1.js": true,
+    "multilingual-emerging-v1.js": true,
+    "multilingual-config-v1.js": true,
+    "multilingual-demand-v1.js": true,
+    "multilingual-data-v1.js": true,
+    "multilingual-core-v1.js": true,
+    "multilingual-project-v1.js": true,
+    "language-switcher-v1.js": true
+  },
+  "root_acs": true,
+  "root_jps": true,
+  "arabic_rtl": true,
+  "sitemap_locales": true
+}
