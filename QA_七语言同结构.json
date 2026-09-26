@@ -1,0 +1,266 @@
+{
+  "en": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  },
+  "fr": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  },
+  "es": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  },
+  "ar": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  },
+  "ru": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  },
+  "zh-hant": {
+    "index.html": {
+      "same_structure": true,
+      "tags": 546,
+      "links": 100,
+      "buttons": 25,
+      "pdf_links": 0
+    },
+    "catalog.html": {
+      "same_structure": true,
+      "tags": 536,
+      "links": 102,
+      "buttons": 29,
+      "pdf_links": 0
+    },
+    "high-end-simulation.html": {
+      "same_structure": true,
+      "tags": 527,
+      "links": 62,
+      "buttons": 26,
+      "pdf_links": 17
+    },
+    "water-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "soil-testing.html": {
+      "same_structure": true,
+      "tags": 190,
+      "links": 28,
+      "buttons": 8,
+      "pdf_links": 0
+    },
+    "water-soil-testing.html": {
+      "same_structure": true,
+      "tags": 107,
+      "links": 21,
+      "buttons": 6,
+      "pdf_links": 0
+    }
+  }
+}
