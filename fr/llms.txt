@@ -1,5 +1,0 @@
-# Services scientifiques HQTD
-Home: https://www.hongqitengda.com/fr/
-Catalog: https://www.hongqitengda.com/fr/catalog.html
-Advanced Computational Science: https://www.hongqitengda.com/fr/high-end-simulation.html
-Catalog counts: AI 9; simulation 105; characterization 124; environmental testing 462; supplies 1999; total 2699.

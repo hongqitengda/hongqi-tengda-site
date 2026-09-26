@@ -383,4 +383,3 @@
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
-;(()=>{if(document.querySelector('script[src*="language-switcher-v1.js"]'))return;const x=document.createElement('script');x.src='/assets/js/language-switcher-v1.js?v=20260925-v120';x.defer=true;document.head.appendChild(x)})();
