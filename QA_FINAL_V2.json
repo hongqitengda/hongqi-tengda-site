@@ -1,0 +1,728 @@
+{
+  "package": "HQTD FINAL V2",
+  "rules": {
+    "sitemap_included": false,
+    "framework_changed": false,
+    "href_src_preserved": true,
+    "floating_window_locale_aware": true,
+    "contacts_preserved": true,
+    "ordering_paths_preserved": true
+  },
+  "checks": {
+    "index.html": {
+      "zh": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "zh-hant": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "en": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "fr": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "es": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "ar": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "ru": {
+        "tags": 546,
+        "links": 100,
+        "buttons": 25,
+        "forms": 1,
+        "pdf_links": 0
+      }
+    },
+    "catalog.html": {
+      "zh": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "zh-hant": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "en": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "fr": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "es": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "ar": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      },
+      "ru": {
+        "tags": 536,
+        "links": 102,
+        "buttons": 29,
+        "forms": 1,
+        "pdf_links": 0
+      }
+    },
+    "high-end-simulation.html": {
+      "zh": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "zh-hant": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "en": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "fr": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "es": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "ar": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      },
+      "ru": {
+        "tags": 527,
+        "links": 62,
+        "buttons": 26,
+        "forms": 0,
+        "pdf_links": 17
+      }
+    },
+    "water-testing.html": {
+      "zh": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "zh-hant": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "en": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "fr": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "es": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ar": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ru": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      }
+    },
+    "soil-testing.html": {
+      "zh": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "zh-hant": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "en": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "fr": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "es": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ar": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ru": {
+        "tags": 190,
+        "links": 28,
+        "buttons": 8,
+        "forms": 0,
+        "pdf_links": 0
+      }
+    },
+    "water-soil-testing.html": {
+      "zh": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "zh-hant": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "en": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "fr": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "es": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ar": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      },
+      "ru": {
+        "tags": 107,
+        "links": 21,
+        "buttons": 6,
+        "forms": 0,
+        "pdf_links": 0
+      }
+    }
+  },
+  "language_residue": {
+    "en": {
+      "cjk_chars": 423,
+      "files": [
+        [
+          "en/comprehensive-testing-method-development.html",
+          1
+        ],
+        [
+          "en/soil-testing.html",
+          6
+        ],
+        [
+          "en/project.html",
+          1
+        ],
+        [
+          "en/index.html",
+          23
+        ],
+        [
+          "en/demand-list.html",
+          1
+        ],
+        [
+          "en/contact.html",
+          1
+        ],
+        [
+          "en/services.html",
+          1
+        ],
+        [
+          "en/high-end-simulation.html",
+          134
+        ],
+        [
+          "en/microplastics-detection.html",
+          1
+        ],
+        [
+          "en/water-testing.html",
+          6
+        ],
+        [
+          "en/water-soil-testing.html",
+          241
+        ],
+        [
+          "en/greenhouse-gas-detection.html",
+          1
+        ],
+        [
+          "en/emerging-contaminants.html",
+          1
+        ],
+        [
+          "en/about.html",
+          1
+        ],
+        [
+          "en/board/research-supplies.html",
+          1
+        ],
+        [
+          "en/board/characterization-analysis.html",
+          1
+        ],
+        [
+          "en/board/ai-projects.html",
+          1
+        ],
+        [
+          "en/board/computational-simulation.html",
+          1
+        ]
+      ]
+    },
+    "fr": {
+      "cjk_chars": 423,
+      "files": [
+        [
+          "fr/comprehensive-testing-method-development.html",
+          1
+        ],
+        [
+          "fr/soil-testing.html",
+          6
+        ],
+        [
+          "fr/project.html",
+          1
+        ],
+        [
+          "fr/index.html",
+          23
+        ],
+        [
+          "fr/demand-list.html",
+          1
+        ],
+        [
+          "fr/contact.html",
+          1
+        ],
+        [
+          "fr/services.html",
+          1
+        ],
+        [
+          "fr/high-end-simulation.html",
+          134
+        ],
+        [
+          "fr/microplastics-detection.html",
+          1
+        ],
+        [
+          "fr/water-testing.html",
+          6
+        ],
+        [
+          "fr/water-soil-testing.html",
+          241
+        ],
+        [
+          "fr/greenhouse-gas-detection.html",
+          1
+        ],
+        [
+          "fr/emerging-contaminants.html",
+          1
+        ],
+        [
+          "fr/about.html",
+          1
+        ],
+        [
+          "fr/board/research-supplies.html",
+          1
+        ],
+        [
+          "fr/board/characterization-analysis.html",
+          1
+        ],
+        [
+          "fr/board/ai-projects.html",
+          1
+        ],
+        [
+          "fr/board/computational-simulation.html",
+          1
+        ]
+      ]
+    },
+    "es": {
+      "cjk_chars": 423,
+      "files": [
+        [
+          "es/comprehensive-testing-method-development.html",
+          1
+        ],
+        [
+          "es/soil-testing.html",
+          6
+        ],
+        [
+          "es/project.html",
+          1
+        ],
+        [
+          "es/index.html",
+          23
+        ],
+        [
+          "es/demand-list.html",
+          1
+        ],
+        [
+          "es/contact.html",
+          1
+        ],
+        [
+          "es/services.html",
+          1
+        ],
+        [
+          "es/high-end-simulation.html",
+          134
+        ],
+        [
+          "es/microplastics-detection.html",
+          1
+        ],
+        [
+          "es/water-testing.html",
+          6
+        ],
+        [
+          "es/water-soil-testing.html",
+          241
+        ],
+        [
+          "es/greenhouse-gas-detection.html",
+          1
+        ],
+        [
+          "es/emerging-contaminants.html",
+          1
+        ],
+        [
+          "es/about.html",
+          1
+        ],
+        [
+          "es/board/research-supplies.html",
+          1
+        ],
+        [
+          "es/board/characterization-analysis.html",
+          1
+        ],
+        [
+          "es/board/ai-projects.html",
+          1
+        ],
+        [
+          "es/board/computational-simulation.html",
+          1
+        ]
+      ]
+    },
+    "ar": {
+      "cjk_chars": 423,
+      "files": [
+        [
+          "ar/comprehensive-testing-method-development.html",
+          1
+        ],
+        [
+          "ar/soil-testing.html",
+          6
+        ],
+        [
+          "ar/project.html",
+          1
+        ],
+        [
+          "ar/index.html",
+          23
+        ],
+        [
+          "ar/demand-list.html",
+          1
+        ],
+        [
+          "ar/contact.html",
+          1
+        ],
+        [
+          "ar/services.html",
+          1
+        ],
+        [
+          "ar/high-end-simulation.html",
+          134
+        ],
+        [
+          "ar/microplastics-detection.html",
+          1
+        ],
+        [
+          "ar/water-testing.html",
+          6
+        ],
+        [
+          "ar/water-soil-testing.html",
+          241
+        ],
+        [
+          "ar/greenhouse-gas-detection.html",
+          1
+        ],
+        [
+          "ar/emerging-contaminants.html",
+          1
+        ],
+        [
+          "ar/about.html",
+          1
+        ],
+        [
+          "ar/board/research-supplies.html",
+          1
+        ],
+        [
+          "ar/board/characterization-analysis.html",
+          1
+        ],
+        [
+          "ar/board/ai-projects.html",
+          1
+        ],
+        [
+          "ar/board/computational-simulation.html",
+          1
+        ]
+      ]
+    },
+    "ru": {
+      "cjk_chars": 423,
+      "files": [
+        [
+          "ru/comprehensive-testing-method-development.html",
+          1
+        ],
+        [
+          "ru/soil-testing.html",
+          6
+        ],
+        [
+          "ru/project.html",
+          1
+        ],
+        [
+          "ru/index.html",
+          23
+        ],
+        [
+          "ru/demand-list.html",
+          1
+        ],
+        [
+          "ru/contact.html",
+          1
+        ],
+        [
+          "ru/services.html",
+          1
+        ],
+        [
+          "ru/high-end-simulation.html",
+          134
+        ],
+        [
+          "ru/microplastics-detection.html",
+          1
+        ],
+        [
+          "ru/water-testing.html",
+          6
+        ],
+        [
+          "ru/water-soil-testing.html",
+          241
+        ],
+        [
+          "ru/greenhouse-gas-detection.html",
+          1
+        ],
+        [
+          "ru/emerging-contaminants.html",
+          1
+        ],
+        [
+          "ru/about.html",
+          1
+        ],
+        [
+          "ru/board/research-supplies.html",
+          1
+        ],
+        [
+          "ru/board/characterization-analysis.html",
+          1
+        ],
+        [
+          "ru/board/ai-projects.html",
+          1
+        ],
+        [
+          "ru/board/computational-simulation.html",
+          1
+        ]
+      ]
+    }
+  },
+  "language_residue_after_patch": {
+    "en": {
+      "cjk_chars_excluding_icp": 0,
+      "files": []
+    },
+    "fr": {
+      "cjk_chars_excluding_icp": 0,
+      "files": []
+    },
+    "es": {
+      "cjk_chars_excluding_icp": 0,
+      "files": []
+    },
+    "ar": {
+      "cjk_chars_excluding_icp": 0,
+      "files": []
+    },
+    "ru": {
+      "cjk_chars_excluding_icp": 0,
+      "files": []
+    }
+  }
+}
