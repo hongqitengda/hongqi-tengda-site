@@ -1,0 +1,16 @@
+红祺腾达官网 V12.3｜七语言干净覆盖版
+
+本版本基于你提交的 V12.0 七语言完整国际版重新整理：
+1. 保留七语言版本；
+2. 保留 ACS Catalysis 与 Journal of Power Sources 两篇新增案例；
+3. 两篇新增案例均增加 PDF/文献入口；
+4. sitemap.xml 已检查，不含 Git 冲突标记；
+5. 整包不包含 .git，不会覆盖你的 Git 仓库历史。
+
+推荐处理：
+A. GitHub Desktop 当前先保持 Abort merge 后的干净状态。
+B. 不要 Undo “different language” 提交。
+C. 解压本包，将内容复制覆盖到本地 hongqi-tengda-site 仓库根目录；不要删除本地 .git 文件夹。
+D. 回 GitHub Desktop 查看 Changes，再提交。
+
+注意：JPS 的“PDF”入口当前使用 DOI/出版社入口，不在压缩包中重新分发论文全文。
