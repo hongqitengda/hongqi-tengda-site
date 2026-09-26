@@ -1,0 +1,11 @@
+红祺腾达官网 V9.3 更新包（首页去重 + 导航统一 + 表征&检测）
+
+本次更新：
+1. 首页“表征&检测”区域恢复为原来的三张卡片：SEM、HPLC 溶液检测、EIS，避免与下方环境检测专题重复。
+2. 首页保留下方“环境检测专题”模块。
+3. 全站将“分析表征”统一改为“表征&检测”（含导航、联系入口、部分按钮文案）。
+4. 补充 board/ai-projects.html、board/computational-simulation.html、board/research-supplies.html 跳转页，避免点击导航时进入服务器上旧页面。
+
+覆盖方法：
+将压缩包解压后，把里面全部文件复制到 hongqi-tengda-site 根目录并覆盖同名文件。
+上传后请按 Ctrl + F5 强制刷新。

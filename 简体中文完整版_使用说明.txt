@@ -1,0 +1,57 @@
+﻿红祺腾达官网｜仅简体中文完整版
+整理日期：2026-09-26
+来源：hongqitengda/hongqi-tengda-site，main 分支
+来源提交：0af011030d86927e36b3d57736383192f9354394
+
+一、内容
+本包仅保留原简体中文站。保留首页、各业务页面、项目查询、项目详情、专题、案例、客户中心、需求清单、图片、二维码、PDF、搜索收录配置和部署文件。
+已删除繁体中文、英文、法文、西班牙文、阿拉伯文和俄文页面。
+已移除语言切换器及自动翻译脚本，包括客户中心的语言翻译代码。
+已清理多语言链接、AI 索引和 sitemap 中的其他语言地址。
+简中页面正文、布局、项目数据、价格、联系方式、PDF、二维码和原有下单代码保持原样；相关脚本更新了缓存版本号。
+
+二、替换方法（必须先处理旧语言文件）
+本包是完整站点，不是增量补丁。只复制覆盖不会自动删除原仓库中的旧文件。
+1. 先备份当前本地仓库，并同步最新文件。
+2. 在本地 hongqi-tengda-site 根目录删除以下 6 个旧语言文件夹：
+   zh-hant、en、fr、es、ar、ru。
+3. 删除下方列出的旧语言专用文件。
+4. 将本压缩包内的站点文件复制到仓库根目录，覆盖同名文件；不要删除或覆盖本地 .git 目录。
+5. GitHub Desktop 中检查 Changes，确认包括以上删除记录，然后 Commit → Push origin。
+6. 等待网站部署完成后，浏览器按 Ctrl+F5 强制刷新。
+本次交付仅为下载包，尚未修改远程 GitHub 仓库。
+
+旧语言专用文件删除清单：
+   HQTD_FINAL_七语言同结构_仅语言变化_直接覆盖.zip
+   QA-V12.0.json
+   QA_FINAL.json
+   QA_FINAL_V2.json
+   QA_七语言同结构.json
+   README-V12.0-七语言国际版.txt
+   README_FINAL_快速覆盖说明.txt
+   README_V12.4_直接覆盖.txt
+   README_V12.5_仅语言.txt
+   README_七语言同结构.txt
+   V12.3_使用说明.txt
+   assets/css/multilingual-v1.css
+   assets/js/language-switcher-v1.js
+   assets/js/locale-ui-v2.js
+   assets/js/multilingual-catalog-v1.js
+   assets/js/multilingual-config-v1.js
+   assets/js/multilingual-core-v1.js
+   assets/js/multilingual-data-v1.js
+   assets/js/multilingual-demand-v1.js
+   assets/js/multilingual-emerging-v1.js
+   assets/js/multilingual-project-v1.js
+   assets/js/multilingual-water-soil-v1.js
+
+三、检查结果
+- 保留 2,298 个简体中文 HTML 页面及 1 个百度验证 HTML 文件。
+- 2,287 个 HTML 文件与来源版本逐字节一致；12 个 HTML 文件仅清理语言资源及更新相关脚本缓存参数，页面结构已比对。
+- 17 份 PDF、2,030 张图片保留原始文件。
+- 4,895 个保留且未修改的文件已与来源 Git blob 哈希逐一比对。
+- 所有改动页面的本地链接检查通过。
+- 修改的 JavaScript 语法检查与现有搜索收录配置检查通过。
+- 本次未提交真实订单，未测试需要登录的后台业务。
+
+说明：简中站原有的英文论文标题、科研缩写、技术名词和英文装饰副标题保持原样，它们不属于其他语言版本。
