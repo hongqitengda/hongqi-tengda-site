@@ -252,7 +252,8 @@
     }
   },
   "languages": {
-    "zh-CN": "https://www.hongqitengda.com/"
+    "zh-Hans": "https://www.hongqitengda.com/",
+    "en": "https://www.hongqitengda.com/en/"
   },
   "new_high_end_simulation_cases": [
     {

@@ -1,0 +1,24 @@
+# HQTD Scientific — English Website
+
+> Shanghai Hongqi Tengda Information Technology Co., Ltd. provides scientific services for universities, research institutes, hospitals, and industrial R&D teams.
+
+English website: https://www.hongqitengda.com/en/
+Chinese website: https://www.hongqitengda.com/
+Contact: drwang@hongqitengda.cn
+
+## Services
+- [Project Catalog](https://www.hongqitengda.com/en/catalog.html): Search by English service or product names, scientific acronyms, keywords, and project IDs.
+- [AI Projects](https://www.hongqitengda.com/en/board/ai-projects.html): Medical imaging, materials screening, predictive modeling, knowledge bases, and research agents.
+- [Computational Simulation](https://www.hongqitengda.com/en/board/computational-simulation.html): CFD, DFT, molecular dynamics, quantum chemistry, and finite element analysis.
+- [Characterization and Testing](https://www.hongqitengda.com/en/board/characterization-analysis.html): Microscopy, spectroscopy, elemental analysis, and material properties.
+- [Laboratory Supplies](https://www.hongqitengda.com/en/board/research-supplies.html): Laboratory consumables, reagents, materials, and instruments.
+- [Advanced Simulation](https://www.hongqitengda.com/en/high-end-simulation.html): Catalysis, membranes, interfaces, energy systems, and polymers.
+- [Routine Water Testing](https://www.hongqitengda.com/en/water-testing.html)
+- [Routine Soil Testing](https://www.hongqitengda.com/en/soil-testing.html)
+- [Emerging Contaminants](https://www.hongqitengda.com/en/emerging-contaminants.html)
+
+## Indexing
+- [Bilingual Sitemap](https://www.hongqitengda.com/sitemap.xml)
+- [English Sitemap](https://www.hongqitengda.com/en/sitemap.xml)
+
+Project IDs, prices, and specifications are preserved from the Chinese catalog. Images and research papers are shared unchanged. Final scope, pricing, and lead time require confirmation.

@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-09-25",
+  "canonical_url": "https://www.hongqitengda.com/en/",
+  "organization": {
+    "name_zh": "Shanghai Hongqi Tengda Information Technology Co., Ltd.",
+    "name_en": "Shanghai Hongqi Tengda Information Technology Co., Ltd.",
+    "brand": "HQTD Scientific Services",
+    "alternate_brand": "HQTD Scientific",
+    "description": "Provision of scientific and technological research services and digital solutions to universities, research institutes, hospitals, engineering research and development teams and scientific and technological enterprises.",
+    "email": "drwang@hongqitengda.cn",
+    "location": "315 Chan Road, Kansan, Shanghai.",
+    "languages": [
+      "zh-CN",
+      "en"
+    ]
+  },
+  "services": [
+    {
+      "name": "AI Scientific Research and AI4S",
+      "url": "https://www.hongqitengda.com/en/board/ai-projects.html",
+      "keywords": [
+        "Machine learning.",
+        "Material Screening",
+        "Experimental design",
+        "Process optimization",
+        "Multi-modular analysis",
+        "AI Agent",
+        "RAG Knowledge Base"
+      ]
+    },
+    {
+      "name": "Computational Simulation",
+      "url": "https://www.hongqitengda.com/en/board/computational-simulation.html",
+      "keywords": [
+        "DFT",
+        "VASP",
+        "Gaussian",
+        "Molecular Dynamics",
+        "MD",
+        "AIMD",
+        "Quantum chemistry",
+        "COMSOL",
+        "Polyphysical Fields"
+      ]
+    },
+    {
+      "name": "Material Characterization and Testing",
+      "url": "https://www.hongqitengda.com/en/board/characterization-analysis.html",
+      "keywords": [
+        "SEM",
+        "TEM",
+        "AFM",
+        "XRD",
+        "XPS",
+        "Raman",
+        "FTIR",
+        "BET",
+        "ICP-MS",
+        "LC-MS"
+      ]
+    },
+    {
+      "name": "Environment and new contaminant detection",
+      "url": "https://www.hongqitengda.com/en/emerging-contaminants.html",
+      "keywords": [
+        "PFAS",
+        "PPCPs",
+        "6PPD-Q",
+        "Antibiotics",
+        "Pesticides",
+        "Flame retardants",
+        "Microplastics",
+        "Target screening",
+        "Suspected screening",
+        "Non-target screening"
+      ]
+    },
+    {
+      "name": "Analysis and mapping of scientific data",
+      "url": "https://www.hongqitengda.com/en/data-analysis-visualization.html",
+      "keywords": [
+        "Statistical analysis",
+        "Machine learning.",
+        "SHAP",
+        "Spectrum Processing",
+        "Meta Analysis",
+        "Mechanism chart",
+        "Graphical summary"
+      ]
+    },
+    {
+      "name": "Scientific software and AI tool development",
+      "url": "https://www.hongqitengda.com/en/software-ai-development.html",
+      "keywords": [
+        "Research website",
+        "Micro-Intelligence Applet",
+        "Data platform",
+        "Process automation",
+        "AI Agent",
+        "Knowledge base",
+        "Model deployment"
+      ]
+    },
+    {
+      "name": "Scientific materials and instruments",
+      "url": "https://www.hongqitengda.com/en/board/research-supplies.html",
+      "keywords": [
+        "Research materials",
+        "Chemical reagent",
+        "Membrane material",
+        "Battery fittings",
+        "Experimental instruments",
+        "Procurement coordination"
+      ]
+    },
+    {
+      "name": "Routine Water Testing",
+      "url": "https://www.hongqitengda.com/en/water-testing.html",
+      "keywords": [
+        "Water quality testing",
+        "PH",
+        "Electrical Conductivity",
+        "TDS",
+        "COD",
+        "DOC",
+        "TOC",
+        "TN",
+        "TP",
+        "Nitrogen.",
+        "Nitrate Nitrogen",
+        "Ion",
+        "Heavy metal",
+        "ICPMS"
+      ]
+    },
+    {
+      "name": "Routine Soil Testing",
+      "url": "https://www.hongqitengda.com/en/soil-testing.html",
+      "keywords": [
+        "Soil detection",
+        "PH",
+        "Electrical Conductivity",
+        "Water content rate",
+        "All nitrogen.",
+        "Available Phosphorus",
+        "TOC",
+        "Corrosive acid",
+        "Heavy metal",
+        "Breathing Index",
+        "ICPMS"
+      ]
+    }
+  ],
+  "important_pages": [
+    {
+      "name": "Overview of services",
+      "url": "https://www.hongqitengda.com/en/services.html"
+    },
+    {
+      "name": "DFT calculation guidelines",
+      "url": "https://www.hongqitengda.com/en/dft-service-guide.html"
+    },
+    {
+      "name": "Molecular Dynamics Guide",
+      "url": "https://www.hongqitengda.com/en/molecular-dynamics-service-guide.html"
+    },
+    {
+      "name": "Advanced Computational Simulation",
+      "url": "https://www.hongqitengda.com/en/high-end-simulation.html"
+    },
+    {
+      "name": "Template guide for material representation",
+      "url": "https://www.hongqitengda.com/en/material-characterization-sample-guide.html"
+    },
+    {
+      "name": "The topic of earth and water routine testing",
+      "url": "https://www.hongqitengda.com/en/water-soil-testing.html"
+    },
+    {
+      "name": "Project Catalog",
+      "url": "https://www.hongqitengda.com/en/catalog.html"
+    },
+    {
+      "name": "Contact Us",
+      "url": "https://www.hongqitengda.com/en/contact.html"
+    },
+    {
+      "name": "The topic of routine water quality testing",
+      "url": "https://www.hongqitengda.com/en/water-testing.html"
+    },
+    {
+      "name": "General soil detection topic",
+      "url": "https://www.hongqitengda.com/en/soil-testing.html"
+    }
+  ],
+  "discovery": {
+    "sitemap": "https://www.hongqitengda.com/en/sitemap.xml",
+    "robots": "https://www.hongqitengda.com/en/robots.txt",
+    "llms": "https://www.hongqitengda.com/en/llms.txt"
+  },
+  "topic_hubs": {
+    "environment_testing": {
+      "name": "Environmental Testing",
+      "count": 6,
+      "topics": [
+        "Precision testing for new contaminants",
+        "Accurate monitoring of greenhouse gases",
+        "Microplastics and crack microplastics",
+        "Routine Water Testing",
+        "Routine Soil Testing",
+        "Comprehensive Testing and Method Development"
+      ]
+    },
+    "advanced_simulation": {
+      "name": "Advanced Computational Simulation",
+      "count": 6,
+      "topics": [
+        "Catalytic Mechanisms and Defect Engineering",
+        "Membrane Separation and Molecular Interfaces",
+        "Interfacial Reactions of Complex Contaminants",
+        "Energy and Electrochemical Interfaces",
+        "Polymer and Composite Interfaces",
+        "Custom Advanced Simulation"
+      ]
+    }
+  },
+  "page_structure": {
+    "characterization_analysis": [
+      "Characterization & Testing",
+      "Characterization & Testing Categories",
+      "Representation of items",
+      "Environmental Representation Testing Project"
+    ],
+    "catalog": {
+      "boards": [
+        "AI Projects",
+        "Computational Simulation",
+        "Material Characterization",
+        "Environmental Testing",
+        "Supplies & Instruments"
+      ],
+      "environment_count": 462,
+      "environment_categories_include": [
+        "Emerging Contaminants",
+        "Greenhouse Gases",
+        "Microplastics",
+        "Routine Water Testing",
+        "Routine Soil Testing",
+        "Comprehensive Testing and Method Development"
+      ]
+    }
+  },
+  "languages": {
+    "zh-Hans": "https://www.hongqitengda.com/",
+    "en": "https://www.hongqitengda.com/en/"
+  },
+  "new_high_end_simulation_cases": [
+    {
+      "topic": "Catalytic Mechanisms and Defect Engineering",
+      "journal": "ACS Catalysis",
+      "doi": "10.1021/acscatal.5c06674"
+    },
+    {
+      "topic": "Energy and Electrochemical Interfaces",
+      "journal": "Journal of Power Sources",
+      "doi": "10.1016/j.jpowsour.2025.238971"
+    }
+  ]
+}

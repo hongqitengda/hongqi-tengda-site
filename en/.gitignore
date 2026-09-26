@@ -1,0 +1,23 @@
+# Secrets and environment files
+.env
+.env.*
+!.env.example.placeholder
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Backend/deployment code must not enter the static-site repository
+deploy/
+cloudbase/
+cloudfunctions/
+functions/
+server/
+node_modules/
+
+# Local/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

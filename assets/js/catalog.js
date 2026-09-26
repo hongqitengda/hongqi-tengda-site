@@ -26,18 +26,7 @@
       return null;
     }
   }
-  function searchScore(item, terms) {
-    if (!terms.length) return 1;
-    const haystack = normalize([item.id, item.board, item.category, item.service, item.name, item.details, item.priority].join(" "));
-    let score = 0;
-    for (const term of terms) {
-      if (!haystack.includes(term)) return 0;
-      if (normalize(item.service).includes(term)) score += 8;
-      if (normalize(item.category).includes(term)) score += 4;
-      score += 1;
-    }
-    return score;
-  }
+  function searchScore(item, terms) { return window.HQTDSearch.score(item, terms.join(' ')); }
   function parsePriceRange(value) {
     if (!value) return null;
     if (value === "quote") return { quote: true };

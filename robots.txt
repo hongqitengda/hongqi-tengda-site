@@ -4,24 +4,28 @@
 User-agent: *
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 # ChatGPT Search
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 # OpenAI model crawler
 User-agent: GPTBot
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 # User-requested page visits from ChatGPT
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 # Common AI and answer-engine crawlers. The wildcard group remains the
@@ -29,21 +33,25 @@ Disallow: /CloudBase
 User-agent: Bytespider
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 User-agent: DeepSeekBot
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /customer-portal/
+Disallow: /en/customer-portal/
 Disallow: /CloudBase
 
 Sitemap: https://www.hongqitengda.com/sitemap.xml

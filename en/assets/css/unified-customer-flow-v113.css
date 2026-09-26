@@ -1,0 +1,19 @@
+
+/* V11.3 官网/小程序统一客户流程 */
+.hqtd-flow-v113{margin:0 auto 22px;max-width:1280px;padding:0 20px}
+.hqtd-flow-v113-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.hqtd-flow-v113-inner>strong{white-space:nowrap;color:#0f172a}
+.hqtd-flow-v113-steps{display:flex;align-items:center;gap:18px;overflow:auto}
+.hqtd-flow-v113-steps span{display:flex;align-items:center;gap:7px;white-space:nowrap;color:#475569;font-size:14px}
+.hqtd-flow-v113-steps b{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:50%;background:#1677ff;color:#fff;font-size:12px}
+.hqtd-quick-dock-v113{position:fixed;right:18px;bottom:90px;z-index:950;display:flex;flex-direction:column;gap:8px;padding:8px;border:1px solid #e2e8f0;border-radius:18px;background:rgba(255,255,255,.96);box-shadow:0 14px 40px rgba(15,23,42,.16);backdrop-filter:blur(10px)}
+.hqtd-quick-dock-v113 a,.hqtd-quick-dock-v113 button{display:flex;align-items:center;gap:9px;min-width:116px;padding:9px 11px;border:0;border-radius:12px;background:transparent;color:#334155;text-decoration:none;cursor:pointer;font:inherit}
+.hqtd-quick-dock-v113 a:hover,.hqtd-quick-dock-v113 button:hover{background:#eff6ff;color:#1677ff}
+.hqtd-quick-dock-v113 b{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:28px;padding:0 5px;border-radius:9px;background:#eef6ff;color:#1677ff;font-size:12px}
+.hqtd-quick-dock-v113 span{font-size:13px}
+@media(max-width:760px){
+  .hqtd-flow-v113-inner{align-items:flex-start;flex-direction:column}
+  .hqtd-quick-dock-v113{right:10px;bottom:74px}
+  .hqtd-quick-dock-v113 span{display:none}
+  .hqtd-quick-dock-v113 a,.hqtd-quick-dock-v113 button{min-width:44px;padding:7px}
+}

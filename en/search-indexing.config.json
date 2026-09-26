@@ -1,0 +1,41 @@
+{
+  "siteUrl": "https://www.hongqitengda.com",
+  "host": "www.hongqitengda.com",
+  "indexNowKey": "b98fc0a9597a2587c8eea98c03b05485",
+  "excludePrefixes": [
+    "404.html",
+    "customer-portal/",
+    "CloudBase deployment/",
+    "zh-hant/",
+    "en/",
+    "fr/",
+    "es/",
+    "ar/",
+    "ru/"
+  ],
+  "corePaths": [
+    "",
+    "about.html",
+    "services.html",
+    "cases.html",
+    "catalog.html",
+    "contact.html",
+    "board/ai-projects.html",
+    "board/computational-simulation.html",
+    "board/characterization-analysis.html",
+    "board/research-supplies.html",
+    "computational-simulation.html",
+    "dft-service-guide.html",
+    "molecular-dynamics-service-guide.html",
+    "characterization-testing.html",
+    "emerging-contaminants.html",
+    "microplastics-detection.html",
+    "greenhouse-gas-detection.html",
+    "data-analysis-visualization.html",
+    "software-ai-development.html",
+    "research-supplies.html",
+    "sitemap.xml",
+    "llms.txt",
+    "ai-index.json"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "version": "11.3.0",
+  "customerFlow": [
+    {
+      "step": 1,
+      "key": "select",
+      "label": "Select a Project"
+    },
+    {
+      "step": 2,
+      "key": "fill",
+      "label": "Request Details"
+    },
+    {
+      "step": 3,
+      "key": "preview",
+      "label": "Review Details"
+    },
+    {
+      "step": 4,
+      "key": "submit",
+      "label": "Submit Order"
+    },
+    {
+      "step": 5,
+      "key": "track",
+      "label": "Customer Center"
+    }
+  ],
+  "homeEntries": [
+    {
+      "key": "ai",
+      "code": "AI",
+      "title": "AI Projects",
+      "subtitle": "Forecasting, images, knowledge base and intelligence",
+      "webUrl": "board/ai-projects.html",
+      "miniUrl": "/pages/projects/projects?type=ai",
+      "orderUrl": "/pages/demand/demand?mode=ai"
+    },
+    {
+      "key": "calculation",
+      "code": "JS",
+      "title": "Computational Simulation",
+      "subtitle": "DFT, MD, CFD, COMSOL and limited dollars",
+      "webUrl": "board/computational-simulation.html",
+      "miniUrl": "/pages/projects/projects?type=calculation",
+      "orderUrl": "/pages/demand/demand?mode=calculation"
+    },
+    {
+      "key": "analysis",
+      "code": "FX",
+      "title": "Material Characterization",
+      "subtitle": "Sample information, test parameters and data analysis",
+      "webUrl": "board/characterization-analysis.html",
+      "miniUrl": "/pages/projects/projects?type=analysis",
+      "orderUrl": "/pages/demand/demand?mode=analysis"
+    },
+    {
+      "key": "supplies",
+      "code": "HC",
+      "title": "Supplies & Instruments",
+      "subtitle": "Commodity selection, volume adjustments and procurement lists",
+      "webUrl": "board/research-supplies.html",
+      "miniUrl": "/pages/services/services?category=supplies",
+      "orderUrl": "/pages/services/services?category=supplies"
+    }
+  ],
+  "management": {
+    "website": false,
+    "miniProgram": true
+  }
+}

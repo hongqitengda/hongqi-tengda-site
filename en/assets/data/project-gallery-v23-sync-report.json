@@ -1,0 +1,18 @@
+{
+  "galleryRoot": "G: \\desktop\\Reddena scientific services 1615 optimized review of Tuco-V2.2\\Redium-Tentenda scientific services 1615 optimized review of Tuco-V2.2\\08 - Professional version of the scientific platform - V2.3",
+  "siteRoot": "G:\\hongqi-tengda-site",
+  "siteProjectCount": 1612,
+  "v23ProjectCount": 1615,
+  "copiedImages": 1612,
+  "updatedVisuals": 1612,
+  "missingInV23": [],
+  "extraInV23": [
+    "SUP-1286",
+    "SUP-1287",
+    "SUP-1288"
+  ],
+  "manualReviewImagesInSite": 84,
+  "scientificVisualsInSite": 328,
+  "consumableProductImagesInSite": 1200,
+  "targetDir": "G:\\hongqi-tengda-site\\assets\\images\\project-gallery-v23"
+}

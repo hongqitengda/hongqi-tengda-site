@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/en/assets/js/english-adapter.js"></script><meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="#0756a3" name="theme-color">
+<title>HQTD Scientific Services | AI, Simulation, Testing &amp; Laboratory Supplies</title>
+<link href="/assets/images/icon-32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/en/assets/css/site.css" rel="stylesheet">
+<link href="/en/assets/css/hqt-redesign.css?v=20260718-ai-redesign" rel="stylesheet">
+<style>/* Unified homepage-style shell */
+    body.modal-open { overflow: hidden; }
+
+    .site-header-unified {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 96px;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid #e1e9f2;
+      box-shadow: 0 10px 28px rgba(23, 58, 98, .06);
+      backdrop-filter: blur(16px);
+    }
+
+    .unified-nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      width: min(1440px, calc(100% - 64px));
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .unified-brand {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      width: 350px;
+    }
+
+    .unified-brand img {
+      width: 350px;
+      height: 86px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .unified-site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 30px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .unified-site-nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 60px;
+      color: #31445a;
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .unified-site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      width: 0;
+      height: 3px;
+      border-radius: 4px;
+      background: #ff8a24;
+      transform: translateX(-50%);
+      transition: width .2s ease;
+    }
+
+    .unified-site-nav a:hover,
+    .unified-site-nav a.active {
+      color: #0756a3;
+    }
+
+    .unified-site-nav a:hover::after,
+    .unified-site-nav a.active::after {
+      width: 28px;
+    }
+
+    .unified-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .unified-consult {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(8, 73, 130, .18);
+    }
+
+    .unified-consult-tech { background: #0756a3; }
+    .unified-consult-admin { background: #0b91a7; }
+    .unified-consult:hover { filter: brightness(.94); }
+
+    .modal[hidden] { display: none; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 15, 32, .68);
+      backdrop-filter: blur(5px);
+    }
+
+    .contact-modal-panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 460px);
+      max-height: calc(100vh - 44px);
+      overflow: auto;
+      padding: 30px;
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, .32);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: #f0f4f8;
+      color: #516377;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .contact-modal-panel .modal-kicker {
+      display: block;
+      color: #0871c5;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-modal-panel h2 {
+      margin: 10px 0 14px;
+      color: #10284a;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .contact-modal-panel img {
+      width: min(100%, 310px);
+      max-height: 430px;
+      object-fit: contain;
+      margin: 14px auto 14px;
+      border: 1px solid #dbe6ef;
+      border-radius: 8px;
+      background: #f6f9fc;
+    }
+
+    .contact-modal-panel p {
+      margin: 0;
+      color: #5b6e83;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .modal-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .modal-link-row a {
+      min-height: 36px;
+      padding: 8px 13px;
+      border: 1px solid #d7e4ef;
+      border-radius: 4px;
+      color: #0756a3;
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .modal-link-row a.primary {
+      border-color: #0756a3;
+      background: #0756a3;
+      color: #fff;
+    }
+
+    .footer-unified {
+      background: #062344;
+      color: #d7e8f7;
+    }
+
+    .footer-unified-main {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.35fr) .55fr .7fr minmax(420px, 1.1fr);
+      gap: 52px;
+      align-items: start;
+      width: min(1440px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 60px 0 54px;
+    }
+
+    .footer-brand-block {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand-row img {
+      width: 66px;
+      height: 66px;
+      padding: 7px;
+      border-radius: 12px;
+      background: #fff;
+      object-fit: contain;
+    }
+
+    .footer-brand-row strong {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .footer-brand-row small {
+      display: block;
+      margin-top: 3px;
+      color: #8fb2d2;
+      font-size: 10px;
+    }
+
+    .footer-brand-block h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .footer-brand-block p {
+      margin: 0;
+      color: #a9c6df;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .footer-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-column strong {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .footer-column a,
+    .footer-column button,
+    .footer-column span {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #b8d1e8;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .footer-column button:hover,
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-email {
+      color: #fff !important;
+      font-weight: 900;
+    }
+
+    .footer-service-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+      padding: 28px 34px;
+      border-radius: 2px;
+      background: #2c312f;
+    }
+
+    .footer-service-qr {
+      text-align: center;
+    }
+
+    .footer-service-qr a {
+      display: grid;
+      place-items: center;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 18px;
+      background: #fff;
+    }
+
+    .footer-service-qr img {
+      width: 145px;
+      height: 145px;
+      object-fit: contain;
+    }
+
+    .footer-service-qr strong {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .footer-service-qr small {
+      display: block;
+      margin-top: 4px;
+      color: #f0f6f6;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer-online-tab {
+      position: absolute;
+      top: -4px;
+      right: -18px;
+      display: grid;
+      overflow: hidden;
+      width: 76px;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(0,0,0,.22);
+    }
+
+    .footer-online-tab button {
+      border: 0;
+      padding: 12px 8px;
+      background: #29c5bd;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.25;
+      writing-mode: vertical-rl;
+      letter-spacing: 4px;
+    }
+
+    .footer-online-tab span {
+      display: grid;
+      place-items: center;
+      min-height: 54px;
+      background: #fff;
+      color: #33404c;
+      font-weight: 900;
+    }
+
+    .footer-bottom-final {
+      position: relative;
+      background: #2c312f;
+      color: #eef4f5;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1440px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 30px 0 36px;
+      border-top: 1px solid rgba(255,255,255,.34);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .footer-backtop {
+      position: absolute;
+      top: -54px;
+      right: max(32px, calc((100vw - 1440px) / 2 + 16px));
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fff;
+      color: #26bfb5;
+      font-size: 36px;
+      text-decoration: none;
+      box-shadow: 0 16px 36px rgba(0,0,0,.24);
+    }
+
+    .hq-chat {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 2200;
+    }
+
+    .hq-chat-launcher {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 270px;
+      padding: 15px 24px 15px 15px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0c84dc, #0756a3);
+      color: #fff;
+      text-align: left;
+      box-shadow: 0 18px 40px rgba(5, 62, 112, .28);
+    }
+
+    .hq-chat-launcher-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      font-size: 24px;
+    }
+
+    .hq-chat-launcher strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .hq-chat-launcher small {
+      display: block;
+      margin-top: 3px;
+      color: #d6ebff;
+      font-size: 13px;
+    }
+
+    .hq-chat-panel[hidden] { display: none; }
+    .hq-chat-panel {
+      position: absolute;
+      right: 0;
+      bottom: 86px;
+      width: 410px;
+      max-height: min(680px, calc(100vh - 130px));
+      overflow: hidden;
+      border: 1px solid #d6e1eb;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 26px 70px rgba(16,45,72,.25);
+    }
+
+    .hq-chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg,#0879cf,#0756a3);
+      color: #fff;
+    }
+
+    .hq-chat-header strong { display:block; font-size:16px; }
+    .hq-chat-header small { color:#d7ecff; font-size:11px; }
+
+    .hq-chat-close {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .hq-chat-body {
+      max-height: 500px;
+      overflow: auto;
+      padding: 16px;
+      background: #f5f8fb;
+    }
+
+    .hq-chat-message {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .hq-chat-message.user { justify-content: flex-end; }
+
+    .hq-chat-avatar {
+      display: grid;
+      place-items: center;
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0756a3;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .hq-chat-message.user .hq-chat-avatar { display: none; }
+
+    .hq-chat-bubble {
+      max-width: 290px;
+      padding: 10px 12px;
+      border-radius: 4px 13px 13px 13px;
+      background: #fff;
+      color: #34485b;
+      font-size: 12px;
+      line-height: 1.72;
+      white-space: pre-line;
+      box-shadow: 0 4px 15px rgba(32,61,88,.07);
+    }
+
+    .hq-chat-message.user .hq-chat-bubble {
+      border-radius: 13px 4px 13px 13px;
+      background: #0879cf;
+      color: #fff;
+    }
+
+    .hq-chat-quick {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 4px 0 14px 39px;
+    }
+
+    .hq-chat-quick button {
+      min-height: 38px;
+      padding: 8px 9px;
+      border: 1px solid #cfe0ee;
+      border-radius: 7px;
+      background: #fff;
+      color: #17689e;
+      font-size: 11px;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .hq-chat-wecom[hidden] { display: none; }
+    .hq-chat-wecom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 10px 0 13px 39px;
+    }
+
+    .hq-chat-contact-card[hidden] { display: none; }
+    .hq-chat-contact-card {
+      padding: 12px;
+      border: 1px solid #d8e4ed;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .hq-chat-contact-card img {
+      width: 100%;
+      aspect-ratio: 1.42;
+      object-fit: contain;
+      border-radius: 5px;
+      background: #edf5fb;
+    }
+
+    .hq-chat-contact-card strong {
+      display: block;
+      margin-top: 8px;
+      color: #173e60;
+      font-size: 11px;
+    }
+
+    .hq-chat-contact-card p {
+      min-height: 30px;
+      margin: 3px 0 7px;
+      color: #718496;
+      font-size: 9px;
+      line-height: 1.55;
+    }
+
+    .hq-chat-contact-card button {
+      width: 100%;
+      min-height: 32px;
+      border: 0;
+      border-radius: 5px;
+      background: #0879cf;
+      color: #fff;
+      font-size: 10px;
+    }
+
+    .hq-chat-contact-card button { background: #0879cf; }
+
+    .hq-chat-input {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid #e1e8ee;
+      background: #fff;
+    }
+
+    .hq-chat-input input {
+      min-width: 0;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid #d1dce5;
+      border-radius: 7px;
+      outline: 0;
+      font-size: 12px;
+    }
+
+    .hq-chat-input button {
+      min-width: 62px;
+      border: 0;
+      border-radius: 7px;
+      background: #0879cf;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1240px) {
+      .unified-brand { width: 280px; }
+      .unified-brand img { width: 280px; }
+      .unified-site-nav { gap: 18px; }
+      .unified-site-nav a { font-size: 14px; }
+      .unified-consult { width: 42px; padding: 0; }
+      .unified-consult b { display: none; }
+      .footer-unified-main {
+        grid-template-columns: 1.3fr .7fr .8fr;
+      }
+      .footer-service-panel {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .site-header-unified { height: auto; position: relative; }
+      .unified-nav-wrap {
+        width: min(100% - 28px, 620px);
+        min-height: 92px;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        padding: 12px 0;
+      }
+      .unified-brand,
+      .unified-brand img { width: 260px; height: 64px; }
+      .unified-site-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 18px;
+      }
+      .unified-actions { margin-left: auto; }
+      .footer-unified-main,
+      .footer-bottom-inner {
+        width: min(100% - 28px, 620px);
+      }
+      .footer-unified-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-service-panel {
+        grid-template-columns: 1fr 1fr;
+        padding: 22px;
+      }
+      .footer-online-tab { display: none; }
+      .footer-bottom-inner { display: grid; font-size: 13px; }
+      .footer-backtop { width: 58px; height: 58px; font-size: 28px; }
+      .hq-chat { right: 10px; bottom: 10px; }
+      .hq-chat-launcher { min-width: auto; padding: 10px 12px; }
+      .hq-chat-launcher-text small { display: none; }
+      .hq-chat-panel {
+        position: fixed;
+        right: 10px;
+        left: 10px;
+        bottom: 78px;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .unified-brand,
+      .unified-brand img { width: 220px; }
+      .footer-service-panel { grid-template-columns: 1fr; }
+      .footer-service-qr a { width: min(100%, 210px); height: auto; aspect-ratio: 1; }
+      .footer-service-qr img { width: 78%; height: 78%; }
+      .hq-chat-wecom { grid-template-columns: 1fr; }
+      .hq-chat-quick { grid-template-columns: 1fr; }
+    }
+
+    
+  
+
+/* Homepage consultation: retain the rounded floating widget; remove the old vertical tab only. */
+.footer-online-tab,
+.floating-service { display: none !important; }
+
+.site-header-unified + main { min-height: 60vh; }
+.footer-unified button { font-family: inherit; }
+
+/* Unified case-card image ratio: all four sections use the same 16:9 cover layout. */
+.hqt-feature-card .ai-showcase-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden;
+  background: #061a32;
+}
+.hqt-feature-card .ai-showcase-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover !important;
+  object-position: center;
+  background: #061a32;
+  transition: transform .35s ease, filter .35s ease;
+}
+.hqt-feature-card:hover .ai-showcase-media img {
+  transform: scale(1.025);
+  filter: saturate(1.04) contrast(1.02);
+}
+.hqt-feature-card { position: relative; overflow: hidden; }
+.hqt-feature-card .ai-showcase-copy h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.hqt-feature-card .ai-showcase-copy h3 a:hover { color: #0756a3; }
+.homepage-redone .hqt-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.homepage-redone .ai-showcase-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 224px;
+}
+.homepage-redone .ai-showcase-copy > p { flex: 1; }
+.homepage-redone .ai-showcase-footer { margin-top: 18px; }
+
+/* Slightly wider content and cleaner card rhythm for the homepage. */
+body.homepage-redone { --container: 1280px; }
+.homepage-redone .hqt-capability-section { padding: 68px 0; }
+.homepage-redone .hqt-capability-head { margin-bottom: 28px; }
+.homepage-redone .hqt-feature-grid { gap: 24px; }
+.homepage-redone .ai-showcase-card { border-radius: 10px; }
+.homepage-redone .ai-showcase-copy { min-height: 216px; padding: 22px 22px 19px; }
+.homepage-redone .ai-showcase-copy h3 { margin: 10px 0 9px; font-size: 21px; }
+.homepage-redone .ai-showcase-copy p { line-height: 1.72; }
+.homepage-redone .hqt-more-strip { margin-top: 22px; }
+
+@media (max-width: 1180px) {
+  .unified-brand { width: 285px; }
+  .unified-brand img { width: 285px; }
+  .unified-site-nav { gap: 18px; }
+  .unified-site-nav a { font-size: 14px; }
+  .unified-consult { padding: 0 12px; }
+}
+@media (max-width: 980px) {
+  .site-header-unified { position: relative; height: auto; }
+  .unified-nav-wrap { flex-wrap: wrap; width: min(100% - 30px, 920px); padding: 8px 0 12px; gap: 8px 16px; }
+  .unified-brand { width: 250px; }
+  .unified-brand img { width: 250px; height: 68px; }
+  .unified-site-nav { order: 3; width: 100%; justify-content: flex-start; overflow-x: auto; gap: 22px; }
+  .unified-site-nav a { min-height: 44px; }
+  .unified-actions { margin-left: auto; }
+}
+@media (max-width: 620px) {
+  .unified-brand { width: 205px; }
+  .unified-brand img { width: 205px; height: 58px; }
+  .unified-actions { width: 100%; }
+  .unified-consult { flex: 1; min-height: 42px; }
+  .homepage-redone .hqt-capability-section { padding: 48px 0; }
+}
+
+
+@media (max-width: 900px) {
+  .homepage-redone .hqt-feature-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .homepage-redone .hqt-feature-grid { grid-template-columns: 1fr; }
+  .homepage-redone .ai-showcase-copy { min-height: 0; }
+  .hq-chat-launcher strong { font-size: 17px; }
+  .hq-chat-launcher-icon { width: 46px; height: 46px; }
+}
+</style><link href="/en/assets/css/unified-shell.css?v=20260719-final" rel="stylesheet"><meta content="Red Tenta Network of Scientific Research Officers providing services for computing simulations, material profiling, environmental testing and equipment for scientific materials, such as AI project, DFT/moleculodynamics." name="description"><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"><meta content="en_US" property="og:locale"><meta content="website" property="og:type"><meta content="HQTD Scientific Services" property="og:site_name"><meta content="HQTD Scientific Services | AI, Simulation, Testing &amp; Laboratory Supplies" property="og:title"><meta content="Red Tenta Network of Scientific Research Officers providing services for computing simulations, material profiling, environmental testing and equipment for scientific materials, such as AI project, DFT/moleculodynamics." property="og:description"><meta content="https://www.hongqitengda.com/en/" property="og:url"><meta content="https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png" property="og:image"><meta content="summary_large_image" name="twitter:card"><meta content="HQTD Scientific Services | AI, Simulation, Testing &amp; Laboratory Supplies" name="twitter:title"><meta content="Red Tenta Network of Scientific Research Officers providing services for computing simulations, material profiling, environmental testing and equipment for scientific materials, such as AI project, DFT/moleculodynamics." name="twitter:description"><meta content="https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png" name="twitter:image"><script data-hqtd-seo="true" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.hongqitengda.com/en/#organization","name":"Shanghai Hongqi Tengda Information Technology Co., Ltd.","alternateName":"HQTD Scientific","url":"https://www.hongqitengda.com/en/","logo":"https://www.hongqitengda.com/assets/images/logo-mark.png","email":"mailto:drwang@hongqitengda.cn"},{"@type":"WebSite","@id":"https://www.hongqitengda.com/en/#website","url":"https://www.hongqitengda.com/en/","name":"HQTD Scientific Services","publisher":{"@id":"https://www.hongqitengda.com/en/#organization"},"inLanguage":"en","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.hongqitengda.com/en/catalog.html?q=%7Bsearch_term_string%7D"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.hongqitengda.com/en/#webpage","url":"https://www.hongqitengda.com/en/","name":"HQTD Scientific Services | AI, Simulation, Testing & Laboratory Supplies","description":"Red Tenta Network of Scientific Research Officers providing services for computing simulations, material profiling, environmental testing and equipment for scientific materials, such as AI project, DFT/moleculodynamics.","isPartOf":{"@id":"https://www.hongqitengda.com/en/#website"},"about":{"@id":"https://www.hongqitengda.com/en/#organization"},"inLanguage":"en","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.hongqitengda.com/assets/images/ai-details/ai-001/medical-showcase.png"}},{"@type":"BreadcrumbList","@id":"https://www.hongqitengda.com/en/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hongqitengda.com/en/"}]}]}</script><link href="/en/assets/css/order-entry-v9.css?v=20260722-v1000" rel="stylesheet"><link href="/en/assets/css/unified-customer-flow-v113.css?v=11.3.0" rel="stylesheet"><link href="/en/assets/css/environment-topics-update.css?v=20260918-v94" rel="stylesheet">
+<link href="/en/assets/css/high-end-simulation.css?v=20260919-v103" rel="stylesheet"><link href="/en/assets/css/global-v103.css?v=20260919-v103" rel="stylesheet"><link href="/en/assets/css/home-topic-grid-v106.css?v=20260921-v110" rel="stylesheet">
+<link rel="stylesheet" href="/en/assets/css/english-layout.css"><link rel="canonical" href="https://www.hongqitengda.com/en/"><link rel="alternate" hreflang="zh-Hans" href="https://www.hongqitengda.com/"><link rel="alternate" hreflang="en" href="https://www.hongqitengda.com/en/"><link rel="alternate" hreflang="x-default" href="https://www.hongqitengda.com/"><link rel="stylesheet" href="/assets/css/bilingual.css?v=20260926"><script src="/assets/js/bilingual-navigation.js?v=20260926" defer></script></head>
+<body class="homepage-redone" data-base="" id="top">
+<nav class="hqtd-language-bar" aria-label="Language"><a href="/" hreflang="zh-Hans">Chinese</a><a href="/en/" hreflang="en" aria-current="page">English</a></nav><a class="skip-link" href="#main">Skip to main content</a><header class="site-header-unified" id="site-header"><div class="unified-nav-wrap"><a aria-label="Shanghai Hongqi Tengda home" class="unified-brand" href="/en/index.html"><img alt="Shanghai Hongqi Tengda Information Technology Co., Ltd." decoding="async" loading="lazy" src="/assets/images/logo-wordmark.png"></a><nav aria-label="Main navigation" class="unified-site-nav"><a class="active" href="/en/index.html">Home</a><a class="" href="/en/board/ai-projects.html">AI Projects</a><a class="" href="/en/board/computational-simulation.html">Computational Simulation</a><a class="" href="/en/board/characterization-analysis.html">Characterization &amp; Testing</a><a class="" href="/en/board/research-supplies.html">Supplies &amp; Instruments</a><a class="" href="/en/catalog.html">Project Catalog</a></nav><div aria-label="WeCom support" class="unified-actions"><button class="unified-consult unified-consult-tech" data-open-tech="" type="button"><span>Σ</span><b>AI / Simulation</b></button><button class="unified-consult unified-consult-admin" data-open-admin="" type="button"><span>▣</span><b>Characterization / Environment / Supplies</b></button></div></div></header>
+<main id="main">
+<section class="section hqt-capability-section hqt-capability-ai">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">CORE CAPABILITY</span><h1>AI Projects</h1></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="/en/project/ai-001.html">
+<img alt="A case chart of the intelligent division and ancillary interpretation of medical images" decoding="async" fetchpriority="high" loading="eager" src="/assets/images/ai-details/ai-001/medical-showcase.png">
+</a>
+<div class="ai-showcase-copy">
+<span>AI Medical Imaging</span>
+<h3><a href="/en/project/ai-001.html">Intelligent Medical Image Segmentation and Assisted Interpretation</a></h3>
+<p>For CT, MRI and pathology images, we provide data governance, model training, interpretable evaluation and visual deliverables.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>Split</span><span>Category</span><span>Projections</span></div>
+<a href="/en/project/ai-001.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="/en/project/ai-002.html">
+<img alt="An intelligent screening of candidate molecules and materials" decoding="async" loading="lazy" src="/assets/images/ai-details/ai-002/ai-candidate-screening-cover.jpg">
+</a>
+<div class="ai-showcase-copy">
+<span>AI Materials Screening</span>
+<h3><a href="/en/project/ai-002.html">Intelligent Screening of Candidate Molecules and Materials</a></h3>
+<p>Integrates structural descriptors, literature knowledge, constraints and predictive models to build a workflow for candidate-material screening and ranking.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>Filter</span><span>Sort</span><span>Interpretation</span></div>
+<a href="/en/project/ai-002.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-ai">
+<a class="ai-showcase-media" href="/en/project/ai-003.html">
+<img alt="Case chart of formulations, processes and performance projections" decoding="async" loading="lazy" src="/assets/images/ai-details/ai-003/ai-003-formula-process-cover.png">
+</a>
+<div class="ai-showcase-copy">
+<span>AI Process Optimization</span>
+<h3><a href="/en/project/ai-003.html">Formulation, Process, and Performance Prediction</a></h3>
+<p>Builds predictive models around formulation ratios, process parameters and target performance, supporting multi-objective optimization and recommendations.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>Formula</span><span>Process</span><span>Optimization</span></div>
+<a href="/en/project/ai-003.html">View Details →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>More AI Services</span><a href="/en/project/ai-004.html">Research Knowledge Bases and RAG</a><a href="/en/project/ai-005.html">Multimodal Data Analysis</a><a href="/en/project/ai-006.html">Machine Learning Prediction</a><a href="/en/project/ai-007.html">Experimental Design and Multiobjective Optimization</a><a href="/en/project/ai-008.html">Research AI Agent Development</a><a href="/en/project/ai-009.html">Custom AI Projects</a></div>
+</div>
+</section>
+<section class="section hqt-capability-section hqt-capability-calc">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">02 SIMULATION</span><h2>Computational Simulation</h2></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="/en/project/js-1.html">
+<img alt="Custom Computational Fluid Dynamics — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/04-cfd.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>Computational Fluid Dynamics</span>
+<h3><a href="/en/project/js-1.html">Custom Computational Fluid Dynamics</a></h3>
+<p>For flow fields, heat transfer, mass transfer and multiphase processes, we deliver models, boundary conditions, field distributions and analytical interpretation.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>Modeling</span><span>Simulation</span><span>Result Plots</span></div>
+<a href="/en/project/js-1.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="/en/project/js-2.html">
+<img alt="Custom First-Principles Calculations — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/05-dft.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>First-Principles Calculations</span>
+<h3><a href="/en/project/js-2.html">Custom First-Principles Calculations</a></h3>
+<p>Covers publication-grade results including structural optimization, adsorption energies, band structures, density of states, charge analysis and reaction pathways.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>DFT</span><span>Electronic structure</span><span>Mechanism</span></div>
+<a href="/en/project/js-2.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-calc">
+<a class="ai-showcase-media" href="/en/project/js-3.html">
+<img alt="Custom Molecular Dynamics — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/06-md-aimd.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>Molecular Dynamics</span>
+<h3><a href="/en/project/js-3.html">Molecular Dynamics and AIMD Customisation</a></h3>
+<p>Covers interfacial behavior, diffusion, adsorption, solvation and dynamic stability, with trajectories, statistical curves and configuration snapshots.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>MD</span><span>AIMD</span><span>Tracks</span></div>
+<a href="/en/project/js-3.html">View Details →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>More calculation direction</span><a href="/en/category/computational-fluid-dynamics.html">Computational Fluid Dynamics</a><a href="/en/category/first-principles-calculation.html">First-Principles Calculations</a><a href="/en/category/molecular-dynamics.html">Molecular Dynamics</a><a href="/en/category/multiphysics-fem.html">Multiphysics and Finite Element Simulation</a><a href="/en/category/quantum-chemistry.html">Quantum Chemistry and Molecular Calculations</a></div>
+</div>
+</section>
+<section class="section hqtd-highsim-section" id="high-end-simulation">
+<div class="container">
+<div class="hqtd-highsim-head">
+<div><span class="hqtd-highsim-kicker">ADVANCED COMPUTATIONAL SCIENCE</span><h2>Advanced Computational Simulation</h2><p>Publication-grade DFT / MD / AIMD and mechanistic analysis for catalysis, membrane separation and complex environmental interfaces.</p></div>
+<a class="hqtd-highsim-head-link" href="/en/high-end-simulation.html">View all representative cases</a>
+</div>
+<div class="hqtd-highsim-grid">
+<article class="hqtd-highsim-card case-tall">
+<a class="hqtd-highsim-media" href="/en/high-end-simulation.html#catalysis"><img alt="Catalysing Mechanism and Deficiencies Project representative case" decoding="async" loading="lazy" src="/assets/images/high-end-simulation/catalysis-defect-engineering.png"></a>
+<div class="hqtd-highsim-copy"><span class="hqtd-highsim-en">CATALYSIS &amp; DEFECT ENGINEERING</span><h3>Catalytic Mechanisms and Defect Engineering</h3><p>Oxygen vacancies, single-atom/active sites, interfacial electron transfer, reaction pathways and PMS/O₃/PI activation mechanisms.</p><div class="hqtd-highsim-scope">Active Sites · Defects · Electron Transfer · Reaction Pathways</div><div class="hqtd-highsim-journal">Case on behalf of</div><div class="hqtd-highsim-tags"><span>DFT</span><span>DOS/PDOS</span><span>Bader</span><span>NEB</span></div><div class="hqtd-highsim-actions"><a class="primary" href="/en/high-end-simulation.html#catalysis">Get to the subject.</a><button class="secondary" data-highsim-add="JS-201">Add to Request List</button><button class="submit" data-highsim-submit="JS-201">Submit a Request</button></div></div>
+</article>
+<article class="hqtd-highsim-card case-tall">
+<a class="hqtd-highsim-media" href="/en/high-end-simulation.html#membrane"><img alt="Membrane separation and molecular interface represent cases" decoding="async" loading="lazy" src="/assets/images/high-end-simulation/membrane-interface-simulation.png"></a>
+<div class="hqtd-highsim-copy"><span class="hqtd-highsim-en">MEMBRANE &amp; MOLECULAR INTERFACE</span><h3>Membrane Separation and Molecular Interfaces</h3><p>Multiscale relationships among interfacial polymerization, free volume, diffusion, solvation and membrane structure–transport–selectivity.</p><div class="hqtd-highsim-scope">Interfacial Polymerization · Free Volume · Diffusive Transport · Selectivity</div><div class="hqtd-highsim-journal">Representative case — Environmental Science &amp; Technology</div><div class="hqtd-highsim-tags"><span>MD</span><span>Free Volume</span><span>MSD</span><span>DFT</span></div><div class="hqtd-highsim-actions"><a class="primary" href="/en/high-end-simulation.html#membrane">Get to the subject.</a><button class="secondary" data-highsim-add="JS-202">Add to Request List</button><button class="submit" data-highsim-submit="JS-202">Submit a Request</button></div></div>
+</article>
+<article class="hqtd-highsim-card case-wide">
+<a class="hqtd-highsim-media" href="/en/high-end-simulation.html#interface"><img alt="Complex pollutant interface response representative case" decoding="async" loading="lazy" src="/assets/images/high-end-simulation/complex-interface-reaction.png"></a>
+<div class="hqtd-highsim-copy"><span class="hqtd-highsim-en">COMPLEX INTERFACIAL REACTION</span><h3>Interfacial Reactions of Complex Contaminants</h3><p>Enrichment, coupled reactions, C–F bond activation and barrier analysis for PFAS, heavy metals, microdroplets and complex environmental interfaces.</p><div class="hqtd-highsim-scope">Interfacial Enrichment · · C–F Bond Activation · Reaction Barrier</div><div class="hqtd-highsim-journal">Journal of the American Chemical Society</div><div class="hqtd-highsim-tags"><span>MD</span><span>DFT</span><span>CI-NEB</span><span>ESP</span></div><div class="hqtd-highsim-actions"><a class="primary" href="/en/high-end-simulation.html#interface">Get to the subject.</a><button class="secondary" data-highsim-add="JS-203">Add to Request List</button><button class="submit" data-highsim-submit="JS-203">Submit a Request</button></div></div>
+</article>
+</div>
+<div class="hqtd-highsim-custom-home">
+<div><span class="hqtd-highsim-kicker">CUSTOM ADVANCED SIMULATION</span><h3>Custom Advanced Simulation</h3><p>For non-standard research questions, DFT, MD, AIMD, reaction-path calculations and multiscale analysis are combined according to experimental observations and target mechanisms.</p></div>
+<div class="hqtd-highsim-custom-home-actions"><a href="/en/high-end-simulation.html#custom">Know how to customize</a><button data-highsim-add="JS-204" type="button">Add to Request List</button><button data-highsim-submit="JS-204" type="button">Submit a Request</button></div>
+</div><div class="hqtd-highsim-strip"><span><strong>Source of representative case:</strong> Nature Communications · JACS · Environmental Science &amp; Technology · Angewandte Chemie · Advanced Functional Materials</span><a href="/en/high-end-simulation.html#case-library">View all representative cases</a></div>
+</div>
+</section>
+<section class="section hqt-capability-section hqt-capability-analysis">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">03 CHARACTERIZATION &amp; TESTING</span><h2>Characterization &amp; Testing</h2></div>
+</div>
+<div class="hqt-feature-grid">
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="/en/project/fx-24.html">
+<img alt="XRD Phase Analysis — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/07-material-characterization.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>Material Characterization</span>
+<h3><a href="/en/project/fx-24.html">SEM Microform and Structural Analysis</a></h3>
+<p>Surface morphology, particle size, pore structure and microdefect analysis for powders, membranes, coatings and composites.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>SEM</span><span>Appearance</span><span>Microstructure</span></div>
+<a href="/en/project/fx-24.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="/en/project/fx-85.html">
+<img alt="XPS Survey Spectrum — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/08-solution-analysis.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>Solution Analysis</span>
+<h3><a href="/en/project/fx-85.html">HPLC Quantification of Organic Pollutants</a></h3>
+<p>Component separation, qualitative/quantitative target analysis and calibration-curve evaluation for water samples, reaction solutions and extracts.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>HPLC</span><span>Quantitative</span><span>Colours</span></div>
+<a href="/en/project/fx-85.html">View Details →</a>
+</div>
+</div>
+</article>
+<article class="ai-showcase-card hqt-feature-card hqt-card-board-analysis">
+<a class="ai-showcase-media" href="/en/project/fx-15.html">
+<img alt="Electrochemical Impedance Spectroscopy (EIS) — Reference Image" decoding="async" loading="lazy" src="/assets/images/homepage-color/09-performance-testing.webp">
+</a>
+<div class="ai-showcase-copy">
+<span>Performance test</span>
+<h3><a href="/en/project/fx-15.html">EIS Electrochemical Resistance and Interface Dynamics</a></h3>
+<p>Evaluates charge transfer, interfacial impedance and cycling stability using Nyquist/Bode plots and equivalent-circuit fitting.</p>
+<div class="ai-showcase-footer">
+<div class="ai-showcase-tags"><span>EIS</span><span>Interface</span><span>Stability</span></div>
+<a href="/en/project/fx-15.html">View Details →</a>
+</div>
+</div>
+</article>
+</div>
+<div class="hqt-more-strip"><span>More detection directions.</span><a href="/en/category/composition-elements.html">Elements</a><a href="/en/category/morphology-structure.html">Morphology and Structure</a><a href="/en/category/spectroscopy-phase.html">Spectroscopy and Phase Analysis</a><a href="/en/category/performance-reliability.html">Performance and Reliability</a><a href="/en/category/particle-dispersion.html">Particle Size &amp; Dispersibility</a></div>
+</div>
+</section>
+<!-- HQTD ENVIRONMENT REPRESENTATIVE PROJECTS V10.10 START -->
+<section class="section hqtd-six-topic-section env-six" id="environment-topics">
+<div class="container">
+<div class="hqtd-six-head">
+<div><span class="section-en">REPRESENTATIVE ENVIRONMENTAL PROJECTS</span><h2>Representative project on environmental testing</h2></div>
+<p>Representative environmental testing projects covering emerging contaminants, greenhouse gases, microplastics, water, soil and custom method development. Browse the Project Catalog for more specific parameters.</p>
+</div>
+<div class="hqtd-six-grid">
+<a class="hqtd-six-card a1" href="/en/emerging-contaminants.html"><span class="topic-en">EMERGING CONTAMINANTS</span><h3>PFAS and precision testing of new pollutants</h3><p>Covers screening, quantification and product identification for PFAS, pesticides and metabolites, antibiotics, pharmaceuticals, hormones and other targets.</p><div class="hqtd-six-tags"><span>PFAS</span><span>LC-MS/MS</span><span>Product Identification</span></div><strong class="hqtd-six-link">View items</strong></a>
+<a class="hqtd-six-card a2" href="/en/greenhouse-gas-detection.html"><span class="topic-en">GREENHOUSE GAS</span><h3>Accurate monitoring of greenhouse gases</h3><p>In soil- and environmental-oriented samples CO₂, CH₄, N₂O and other greenhouse gas monitoring and emission analysis.</p><div class="hqtd-six-tags"><span>CO₂</span><span>CH₄</span><span>N₂O</span></div><strong class="hqtd-six-link">View items</strong></a>
+<a class="hqtd-six-card a3" href="/en/microplastics-detection.html"><span class="topic-en">MICROPLASTIC ANALYTICS</span><h3>Analysis of microplastics and crack microplastics</h3><p>Supports particle counting, particle-size and morphology analysis, polymer identification and source analysis.</p><div class="hqtd-six-tags"><span>Raman</span><span>μ-FTIR</span><span>Polymer Identification</span></div><strong class="hqtd-six-link">View items</strong></a>
+<a class="hqtd-six-card a4" href="/en/water-testing.html"><span class="topic-en">ROUTINE WATER TESTING</span><h3>Routine Water Testing</h3><p>Covers 30 pH, conductivity, TDS, COD, DOC/TOC, TN/TP, ion and element/heavy metals, etc..</p><div class="hqtd-six-tags"><span>30 items</span><span>Water Quality</span><span>Element/ion</span></div><strong class="hqtd-six-link">View 30 items</strong></a>
+<a class="hqtd-six-card a5" href="/en/soil-testing.html"><span class="topic-en">ROUTINE SOIL TESTING</span><h3>Routine Soil Testing</h3><p>Covers 35 parameters including basic physicochemical properties, N/P nutrients, ions, carbon/humus, elements/heavy metals and ecological indicators.</p><div class="hqtd-six-tags"><span>35 items</span><span>Soil</span><span>Nutrient/carbon</span></div><strong class="hqtd-six-link">View 35 items</strong></a>
+<a class="hqtd-six-card a6" href="/en/comprehensive-testing-method-development.html"><span class="topic-en">METHOD DEVELOPMENT</span><h3>Comprehensive Testing and Method Development</h3><p>Designs sample preparation, instrument workflows, quantification and quality-control plans for complex matrices, new targets and non-routine research questions.</p><div class="hqtd-six-tags"><span>Method Customisation</span><span>Forward processing</span><span>Quality control</span></div><strong class="hqtd-six-link">View items</strong></a>
+</div>
+<div class="hqtd-six-footer"><span>Representative projects are shown here. The complete environmental testing catalog remains available through Project Catalog and Request List.</span><a href="/en/catalog.html?board=Environmental+Testing">Query all environmental detection items</a></div>
+</div>
+</section>
+<!-- HQTD ENVIRONMENT REPRESENTATIVE PROJECTS V10.10 END -->
+<section class="section hqt-capability-section hqt-capability-supplies">
+<div class="container">
+<div class="hqt-capability-head reveal">
+<div><span class="section-en">05 SUPPLIES</span><h2>Supplies &amp; Instruments</h2></div>
+</div>
+<div class="hqt-feature-grid"><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="/en/project/hc-001.html"><img alt="Nitrile Gloves and Laboratory Safety." decoding="async" loading="lazy" src="/assets/images/homepage-color/10-general-lab-consumables.webp"></a><div class="ai-showcase-copy"><span>Safety protection consumables</span><h3><a href="/en/project/hc-001.html">Nitrile Gloves and Laboratory Safety</a></h3><p>S/M/L, 100 pcs/box, suitable for routine laboratory work, sample handling and basic safety protection.</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>Gloves.</span><span>Protection</span><span>Cash.</span></div><a href="/en/project/hc-001.html">View Details →</a></div></div></article><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="/en/project/hc-085.html"><img alt="Centrifugal tube and sample processing materials Classification reference diagram" decoding="async" loading="lazy" src="/assets/images/homepage-color/11-basic-consumables.webp"></a><div class="ai-showcase-copy"><span>Plastics</span><h3><a href="/en/project/hc-085.html">Centrifugal tube and sample treatment materials</a></h3><p>Covers common specifications of 1.5 mL, 2 mL, etc., applicable to sample sorting, centrifugal, preservation and routine laboratory processing.</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>Centrifuge Tubes</span><span>Sample</span><span>Supplies</span></div><a href="/en/project/hc-085.html">View Details →</a></div></div></article><article class="ai-showcase-card hqt-feature-card hqt-card-board-supplies"><a class="ai-showcase-media" href="/en/project/hc-1008.html"><img alt="Benchtop High-Speed Centrifuge Classification reference maps" decoding="async" loading="lazy" src="/assets/images/homepage-color/12-lab-instruments.webp"></a><div class="ai-showcase-copy"><span>Experimental equipment</span><h3><a href="/en/project/hc-1008.html">Benchtop High-Speed Centrifuge</a></h3><p>For sample separation, cell pelleting and routine processing, with selection by speed, capacity and rotor configuration.</p><div class="ai-showcase-footer"><div class="ai-showcase-tags"><span>Instrument</span><span>Centrifugal</span><span>Selection</span></div><a href="/en/project/hc-1008.html">View Details →</a></div></div></article></div>
+<div class="hqt-more-strip"><span>More material classification</span><a href="/en/catalog.html?q=Safety+and+Cleaning+Supplies">Safety and Cleaning Supplies</a><a href="/en/catalog.html?q=Plastics">Plastics</a><a href="/en/catalog.html?q=Glass+%2F+Quartz+%2F+Ceramic+Labware">Glass / Quartz / Ceramic Labware</a><a href="/en/catalog.html?q=Metal+products+and+tools">Metal products and tools</a><a href="/en/catalog.html?q=Rubber+Products">Rubber Products</a><a href="/en/catalog.html?q=Paper+Products+and+Labels">Paper Products and Labels</a><a href="/en/catalog.html?q=Reagents+and+Reference+Standards">Reagents and Reference Standards</a><a href="/en/catalog.html?q=Biochemistry+Supplies">Biochemistry Supplies</a><a href="/en/catalog.html?q=Filtration+%2F+Chromatography+%2F+Membranes+%2F+Electrochemistry+and+Material+Preparation">Filtration / Chromatography / Membranes / Electrochemistry and Material Preparation</a><a href="/en/catalog.html?q=Environmental+Testing+and+Sampling+Supplies">Environmental Testing and Sampling Supplies</a><a href="/en/catalog.html?q=Battery+and+Electrochemistry+Supplies">Battery and Electrochemistry Supplies</a></div>
+</div>
+</section>
+</main>
+<footer aria-label="Website footer" class="footer-unified"><div class="footer-unified-main"><section aria-label="Company Information" class="footer-brand-block"><div class="footer-brand-row"><img alt="Shanghai Hongqi Tengda logo" decoding="async" loading="lazy" src="/assets/images/logo-mark.png"><div><strong>Shanghai Hongqi Tengda Information Technology Co., Ltd.</strong><small>Shanghai Hongqi Tengda Information Technology Co., Ltd.</small></div></div><h2>AI-driven research services and digital solutions</h2><p>Connecting research needs with data analysis and engineering through professional technical services.</p></section><nav aria-label="Services" class="footer-column"><strong>Services</strong><a href="/en/board/ai-projects.html">AI Projects</a><a href="/en/board/computational-simulation.html">Computational Simulation</a><a href="/en/board/characterization-analysis.html">Characterization &amp; Testing</a><a href="/en/board/research-supplies.html">Supplies &amp; Instruments</a><a href="/en/catalog.html">Project Catalog</a></nav><div aria-label="Contact Us" class="footer-column"><strong>Contact Us</strong><button data-open-tech="" type="button">AI / Computational Simulation Consultation</button><button data-open-admin="" type="button">Tables &amp; testing/environment/material consumption services</button><span>Official Email</span><span class="footer-email">drwang@hongqitengda.cn</span></div><section aria-label="WeChat Account and Mini Program" class="footer-service-panel"><figure class="footer-service-qr"><a href="/assets/images/wechat-service-account.jpg" rel="noopener noreferrer" target="_blank" title="Enlarge the WeChat account QR code"><img alt="HQTD WeChat official account QR code" decoding="async" loading="lazy" src="/assets/images/wechat-service-account.jpg"></a><figcaption><strong>Follow Our WeChat Account</strong><small>Notifications / Orders / Support</small></figcaption></figure><figure class="footer-service-qr"><a href="/assets/images/wechat-mini-program.jpg" rel="noopener noreferrer" target="_blank" title="Enlarge the mini program code"><img alt="HQTD research services mini program code" decoding="async" loading="lazy" src="/assets/images/wechat-mini-program.jpg"></a><figcaption><strong>Research Services Mini Program</strong><small>Project Catalog / Services</small></figcaption></figure></section></div><div class="footer-bottom-final"><a aria-label="Back to top" class="footer-backtop" href="#top">↑</a><div class="footer-bottom-inner"><span>Shanghai ICP Registration No. 2026030711-1X</span><span>Copyright Shanghai Hongqi Tengda Information Technology Co., Ltd. All Rights Reserved</span></div></div></footer><div aria-label="Contact Support" class="hq-chat"><button aria-controls="hq-chat-panel" aria-expanded="false" class="hq-chat-launcher" type="button"><span aria-hidden="true" class="hq-chat-launcher-icon"></span><span class="hq-chat-launcher-text"><strong>Contact Support</strong><small>FAQ · WeCom</small></span></button><section class="hq-chat-panel" hidden="" id="hq-chat-panel"><div class="hq-chat-header"><div><strong>HQTD Self-Service Support</strong><small>Choose a topic or enter keywords</small></div><button aria-label="Close" class="hq-chat-close" type="button">×</button></div><div class="hq-chat-body" id="hq-chat-body"><div class="hq-chat-message"><div aria-hidden="true" class="hq-chat-avatar"></div><div class="hq-chat-bubble">Hello. Select a common question or enter keywords such as AI, simulation, characterization, purchasing, invoices, or progress.</div></div><div class="hq-chat-quick"><button data-faq-key="services" type="button">What research services are available?</button><button data-faq-key="price" type="button">How do I get a quote?</button><button data-faq-key="simulation" type="button">Computational Simulation Consultation</button><button data-faq-key="testing" type="button">Tables &amp; Testing/User Advice</button><button data-faq-key="invoice" type="button">Contracts and Invoices</button><button data-faq-key="progress" type="button">Project Progress Inquiries</button></div><div class="hq-chat-wecom" hidden="" id="hq-chat-wecom"><article class="hq-chat-contact-card" data-chat-contact="tech"><img alt="AI and Computational Simulation on WeCom" decoding="async" loading="lazy" src="/assets/images/contact-ai-simulation-qr.png"><strong>AI / Simulation</strong><p>AI projects, DFT, MD, AIMD, data analysis, and software development</p><button data-open-tech="" type="button">View Contact Details</button></article><article class="hq-chat-contact-card" data-chat-contact="admin"><img alt="Signing and material-depleting equipment, micro-credit." decoding="async" loading="lazy" src="/assets/images/contact-characterization-supplies-qr.png"><strong>Characterization / Environment / Supplies</strong><p>Characterization, environmental testing, supplies &amp; instruments, contracts, invoices, logistics and after-sales</p><button data-open-admin="" type="button">View Contact Details</button></article></div></div><form class="hq-chat-input" id="hq-chat-form"><input autocomplete="off" id="hq-chat-text" placeholder="Enter keywords" type="text"><button type="submit">Send</button></form></section></div><div aria-labelledby="tech-qr-title" aria-modal="true" class="modal" hidden="" id="tech-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="Close" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">AI &amp; SIMULATION</span><h2 id="tech-qr-title">AI / Simulation Consultation</h2><img alt="WeCom QR code for AI and computational simulation" decoding="async" loading="lazy" src="/assets/images/contact-ai-simulation-qr.png"><p>Applicable to AI project, DFT, MD, AIMD, data analysis, scientific mapping and software development needs. For addition, please comment on "OfficeNet Consulting + Unit + Demand Keywords".</p><div class="modal-link-row"><a class="primary" href="/en/board/ai-projects.html">Explore AI Projects</a><a href="mailto:drwang@hongqitengda.cn">Email Us</a></div></div></div><div aria-labelledby="admin-qr-title" aria-modal="true" class="modal" hidden="" id="admin-qr-modal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="contact-modal-panel"><button aria-label="Close" class="modal-close" data-close-modal="" type="button">×</button><span class="modal-kicker">CHARACTERIZATION &amp; SUPPLIES</span><h2 id="admin-qr-title">Tables &amp; testing/environment/consumer counselling</h2><img alt="Tests for signs and utilisation instruments." decoding="async" loading="lazy" src="/assets/images/contact-characterization-supplies-qr.png"><p>For characterization, environmental testing, supplies &amp; instruments, contracts, payments, invoices, logistics and after-sales.</p><div class="modal-link-row"><a class="primary" href="/en/board/characterization-analysis.html">Explore Characterization &amp; Testing</a><a href="mailto:drwang@hongqitengda.cn">Email Us</a></div></div></div><script defer src="/en/assets/js/site.js?v=20260926-en"></script>
+<!-- HQTD customer portal entry: original homepage content preserved -->
+<a aria-label="Access to client centres for orders, quotations, progress and documents" class="hqtd-home-customer-center" href="/en/customer-portal/"><span>Customer Center</span><small>Orders, Quotes &amp; Files</small></a>
+<script src="/en/assets/js/order-entry-v9.js?v=20260926-en"></script><script src="/en/assets/js/enterprise-v11.js?v=20260926-en"></script>
+<script defer src="/en/assets/js/customer-flow-v112.js?v=20260926-en"></script><script defer src="/en/assets/js/unified-customer-flow-v113.js?v=20260926-en"></script><script defer src="/en/assets/js/environment-topics.js?v=20260926-en"></script>
+<script defer src="/en/assets/js/high-end-simulation.js?v=20260926-en"></script></body>
+</html>

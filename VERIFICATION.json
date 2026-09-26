@@ -1,0 +1,22 @@
+{
+  "html_pages": 4598,
+  "inline_scripts": 4024,
+  "broken_local_links": {},
+  "English_pages_with_Chinese_text": [],
+  "missing_hreflang": [],
+  "English_Word_forms": 472,
+  "forms_with_Chinese_text": [],
+  "missing_template_files": [],
+  "original_images_and_papers": 2047,
+  "changed_media": [],
+  "English_search_cases_passed": 12,
+  "English_search_cases_total": 12,
+  "browser_errors": [],
+  "missing_browser_resources": [],
+  "mobile_layouts_passed": true,
+  "production_orders_submitted": 0,
+  "English_template_downloads_verified": [
+    "JS-1-Request-Form.docx",
+    "AI-1-Request-Form.docx"
+  ]
+}

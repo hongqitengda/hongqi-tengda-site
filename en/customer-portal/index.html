@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/en/assets/js/english-adapter.js"></script><meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport">
+<meta content="HQTD Client Centre: to view orders submitted, quotations, project progress, delivery documents, balances, invoices and sales." name="description">
+<title>HQTD Customer Center | Orders, Quotes, Progress &amp; Files</title>
+<link href="/en/customer-portal/assets/css/portal.css?v=20260723-v1169" rel="stylesheet">
+<link rel="stylesheet" href="/en/assets/css/unified-customer-flow-v113.css?v=11.3.0"><link rel="stylesheet" href="/en/assets/css/english-layout.css"><link rel="canonical" href="https://www.hongqitengda.com/en/customer-portal/index.html"><link rel="alternate" hreflang="zh-Hans" href="https://www.hongqitengda.com/customer-portal/index.html"><link rel="alternate" hreflang="en" href="https://www.hongqitengda.com/en/customer-portal/index.html"><link rel="alternate" hreflang="x-default" href="https://www.hongqitengda.com/customer-portal/index.html"><link rel="stylesheet" href="/assets/css/bilingual.css?v=20260926"><script src="/assets/js/bilingual-navigation.js?v=20260926" defer></script><meta name="robots" content="noindex,follow"></head>
+<body>
+<nav class="hqtd-language-bar" aria-label="Language"><a href="/customer-portal/index.html" hreflang="zh-Hans">Chinese</a><a href="/en/customer-portal/index.html" hreflang="en" aria-current="page">English</a></nav><header class="header">
+<div class="container nav">
+<a aria-label="Back to Red Zhenda." class="brand" href="/en/index.html">
+<img alt="HQTD" src="/customer-portal/assets/images/hqtd-logo.png">
+<span><strong>HQTD Client Service Centre</strong><small>Use the same account on the website and WeChat Mini Program</small></span>
+</a>
+<div class="nav-actions">
+<a class="btn btn-ghost" href="/en/catalog.html">Find Items</a>
+
+<button class="btn btn-ghost hidden" id="accountSwitchBtn" type="button">Toggle Account</button>
+<button class="btn btn-outline hidden" id="logoutBtn" type="button">Exit</button>
+</div>
+</div>
+<a class="portal-return-home" href="/en/index.html">Return to the official network.</a></header>
+<main class="auth-shell" id="authView">
+<section class="auth-card">
+<div class="auth-copy">
+<span class="eyebrow">HQTD SCIENTIFIC</span>
+<h1>Login to see order and project progress</h1>
+<p>View submitted orders, quotations, project progress, deliverables, and account information here. To place an order, visit the relevant project page.</p>
+<div class="auth-benefits"><span>Orders and quotations</span><span>Project progress</span><span>Files &amp; Support</span></div>
+</div>
+<div class="auth-form-card">
+<div aria-label="Login" class="tabs" role="tablist">
+<button class="tab active" data-auth="login" type="button">Log In</button>
+<button class="tab" data-auth="register" type="button">Register</button>
+<button class="tab" data-auth="wechat" type="button">WeChat QR Login</button>
+</div>
+<div id="loginPanel">
+<h2>Client Login</h2>
+<label class="field"><span>Phone Number or Email</span><input autocomplete="username" id="loginIdentity" placeholder="Please enter a cell phone number or a mailbox."></label>
+<label class="field"><span>Password</span><input autocomplete="current-password" id="loginPassword" placeholder="Please enter the password." type="password"></label>
+<button class="btn btn-primary btn-block" id="loginSubmit" type="button">Log In to Customer Center</button>
+</div>
+<div class="hidden" id="registerPanel">
+<h2>Create client account</h2>
+<div class="form-grid compact-grid">
+<label class="field"><span>Name*</span><input id="regName"></label>
+<label class="field"><span>Organization / Institution</span><input id="regOrganization"></label>
+<label class="field"><span>Mobile Number</span><input id="regPhone" inputmode="tel"></label>
+<label class="field"><span>Email</span><input id="regEmail" inputmode="email"></label>
+<label class="field full"><span>Login password*</span><input id="regPassword" type="password"></label>
+</div>
+<button class="btn btn-primary btn-block" id="registerSubmit" type="button">Registered and entered</button>
+</div>
+<div class="hidden" id="wechatPanel">
+<h2>Message Scanning Login</h2>
+<p class="muted">This portal will automatically connect to the applet account once the MPID application has been validated and configured on the Wiki platform website.</p>
+<button class="btn btn-primary btn-block" id="wechatLoginBtn" type="button">Commencing microlink login.</button>
+</div>
+<div aria-live="polite" id="authMessage"></div>
+</div>
+</section>
+</main>
+<div class="hidden" id="portalContent">
+<nav aria-label="Client center master navigation" class="app-tabs">
+<button class="app-tab active" data-view="home" type="button"><b>Home</b><small>Customer Center</small></button>
+
+
+<button class="app-tab" data-view="business" type="button"><b>Business Progress</b><small>Quantities and projects</small></button>
+<button class="app-tab" data-view="files" type="button"><b>Deliverables</b><small>Reporting and results</small></button><button class="app-tab" data-view="messages" type="button"><b>Messages</b><small>Status Notification</small></button><button class="app-tab" data-view="account" type="button"><b>Mine.</b><small>Information and accounts</small></button>
+</nav>
+<main class="portal-main container">
+<section data-section="home">
+<article class="account-hero">
+<div>
+<span class="eyebrow">CURRENT ACCOUNT</span>
+<h1 id="homeAccountName">Current client account</h1>
+<p id="homeAccountMeta">Loading account information...</p><div class="realtime-note">Automatic synchronization of offers, ongoing projects, delivery and post-sale status of the network and small processes per 15 seconds.</div>
+</div>
+<a class="btn btn-light" href="/en/catalog.html">Select a New Project</a>
+</article>
+<div aria-label="Current operational status" class="metric-grid">
+<button class="metric-card" data-business-filter="quotes" type="button"><span>Quotes Awaiting Confirmation</span><strong id="metricQuotes">0</strong><small>Check and confirm the offer.</small></button>
+<button class="metric-card" data-business-filter="projects" type="button"><span>Active Projects</span><strong id="metricProjects">0</strong><small>View current progress</small></button>
+<button class="metric-card" data-business-filter="deliveries" type="button"><span>Deliveries Awaiting Confirmation</span><strong id="metricDeliveries">0</strong><small>Download and confirm files</small></button>
+<button class="metric-card" data-business-filter="afterSales" type="button"><span>Open Support Requests</span><strong id="metricAfterSales">0</strong><small>View processing records</small></button>
+</div>
+<section class="home-section">
+<div class="section-title"><div><h2>Orders and customer services</h2><p>The next list is completed on the item page; Check this for post-list information..</p></div></div>
+<div class="primary-actions"><a class="service-action" href="/en/catalog.html"><i>⌕</i><span><strong>Select a New Project</strong><small>Go to the official web project page.</small></span></a>
+
+
+<button class="service-action" data-view-target="business" type="button"><i>↗</i><span><strong>Business Progress</strong><small>Quotations, projects and orders</small></span></button>
+<button class="service-action" data-view-target="files" type="button"><i>↓</i><span><strong>Deliverables</strong><small>Downloading reports and results</small></span></button>
+<button class="service-action" data-view-target="afterSales" type="button"><i>?</i><span><strong>After-Sales Support</strong><small>Submission of questions and additional clarifications</small></span></button>
+</div>
+</section>
+<section class="home-section">
+<div class="section-title"><h2>Accounts and services</h2></div>
+<div class="secondary-actions">
+<button data-open-filter="quotes" data-view-target="business" type="button"><b>Quote confirmation.</b><small>Confirm or apply for a change in price</small></button>
+<button data-view-target="wallet" type="button"><b>Account Balance</b><small>Balance and consumption of running water</small></button>
+<button data-view-target="contracts" type="button"><b>Contracts</b><small>View contract and status</small></button>
+<button data-view-target="invoices" type="button"><b>Invoices</b><small>Heads up and invoice applications</small></button>
+<button data-view-target="messages" type="button"><b>Messages</b><small>Orders and project notifications</small></button>
+<button data-message-mode="project" data-view-target="messages" type="button"><b>Messages from the project</b><small>Additional information and communication</small></button>
+<button data-view-target="members" type="button"><b>Account Members</b><small>View Unit Members</small></button>
+<button data-view-target="account" type="button"><b>Client information</b><small>Contacts and Settings</small></button>
+</div>
+</section>
+<section class="home-section">
+<div class="section-title"><div><h2>Recent operations</h2><p>Synchronise display of official network with applet data.</p></div><button class="text-button" data-view-target="business" type="button">View All</button></div>
+<div class="record-list" id="recentBusiness"><div class="empty-state">Business records not available</div></div>
+</section>
+</section>
+<section aria-hidden="true" class="hidden legacy-order-section" data-section="submit">
+<div class="page-head">
+<div><span class="eyebrow">QUICK ORDER</span><h1>Fill in project requirements</h1><p>Item has been brought automatically. Select the usual option and use one more sentence to indicate the need..</p></div>
+<button class="btn btn-ghost" data-view-target="home" type="button">Back to Customer Center</button>
+</div>
+<article class="order-card">
+<div class="order-step"><span>1</span><div><h2>Confirm Project</h2><p>Select automatically when entering from the item details without having to choose again.</p></div></div>
+<div class="selected-project empty" id="selectedProjectCard">
+<div><small>Not Selected</small><strong>Select the type of service and the specific item</strong><span>A single demand line corresponds to a specific project, and subsequent offers and follow-up are easier.</span></div>
+<button class="btn btn-outline" id="changeProjectBtn" type="button">Select a Project</button>
+</div>
+<div class="project-chooser" id="projectChooser">
+<div class="service-type-row" id="serviceTypeCards">
+<button data-service-type="AI Projects" type="button">AI Projects</button>
+<button data-service-type="Computational Simulation" type="button">Computational Simulation</button>
+<button data-service-type="Material Characterization" type="button">Material Characterization</button>
+<button data-service-type="Supplies &amp; Instruments" type="button">Supplies &amp; Instruments</button>
+</div>
+<label class="search-field"><span>Search Projects</span><input id="projectSearch" placeholder="Enter the name, number or category of the item" type="search"></label>
+<div class="project-list" id="projectList"></div>
+</div>
+<div class="hidden" id="orderFormArea">
+<div class="order-step"><span>2</span><div><h2>Select Common Options</h2><p>Retain only the necessary information for impact assessments and quotations; Uncertain options can not be filled in.</p></div></div>
+<div class="quick-fields" id="quickFields"></div>
+<label class="field full description-field">
+<span>♪ A word to say what needs ♪</span>
+<textarea id="requestDescription" placeholder="For example: desire to compare the adsorption properties of different materials and to output energy, electronic structures and high-resolution images; Existing CIF Structure File."></textarea>
+</label>
+<div class="form-grid contact-grid">
+<label class="field"><span>_Other Organiser</span><input id="orderContactName"></label>
+<label class="field"><span>Organization / Institution</span><input id="orderOrganization"></label>
+<label class="field"><span>Mobile Number</span><input id="orderPhone" inputmode="tel"></label>
+<label class="field"><span>Email</span><input id="orderEmail" inputmode="email"></label>
+<label class="field"><span>Target Completion Date</span><span class="date-wrap"><input id="orderExpectedDate" type="date"></span></label>
+<label class="field"><span>Budget scope (optional)</span><input id="orderBudget" placeholder="Like ¥3,000–5,000 / To Be Assessed"></label>
+</div>
+<label class="field full attachment-field"><span>Uploading data (selection)</span><input accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz" id="attachments" multiple type="file"><small>Support Word, PDF, Excel, pictures, compressor packages and common structure files; Single file does not exceed 5 MB.</small></label>
+<details class="backup-template" id="advancedDetails">
+<summary><span><strong>Professional template (optional)</strong><small>Only if the professional parameters need to be supplemented.; Default does not fill.</small></span><b>Expand</b></summary>
+<div class="backup-actions">
+<button class="btn btn-outline" id="downloadTemplateBtn" type="button">Download corresponding Word Templates</button>
+<label class="form-switch"><input id="advancedMode" type="checkbox"><span>Fill out detailed templates online</span></label>
+</div>
+<div class="form-grid hidden" id="advancedFields"></div>
+</details>
+<div aria-live="polite" id="submitMessage"></div>
+</div>
+</article>
+<div class="order-bar hidden" id="orderBar">
+<div><small>Current Project</small><strong id="orderBarProject">No Selection</strong><span id="orderBarPrice">Prices assessed by technicians</span></div>
+<div class="order-bar-actions">
+<button class="btn btn-outline" id="submitRequirementBtn" type="button">Submit a Request</button>
+<button class="btn btn-primary" id="submitAndWordBtn" type="button">Submit and Generate Word Document</button>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="hidden legacy-order-section" data-section="cart">
+<div class="page-head cart-page-head">
+<div><span class="eyebrow">DIRECT ORDER</span><h1>Confirm Request List</h1><p>Select multiple items like a shopping cart. Contacts only fill in once.. Scientific services are assessed by technicians and the official offer is confirmed.</p></div>
+<a class="btn btn-ghost" href="/en/catalog.html">Continue Selecting Projects</a>
+</div>
+<div class="cart-layout">
+<article class="panel cart-panel">
+<div class="cart-title"><div><h2>Selected Projects</h2><p>Quantities that could be modified and specific requirements added for each project.</p></div><button class="text-button" id="clearCartBtn" type="button">Clear List</button></div>
+<div class="cart-items" id="cartItems"><div class="empty-state">The list of needs is empty</div></div>
+</article>
+<aside class="panel checkout-panel">
+<div class="checkout-title"><span>Submit Order</span><strong id="cartSummary">Total 0 projects</strong><small>Subtotal of priced projects shown, with the remaining projects evaluated after submission.</small></div>
+<div class="form-grid cart-contact-grid">
+<label class="field"><span>_Other Organiser</span><input id="cartContactName"></label>
+<label class="field"><span>Organization / Institution</span><input id="cartOrganization"></label>
+<label class="field"><span>Mobile Number</span><input id="cartPhone" inputmode="tel"></label>
+<label class="field"><span>Email</span><input id="cartEmail" inputmode="email"></label>
+<label class="field"><span>Target Completion Date</span><input id="cartExpectedDate" type="date"></label>
+<label class="field"><span>Budget Range</span><input id="cartBudget" placeholder="Select Fill, Like ¥5,000–10,000"></label>
+<label class="field full"><span>Overall research objective/additional description*</span><textarea id="cartDescription" placeholder="For example: three calculations are intended to be used in the same paper, and the structure document is organized; Specific parameters to be evaluated by technicians."></textarea></label>
+<label class="field full attachment-field"><span>Upload Supporting Files (Optional)</span><input accept=".doc,.docx,.pdf,.xls,.xlsx,.csv,.zip,.rar,.7z,.png,.jpg,.jpeg,.cif,.pdb,.mol,.xyz" id="cartAttachments" multiple type="file"><small>File-by-file upload to cloud storage; No more than 5 MB and no more than 10 files.</small></label>
+</div>
+<label class="checkout-consent"><input checked id="cartConsent" type="checkbox"><span>I confirm that the contact details and requirements are accurate, and I agree to be evaluated by the technicians and to contact them to confirm the offer..</span></label>
+<div class="checkout-actions">
+<button class="btn btn-outline" id="cartSubmitBtn" type="button">Order Directly</button>
+<button class="btn btn-primary" id="cartSubmitWordBtn" type="button">Order and Generate Word Document</button>
+</div>
+<div aria-live="polite" id="cartMessage"></div>
+</aside>
+</div>
+</section>
+<section class="hidden" data-section="business">
+<div class="page-head"><div><span class="eyebrow">BUSINESS</span><h1>Business Progress</h1><p>Consider confirmation of quotations, ongoing projects, delivery and after sale.</p></div><a class="btn btn-primary" href="/en/catalog.html">Select a New Project</a></div>
+<div class="filter-tabs" id="businessTabs">
+<button class="active" data-filter="all" type="button">All</button>
+<button data-filter="quotes" type="button">Quotes Awaiting Confirmation</button>
+<button data-filter="projects" type="button">Active Projects</button>
+<button data-filter="deliveries" type="button">Deliveries Awaiting Confirmation</button>
+<button data-filter="afterSales" type="button">Open Support Requests</button>
+</div>
+<div class="record-list" id="businessList"><div class="empty-state">Loading...</div></div>
+</section>
+<section class="hidden" data-section="files">
+<div class="page-head"><div><span class="eyebrow">DELIVERIES</span><h1>Deliverables</h1><p>Download project reports, raw data and other deliverables.</p></div></div>
+<div class="record-list" id="filesList"><div class="empty-state">No deliverables available</div></div>
+</section>
+<section class="hidden" data-section="afterSales">
+<div class="page-head"><div><span class="eyebrow">AFTER SALES</span><h1>After-Sales Support</h1><p>Select related business and explain the problem. We'll synchronize it to the applet and management end..</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>Related Reference Number</span><input id="afterSaleBusinessNo" placeholder="Order number/project number/demand number"></label>
+<label class="field"><span>Issue Type</span><select id="afterSaleType"><option>Results counselling</option><option>Document supplements</option><option>Data issues</option><option>Progress issues</option><option>Invoice contracts</option><option>Other</option></select></label>
+<label class="field full"><span>Issues note*</span><textarea id="afterSaleDescription" placeholder="Please indicate what assistance is needed."></textarea></label>
+</div>
+<button class="btn btn-primary" id="createAfterSaleBtn" type="button">Submit a Support Request</button>
+<div aria-live="polite" id="afterSaleMessage"></div>
+</article>
+<div class="record-list" id="afterSalesList"><div class="empty-state">No support requests</div></div>
+</section>
+<section class="hidden" data-section="wallet">
+<div class="page-head"><div><span class="eyebrow">WALLET</span><h1>Account Balance</h1><p>The balance is calculated automatically by recharge, consumption, refund and adjustment of flow water.</p></div></div>
+<article class="balance-card"><small>Available Balance</small><strong id="walletBalance">¥0.00</strong><p id="walletTotals">Cumulative full value ¥0.00｜ Cumulative consumption ¥0.00｜ Cumulative refunds ¥0.00</p></article>
+<div class="record-list" id="walletTransactions"><div class="empty-state">No transactions</div></div>
+</section>
+<section class="hidden" data-section="contracts"><div class="page-head"><div><span class="eyebrow">CONTRACTS</span><h1>Contracts</h1><p>Check the contract number, signature status and documents.</p></div></div><div class="record-list" id="contractsList"><div class="empty-state">No contracts</div></div></section>
+<section class="hidden" data-section="invoices">
+<div class="page-head"><div><span class="eyebrow">INVOICES</span><h1>Invoices</h1><p>Management of billing and submission of request for billing.</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>Invoice Title</span><input id="invoiceTitle"></label>
+<label class="field"><span>Unified Social Credit Code</span><input id="invoiceTaxNo"></label>
+<label class="field"><span>Related Reference Number</span><input id="invoiceBusinessNo"></label>
+<label class="field"><span>Invoice Amount</span><input id="invoiceAmount" inputmode="decimal" placeholder="Dollars"></label>
+</div>
+<button class="btn btn-primary" id="createInvoiceBtn" type="button">Request an Invoice</button>
+<div aria-live="polite" id="invoiceMessage"></div>
+</article>
+<div class="record-list" id="invoicesList"><div class="empty-state">No invoices</div></div>
+</section>
+<section class="hidden" data-section="messages"><div class="page-head"><div><span class="eyebrow">MESSAGES</span><h1>Messages</h1><p>Order notifications, project updates and unified message displays.</p></div></div><div class="record-list" id="messagesList"><div class="empty-state">No messages</div></div></section>
+<section class="hidden" data-section="members"><div class="page-head"><div><span class="eyebrow">MEMBERS</span><h1>Account Members</h1><p>View members and roles under the current unit account.</p></div></div><div class="record-list" id="membersList"><div class="empty-state">No account members</div></div></section>
+<section class="hidden" data-section="account">
+<div class="page-head"><div><span class="eyebrow">ACCOUNT</span><h1>Profile and Account Settings</h1><p>Modified contacts will be synchronized with applets on the official network.</p></div></div>
+<article class="panel simple-form">
+<div class="form-grid">
+<label class="field"><span>Name</span><input id="profileName"></label>
+<label class="field"><span>Organization / Institution</span><input id="profileOrganization"></label>
+<label class="field"><span>Mobile Number</span><input id="profilePhone"></label>
+<label class="field"><span>Email</span><input id="profileEmail"></label>
+</div>
+<button class="btn btn-primary" id="saveProfileBtn" type="button">Save Profile</button>
+<div aria-live="polite" id="profileMessage"></div>
+</article>
+</section>
+</main>
+</div>
+<div aria-labelledby="accountModalTitle" aria-modal="true" class="modal hidden" id="accountModal" role="dialog">
+<div class="modal-backdrop" data-close-account-modal=""></div>
+<div class="modal-panel"><button class="modal-close" data-close-account-modal="" type="button">×</button><h2 id="accountModalTitle">Switch Customer Account</h2><div class="account-list" id="accountList"><div class="empty-state">Loading...</div></div></div>
+</div>
+<script src="/en/customer-portal/assets/js/config.js?v=20260926-en"></script>
+<script src="/en/customer-portal/assets/js/portal.js?v=20260926-bilingual"></script>
+
+<script src="/en/assets/js/enterprise-v11.js?v=20260926-en"></script>
+<script defer src="/en/assets/js/customer-flow-v112.js?v=20260926-en"></script><script defer src="/en/assets/js/unified-customer-flow-v113.js?v=20260926-en"></script></body>
+</html>

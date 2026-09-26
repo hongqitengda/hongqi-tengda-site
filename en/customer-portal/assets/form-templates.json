@@ -1,0 +1,1223 @@
+{
+  "version": "10.0.0",
+  "numbering": {
+    "format": "HQTD-{PROJECT}-{YYYYMMDDHHmmss}-{SEQ}",
+    "sequenceStart": 1,
+    "sequenceWidth": 3,
+    "projectCodes": {
+      "AI Projects": "AI",
+      "Computational Simulation": "JS",
+      "Material Characterization": "FX",
+      "Supplies & Instruments": "HC"
+    },
+    "examples": [
+      "HQTD-JS-20260721213045-001",
+      "HQTD-FX-20260721213045-001"
+    ]
+  },
+  "documentPolicy": {
+    "preserveOriginalWordFormat": true,
+    "dateFormat": "MM DD Day of YYYY",
+    "watermarkText": "Shanghai Hongqi Tengda Information Technology Co., Ltd.",
+    "sealMode": "seal_over_company_date",
+    "sealPosition": "bottom_right",
+    "sealSizeMm": 42,
+    "logoAsset": "/assets/images/hqtd-logo.png",
+    "sealAsset": "/assets/images/company-seal.png"
+  },
+  "databaseMapping": {
+    "collection": "requirements",
+    "common": {
+      "businessNo": "demandNo",
+      "serviceType": "serviceType",
+      "projectCode": "projectCode",
+      "templateKey": "documentProfile.templateKey",
+      "templateName": "documentProfile.templateName",
+      "source": "source",
+      "accountId": "accountId",
+      "openid": "openid",
+      "formData": "formData",
+      "attachments": "attachments",
+      "exportStatus": "documentProfile.exportStatus",
+      "createdAt": "createdAt",
+      "updatedAt": "updatedAt"
+    },
+    "orderCollection": "orders",
+    "quoteCollection": "quotes",
+    "accountCollection": "customer_accounts",
+    "customerCollection": "customers"
+  },
+  "templates": [
+    {
+      "key": "supplies-general",
+      "serviceType": "Supplies & Instruments",
+      "projectCode": "HC",
+      "title": "Supplies and Instruments Purchase Request Form",
+      "category": "Supplies & Instruments",
+      "originalPath": "templates/Supplies-and-Instruments-Request-Form.docx",
+      "interfaceOnly": false,
+      "fields": [
+        {
+          "key": "organization",
+          "label": "Organization / Institution",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "contactName",
+          "label": "Contact Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "phone",
+          "label": "Phone Number",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "key": "email",
+          "label": "E-mail",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "projectName",
+          "label": "Title of procurement project",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "expectedDate",
+          "label": "Expected delivery date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "purchaseMode",
+          "label": "Procurement modalities",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Catalogue commodities",
+            "Non-catalogue request",
+            "Upload procurement lists"
+          ]
+        },
+        {
+          "key": "purchasePurpose",
+          "label": "Purpose of procurement",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "items",
+          "label": "Procurement details",
+          "type": "table",
+          "required": true,
+          "columns": [
+            {
+              "key": "name",
+              "label": "Trade names"
+            },
+            {
+              "key": "brand",
+              "label": "Brand"
+            },
+            {
+              "key": "catalogNo",
+              "label": "Number of goods"
+            },
+            {
+              "key": "spec",
+              "label": "Specifications"
+            },
+            {
+              "key": "quantity",
+              "label": "Quantity"
+            },
+            {
+              "key": "reference",
+              "label": "References/Remarks"
+            }
+          ]
+        },
+        {
+          "key": "acceptAlternative",
+          "label": "Accept Alternative Cards",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Accept",
+            "Not accepted",
+            "We need confirmation first."
+          ]
+        },
+        {
+          "key": "deliveryAddress",
+          "label": "Address of receipt",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "invoiceRequirements",
+          "label": "Request for a ticket",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "technicalRequirements",
+          "label": "Technical and quality requirements",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "key": "otherRequirements",
+          "label": "Other Requirements",
+          "type": "textarea",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "analysis-01",
+      "serviceType": "Material Characterization",
+      "title": "01_SEM Scan the mirrors and EDS Yes, I can",
+      "originalPath": "templates/analysis/FX-1.docx"
+    },
+    {
+      "id": "analysis-02",
+      "serviceType": "Material Characterization",
+      "title": "02_TEM Transradioscopes and electron dissipation",
+      "originalPath": "templates/analysis/FX-2.docx"
+    },
+    {
+      "id": "analysis-03",
+      "serviceType": "Material Characterization",
+      "title": "03_AFM And scan the probe microscope",
+      "originalPath": "templates/analysis/FX-3.docx"
+    },
+    {
+      "id": "analysis-04",
+      "serviceType": "Material Characterization",
+      "title": "04_ Optical micrometry and laser focus",
+      "originalPath": "templates/analysis/FX-4.docx"
+    },
+    {
+      "id": "analysis-05",
+      "serviceType": "Material Characterization",
+      "title": "05_FIB Portrait sample and EBSD",
+      "originalPath": "templates/analysis/FX-5.docx"
+    },
+    {
+      "id": "analysis-06",
+      "serviceType": "Material Characterization",
+      "title": "06_X-Ray CT 3D Imaging",
+      "originalPath": "templates/analysis/FX-6.docx"
+    },
+    {
+      "id": "analysis-07",
+      "serviceType": "Material Characterization",
+      "title": "07_XRD Combination phase and thin film structure",
+      "originalPath": "templates/analysis/FX-7.docx"
+    },
+    {
+      "id": "analysis-08",
+      "serviceType": "Material Characterization",
+      "title": "08_FTIR Fourier Infrared Spectra",
+      "originalPath": "templates/analysis/FX-8.docx"
+    },
+    {
+      "id": "analysis-09",
+      "serviceType": "Material Characterization",
+      "title": "09_Raman Raman Spectroscopy",
+      "originalPath": "templates/analysis/FX-9.docx"
+    },
+    {
+      "id": "analysis-10",
+      "serviceType": "Material Characterization",
+      "title": "10_UV-Vis UV Visible Spectra",
+      "originalPath": "templates/analysis/FX-10.docx"
+    },
+    {
+      "id": "analysis-11",
+      "serviceType": "Material Characterization",
+      "title": "11_ Fluorescent PL 3D fluorescent EEM",
+      "originalPath": "templates/analysis/FX-11.docx"
+    },
+    {
+      "id": "analysis-12",
+      "serviceType": "Material Characterization",
+      "title": "12_NMR Nuclear Magnetic Resonance",
+      "originalPath": "templates/analysis/FX-12.docx"
+    },
+    {
+      "id": "analysis-13",
+      "serviceType": "Material Characterization",
+      "title": "13_EPR Electro-Magnetic Resonance",
+      "originalPath": "templates/analysis/FX-13.docx"
+    },
+    {
+      "id": "analysis-14",
+      "serviceType": "Material Characterization",
+      "title": "14_ Synchronizing Radiation XAFS And soft X Radio-absorption spectrum",
+      "originalPath": "templates/analysis/FX-14.docx"
+    },
+    {
+      "id": "analysis-15",
+      "serviceType": "Material Characterization",
+      "title": "15_ Tahertz and Special Spectra",
+      "originalPath": "templates/analysis/FX-15.docx"
+    },
+    {
+      "id": "analysis-16",
+      "serviceType": "Material Characterization",
+      "title": "16_XRF X Light fluorescent",
+      "originalPath": "templates/analysis/FX-16.docx"
+    },
+    {
+      "id": "analysis-17",
+      "serviceType": "Material Characterization",
+      "title": "17_ICP-OES ICP-MS and AAS Element Analysis",
+      "originalPath": "templates/analysis/FX-17.docx"
+    },
+    {
+      "id": "analysis-18",
+      "serviceType": "Material Characterization",
+      "title": "18_XPS UPS AES and TOF-SIMS Surface Analysis",
+      "originalPath": "templates/analysis/FX-18.docx"
+    },
+    {
+      "id": "analysis-19",
+      "serviceType": "Material Characterization",
+      "title": "19_CHNS ONH Analysis with carbon sulfur",
+      "originalPath": "templates/analysis/FX-19.docx"
+    },
+    {
+      "id": "analysis-20",
+      "serviceType": "Material Characterization",
+      "title": "20_TOC TC IC Total carbon analysis",
+      "originalPath": "templates/analysis/FX-20.docx"
+    },
+    {
+      "id": "analysis-21",
+      "serviceType": "Material Characterization",
+      "title": "21_ Ion chromatography and automatic level drops",
+      "originalPath": "templates/analysis/FX-21.docx"
+    },
+    {
+      "id": "analysis-22",
+      "serviceType": "Material Characterization",
+      "title": "22_BET Gas adsorption and hole structure",
+      "originalPath": "templates/analysis/FX-22.docx"
+    },
+    {
+      "id": "analysis-23",
+      "serviceType": "Material Characterization",
+      "title": "23_ Mercury pressure and plume flow aperture CFP",
+      "originalPath": "templates/analysis/FX-23.docx"
+    },
+    {
+      "id": "analysis-24",
+      "serviceType": "Material Characterization",
+      "title": "24_DLS Particle & Zeta Potential",
+      "originalPath": "templates/analysis/FX-24.docx"
+    },
+    {
+      "id": "analysis-25",
+      "serviceType": "Material Characterization",
+      "title": "25_ Laser particle size and particle distribution",
+      "originalPath": "templates/analysis/FX-25.docx"
+    },
+    {
+      "id": "analysis-26",
+      "serviceType": "Material Characterization",
+      "title": "26_GPC SEC Molecular Mass Distribution",
+      "originalPath": "templates/analysis/FX-26.docx"
+    },
+    {
+      "id": "analysis-27",
+      "serviceType": "Material Characterization",
+      "title": "27_ Contact Angle and Surface Tension",
+      "originalPath": "templates/analysis/FX-27.docx"
+    },
+    {
+      "id": "analysis-28",
+      "serviceType": "Material Characterization",
+      "title": "28_TPD TPR TPO Program heat chemical adsorption",
+      "originalPath": "templates/analysis/FX-28.docx"
+    },
+    {
+      "id": "analysis-29",
+      "serviceType": "Material Characterization",
+      "title": "29_TGA Heat and TG-DSC Synchronization Thermal Analysis",
+      "originalPath": "templates/analysis/FX-29.docx"
+    },
+    {
+      "id": "analysis-30",
+      "serviceType": "Material Characterization",
+      "title": "30_DSC Discrepancies Scan Thermal",
+      "originalPath": "templates/analysis/FX-30.docx"
+    },
+    {
+      "id": "analysis-31",
+      "serviceType": "Material Characterization",
+      "title": "31_TMA and DMA Heat mechanistic analysis",
+      "originalPath": "templates/analysis/FX-31.docx"
+    },
+    {
+      "id": "analysis-32",
+      "serviceType": "Material Characterization",
+      "title": "32_ Mechanical Property Testing",
+      "originalPath": "templates/analysis/FX-32.docx"
+    },
+    {
+      "id": "analysis-33",
+      "serviceType": "Material Characterization",
+      "title": "33_ Nanopressure and Weiner mechanics",
+      "originalPath": "templates/analysis/FX-33.docx"
+    },
+    {
+      "id": "analysis-34",
+      "serviceType": "Material Characterization",
+      "title": "34_ Heat transport coefficients and heat diffusion performance",
+      "originalPath": "templates/analysis/FX-34.docx"
+    },
+    {
+      "id": "analysis-35",
+      "serviceType": "Material Characterization",
+      "title": "35_ Electro-Mechanical and Hole Performance",
+      "originalPath": "templates/analysis/FX-35.docx"
+    },
+    {
+      "id": "analysis-36",
+      "serviceType": "Material Characterization",
+      "title": "36_ Electrical chemistry CV LSV EIS And charge",
+      "originalPath": "templates/analysis/FX-36.docx"
+    },
+    {
+      "id": "analysis-37",
+      "serviceType": "Material Characterization",
+      "title": "37_ Magnetism VSM and SQUID",
+      "originalPath": "templates/analysis/FX-37.docx"
+    },
+    {
+      "id": "analysis-38",
+      "serviceType": "Material Characterization",
+      "title": "38_ Environmental Reliability and Ageing Tests",
+      "originalPath": "templates/analysis/FX-38.docx"
+    },
+    {
+      "id": "analysis-39",
+      "serviceType": "Material Characterization",
+      "title": "39_ Motion scratches and reinforcements",
+      "originalPath": "templates/analysis/FX-39.docx"
+    },
+    {
+      "id": "analysis-40",
+      "serviceType": "Material Characterization",
+      "title": "40_HPLC and LC-MS Liquid phase analysis",
+      "originalPath": "templates/analysis/FX-40.docx"
+    },
+    {
+      "id": "analysis-41",
+      "serviceType": "Material Characterization",
+      "title": "41_GC and GC-MS Gas phase analysis",
+      "originalPath": "templates/analysis/FX-41.docx"
+    },
+    {
+      "id": "analysis-42",
+      "serviceType": "Material Characterization",
+      "title": "42_MALDI-TOF And the generic mass spectra",
+      "originalPath": "templates/analysis/FX-42.docx"
+    },
+    {
+      "id": "analysis-43",
+      "serviceType": "Material Characterization",
+      "title": "43_ Water quality routine and nutritional salt analysis",
+      "originalPath": "templates/analysis/FX-43.docx"
+    },
+    {
+      "id": "analysis-44",
+      "serviceType": "Material Characterization",
+      "title": "44_ Soil sediments and solid environmental samples",
+      "originalPath": "templates/analysis/FX-44.docx"
+    },
+    {
+      "id": "analysis-45",
+      "serviceType": "Material Characterization",
+      "title": "45_ Pre-treatment and quantitative analysis of organic pollutants",
+      "originalPath": "templates/analysis/FX-45.docx"
+    },
+    {
+      "id": "analysis-46",
+      "serviceType": "Material Characterization",
+      "title": "46_ Biological Compatibility Cells and Antibacterial Performance",
+      "originalPath": "templates/analysis/FX-46.docx"
+    },
+    {
+      "id": "analysis-47",
+      "serviceType": "Material Characterization",
+      "title": "47_ Analysis of aminomate proteins and biochemical components",
+      "originalPath": "templates/analysis/FX-47.docx"
+    },
+    {
+      "key": "ai-ai-1",
+      "title": "AI-1 Medical image smart partition and auxiliary interpretation needs table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-1",
+      "originalPath": "templates/ai/AI-1.docx"
+    },
+    {
+      "key": "ai-ai-2",
+      "title": "AI-2 List of candidate molecules and materials smart screening needs",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-2",
+      "originalPath": "templates/ai/AI-2.docx"
+    },
+    {
+      "key": "ai-ai-3",
+      "title": "AI-3 Formula, process and performance projection demand table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-3",
+      "originalPath": "templates/ai/AI-3.docx"
+    },
+    {
+      "key": "ai-ai-4",
+      "title": "AI-4 Scientific knowledge base and RAG demand table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-4",
+      "originalPath": "templates/ai/AI-4.docx"
+    },
+    {
+      "key": "ai-ai-5",
+      "title": "AI-5 Multi-mode data analysis needs table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-5",
+      "originalPath": "templates/ai/AI-5.docx"
+    },
+    {
+      "key": "ai-ai-6",
+      "title": "AI-6 Mechanical learning forecast demand table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-6",
+      "originalPath": "templates/ai/AI-6.docx"
+    },
+    {
+      "key": "ai-ai-7",
+      "title": "AI-7 Experimental design and multi-target optimization demand table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-7",
+      "originalPath": "templates/ai/AI-7.docx"
+    },
+    {
+      "key": "ai-ai-8",
+      "title": "AI-8 Scientific intelligence development needs table",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-8",
+      "originalPath": "templates/ai/AI-8.docx"
+    },
+    {
+      "key": "js-js-1",
+      "title": "JS-1 Calculator fluid mechanics customized needs table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-1",
+      "originalPath": "templates/calculation/JS-1.docx"
+    },
+    {
+      "key": "ai-ai-9",
+      "title": "AI-9 Customized AI Project Needs Sheet",
+      "serviceType": "AI Projects",
+      "projectCode": "AI-9",
+      "originalPath": "templates/ai/AI-9.docx"
+    },
+    {
+      "key": "js-js-2",
+      "title": "JS-2 Computation of Custom Needs Tables for First Principle",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-2",
+      "originalPath": "templates/calculation/JS-2.docx"
+    },
+    {
+      "key": "js-js-3",
+      "title": "JS-3 Molecular Dynamics Customized Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-3",
+      "originalPath": "templates/calculation/JS-3.docx"
+    },
+    {
+      "key": "js-js-4",
+      "title": "JS-4 Multi-Physic Fields and Limited Modifier Custom Needs Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-4",
+      "originalPath": "templates/calculation/JS-4.docx"
+    },
+    {
+      "key": "js-js-5",
+      "title": "JS-5 Quantum chemistry and molecular computation customized demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-5",
+      "originalPath": "templates/calculation/JS-5.docx"
+    },
+    {
+      "key": "js-js-6",
+      "title": "JS-6 Nano fluid flow and heat transfer simulation needs table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-6",
+      "originalPath": "templates/calculation/JS-6.docx"
+    },
+    {
+      "key": "js-js-7",
+      "title": "JS-7 Flow Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-7",
+      "originalPath": "templates/calculation/JS-7.docx"
+    },
+    {
+      "key": "js-js-8",
+      "title": "JS-8 Pressure Distribution demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-8",
+      "originalPath": "templates/calculation/JS-8.docx"
+    },
+    {
+      "key": "js-js-9",
+      "title": "JS-9 Velocity Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-9",
+      "originalPath": "templates/calculation/JS-9.docx"
+    },
+    {
+      "key": "js-js-10",
+      "title": "JS-10 Temperature Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-10",
+      "originalPath": "templates/calculation/JS-10.docx"
+    },
+    {
+      "key": "js-js-11",
+      "title": "JS-11 Turbulence Intensity requirement table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-11",
+      "originalPath": "templates/calculation/JS-11.docx"
+    },
+    {
+      "key": "js-js-12",
+      "title": "JS-12 Vorticity Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-12",
+      "originalPath": "templates/calculation/JS-12.docx"
+    },
+    {
+      "key": "js-js-13",
+      "title": "JS-13 Multiphase Flow Simulation Needs Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-13",
+      "originalPath": "templates/calculation/JS-13.docx"
+    },
+    {
+      "key": "js-js-14",
+      "title": "JS-14 Thermal analysis needs table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-14",
+      "originalPath": "templates/calculation/JS-14.docx"
+    },
+    {
+      "key": "js-js-15",
+      "title": "JS-15 Combustion Simulation Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-15",
+      "originalPath": "templates/calculation/JS-15.docx"
+    },
+    {
+      "key": "js-js-16",
+      "title": "JS-16 Mixing Efficiency Analysis demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-16",
+      "originalPath": "templates/calculation/JS-16.docx"
+    },
+    {
+      "key": "js-js-17",
+      "title": "JS-17 Particle Trajectory Tracking Request Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-17",
+      "originalPath": "templates/calculation/JS-17.docx"
+    },
+    {
+      "key": "js-js-18",
+      "title": "JS-18 Pumps and Wind Simulator Real Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-18",
+      "originalPath": "templates/calculation/JS-18.docx"
+    },
+    {
+      "key": "js-js-19",
+      "title": "JS-19 Crystal Structure Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-19",
+      "originalPath": "templates/calculation/JS-19.docx"
+    },
+    {
+      "key": "js-js-20",
+      "title": "JS-20 Adsorption Configuration Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-20",
+      "originalPath": "templates/calculation/JS-20.docx"
+    },
+    {
+      "key": "js-js-21",
+      "title": "JS-21 Sorbing Energy Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-21",
+      "originalPath": "templates/calculation/JS-21.docx"
+    },
+    {
+      "key": "js-js-22",
+      "title": "JS-22 with structural requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-22",
+      "originalPath": "templates/calculation/JS-22.docx"
+    },
+    {
+      "key": "js-js-23",
+      "title": "JS-23 DOS requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-23",
+      "originalPath": "templates/calculation/JS-23.docx"
+    },
+    {
+      "key": "js-js-24",
+      "title": "JS-24 PDOS requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-24",
+      "originalPath": "templates/calculation/JS-24.docx"
+    },
+    {
+      "key": "js-js-25",
+      "title": "JS-25 charged density differential demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-25",
+      "originalPath": "templates/calculation/JS-25.docx"
+    },
+    {
+      "key": "js-js-26",
+      "title": "JS-26 ELF requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-26",
+      "originalPath": "templates/calculation/JS-26.docx"
+    },
+    {
+      "key": "js-js-27",
+      "title": "JS-27 Bader Charge demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-27",
+      "originalPath": "templates/calculation/JS-27.docx"
+    },
+    {
+      "key": "js-js-28",
+      "title": "JS-28 Electrostatic Potential Distribution demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-28",
+      "originalPath": "templates/calculation/JS-28.docx"
+    },
+    {
+      "key": "js-js-29",
+      "title": "JS-29 COHP demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-29",
+      "originalPath": "templates/calculation/JS-29.docx"
+    },
+    {
+      "key": "js-js-30",
+      "title": "JS-30 ICOHP requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-30",
+      "originalPath": "templates/calculation/JS-30.docx"
+    },
+    {
+      "key": "js-js-31",
+      "title": "JS-31 Ab Initio Molecular Dynamics (AIMD) Needs Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-31",
+      "originalPath": "templates/calculation/JS-31.docx"
+    },
+    {
+      "key": "js-js-32",
+      "title": "JS-32 NEB Energy Barriers requirement table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-32",
+      "originalPath": "templates/calculation/JS-32.docx"
+    },
+    {
+      "key": "js-js-33",
+      "title": "JS-33 Phonon Spectrum Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-33",
+      "originalPath": "templates/calculation/JS-33.docx"
+    },
+    {
+      "key": "js-js-34",
+      "title": "JS-34 Sound DOS Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-34",
+      "originalPath": "templates/calculation/JS-34.docx"
+    },
+    {
+      "key": "js-js-35",
+      "title": "JS-35 Optical Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-35",
+      "originalPath": "templates/calculation/JS-35.docx"
+    },
+    {
+      "key": "js-js-36",
+      "title": "JS-36 Work Function Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-36",
+      "originalPath": "templates/calculation/JS-36.docx"
+    },
+    {
+      "key": "js-js-37",
+      "title": "JS-37 Electronic Local Area Function Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-37",
+      "originalPath": "templates/calculation/JS-37.docx"
+    },
+    {
+      "key": "js-js-38",
+      "title": "JS-38 Amorphous Structure Analysis demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-38",
+      "originalPath": "templates/calculation/JS-38.docx"
+    },
+    {
+      "key": "js-js-39",
+      "title": "JS-39 Surface Capable of Calculating Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-39",
+      "originalPath": "templates/calculation/JS-39.docx"
+    },
+    {
+      "key": "js-js-40",
+      "title": "JS-40 Interface Combining Capacity Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-40",
+      "originalPath": "templates/calculation/JS-40.docx"
+    },
+    {
+      "key": "js-js-41",
+      "title": "JS-41 Impairment Form",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-41",
+      "originalPath": "templates/calculation/JS-41.docx"
+    },
+    {
+      "key": "js-js-42",
+      "title": "JS-42 Table of impurities",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-42",
+      "originalPath": "templates/calculation/JS-42.docx"
+    },
+    {
+      "key": "js-js-43",
+      "title": "JS-43 Summary of needs for the analysis of the effects of changes",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-43",
+      "originalPath": "templates/calculation/JS-43.docx"
+    },
+    {
+      "key": "js-js-44",
+      "title": "JS-44 Pressurized electrical requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-44",
+      "originalPath": "templates/calculation/JS-44.docx"
+    },
+    {
+      "key": "js-js-45",
+      "title": "JS-45 Table of iron-electricity requirements",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-45",
+      "originalPath": "templates/calculation/JS-45.docx"
+    },
+    {
+      "key": "js-js-46",
+      "title": "JS-46 Magnetic Nature Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-46",
+      "originalPath": "templates/calculation/JS-46.docx"
+    },
+    {
+      "key": "js-js-47",
+      "title": "JS-47 Exchange Constant Requirements Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-47",
+      "originalPath": "templates/calculation/JS-47.docx"
+    },
+    {
+      "key": "js-js-48",
+      "title": "JS-48 Table of requirements for Circumpolarization",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-48",
+      "originalPath": "templates/calculation/JS-48.docx"
+    },
+    {
+      "key": "js-js-49",
+      "title": "JS-49 Scale of popping-up needs",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-49",
+      "originalPath": "templates/calculation/JS-49.docx"
+    },
+    {
+      "key": "js-js-50",
+      "title": "JS-50 Nonlinear Optics demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-50",
+      "originalPath": "templates/calculation/JS-50.docx"
+    },
+    {
+      "key": "js-js-51",
+      "title": "JS-51 Electronic chemical reaction simulation demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-51",
+      "originalPath": "templates/calculation/JS-51.docx"
+    },
+    {
+      "key": "js-js-52",
+      "title": "JS-52 Electrochemical Reactions and Electrode Processes demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-52",
+      "originalPath": "templates/calculation/JS-52.docx"
+    },
+    {
+      "key": "js-js-53",
+      "title": "JS-53 Catalyst response machine and active computing requirement table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-53",
+      "originalPath": "templates/calculation/JS-53.docx"
+    },
+    {
+      "key": "js-js-54",
+      "title": "JS-54 Battery material storage mechanisms and voltage calculation requirements table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-54",
+      "originalPath": "templates/calculation/JS-54.docx"
+    },
+    {
+      "key": "js-js-55",
+      "title": "JS-55 Radius Distribution Function (RDF) Demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-55",
+      "originalPath": "templates/calculation/JS-55.docx"
+    },
+    {
+      "key": "js-js-56",
+      "title": "JS-56 Mean Square Displacement (MSD) Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-56",
+      "originalPath": "templates/calculation/JS-56.docx"
+    },
+    {
+      "key": "js-js-57",
+      "title": "JS-57 Spread factor demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-57",
+      "originalPath": "templates/calculation/JS-57.docx"
+    },
+    {
+      "key": "js-js-58",
+      "title": "JS-58 Associated Speed (VACF) Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-58",
+      "originalPath": "templates/calculation/JS-58.docx"
+    },
+    {
+      "key": "js-js-59",
+      "title": "JS-59 Hydrogen Bond Analysis Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-59",
+      "originalPath": "templates/calculation/JS-59.docx"
+    },
+    {
+      "key": "js-js-60",
+      "title": "JS-60 Density Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-60",
+      "originalPath": "templates/calculation/JS-60.docx"
+    },
+    {
+      "key": "js-js-61",
+      "title": "JS-61 RMSD needs table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-61",
+      "originalPath": "templates/calculation/JS-61.docx"
+    },
+    {
+      "key": "js-js-62",
+      "title": "JS-62 RMSF demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-62",
+      "originalPath": "templates/calculation/JS-62.docx"
+    },
+    {
+      "key": "js-js-63",
+      "title": "JS-63 Table of solvents for surface area (SASA)",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-63",
+      "originalPath": "templates/calculation/JS-63.docx"
+    },
+    {
+      "key": "js-js-64",
+      "title": "JS-64 Revert Radius (Rg) demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-64",
+      "originalPath": "templates/calculation/JS-64.docx"
+    },
+    {
+      "key": "js-js-65",
+      "title": "JS-65 Dihedral Angle Distribution Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-65",
+      "originalPath": "templates/calculation/JS-65.docx"
+    },
+    {
+      "key": "js-js-66",
+      "title": "JS-66 Portfolio Analysis Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-66",
+      "originalPath": "templates/calculation/JS-66.docx"
+    },
+    {
+      "key": "js-js-67",
+      "title": "JS-67 Free Capacity (FES) Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-67",
+      "originalPath": "templates/calculation/JS-67.docx"
+    },
+    {
+      "key": "js-js-68",
+      "title": "JS-68 Umbrella sample demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-68",
+      "originalPath": "templates/calculation/JS-68.docx"
+    },
+    {
+      "key": "js-js-69",
+      "title": "JS-69 Thermodynamic Integration (TI) Demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-69",
+      "originalPath": "templates/calculation/JS-69.docx"
+    },
+    {
+      "key": "js-js-70",
+      "title": "JS-70 Summary Average (IM) Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-70",
+      "originalPath": "templates/calculation/JS-70.docx"
+    },
+    {
+      "key": "js-js-71",
+      "title": "JS-71 Nonequilibrium Molecular Dynamics (NEMD) demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-71",
+      "originalPath": "templates/calculation/JS-71.docx"
+    },
+    {
+      "key": "js-js-72",
+      "title": "JS-72 Sticky Calculator Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-72",
+      "originalPath": "templates/calculation/JS-72.docx"
+    },
+    {
+      "key": "js-js-73",
+      "title": "JS-73 Heat-conductor calculation demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-73",
+      "originalPath": "templates/calculation/JS-73.docx"
+    },
+    {
+      "key": "js-js-74",
+      "title": "JS-74 ion-conductor rate demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-74",
+      "originalPath": "templates/calculation/JS-74.docx"
+    },
+    {
+      "key": "js-js-75",
+      "title": "JS-75 Battery Electrolyte Analysis demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-75",
+      "originalPath": "templates/calculation/JS-75.docx"
+    },
+    {
+      "key": "js-js-76",
+      "title": "JS-76 Table of demand for polymer chain structures",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-76",
+      "originalPath": "templates/calculation/JS-76.docx"
+    },
+    {
+      "key": "js-js-77",
+      "title": "JS-77 Statement of requirements for adsorption of diffusion mechanisms",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-77",
+      "originalPath": "templates/calculation/JS-77.docx"
+    },
+    {
+      "key": "js-js-78",
+      "title": "JS-78 Solventification and Solvent Structure Simulation Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-78",
+      "originalPath": "templates/calculation/JS-78.docx"
+    },
+    {
+      "key": "js-js-79",
+      "title": "JS-79 Interfacial Interaction Simulation Needs Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-79",
+      "originalPath": "templates/calculation/JS-79.docx"
+    },
+    {
+      "key": "js-js-80",
+      "title": "JS-80 Surface wetting and contact angle simulation requirement table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-80",
+      "originalPath": "templates/calculation/JS-80.docx"
+    },
+    {
+      "key": "js-js-81",
+      "title": "JS-81 Simulation demand table for adsorption separation performance for multi-pore materials",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-81",
+      "originalPath": "templates/calculation/JS-81.docx"
+    },
+    {
+      "key": "js-js-82",
+      "title": "JS-82 Molecular Dynamics Simulation and Interface Behaviour Research Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-82",
+      "originalPath": "templates/calculation/JS-82.docx"
+    },
+    {
+      "key": "js-js-83",
+      "title": "JS-83 Static Structural Analysis Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-83",
+      "originalPath": "templates/calculation/JS-83.docx"
+    },
+    {
+      "key": "js-js-84",
+      "title": "JS-84 Displacement Analysis Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-84",
+      "originalPath": "templates/calculation/JS-84.docx"
+    },
+    {
+      "key": "js-js-85",
+      "title": "JS-85 Summary of needs for Strain Analysis",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-85",
+      "originalPath": "templates/calculation/JS-85.docx"
+    },
+    {
+      "key": "js-js-86",
+      "title": "JS-86 Frequency Analysis Demand Sheet",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-86",
+      "originalPath": "templates/calculation/JS-86.docx"
+    },
+    {
+      "key": "js-js-87",
+      "title": "JS-87 Curse Analysis Request Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-87",
+      "originalPath": "templates/calculation/JS-87.docx"
+    },
+    {
+      "key": "js-js-88",
+      "title": "JS-88 Thermal stress analysis demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-88",
+      "originalPath": "templates/calculation/JS-88.docx"
+    },
+    {
+      "key": "js-js-89",
+      "title": "JS-89 Summary of transient kinetic needs",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-89",
+      "originalPath": "templates/calculation/JS-89.docx"
+    },
+    {
+      "key": "js-js-90",
+      "title": "JS-90 Table of needs for exhausting lifetime analysis",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-90",
+      "originalPath": "templates/calculation/JS-90.docx"
+    },
+    {
+      "key": "js-js-91",
+      "title": "JS-91 Table of Contact Analysis needs",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-91",
+      "originalPath": "templates/calculation/JS-91.docx"
+    },
+    {
+      "key": "js-js-92",
+      "title": "JS-92 Composite Material Analysis Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-92",
+      "originalPath": "templates/calculation/JS-92.docx"
+    },
+    {
+      "key": "js-js-93",
+      "title": "JS-93 Break-up Analysis Request Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-93",
+      "originalPath": "templates/calculation/JS-93.docx"
+    },
+    {
+      "key": "js-js-94",
+      "title": "JS-94 Optimized design needs table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-94",
+      "originalPath": "templates/calculation/JS-94.docx"
+    },
+    {
+      "key": "js-js-95",
+      "title": "JS-95 Table of needs for structural optimization",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-95",
+      "originalPath": "templates/calculation/JS-95.docx"
+    },
+    {
+      "key": "js-js-96",
+      "title": "JS-96 Electrostatic Potential (ESP) Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-96",
+      "originalPath": "templates/calculation/JS-96.docx"
+    },
+    {
+      "key": "js-js-97",
+      "title": "JS-97 IGMH analytical demand table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-97",
+      "originalPath": "templates/calculation/JS-97.docx"
+    },
+    {
+      "key": "js-js-98",
+      "title": "JS-98 Bond Order Analysis Demand Table",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-98",
+      "originalPath": "templates/calculation/JS-98.docx"
+    },
+    {
+      "key": "js-js-99",
+      "title": "JS-99 Free Energy Calculation demand sheets",
+      "serviceType": "Computational Simulation",
+      "projectCode": "JS-99",
+      "originalPath": "templates/calculation/JS-99.docx"
+    }
+  ],
+  "originalTemplateCount": 48,
+  "reservedInterfaceFormCount": 2
+}

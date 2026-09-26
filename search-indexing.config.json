@@ -7,11 +7,13 @@
     "customer-portal/",
     "CloudBase部署/",
     "zh-hant/",
-    "en/",
     "fr/",
     "es/",
     "ar/",
-    "ru/"
+    "ru/",
+    "en/customer-portal/",
+    "en/404.html",
+    "en/wechat-callback.html"
   ],
   "corePaths": [
     "",
@@ -36,6 +38,29 @@
     "research-supplies.html",
     "sitemap.xml",
     "llms.txt",
-    "ai-index.json"
+    "ai-index.json",
+    "en/",
+    "en/about.html",
+    "en/services.html",
+    "en/cases.html",
+    "en/catalog.html",
+    "en/contact.html",
+    "en/board/ai-projects.html",
+    "en/board/computational-simulation.html",
+    "en/board/characterization-analysis.html",
+    "en/board/research-supplies.html",
+    "en/computational-simulation.html",
+    "en/dft-service-guide.html",
+    "en/molecular-dynamics-service-guide.html",
+    "en/characterization-testing.html",
+    "en/emerging-contaminants.html",
+    "en/microplastics-detection.html",
+    "en/greenhouse-gas-detection.html",
+    "en/data-analysis-visualization.html",
+    "en/software-ai-development.html",
+    "en/research-supplies.html",
+    "en/sitemap.xml",
+    "en/llms.txt",
+    "en/ai-index.json"
   ]
 }

@@ -1007,7 +1007,6 @@
   }
 
   init().catch(error => message($('#authMessage'), escapeHtml(error.message), 'error'));
-})();
 
 window.addEventListener('focus', () => {
   try {
@@ -1021,3 +1020,4 @@ window.addEventListener('focus', () => {
 window.addEventListener('pageshow', () => {
   if (state && state.token) Promise.all([loadDashboard(), loadBusinessData()]).catch(() => {});
 });
+})();

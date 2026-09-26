@@ -90,3 +90,9 @@
 ## 新增高端计算代表案例
 - ACS Catalysis 2026 — Orchestrating Cluster-Level Atomic Assemblies for Hydrogen/Solvent-Free Plastic Upcycling — 催化机理与缺陷工程
 - Journal of Power Sources 2026 — Cycle performance and mechanism of Mg2+ storage in nanoflower-like 1T/2H-MoSe2 cathode — 能源与电化学界面
+
+## English Website
+
+- [English Home](https://www.hongqitengda.com/en/)
+- [English Project Search](https://www.hongqitengda.com/en/catalog.html)
+- [English Site Guide](https://www.hongqitengda.com/en/llms.txt)
