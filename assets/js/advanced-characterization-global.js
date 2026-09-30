@@ -25,7 +25,7 @@ const save=a=>localStorage.setItem(KEY,JSON.stringify(a.slice(0,100)));
 const item=id=>{const x=all[id];return {id,title:EN?x[1]:x[0],serviceType:EN?'Material Characterization':'材料表征',board:EN?'Material Characterization':'材料表征',category:EN?'Advanced Characterization':'高端材料表征',qty:1,unit:x[2],price:0,priceText:x[3],note:EN?'Single advanced-characterization request; final scope and quotation depend on sample and workflow.':'单项高端表征需求；具体条件与报价以样品和方案评估为准。',sourceUrl:ROOT+'advanced-material-characterization.html'}};
 const toast=m=>{let t=document.querySelector('.hqtd-advchar-toast');if(!t){t=document.createElement('div');t.className='hqtd-advchar-toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1500)};
 function add(id){if(!all[id])return;const rows=read(),old=rows.find(v=>v.id===id);if(old)old.qty=Math.min(999,Number(old.qty||1)+1);else rows.push(item(id));save(rows);toast(old?(EN?'Quantity updated':'数量已增加'):(EN?'Added to Request List':'已加入需求清单'))}
-function submitOne(id){if(!all[id])return;localStorage.setItem(KEY,JSON.stringify([item(id)]));location.href=ROOT+'demand-list.html?single='+encodeURIComponent(id)}
+function submitOne(id){const one=item(id);localStorage.setItem((EN?'hqtd_en_single_requirement_v1':'hqtd_single_requirement_v1'),JSON.stringify(one));location.href=EN?'/en/demand-list.html?single='+encodeURIComponent(id):'/demand-list.html?single='+encodeURIComponent(id)}
 function actionHtml(id){return `<div class="advchar-final-actions"><a href="${ROOT}advanced-material-characterization.html">${EN?'Details →':'查看详情 →'}</a><button type="button" data-advchar-add="${id}">${EN?'Add':'加入清单'}</button><button type="button" data-advchar-submit-one="${id}">${EN?'Submit This Item':'单项提交'}</button></div>`}
 function sectionHtml(){return `<div class="container"><div class="hqtd-six-head"><div><span class="section-en">ADVANCED MATERIALS CHARACTERIZATION</span><h2>${EN?'Advanced Materials Characterization & In-situ Analysis':'高端材料表征与原位分析'}</h2></div><p>${EN?'Advanced microscopy, in-situ/operando, synchrotron and 3D imaging organized around research questions.':'球差电镜、原位 / Operando、同步辐射与三维成像，围绕科研问题组织高端表征证据链。'}</p></div><div class="hqtd-six-grid">${featured.map((id,i)=>{const x=all[id];return `<article class="hqtd-six-card a${i+1}"><span class="topic-en">${x[4]}</span><h3>${EN?x[1]:x[0]}</h3><p>${EN?'Independent technique request with workflow design and data interpretation.':'每一项均可独立提交需求，并按样品与科研目标设计测试及数据解析方案。'}</p><div class="hqtd-six-tags">${x[4].split(' · ').map(v=>`<span>${v}</span>`).join('')}</div>${actionHtml(id)}</article>`}).join('')}</div><div class="hqtd-six-footer"><span>${EN?'Each technique can be submitted independently.':'每个高端表征项目均可单项提交，不会捆绑其他项目。'}</span><a href="${ROOT}advanced-material-characterization.html">${EN?'View all advanced characterization →':'查看全部高端表征 →'}</a></div></div>`}
 function ensureSection(){
@@ -44,7 +44,7 @@ function ensureSection(){
 }
 function ensureFloat(){
  const p=String(location.pathname||'').replace(/\\/g,'/').toLowerCase();
- const home=p==='/'||p==='/index.html'||p==='/en/'||p==='/en/index.html'||document.body.classList.contains('homepage-redone');
+ const home=p==='/'||p==='/index.html'||p==='/en/'||p==='/en/index.html';
  if(!home||document.querySelector('[data-advchar-floating-hub]'))return;
  const colors=['#1f6fd6','#178f87','#6b5fd7','#c58a28','#4e7aa3','#8a6f48'];
  const hub=document.createElement('aside');hub.className='advchar-floating-hub-final';hub.dataset.advcharFloatingHub='';
@@ -62,6 +62,50 @@ function decorateTopicPage(){
  document.querySelectorAll('main article').forEach(a=>{if(a.querySelector('.amc-card-actions-final'))return;const txt=a.textContent||'';const m=mapping.find(([rx])=>rx.test(txt));if(!m)return;const id=m[1],box=document.createElement('div');box.className='amc-card-actions-final';box.innerHTML=`<button type="button" data-advchar-add="${id}">${EN?'Add to Request List':'加入需求清单'}</button><button type="button" data-advchar-submit-one="${id}">${EN?'Submit This Item':'单项提交此项'}</button>`;a.appendChild(box)});
 }
 document.addEventListener('click',e=>{const one=e.target.closest('[data-advchar-submit-one]');if(one){e.preventDefault();submitOne(one.dataset.advcharSubmitOne);return}const addBtn=e.target.closest('[data-advchar-add]');if(addBtn){e.preventDefault();add(addBtn.dataset.advcharAdd)}});
-const init=()=>{ensureSection();ensureFloat();decorateTopicPage()};
+
+
+/* FINAL: coordinate the three homepage floating topic windows.
+   Default = three compact launchers stacked vertically on the left.
+   Opening one automatically collapses the other two. */
+function coordinateHomepageTopicFloats(){
+ const p=String(location.pathname||'').replace(/\\/g,'/').toLowerCase();
+ const isHome=p==='/'||p==='/index.html'||p==='/en/'||p==='/en/index.html'||document.body.classList.contains('homepage-redone');
+ if(!isHome)return;
+
+ const specs=[
+   ['.highsim-floating-hub-v103','.highsim-floating-reopen-v103'],
+   ['.env-floating-hub-v90','.env-floating-reopen-v90'],
+   ['.advchar-floating-hub-final','.advchar-floating-reopen-final']
+ ];
+
+ const apply=()=>{
+   const pairs=specs.map(([h,r])=>[document.querySelector(h),document.querySelector(r)]).filter(x=>x[0]&&x[1]);
+   if(!pairs.length)return;
+
+   /* Keep homepage promotional content visible on first load. */
+   pairs.forEach(([hub,reopen])=>{hub.hidden=true;reopen.hidden=false});
+
+   pairs.forEach(([hub,reopen])=>{
+     if(reopen.dataset.hqtdFloatCoordinated)return;
+     reopen.dataset.hqtdFloatCoordinated='1';
+     reopen.addEventListener('click',()=>{
+       pairs.forEach(([otherHub,otherReopen])=>{
+         if(otherHub!==hub){otherHub.hidden=true;otherReopen.hidden=false}
+       });
+     });
+     const close=hub.querySelector('.highsim-floating-close,.env-floating-close,.advchar-floating-close');
+     if(close&&!close.dataset.hqtdFloatCoordinated){
+       close.dataset.hqtdFloatCoordinated='1';
+       close.addEventListener('click',()=>{hub.hidden=true;reopen.hidden=false});
+     }
+   });
+ };
+
+ /* Existing high-end simulation/environment scripts create their windows after DOMContentLoaded.
+    Re-check briefly so all three are coordinated without changing their original files. */
+ [0,120,300,700].forEach(ms=>setTimeout(apply,ms));
+}
+
+const init=()=>{ensureSection();ensureFloat();decorateTopicPage();coordinateHomepageTopicFloats()};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

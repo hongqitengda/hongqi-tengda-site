@@ -1,0 +1,16 @@
+{
+  "baseline": "最终版｜三个专题左侧纵向排列，仅首页",
+  "homepage_float": [
+    "高端计算专题",
+    "环境检测专题",
+    "高端表征专题"
+  ],
+  "float_behavior": "左侧纵向紧凑入口；默认收起；一次只展开一个；展开为2×3；仅首页",
+  "catalog": "FX-201–FX-215 bilingual bridge included",
+  "search": "IDs + Chinese/English names + acronyms + technique keywords",
+  "demand_list": "single-submit changed to separate key to avoid overwriting existing cart",
+  "sample_guide": "advanced characterization notes module included",
+  "seo_ai": "sitemap/ai-index/llms update material included",
+  "counts": "Do not mechanically change Material Characterization 124 to 139; deduplicate first",
+  "navigation": "No new top-level Advanced Characterization nav item"
+}

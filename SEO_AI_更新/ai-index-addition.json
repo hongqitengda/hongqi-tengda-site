@@ -1,0 +1,27 @@
+{
+  "service": {
+    "name": "高端材料表征与原位分析",
+    "name_en": "Advanced Materials Characterization & In-situ Analysis",
+    "url": "https://www.hongqitengda.com/advanced-material-characterization.html",
+    "url_en": "https://www.hongqitengda.com/en/advanced-material-characterization.html",
+    "project_ids": "FX-201–FX-215",
+    "keywords": [
+      "球差校正TEM/STEM",
+      "FIB",
+      "AFM纳米力学",
+      "单晶/原位XRD",
+      "XPS/UPS",
+      "EPR/ESR",
+      "原位FTIR/DRIFTS",
+      "原位Raman",
+      "原位XPS",
+      "Operando",
+      "Micro-CT",
+      "Nano-CT",
+      "同步辐射XAFS/XANES/EXAFS",
+      "fs-TAS",
+      "Mössbauer",
+      "正电子湮灭"
+    ]
+  }
+}
