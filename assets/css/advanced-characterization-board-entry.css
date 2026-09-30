@@ -8,3 +8,7 @@
 .hqtd-advanced-characterization-actions a,.hqtd-advanced-characterization-actions button{min-height:42px;padding:10px 16px;border:1px solid #cddce8;border-radius:6px;background:#fff;color:#0756a3;font-weight:900;text-decoration:none}
 .hqtd-advanced-characterization-actions .button{border-color:#0756a3;background:#0756a3;color:#fff}
 @media(max-width:760px){.hqtd-advanced-characterization-banner{grid-template-columns:1fr}.hqtd-advanced-characterization-media{min-height:220px}.hqtd-advanced-characterization-copy{padding:24px}}
+
+/* V3: same advanced-characterization block is used on homepage and Characterization & Testing board */
+#advanced-characterization-topic{scroll-margin-top:110px}
+#advanced-characterization-topic .container{max-width:1180px;margin:0 auto}

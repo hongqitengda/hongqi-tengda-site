@@ -1,21 +1,20 @@
-高端材料表征｜全站同步最终覆盖包
+V4 修正重点
 
-使用方法：
-1. GitHub Desktop 先 Fetch / Pull。
-2. 解压本包。
-3. 将包内文件按原目录直接复制到 hongqi-tengda-site 根目录，选择覆盖。
-4. 回 GitHub Desktop 查看 Changes，Commit，Push。
+1. 增加“高端材料表征专题”浮动界面：
+   - 首页
+   - 材料表征 / 环境检测页
+   - 高端材料表征专题页
+   - 桌面端默认展开，可关闭并重新展开
+   - 移动端默认收起
 
-本版不需要 PowerShell，不需要 PATCHES，不需要手工找 HTML 插入点。
+2. 高端表征 FX-201～FX-215 接入网站现有需求清单/购物车：
+   使用与高端计算相同的 localStorage 键 hqtd_requirement_cart_v2。
+   因此加入后会直接出现在现有 demand-list.html 中，可调整数量、删除并直接提交需求。
 
-已同步：
-- 中英文高端材料表征专题页；
-- 全站顶部导航：在“材料表征 / 环境检测（Characterization & Testing）”后加入“高端表征 / Advanced Characterization”；
-- 全站页脚服务导航同步加入专题；
-- 表征&检测 Board：先完整展示“高端材料表征与原位分析”，其完整结束后才进入“环境代表性检测项目”；
-- Catalog：自动加载中英文高端表征检索；
-- 中文 / 英文同步；
-- 保留现有网站其他栏目，不删除原来的环境检测与材料表征内容。
+3. 各高端表征项目增加“加入需求清单”按钮。
+   FX-201 总专题也可从浮窗直接加入。
 
-说明：
-全站入口通过网站已经统一加载的 assets/js/bilingual-navigation.js 实现，因此不需要逐个修改几十个 HTML 页面。
+4. 保持已确认顺序：
+   现有材料表征项目 → 高端材料表征与原位分析 → 环境代表性检测项目。
+
+使用：GitHub Desktop Pull → 解压 → 按目录直接覆盖 → 查看 Changes → Commit → Push。

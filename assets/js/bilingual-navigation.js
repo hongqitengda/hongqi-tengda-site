@@ -60,3 +60,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.body.appendChild(s);
   }
 });
+
+
+/* HQTD advanced characterization floating hub + cart loader */
+(()=>{if(document.querySelector('script[data-advchar-global]'))return;const c=document.createElement('link');c.rel='stylesheet';c.href='/assets/css/advanced-characterization-global.css?v=20260930-v4';document.head.appendChild(c);const j=document.createElement('script');j.src='/assets/js/advanced-characterization-global.js?v=20260930-v4';j.defer=true;j.dataset.advcharGlobal='';document.head.appendChild(j)})();
