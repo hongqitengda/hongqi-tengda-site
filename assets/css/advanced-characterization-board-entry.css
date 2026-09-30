@@ -1,0 +1,10 @@
+/* V3: advanced characterization entry below environmental representative projects */
+.hqtd-advanced-characterization-entry{background:linear-gradient(180deg,#f5f9fd 0%,#fff 100%);border-top:1px solid #dce8f2}
+.hqtd-advanced-characterization-banner{display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);overflow:hidden;border:1px solid #d8e5ef;border-radius:18px;background:#fff;box-shadow:0 18px 45px rgba(16,58,96,.08)}
+.hqtd-advanced-characterization-media{min-height:320px;background:#071d35}.hqtd-advanced-characterization-media img{width:100%;height:100%;display:block;object-fit:cover}
+.hqtd-advanced-characterization-copy{padding:38px}.hqtd-advanced-characterization-copy>span{color:#0b91a7;font-size:12px;font-weight:900;letter-spacing:1.5px}
+.hqtd-advanced-characterization-copy h3{margin:10px 0 14px;font-size:28px;line-height:1.3}.hqtd-advanced-characterization-copy h3 a{color:#10284a;text-decoration:none}
+.hqtd-advanced-characterization-copy p{color:#5a6d81;line-height:1.85}.hqtd-advanced-characterization-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
+.hqtd-advanced-characterization-actions a,.hqtd-advanced-characterization-actions button{min-height:42px;padding:10px 16px;border:1px solid #cddce8;border-radius:6px;background:#fff;color:#0756a3;font-weight:900;text-decoration:none}
+.hqtd-advanced-characterization-actions .button{border-color:#0756a3;background:#0756a3;color:#fff}
+@media(max-width:760px){.hqtd-advanced-characterization-banner{grid-template-columns:1fr}.hqtd-advanced-characterization-media{min-height:220px}.hqtd-advanced-characterization-copy{padding:24px}}
