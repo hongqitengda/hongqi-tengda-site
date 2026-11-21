@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TMA-POSS 双离子层稳定锌负极 | DFT / MD / COMSOL | HQTD</title>
+<meta name="description" content="晶面吸附能解析了 TMA⁺ 与水的竞争吸附；MD 均方位移和 COMSOL 电场、离子通量图说明双离子层如何调节锌界面的离子传输与沉积。">
+<link rel="canonical" href="https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html">
+<link rel="alternate" hreflang="en" href="https://www.hongqitengda.com/en/simulation-cases/tma-poss-dual-ion-zinc-interface.html">
+<link rel="alternate" hreflang="x-default" href="https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TMA-POSS 双离子层稳定锌负极 | DFT / MD / COMSOL | HQTD">
+<meta property="og:description" content="晶面吸附能解析了 TMA⁺ 与水的竞争吸附；MD 均方位移和 COMSOL 电场、离子通量图说明双离子层如何调节锌界面的离子传输与沉积。">
+<meta property="og:url" content="https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html">
+<style>
+:root{color-scheme:light;--navy:#09283f;--ink:#142c40;--teal:#096660;--line:#d9e4e9;--muted:#4c6373;--pale:#edf7f6;--bg:#fcfdfd}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:1.2rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.67 system-ui,-apple-system,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif}
+a{color:var(--teal);text-underline-offset:.18em} a:hover{text-decoration-thickness:2px} a:focus-visible{outline:3px solid #20b3a4;outline-offset:4px}
+.wrap{max-width:70rem;width:calc(100% - 3rem);margin:auto}
+.skip{position:absolute;left:1rem;top:-10rem;background:white;padding:.5rem;z-index:5}.skip:focus{top:1rem}
+.sitebar{background:#fff;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.7rem;padding:.75rem 0;flex-wrap:wrap}
+.brand{font-weight:800;color:var(--navy);text-decoration:none}
+.sitebar a[aria-current=page]{font-weight:750}
+nav{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero{background:linear-gradient(135deg,#08263e,#114853);color:#fff;padding:1.25rem 0 2.4rem}
+.breadcrumbs{font-size:.88rem}.breadcrumbs a{color:#d5efef}.breadcrumbs a+a::before{content:"/";display:inline-block;padding-right:.9rem;color:#bad4d8}
+.eyebrow{margin-top:1.45rem;font-size:.8rem;letter-spacing:.08em;color:#a9eee3;font-weight:700}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.23;letter-spacing:-.015em;margin:.45rem 0 .9rem;overflow-wrap:anywhere}
+.lead{max-width:48rem;color:#e0eff1;font-size:1.05rem;margin:0 0 1.25rem}
+.actions{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{padding:.5rem .88rem;border-radius:.4rem;text-decoration:none;font-weight:750}
+.solid{background:#a9eee3;color:#09283f}.ghost{color:white;border:1px solid #abd2d3}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(13rem,18rem);gap:2rem;align-items:start;padding:1.4rem 0 2.2rem}
+article section{margin:0 0 .85rem;padding:.95rem 1.2rem 1.05rem;background:white;border:1px solid var(--line);border-radius:.65rem;overflow-wrap:anywhere}
+h2{font-size:1.25rem;line-height:1.35;margin:.1rem 0 .5rem} h3{font-size:1rem;margin:.8rem 0 .32rem} p{margin:.25rem 0}
+.metrics{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0;margin:.25rem 0 .7rem}
+.metrics li{margin:0;border:1px solid #c3e2de;background:var(--pale);color:#12524c;border-radius:.4rem;padding:.18rem .5rem}
+.limit{border-left:4px solid #128377} .muted{color:var(--muted);font-size:.9rem}
+.source,aside ul{padding-left:1.15rem;margin:.4rem 0 .6rem} aside li{margin-bottom:.45rem}
+aside{padding:1rem;background:#f1f7fa;border:1px solid var(--line);border-radius:.65rem}
+.aside-actions{display:flex;flex-direction:column;gap:.28rem;border-top:1px solid var(--line);padding-top:.7rem}
+footer{background:#e8f1f4;padding:.9rem 0}footer .wrap{display:flex;gap:1.3rem;flex-wrap:wrap}
+@media(max-width:45rem){.wrap{width:calc(100% - 1.5rem)}.layout{grid-template-columns:minmax(0,1fr);gap:.7rem}.hero{padding-bottom:1.8rem}article section{padding:.8rem .85rem}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html#analysis","mainEntityOfPage":"https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html","headline":"TMA-POSS 双离子层稳定锌负极","description":"晶面吸附能解析了 TMA⁺ 与水的竞争吸附；MD 均方位移和 COMSOL 电场、离子通量图说明双离子层如何调节锌界面的离子传输与沉积。","inLanguage":"zh-CN","author":{"@type":"Organization","name":"HQTD","url":"https://www.hongqitengda.com/"},"citation":{"@type":"ScholarlyArticle","url":"https://doi.org/10.1002/adfm.74981","identifier":{"@type":"PropertyValue","propertyID":"DOI","value":"10.1002/adfm.74981"},"name":"Molecular Engineering-Enabled Self-Adaptive Topological Adsorption Interface - Synergistic Hydrophobic Nanoconfinement and Electrostatic Shielding for Highly Stable Zn Anode"},"about":{"@type":"Thing","name":"DFT / MD / COMSOL"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HQTD","item":"https://www.hongqitengda.com/"},{"@type":"ListItem","position":2,"name":"计算模拟案例库","item":"https://www.hongqitengda.com/high-end-simulation.html"},{"@type":"ListItem","position":3,"name":"TMA-POSS 双离子层稳定锌负极","item":"https://www.hongqitengda.com/simulation-cases/tma-poss-dual-ion-zinc-interface.html"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="sitebar"><div class="wrap bar"><a class="brand" href="/">HQTD</a><nav aria-label="语言"><a href="/simulation-cases/tma-poss-dual-ion-zinc-interface.html" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a><a href="/en/simulation-cases/tma-poss-dual-ion-zinc-interface.html" lang="en" hreflang="en">English</a></nav></div></header>
+<main id="main">
+<div class="hero"><div class="wrap">
+<nav class="breadcrumbs" aria-label="面包屑导航"><a href="/">首页</a><a href="/high-end-simulation.html#case-library">计算模拟案例库</a><a href="/high-end-simulation.html#energy">能源与电化学</a></nav>
+<div class="eyebrow">计算模拟案例 · DFT / MD / COMSOL</div>
+<h1>TMA-POSS 双离子层稳定锌负极</h1><p class="lead"><strong>模拟解决了什么：</strong>晶面吸附能解析了 TMA⁺ 与水的竞争吸附；MD 均方位移和 COMSOL 电场、离子通量图说明双离子层如何调节锌界面的离子传输与沉积。</p>
+<div class="actions"><a class="btn solid" href="#metrics">计算指标</a><a class="btn ghost" href="https://doi.org/10.1002/adfm.74981">原论文 DOI</a></div>
+</div></div>
+<div class="wrap layout">
+<article>
+<section><h2>研究问题</h2><p>静电屏蔽和疏水纳米限域由哪一组分承担，两者如何共同改变锌界面？</p></section>
+<section id="metrics"><h2>计算指标：晶面吸附能与 COMSOL 通量</h2><h3>原文计算指标</h3><ul class="metrics"><li>TMA⁺ 与水在不同 Zn 晶面的吸附能（图 3）</li><li>静电势（ESP）</li><li>MD 均方位移（MSD）</li><li>COMSOL 电场与 Zn²⁺ 通量分布</li></ul></section>
+<section aria-label="论文出处"><h2>论文出处</h2><p class="paper-title" lang="en">Molecular Engineering-Enabled Self-Adaptive Topological Adsorption Interface - Synergistic Hydrophobic Nanoconfinement and Electrostatic Shielding for Highly Stable Zn Anode</p><ul class="source"><li><a href="https://doi.org/10.1002/adfm.74981">DOI: 10.1002/adfm.74981</a></li><li><a href="/assets/docs/high-end-simulation/Molecular%20Engineering-Enabled%20Self-Adaptive%20Topological%20Adsorption%20Interface%20-%20Synergistic%20Hydrophobic%20Nanoconfinement%20and%20Electrostatic%20Shielding%20for%20Highly%20Stable%20Zn%20Anode.pdf">查看现有论文 PDF</a></li></ul></section>
+</article>
+<aside><h2>相关案例</h2><ul><li><a href="/simulation-cases/dynamic-disulfide-hydrogel-zinc-iodine.html">动态二硫键水凝胶与锌碘电池界面</a></li><li><a href="/simulation-cases/mose2-heterophase-magnesium-storage.html">1T/2H-MoSe₂ 异相界面的储镁机制</a></li><li><a href="/simulation-cases/zinc-eutectic-electrolyte-water.html">低共熔锌电解液中的三类水环境</a></li></ul><div class="aside-actions"><a href="/high-end-simulation.html#case-library">查看全部案例</a><a href="/dft-service-guide.html">DFT 计算项目指南</a><a href="/contact.html">咨询类似计算</a></div></aside>
+</div>
+</main>
+<footer><div class="wrap"><a href="/">HQTD</a><a href="/board/computational-simulation.html">计算模拟服务</a></div></footer>
+</body></html>

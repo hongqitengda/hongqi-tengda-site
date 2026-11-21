@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>氮空位如何锚定 Cu₂O 并促进臭氧活化 | DFT | HQTD</title>
+<meta name="description" content="界面结合能比较说明了氮空位如何锚定 Cu₂O；O₃ 吸附能和电荷分析进一步厘清了空位与表面羟基在促进臭氧活化中的协同作用。">
+<link rel="canonical" href="https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html">
+<link rel="alternate" hreflang="en" href="https://www.hongqitengda.com/en/simulation-cases/cu2o-carbon-nitride-ozonation.html">
+<link rel="alternate" hreflang="x-default" href="https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="氮空位如何锚定 Cu₂O 并促进臭氧活化 | DFT | HQTD">
+<meta property="og:description" content="界面结合能比较说明了氮空位如何锚定 Cu₂O；O₃ 吸附能和电荷分析进一步厘清了空位与表面羟基在促进臭氧活化中的协同作用。">
+<meta property="og:url" content="https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html">
+<style>
+:root{color-scheme:light;--navy:#09283f;--ink:#142c40;--teal:#096660;--line:#d9e4e9;--muted:#4c6373;--pale:#edf7f6;--bg:#fcfdfd}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:1.2rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.67 system-ui,-apple-system,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif}
+a{color:var(--teal);text-underline-offset:.18em} a:hover{text-decoration-thickness:2px} a:focus-visible{outline:3px solid #20b3a4;outline-offset:4px}
+.wrap{max-width:70rem;width:calc(100% - 3rem);margin:auto}
+.skip{position:absolute;left:1rem;top:-10rem;background:white;padding:.5rem;z-index:5}.skip:focus{top:1rem}
+.sitebar{background:#fff;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.7rem;padding:.75rem 0;flex-wrap:wrap}
+.brand{font-weight:800;color:var(--navy);text-decoration:none}
+.sitebar a[aria-current=page]{font-weight:750}
+nav{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero{background:linear-gradient(135deg,#08263e,#114853);color:#fff;padding:1.25rem 0 2.4rem}
+.breadcrumbs{font-size:.88rem}.breadcrumbs a{color:#d5efef}.breadcrumbs a+a::before{content:"/";display:inline-block;padding-right:.9rem;color:#bad4d8}
+.eyebrow{margin-top:1.45rem;font-size:.8rem;letter-spacing:.08em;color:#a9eee3;font-weight:700}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.23;letter-spacing:-.015em;margin:.45rem 0 .9rem;overflow-wrap:anywhere}
+.lead{max-width:48rem;color:#e0eff1;font-size:1.05rem;margin:0 0 1.25rem}
+.actions{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{padding:.5rem .88rem;border-radius:.4rem;text-decoration:none;font-weight:750}
+.solid{background:#a9eee3;color:#09283f}.ghost{color:white;border:1px solid #abd2d3}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(13rem,18rem);gap:2rem;align-items:start;padding:1.4rem 0 2.2rem}
+article section{margin:0 0 .85rem;padding:.95rem 1.2rem 1.05rem;background:white;border:1px solid var(--line);border-radius:.65rem;overflow-wrap:anywhere}
+h2{font-size:1.25rem;line-height:1.35;margin:.1rem 0 .5rem} h3{font-size:1rem;margin:.8rem 0 .32rem} p{margin:.25rem 0}
+.metrics{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0;margin:.25rem 0 .7rem}
+.metrics li{margin:0;border:1px solid #c3e2de;background:var(--pale);color:#12524c;border-radius:.4rem;padding:.18rem .5rem}
+.limit{border-left:4px solid #128377} .muted{color:var(--muted);font-size:.9rem}
+.source,aside ul{padding-left:1.15rem;margin:.4rem 0 .6rem} aside li{margin-bottom:.45rem}
+aside{padding:1rem;background:#f1f7fa;border:1px solid var(--line);border-radius:.65rem}
+.aside-actions{display:flex;flex-direction:column;gap:.28rem;border-top:1px solid var(--line);padding-top:.7rem}
+footer{background:#e8f1f4;padding:.9rem 0}footer .wrap{display:flex;gap:1.3rem;flex-wrap:wrap}
+@media(max-width:45rem){.wrap{width:calc(100% - 1.5rem)}.layout{grid-template-columns:minmax(0,1fr);gap:.7rem}.hero{padding-bottom:1.8rem}article section{padding:.8rem .85rem}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html#analysis","mainEntityOfPage":"https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html","headline":"氮空位如何锚定 Cu₂O 并促进臭氧活化","description":"界面结合能比较说明了氮空位如何锚定 Cu₂O；O₃ 吸附能和电荷分析进一步厘清了空位与表面羟基在促进臭氧活化中的协同作用。","inLanguage":"zh-CN","author":{"@type":"Organization","name":"HQTD","url":"https://www.hongqitengda.com/"},"citation":{"@type":"ScholarlyArticle","url":"https://doi.org/10.1016/j.cej.2026.180509","identifier":{"@type":"PropertyValue","propertyID":"DOI","value":"10.1016/j.cej.2026.180509"},"name":"Defect-engineered Cu2O-g-C3N4 for enhanced catalytic ozonation via surface hydroxyl enrichment and nitrogen-vacancy-guided interfacial construction"},"about":{"@type":"Thing","name":"DFT"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"HQTD","item":"https://www.hongqitengda.com/"},{"@type":"ListItem","position":2,"name":"计算模拟案例库","item":"https://www.hongqitengda.com/high-end-simulation.html"},{"@type":"ListItem","position":3,"name":"氮空位如何锚定 Cu₂O 并促进臭氧活化","item":"https://www.hongqitengda.com/simulation-cases/cu2o-carbon-nitride-ozonation.html"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="sitebar"><div class="wrap bar"><a class="brand" href="/">HQTD</a><nav aria-label="语言"><a href="/simulation-cases/cu2o-carbon-nitride-ozonation.html" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a><a href="/en/simulation-cases/cu2o-carbon-nitride-ozonation.html" lang="en" hreflang="en">English</a></nav></div></header>
+<main id="main">
+<div class="hero"><div class="wrap">
+<nav class="breadcrumbs" aria-label="面包屑导航"><a href="/">首页</a><a href="/high-end-simulation.html#case-library">计算模拟案例库</a><a href="/high-end-simulation.html#catalysis">催化与缺陷工程</a></nav>
+<div class="eyebrow">计算模拟案例 · DFT</div>
+<h1>氮空位如何锚定 Cu₂O 并促进臭氧活化</h1><p class="lead"><strong>模拟解决了什么：</strong>界面结合能比较说明了氮空位如何锚定 Cu₂O；O₃ 吸附能和电荷分析进一步厘清了空位与表面羟基在促进臭氧活化中的协同作用。</p>
+<div class="actions"><a class="btn solid" href="#metrics">计算指标</a><a class="btn ghost" href="https://doi.org/10.1016/j.cej.2026.180509">原论文 DOI</a></div>
+</div></div>
+<div class="wrap layout">
+<article>
+<section><h2>研究问题</h2><p>氮空位主要改变 Cu₂O 的锚定，还是也能通过改变表面羟基和电子分布影响臭氧吸附？</p></section>
+<section id="metrics"><h2>计算指标：界面结合能与 O₃ 吸附能</h2><h3>原文计算指标</h3><ul class="metrics"><li>Cu₂O/含氮空位界面结合能</li><li>O₃ 吸附能及体系总能量变化（图 7）</li><li>差分电荷密度与 Bader 电荷</li></ul></section>
+<section aria-label="论文出处"><h2>论文出处</h2><p class="paper-title" lang="en">Defect-engineered Cu2O-g-C3N4 for enhanced catalytic ozonation via surface hydroxyl enrichment and nitrogen-vacancy-guided interfacial construction</p><ul class="source"><li><a href="https://doi.org/10.1016/j.cej.2026.180509">DOI: 10.1016/j.cej.2026.180509</a></li><li><a href="/assets/docs/high-end-simulation/Defect-engineered%20Cu2O-g-C3N4%20for%20enhanced%20catalytic%20ozonation%20via%20surface%20hydroxyl%20enrichment%20and%20nitrogen-vacancy-guided%20interfacial%20construction.pdf">查看现有论文 PDF</a></li></ul></section>
+</article>
+<aside><h2>相关案例</h2><ul><li><a href="/simulation-cases/duan-2026-cumof-dft.html">铜基 MOF 配体的铁催化炔键氧化断裂</a></li><li><a href="/simulation-cases/ru-cluster-plastic-upcycling.html">Ru 原子簇组装如何影响塑料催化升级</a></li><li><a href="/simulation-cases/cuo-oxygen-vacancy-pms.html">CuO 表面动态氧空位与 PMS 活化</a></li></ul><div class="aside-actions"><a href="/high-end-simulation.html#case-library">查看全部案例</a><a href="/dft-service-guide.html">DFT 计算项目指南</a><a href="/contact.html">咨询类似计算</a></div></aside>
+</div>
+</main>
+<footer><div class="wrap"><a href="/">HQTD</a><a href="/board/computational-simulation.html">计算模拟服务</a></div></footer>
+</body></html>
